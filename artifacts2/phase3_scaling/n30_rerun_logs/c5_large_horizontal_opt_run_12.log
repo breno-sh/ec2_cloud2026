@@ -1,0 +1,179 @@
+[09:19:23.418] === Phase 3.2 OPTIMIZED Horizontal Scaling: 10x c5.large ===
+[09:19:23.422] Codec: libx264, Threads: 5, Max workers: 5
+[09:19:23.429] [Setup] Starting video split...
+[09:19:23.860] [Setup] Video: 600.0s → 10 parts of 60.0s
+[09:19:46.827] [Setup] Video split complete.
+[09:19:46.875] [Summary] SPLIT TIME: 23.40s
+[09:19:47.359] [Part 00] Launching c5.large...
+[09:19:47.461] [Part 00] [vCPU] Acquired 2 slots.
+[09:19:48.294] [Part 01] Launching c5.large...
+[09:19:48.340] [Part 01] [vCPU] Acquired 2 slots.
+[09:19:49.935] [Part 02] Launching c5.large...
+[09:19:49.947] [Part 02] [vCPU] Acquired 2 slots.
+[09:19:51.717] [Part 03] Launching c5.large...
+[09:19:51.753] [Part 03] [vCPU] Acquired 2 slots.
+[09:19:52.898] [Part 04] Launching c5.large...
+[09:19:52.905] [Part 04] [vCPU] Acquired 2 slots.
+[09:20:09.091] [Part 00] Error on attempt 1: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[09:20:09.091] [Part 00] [vCPU] Released 2 slots.
+[09:20:10.807] [Part 01] Instance i-0681ab656f96aa56c launched. Waiting for running...
+[09:20:12.928] [Part 04] Error on attempt 1: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[09:20:12.928] [Part 04] [vCPU] Released 2 slots.
+[09:20:14.113] [Part 02] Instance i-0ad96c5fc7a2fa917 launched. Waiting for running...
+[09:20:16.112] [Part 03] Error on attempt 1: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[09:20:16.112] [Part 03] [vCPU] Released 2 slots.
+[09:20:19.092] [Part 00] [vCPU] Acquired 2 slots.
+[09:20:22.929] [Part 04] [vCPU] Acquired 2 slots.
+[09:20:26.113] [Part 03] [vCPU] Acquired 2 slots.
+[09:20:26.460] [Part 01] Instance ready. IP: 44.210.100.122
+[09:20:29.329] [Part 03] Instance i-0748a41e0af523b97 launched. Waiting for running...
+[09:20:30.052] [Part 02] Instance ready. IP: 44.221.75.27
+[09:20:36.077] [Part 00] Instance i-07d8515925798fcf0 launched. Waiting for running...
+[09:20:45.306] [Part 03] Instance ready. IP: 3.238.254.223
+[09:20:45.954] [Part 04] Instance i-0696e86700f5d9c18 launched. Waiting for running...
+[09:20:52.018] [Part 00] Instance ready. IP: 18.204.48.185
+[09:20:53.165] [Part 01] SSH connected.
+[09:20:54.502] [Part 01] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:54.506] [Part 01] CPU correct. Proceeding.
+[09:20:54.507] [Part 01] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:55.281] [Part 01] Uploading segment...
+[09:20:56.855] [Part 02] SSH connected.
+[09:20:58.096] [Part 02] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:58.096] [Part 02] CPU correct. Proceeding.
+[09:20:58.096] [Part 02] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:59.101] [Part 02] Uploading segment...
+[09:21:02.330] [Part 04] Instance ready. IP: 44.200.45.224
+[09:21:11.956] [Part 03] SSH connected.
+[09:21:13.225] [Part 03] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:13.235] [Part 03] CPU correct. Proceeding.
+[09:21:13.240] [Part 03] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:13.957] [Part 03] Uploading segment...
+[09:21:18.324] [Part 00] SSH connected.
+[09:21:19.467] [Part 00] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:19.468] [Part 00] CPU correct. Proceeding.
+[09:21:19.469] [Part 00] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:20.335] [Part 00] Uploading segment...
+[09:21:29.075] [Part 04] SSH connected.
+[09:21:30.125] [Part 04] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:21:30.128] [Part 04] CPU mismatch (attempt 2/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:21:30.874] [Part 04] [vCPU] Released 2 slots.
+[09:21:40.929] [Part 04] [vCPU] Acquired 2 slots.
+[09:21:47.789] [Part 04] Instance i-0ea2ef8bd19ed1675 launched. Waiting for running...
+[09:22:02.877] [Part 01] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:22:04.311] [Part 04] Instance ready. IP: 3.238.175.109
+[09:22:12.724] [Part 01] Done!
+[09:22:14.360] [Part 01] Instance terminated.
+[09:22:14.367] [Part 01] [vCPU] Released 2 slots.
+[09:22:14.378] [Part 05] Launching c5.large...
+[09:22:14.378] [Part 05] [vCPU] Acquired 2 slots.
+[09:22:17.286] [Part 05] Instance i-09046760bddcb72c3 launched. Waiting for running...
+[09:22:23.211] [Part 02] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:22:30.673] [Part 04] SSH connected.
+[09:22:32.837] [Part 04] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:22:32.840] [Part 04] CPU mismatch (attempt 3/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:22:33.494] [Part 04] [vCPU] Released 2 slots.
+[09:22:33.785] [Part 02] Done!
+[09:22:34.531] [Part 05] Instance ready. IP: 98.92.82.96
+[09:22:35.470] [Part 02] Instance terminated.
+[09:22:35.477] [Part 02] [vCPU] Released 2 slots.
+[09:22:35.519] [Part 06] Launching c5.large...
+[09:22:35.521] [Part 06] [vCPU] Acquired 2 slots.
+[09:22:38.042] [Part 06] Instance i-0a6c88d97d1a1cb55 launched. Waiting for running...
+[09:22:44.087] [Part 04] [vCPU] Acquired 2 slots.
+[09:22:45.016] [Part 03] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:22:45.626] [Part 04] Instance i-000e4d00513b55bb4 launched. Waiting for running...
+[09:22:47.088] [Part 00] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:22:54.260] [Part 06] Instance ready. IP: 44.200.25.237
+[09:22:55.658] [Part 03] Done!
+[09:22:57.001] [Part 00] Done!
+[09:22:58.648] [Part 00] Instance terminated.
+[09:22:58.653] [Part 00] [vCPU] Released 2 slots.
+[09:22:58.691] [Part 07] Launching c5.large...
+[09:22:58.692] [Part 07] [vCPU] Acquired 2 slots.
+[09:22:59.086] [Part 03] Instance terminated.
+[09:22:59.099] [Part 03] [vCPU] Released 2 slots.
+[09:22:59.144] [Part 08] Launching c5.large...
+[09:22:59.193] [Part 08] [vCPU] Acquired 2 slots.
+[09:23:00.805] [Part 07] Instance i-004a1ee096f4322fa launched. Waiting for running...
+[09:23:00.990] [Part 05] SSH connected.
+[09:23:01.620] [Part 08] Instance i-04df55fe648885619 launched. Waiting for running...
+[09:23:01.727] [Part 04] Instance ready. IP: 44.211.241.91
+[09:23:02.242] [Part 05] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:02.244] [Part 05] CPU correct. Proceeding.
+[09:23:02.249] [Part 05] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:03.183] [Part 05] Uploading segment...
+[09:23:17.836] [Part 07] Instance ready. IP: 18.232.187.247
+[09:23:17.868] [Part 08] Instance ready. IP: 18.232.51.32
+[09:23:21.418] [Part 06] SSH connected.
+[09:23:22.816] [Part 06] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:22.834] [Part 06] CPU correct. Proceeding.
+[09:23:22.836] [Part 06] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:23.710] [Part 06] Uploading segment...
+[09:23:28.360] [Part 04] SSH connected.
+[09:23:29.720] [Part 04] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:29.729] [Part 04] CPU correct. Proceeding.
+[09:23:29.729] [Part 04] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:30.473] [Part 04] Uploading segment...
+[09:23:38.785] [Part 05] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:44.715] [Part 08] SSH connected.
+[09:23:44.951] [Part 07] SSH connected.
+[09:23:45.977] [Part 08] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:45.994] [Part 08] CPU correct. Proceeding.
+[09:23:45.998] [Part 08] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:23:46.158] [Part 07] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:23:46.160] [Part 07] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:23:46.794] [Part 08] Uploading segment...
+[09:23:46.837] [Part 07] [vCPU] Released 2 slots.
+[09:23:48.010] [Part 04] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:48.408] [Part 05] Done!
+[09:23:49.740] [Part 05] Instance terminated.
+[09:23:49.741] [Part 05] [vCPU] Released 2 slots.
+[09:23:49.761] [Part 09] Launching c5.large...
+[09:23:49.763] [Part 09] [vCPU] Acquired 2 slots.
+[09:23:50.217] [Part 06] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:52.355] [Part 09] Instance i-07c4c6319a6f27fca launched. Waiting for running...
+[09:23:56.839] [Part 07] [vCPU] Acquired 2 slots.
+[09:23:58.054] [Part 04] Done!
+[09:23:58.182] [Part 07] Instance i-043521a5bc12b2284 launched. Waiting for running...
+[09:23:58.909] [Part 04] Instance terminated.
+[09:23:58.912] [Part 04] [vCPU] Released 2 slots.
+[09:24:00.354] [Part 06] Done!
+[09:24:00.993] [Part 06] Instance terminated.
+[09:24:00.993] [Part 06] [vCPU] Released 2 slots.
+[09:24:08.855] [Part 09] Instance ready. IP: 3.233.233.211
+[09:24:14.704] [Part 07] Instance ready. IP: 3.237.9.76
+[09:24:25.814] [Part 08] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:24:35.698] [Part 09] SSH connected.
+[09:24:37.139] [Part 09] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:24:37.143] [Part 09] CPU correct. Proceeding.
+[09:24:37.143] [Part 09] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:24:37.914] [Part 09] Uploading segment...
+[09:24:41.161] [Part 07] SSH connected.
+[09:24:42.544] [Part 07] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:24:42.547] [Part 07] CPU mismatch (attempt 2/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:24:42.621] [Part 08] Done!
+[09:24:43.192] [Part 07] [vCPU] Released 2 slots.
+[09:24:44.243] [Part 08] Instance terminated.
+[09:24:44.247] [Part 08] [vCPU] Released 2 slots.
+[09:24:53.197] [Part 07] [vCPU] Acquired 2 slots.
+[09:24:54.670] [Part 07] Instance i-0fe79f8e1a08e0f02 launched. Waiting for running...
+[09:25:01.610] [Part 09] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:25:10.449] [Part 07] Instance ready. IP: 98.80.98.60
+[09:25:10.908] [Part 09] Done!
+[09:25:11.545] [Part 09] Instance terminated.
+[09:25:11.547] [Part 09] [vCPU] Released 2 slots.
+[09:25:36.481] [Part 07] SSH connected.
+[09:25:37.471] [Part 07] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:25:37.471] [Part 07] CPU correct. Proceeding.
+[09:25:37.472] [Part 07] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:25:37.997] [Part 07] Uploading segment...
+[09:25:42.983] [Part 07] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:25:54.385] [Part 07] Done!
+[09:25:54.931] [Part 07] Instance terminated.
+[09:25:54.931] [Part 07] [vCPU] Released 2 slots.
+[09:25:54.943] ============================================================
+[09:25:54.943] RESULTS — 10x c5.large Horizontal
+[09:25:54.943]   Total Time:    391.51s (6.53 min)
+[09:25:54.943]   Split Time:    23.40s
+[09:25:54.943]   Parallel Time: 368.03s (6.13 min)
+[09:25:54.943] ============================================================

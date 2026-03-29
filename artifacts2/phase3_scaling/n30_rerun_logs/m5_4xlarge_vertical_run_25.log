@@ -1,0 +1,36 @@
+[08:46:54.649] === Phase 3.2 Vertical Scaling: 1x m5.4xlarge ===
+[08:46:54.668] Codec: libx264, Threads: 10, Preset: slow
+[08:46:54.715] [m5.4xlarge-Vertical] Launching EC2 instance...
+[08:47:40.275] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[08:47:42.110] [m5.4xlarge-Vertical] Instance i-083f9bca94c0abe3d launched. Waiting for running...
+[08:47:57.755] [m5.4xlarge-Vertical] Instance ready. IP: 54.167.234.92
+[08:48:24.161] [m5.4xlarge-Vertical] SSH connected.
+[08:48:25.331] [m5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:48:25.331] [m5.4xlarge-Vertical] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:48:25.933] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[08:48:35.934] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[08:48:36.917] [m5.4xlarge-Vertical] Error on attempt 2: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[08:48:36.919] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[08:48:46.920] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[08:48:50.884] [m5.4xlarge-Vertical] Instance i-08932aa1719862608 launched. Waiting for running...
+[08:49:07.086] [m5.4xlarge-Vertical] Instance ready. IP: 184.73.123.63
+[08:49:35.738] [m5.4xlarge-Vertical] SSH connected.
+[08:49:36.607] [m5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[08:49:36.608] [m5.4xlarge-Vertical] CPU correct. Proceeding.
+[08:49:36.608] [m5.4xlarge-Vertical] Installing ffmpeg...
+[08:50:14.075] [m5.4xlarge-Vertical] ffmpeg installed.
+[08:50:14.075] [m5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[08:50:14.079] [m5.4xlarge-Vertical] Uploading 10-minute video...
+[08:50:59.152] [m5.4xlarge-Vertical] Upload complete.
+[08:50:59.153] [m5.4xlarge-Vertical] SETUP TIME: 132.23s (2.20 min)
+[08:50:59.153] [m5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[08:51:40.740] [m5.4xlarge-Vertical] ENCODING TIME: 41.59s (0.69 min)
+[08:51:42.756] [m5.4xlarge-Vertical] Instance terminated.
+[08:51:42.757] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[08:51:42.757] [m5.4xlarge-Vertical] ============================================================
+[08:51:42.757] [m5.4xlarge-Vertical] RESULTS — m5.4xlarge Vertical
+[08:51:42.757] [m5.4xlarge-Vertical]   Total Time:    175.84s (2.93 min)
+[08:51:42.757] [m5.4xlarge-Vertical]   Setup Time:    132.23s (2.20 min)
+[08:51:42.757] [m5.4xlarge-Vertical]   Encoding Time: 41.59s (0.69 min)
+[08:51:42.757] [m5.4xlarge-Vertical]   Setup %:       75.2%
+[08:51:42.757] [m5.4xlarge-Vertical] ============================================================

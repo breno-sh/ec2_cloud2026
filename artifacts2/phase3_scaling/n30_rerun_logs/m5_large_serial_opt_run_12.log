@@ -1,0 +1,74 @@
+[08:54:14.552] === Phase 3.2 OPTIMIZED Serial Baseline: 1x m5.large ===
+[08:54:14.622] Codec: libx264, Threads: 5, Preset: slow
+[08:54:14.908] AMI: ami-06c7c20c67513469a (ffmpeg pre-installed)
+[08:54:14.931] [m5.large-Serial] Launching EC2 instance...
+[08:54:14.952] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:54:25.464] [m5.large-Serial] Instance i-0ab58b86b5ee4dcad launched. Waiting for running...
+[08:54:41.153] [m5.large-Serial] Instance ready. IP: 52.55.139.168
+[08:55:07.279] [m5.large-Serial] SSH connected.
+[08:55:08.389] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:55:08.389] [m5.large-Serial] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:55:09.068] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:55:19.071] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:55:20.572] [m5.large-Serial] Instance i-0adb1f1b0be1ea764 launched. Waiting for running...
+[08:55:36.457] [m5.large-Serial] Instance ready. IP: 3.93.71.118
+[08:56:02.838] [m5.large-Serial] SSH connected.
+[08:56:04.337] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:56:04.338] [m5.large-Serial] CPU mismatch (attempt 2/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:56:04.978] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:56:14.979] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:56:16.618] [m5.large-Serial] Instance i-018653c13400a2f04 launched. Waiting for running...
+[08:56:32.580] [m5.large-Serial] Instance ready. IP: 54.86.7.154
+[08:56:58.893] [m5.large-Serial] SSH connected.
+[08:57:00.324] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:57:00.326] [m5.large-Serial] CPU mismatch (attempt 3/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:57:01.002] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:57:11.002] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:57:12.581] [m5.large-Serial] Instance i-02d7ec16e51f5bfba launched. Waiting for running...
+[08:57:28.508] [m5.large-Serial] Instance ready. IP: 3.81.216.190
+[08:57:54.428] [m5.large-Serial] SSH connected.
+[08:57:55.694] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:57:55.694] [m5.large-Serial] CPU mismatch (attempt 4/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:57:56.601] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:58:06.601] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:58:08.198] [m5.large-Serial] Instance i-07bfdb9b4f5b80ebe launched. Waiting for running...
+[08:58:24.332] [m5.large-Serial] Instance ready. IP: 3.81.58.85
+[08:58:50.247] [m5.large-Serial] SSH connected.
+[08:58:51.584] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:58:51.636] [m5.large-Serial] CPU mismatch (attempt 5/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:58:52.183] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:59:02.184] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:59:03.685] [m5.large-Serial] Instance i-0c4174e26764f6112 launched. Waiting for running...
+[08:59:19.436] [m5.large-Serial] Instance ready. IP: 54.164.71.103
+[08:59:45.454] [m5.large-Serial] SSH connected.
+[08:59:46.860] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:59:46.861] [m5.large-Serial] CPU mismatch (attempt 6/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:59:47.464] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:59:57.464] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:59:58.876] [m5.large-Serial] Instance i-030226afaca73756f launched. Waiting for running...
+[09:00:14.647] [m5.large-Serial] Instance ready. IP: 50.16.158.194
+[09:00:40.601] [m5.large-Serial] SSH connected.
+[09:00:41.138] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[09:00:41.139] [m5.large-Serial] CPU mismatch (attempt 7/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[09:00:41.900] [m5.large-Serial] [vCPU] Released 2 slots.
+[09:00:51.901] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[09:00:53.410] [m5.large-Serial] Instance i-0e5573509b67280e2 launched. Waiting for running...
+[09:01:09.240] [m5.large-Serial] Instance ready. IP: 98.92.8.147
+[09:01:35.139] [m5.large-Serial] SSH connected.
+[09:01:36.446] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[09:01:36.446] [m5.large-Serial] CPU correct. Proceeding.
+[09:01:36.450] [m5.large-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[09:01:36.450] [m5.large-Serial] Uploading 10-minute video...
+[09:01:47.743] [m5.large-Serial] Upload complete.
+[09:01:47.744] [m5.large-Serial] SETUP TIME: 55.84s (0.93 min)
+[09:01:47.744] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:03:32.516] [m5.large-Serial] ENCODING TIME: 104.77s (1.75 min)
+[09:03:33.919] [m5.large-Serial] Instance terminated.
+[09:03:33.921] [m5.large-Serial] [vCPU] Released 2 slots.
+[09:03:33.922] [m5.large-Serial] ============================================================
+[09:03:33.922] [m5.large-Serial] RESULTS — m5.large Serial
+[09:03:33.922] [m5.large-Serial]   Total Time:    162.02s (2.70 min)
+[09:03:33.923] [m5.large-Serial]   Setup Time:    55.84s (0.93 min)
+[09:03:33.923] [m5.large-Serial]   Encoding Time: 104.77s (1.75 min)
+[09:03:33.923] [m5.large-Serial]   Setup %:       34.5%
+[09:03:33.923] [m5.large-Serial] ============================================================

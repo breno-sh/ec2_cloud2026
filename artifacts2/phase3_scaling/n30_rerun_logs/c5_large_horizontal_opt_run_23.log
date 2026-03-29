@@ -1,0 +1,142 @@
+[09:19:23.466] === Phase 3.2 OPTIMIZED Horizontal Scaling: 10x c5.large ===
+[09:19:23.467] Codec: libx264, Threads: 5, Max workers: 5
+[09:19:23.467] [Setup] Starting video split...
+[09:19:24.021] [Setup] Video: 600.0s → 10 parts of 60.0s
+[09:19:44.515] [Setup] Video split complete.
+[09:19:44.516] [Summary] SPLIT TIME: 21.05s
+[09:19:44.650] [Part 00] Launching c5.large...
+[09:19:44.659] [Part 02] Launching c5.large...
+[09:19:44.687] [Part 01] Launching c5.large...
+[09:19:45.213] [Part 00] [vCPU] Acquired 2 slots.
+[09:19:45.215] [Part 03] Launching c5.large...
+[09:19:45.792] [Part 02] [vCPU] Acquired 2 slots.
+[09:19:45.796] [Part 04] Launching c5.large...
+[09:19:45.796] [Part 01] [vCPU] Acquired 2 slots.
+[09:19:45.901] [Part 03] [vCPU] Acquired 2 slots.
+[09:19:45.945] [Part 04] [vCPU] Acquired 2 slots.
+[09:19:48.061] [Part 01] Instance i-0be699fe8c915e0c8 launched. Waiting for running...
+[09:19:48.118] [Part 02] Instance i-03561f3b96c00c848 launched. Waiting for running...
+[09:19:48.126] [Part 00] Instance i-0846d7ea6803614f7 launched. Waiting for running...
+[09:19:48.221] [Part 03] Instance i-0fe7d6916f3430916 launched. Waiting for running...
+[09:19:48.312] [Part 04] Instance i-0b49c0d4822dcfc66 launched. Waiting for running...
+[09:20:03.955] [Part 01] Instance ready. IP: 44.200.42.109
+[09:20:03.998] [Part 02] Instance ready. IP: 44.221.58.100
+[09:20:04.116] [Part 03] Instance ready. IP: 32.193.0.98
+[09:20:04.166] [Part 00] Instance ready. IP: 3.238.240.137
+[09:20:04.299] [Part 04] Instance ready. IP: 44.222.108.145
+[09:20:29.949] [Part 01] SSH connected.
+[09:20:30.001] [Part 02] SSH connected.
+[09:20:30.483] [Part 03] SSH connected.
+[09:20:30.516] [Part 00] SSH connected.
+[09:20:30.570] [Part 04] SSH connected.
+[09:20:30.965] [Part 01] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:30.969] [Part 01] CPU correct. Proceeding.
+[09:20:30.972] [Part 01] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.057] [Part 02] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.058] [Part 02] CPU correct. Proceeding.
+[09:20:31.059] [Part 02] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.632] [Part 01] Uploading segment...
+[09:20:31.672] [Part 02] Uploading segment...
+[09:20:31.676] [Part 03] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.679] [Part 03] CPU correct. Proceeding.
+[09:20:31.680] [Part 03] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.684] [Part 00] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.684] [Part 00] CPU correct. Proceeding.
+[09:20:31.684] [Part 00] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.758] [Part 04] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:31.759] [Part 04] CPU correct. Proceeding.
+[09:20:31.759] [Part 04] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:20:32.471] [Part 00] Uploading segment...
+[09:20:32.473] [Part 03] Uploading segment...
+[09:20:32.612] [Part 04] Uploading segment...
+[09:20:48.999] [Part 01] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:20:55.667] [Part 02] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:20:56.838] [Part 03] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:20:57.769] [Part 04] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:20:58.528] [Part 01] Done!
+[09:20:59.185] [Part 01] Instance terminated.
+[09:20:59.192] [Part 01] [vCPU] Released 2 slots.
+[09:20:59.233] [Part 00] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:20:59.237] [Part 05] Launching c5.large...
+[09:20:59.262] [Part 05] [vCPU] Acquired 2 slots.
+[09:21:01.748] [Part 05] Instance i-00883cd15fadc80cb launched. Waiting for running...
+[09:21:06.437] [Part 02] Done!
+[09:21:07.069] [Part 02] Instance terminated.
+[09:21:07.069] [Part 02] [vCPU] Released 2 slots.
+[09:21:07.077] [Part 06] Launching c5.large...
+[09:21:07.077] [Part 06] [vCPU] Acquired 2 slots.
+[09:21:07.529] [Part 03] Done!
+[09:21:07.982] [Part 04] Done!
+[09:21:08.307] [Part 03] Instance terminated.
+[09:21:08.318] [Part 03] [vCPU] Released 2 slots.
+[09:21:08.336] [Part 07] Launching c5.large...
+[09:21:08.337] [Part 07] [vCPU] Acquired 2 slots.
+[09:21:08.697] [Part 04] Instance terminated.
+[09:21:08.698] [Part 04] [vCPU] Released 2 slots.
+[09:21:08.712] [Part 08] Launching c5.large...
+[09:21:08.714] [Part 08] [vCPU] Acquired 2 slots.
+[09:21:09.296] [Part 06] Instance i-03e8b81e8b18bf405 launched. Waiting for running...
+[09:21:09.441] [Part 00] Done!
+[09:21:10.239] [Part 00] Instance terminated.
+[09:21:10.247] [Part 00] [vCPU] Released 2 slots.
+[09:21:10.264] [Part 09] Launching c5.large...
+[09:21:10.265] [Part 09] [vCPU] Acquired 2 slots.
+[09:21:10.544] [Part 07] Instance i-03c121ac9dae9062b launched. Waiting for running...
+[09:21:10.935] [Part 08] Instance i-0bf18792a94b3783a launched. Waiting for running...
+[09:21:16.448] [Part 09] Instance i-06c984fe2ed033cc1 launched. Waiting for running...
+[09:21:18.789] [Part 05] Instance ready. IP: 98.80.221.56
+[09:21:25.450] [Part 06] Instance ready. IP: 100.54.104.241
+[09:21:26.649] [Part 07] Instance ready. IP: 100.53.197.118
+[09:21:27.355] [Part 08] Instance ready. IP: 3.235.227.134
+[09:21:32.921] [Part 09] Instance ready. IP: 98.80.70.44
+[09:21:45.977] [Part 05] SSH connected.
+[09:21:47.380] [Part 05] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:47.380] [Part 05] CPU correct. Proceeding.
+[09:21:47.380] [Part 05] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:48.125] [Part 05] Uploading segment...
+[09:21:51.916] [Part 06] SSH connected.
+[09:21:53.414] [Part 07] SSH connected.
+[09:21:53.490] [Part 06] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:53.491] [Part 06] CPU correct. Proceeding.
+[09:21:53.625] [Part 06] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:54.148] [Part 08] SSH connected.
+[09:21:54.154] [Part 06] Uploading segment...
+[09:21:54.684] [Part 07] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:54.684] [Part 07] CPU correct. Proceeding.
+[09:21:54.684] [Part 07] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:55.685] [Part 08] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:55.688] [Part 08] CPU correct. Proceeding.
+[09:21:55.690] [Part 08] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:21:56.199] [Part 07] Uploading segment...
+[09:21:56.749] [Part 08] Uploading segment...
+[09:21:59.766] [Part 09] SSH connected.
+[09:22:00.830] [Part 09] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:22:00.832] [Part 09] CPU correct. Proceeding.
+[09:22:00.832] [Part 09] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:22:01.594] [Part 09] Uploading segment...
+[09:23:10.173] [Part 08] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:11.602] [Part 05] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:14.006] [Part 06] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:15.358] [Part 07] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:16.677] [Part 09] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:23:19.214] [Part 08] Done!
+[09:23:20.987] [Part 08] Instance terminated.
+[09:23:21.005] [Part 08] [vCPU] Released 2 slots.
+[09:23:21.326] [Part 05] Done!
+[09:23:23.236] [Part 05] Instance terminated.
+[09:23:23.252] [Part 05] [vCPU] Released 2 slots.
+[09:23:24.653] [Part 06] Done!
+[09:23:26.175] [Part 06] Instance terminated.
+[09:23:26.176] [Part 06] [vCPU] Released 2 slots.
+[09:23:26.275] [Part 09] Done!
+[09:23:26.307] [Part 07] Done!
+[09:23:27.765] [Part 07] Instance terminated.
+[09:23:27.773] [Part 07] [vCPU] Released 2 slots.
+[09:23:27.777] [Part 09] Instance terminated.
+[09:23:27.809] [Part 09] [vCPU] Released 2 slots.
+[09:23:27.863] ============================================================
+[09:23:27.864] RESULTS — 10x c5.large Horizontal
+[09:23:27.864]   Total Time:    244.38s (4.07 min)
+[09:23:27.864]   Split Time:    21.05s
+[09:23:27.864]   Parallel Time: 223.33s (3.72 min)
+[09:23:27.864] ============================================================

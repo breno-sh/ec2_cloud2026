@@ -1,0 +1,23 @@
+[22:00:54.990] [c7g.large-Serial-R13] === Serial c7g.large libx264 Run 13 ===
+[22:01:15.367] [c7g.large-Serial-R13] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[22:16:16.588] [c7g.large-Serial-R13] === Serial c7g.large libx264 Run 13 ===
+[22:16:39.170] [c7g.large-Serial-R13] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[22:29:29.893] [c7g.large-Serial-R13] === Serial c7g.large libx264 Run 13 ===
+[22:29:31.915] [c7g.large-Serial-R13] Instance i-011367e4dbc7ef3ed launched, waiting...
+[22:29:48.343] [c7g.large-Serial-R13] Instance ready. IP: 13.217.45.132
+[22:30:14.721] [c7g.large-Serial-R13] SSH connected.
+[22:30:16.127] [c7g.large-Serial-R13] Architecture: aarch64
+[22:30:16.950] [c7g.large-Serial-R13] Waiting for SFTP slot...
+[22:30:25.047] [c7g.large-Serial-R13] Uploading 10-min video...
+[22:30:46.308] [c7g.large-Serial-R13] Upload complete.
+[22:30:46.308] [c7g.large-Serial-R13] SETUP TIME: 76.42s
+[22:30:46.308] [c7g.large-Serial-R13] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[22:31:46.705] [c7g.large-Serial-R13] ENCODING TIME: 60.40s
+[22:31:46.706] [c7g.large-Serial-R13] ============================================================
+[22:31:46.706] [c7g.large-Serial-R13] RESULTS — c7g.large Serial libx264
+[22:31:46.706] [c7g.large-Serial-R13]   Total Time:    136.81s (2.28 min)
+[22:31:46.706] [c7g.large-Serial-R13]   Setup Time:    76.42s (1.27 min)
+[22:31:46.706] [c7g.large-Serial-R13]   Encoding Time: 60.40s (1.01 min)
+[22:31:46.706] [c7g.large-Serial-R13]   Setup %:       55.9%
+[22:31:46.706] [c7g.large-Serial-R13] ============================================================
+[22:31:47.711] [c7g.large-Serial-R13] Instance terminated.

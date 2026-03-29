@@ -1,0 +1,32 @@
+[08:54:14.486] === Phase 3.2 OPTIMIZED Serial Baseline: 1x m5.large ===
+[08:54:14.511] Codec: libx264, Threads: 5, Preset: slow
+[08:54:14.553] AMI: ami-06c7c20c67513469a (ffmpeg pre-installed)
+[08:54:14.560] [m5.large-Serial] Launching EC2 instance...
+[08:54:14.629] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:54:17.001] [m5.large-Serial] Instance i-05f388720eee0ae19 launched. Waiting for running...
+[08:54:32.756] [m5.large-Serial] Instance ready. IP: 54.89.95.26
+[08:54:58.995] [m5.large-Serial] SSH connected.
+[08:55:00.302] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[08:55:00.303] [m5.large-Serial] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[08:55:00.835] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:55:10.836] [m5.large-Serial] [vCPU] Acquired 2 slots.
+[08:55:12.481] [m5.large-Serial] Instance i-055a3b463121d77db launched. Waiting for running...
+[08:55:28.517] [m5.large-Serial] Instance ready. IP: 100.30.221.166
+[08:55:54.878] [m5.large-Serial] SSH connected.
+[08:55:56.134] [m5.large-Serial] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[08:55:56.136] [m5.large-Serial] CPU correct. Proceeding.
+[08:55:56.136] [m5.large-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[08:55:56.138] [m5.large-Serial] Uploading 10-minute video...
+[08:57:11.598] [m5.large-Serial] Upload complete.
+[08:57:11.599] [m5.large-Serial] SETUP TIME: 120.76s (2.01 min)
+[08:57:11.599] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[08:58:53.734] [m5.large-Serial] ENCODING TIME: 102.14s (1.70 min)
+[08:58:54.695] [m5.large-Serial] Instance terminated.
+[08:58:54.696] [m5.large-Serial] [vCPU] Released 2 slots.
+[08:58:54.696] [m5.large-Serial] ============================================================
+[08:58:54.696] [m5.large-Serial] RESULTS — m5.large Serial
+[08:58:54.696] [m5.large-Serial]   Total Time:    223.86s (3.73 min)
+[08:58:54.696] [m5.large-Serial]   Setup Time:    120.76s (2.01 min)
+[08:58:54.696] [m5.large-Serial]   Encoding Time: 102.14s (1.70 min)
+[08:58:54.696] [m5.large-Serial]   Setup %:       53.9%
+[08:58:54.696] [m5.large-Serial] ============================================================

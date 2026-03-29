@@ -1,0 +1,38 @@
+[09:40:03.497] === Phase 3.2 OPTIMIZED Vertical Scaling: 1x c5.4xlarge ===
+[09:40:03.519] Codec: libx264, Threads: 10, Preset: slow
+[09:40:03.574] [c5.4xlarge-Vertical] Launching EC2 instance...
+[09:40:03.585] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:40:05.824] [c5.4xlarge-Vertical] Instance i-07e0e2adcd00e1361 launched. Waiting for running...
+[09:40:22.051] [c5.4xlarge-Vertical] Instance ready. IP: 54.224.105.255
+[09:40:48.356] [c5.4xlarge-Vertical] SSH connected.
+[09:40:49.653] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:40:49.654] [c5.4xlarge-Vertical] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:40:50.186] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:42:44.361] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:42:46.715] [c5.4xlarge-Vertical] Instance i-00b470695daded562 launched. Waiting for running...
+[09:43:02.736] [c5.4xlarge-Vertical] Instance ready. IP: 107.22.63.47
+[09:43:28.999] [c5.4xlarge-Vertical] SSH connected.
+[09:43:30.276] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:43:30.280] [c5.4xlarge-Vertical] CPU mismatch (attempt 2/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:43:30.943] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:43:40.959] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:43:42.967] [c5.4xlarge-Vertical] Instance i-025768d0d240decad launched. Waiting for running...
+[09:43:58.922] [c5.4xlarge-Vertical] Instance ready. IP: 54.210.209.100
+[09:44:25.167] [c5.4xlarge-Vertical] SSH connected.
+[09:44:26.527] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:44:26.528] [c5.4xlarge-Vertical] CPU correct. Proceeding.
+[09:44:26.528] [c5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:44:26.528] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[09:44:54.525] [c5.4xlarge-Vertical] Upload complete.
+[09:44:54.525] [c5.4xlarge-Vertical] SETUP TIME: 73.56s (1.23 min)
+[09:44:54.525] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:45:26.129] [c5.4xlarge-Vertical] ENCODING TIME: 31.60s (0.53 min)
+[09:45:27.254] [c5.4xlarge-Vertical] Instance terminated.
+[09:45:27.254] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:45:27.254] [c5.4xlarge-Vertical] ============================================================
+[09:45:27.254] [c5.4xlarge-Vertical] RESULTS — c5.4xlarge Vertical
+[09:45:27.254] [c5.4xlarge-Vertical]   Total Time:    106.29s (1.77 min)
+[09:45:27.255] [c5.4xlarge-Vertical]   Setup Time:    73.56s (1.23 min)
+[09:45:27.255] [c5.4xlarge-Vertical]   Encoding Time: 31.60s (0.53 min)
+[09:45:27.255] [c5.4xlarge-Vertical]   Setup %:       69.2%
+[09:45:27.255] [c5.4xlarge-Vertical] ============================================================

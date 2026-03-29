@@ -1,0 +1,64 @@
+[09:08:28.881] === Phase 3.2 OPTIMIZED Vertical Scaling: 1x m5.4xlarge ===
+[09:08:28.947] Codec: libx264, Threads: 10, Preset: slow
+[09:08:29.046] [m5.4xlarge-Vertical] Launching EC2 instance...
+[09:08:29.131] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:08:33.485] [m5.4xlarge-Vertical] Instance i-06dc7f5189108ff6c launched. Waiting for running...
+[09:08:49.481] [m5.4xlarge-Vertical] Instance ready. IP: 52.203.20.235
+[09:09:15.497] [m5.4xlarge-Vertical] SSH connected.
+[09:09:16.917] [m5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[09:09:16.917] [m5.4xlarge-Vertical] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[09:09:17.543] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:09:27.545] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:09:28.509] [m5.4xlarge-Vertical] Error on attempt 2: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:09:28.511] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:09:38.511] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:09:40.320] [m5.4xlarge-Vertical] Error on attempt 3: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:09:40.320] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:09:50.321] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:09:52.518] [m5.4xlarge-Vertical] Instance i-0a4c3b7c0c4f1262d launched. Waiting for running...
+[09:10:09.114] [m5.4xlarge-Vertical] Instance ready. IP: 3.95.242.200
+[09:10:36.033] [m5.4xlarge-Vertical] SSH connected.
+[09:10:37.625] [m5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[09:10:37.627] [m5.4xlarge-Vertical] CPU mismatch (attempt 4/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[09:10:38.242] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:10:49.461] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:10:51.267] [m5.4xlarge-Vertical] Instance i-0355d097f7caf18d6 launched. Waiting for running...
+[09:11:07.314] [m5.4xlarge-Vertical] Instance ready. IP: 13.217.26.230
+[09:11:33.793] [m5.4xlarge-Vertical] SSH connected.
+[09:11:35.215] [m5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[09:11:35.215] [m5.4xlarge-Vertical] CPU mismatch (attempt 5/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[09:11:35.872] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:11:45.873] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:11:46.876] [m5.4xlarge-Vertical] Error on attempt 6: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:11:46.878] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:11:56.880] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:11:59.555] [m5.4xlarge-Vertical] Error on attempt 7: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:11:59.556] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:12:09.556] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:12:11.773] [m5.4xlarge-Vertical] Instance i-0e3b2fb469c36ae91 launched. Waiting for running...
+[09:12:27.740] [m5.4xlarge-Vertical] Instance ready. IP: 18.209.174.192
+[09:12:53.734] [m5.4xlarge-Vertical] SSH connected.
+[09:12:54.795] [m5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[09:12:54.796] [m5.4xlarge-Vertical] CPU mismatch (attempt 8/15): got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', expected 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz'. Terminating and retrying...
+[09:12:55.336] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:13:05.336] [m5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:13:06.929] [m5.4xlarge-Vertical] Instance i-08b3815b45f24438b launched. Waiting for running...
+[09:13:23.486] [m5.4xlarge-Vertical] Instance ready. IP: 52.90.197.141
+[09:13:49.511] [m5.4xlarge-Vertical] SSH connected.
+[09:13:50.913] [m5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[09:13:50.914] [m5.4xlarge-Vertical] CPU correct. Proceeding.
+[09:13:50.914] [m5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[09:13:50.914] [m5.4xlarge-Vertical] Uploading 10-minute video...
+[09:14:05.750] [m5.4xlarge-Vertical] Upload complete.
+[09:14:05.750] [m5.4xlarge-Vertical] SETUP TIME: 60.41s (1.01 min)
+[09:14:05.754] [m5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:14:41.937] [m5.4xlarge-Vertical] ENCODING TIME: 36.18s (0.60 min)
+[09:14:43.027] [m5.4xlarge-Vertical] Instance terminated.
+[09:14:43.027] [m5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:14:43.027] [m5.4xlarge-Vertical] ============================================================
+[09:14:43.028] [m5.4xlarge-Vertical] RESULTS — m5.4xlarge Vertical
+[09:14:43.028] [m5.4xlarge-Vertical]   Total Time:    97.69s (1.63 min)
+[09:14:43.028] [m5.4xlarge-Vertical]   Setup Time:    60.41s (1.01 min)
+[09:14:43.028] [m5.4xlarge-Vertical]   Encoding Time: 36.18s (0.60 min)
+[09:14:43.028] [m5.4xlarge-Vertical]   Setup %:       61.8%
+[09:14:43.028] [m5.4xlarge-Vertical] ============================================================

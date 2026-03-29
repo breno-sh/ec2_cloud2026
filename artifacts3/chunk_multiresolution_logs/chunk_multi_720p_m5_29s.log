@@ -1,0 +1,163 @@
+[22:09:58.270] 
+======================================================================
+[22:09:58.270] TRIAL 1 — 20x m5.large | 30s chunks | 720p
+[22:09:58.270] ======================================================================
+[22:09:58.270] [Setup] Starting video split...
+[22:09:58.326] [Setup] Video: 596.5s, 1280x720 → 20 parts of 29.8s each
+[22:10:04.898] [Setup] Video split complete.
+[22:10:06.315] [Part 08] Launching m5.large...[22:10:06.315] [Part 10] Launching m5.large...[22:10:06.325] [Part 17] Launching m5.large...[22:10:06.316] [Part 12] Launching m5.large...
+
+[22:10:06.332] [Part 09] Launching m5.large...[22:10:06.331] [Part 05] Launching m5.large...[22:10:06.347] [Part 03] Launching m5.large...[22:10:06.341] [Part 04] Launching m5.large...[22:10:06.365] [Part 01] Launching m5.large...
+
+
+[22:10:06.556] [Part 13] Launching m5.large...[22:10:06.564] [Part 02] Launching m5.large...
+[22:10:06.326] [Part 15] Launching m5.large...
+[22:10:06.364] [Part 16] Launching m5.large...[22:10:06.345] [Part 18] Launching m5.large...[22:10:06.574] [Part 00] Launching m5.large...[22:10:06.338] [Part 07] Launching m5.large...
+[22:10:06.358] [Part 06] Launching m5.large...
+[22:10:06.557] [Part 11] Launching m5.large...
+
+
+
+
+
+[22:10:06.369] [Part 19] Launching m5.large...
+
+
+[22:10:06.576] [Part 14] Launching m5.large...
+
+[22:10:25.181] [Part 06] Instance up (18.8s). IP: 34.238.160.108
+[22:10:25.270] [Part 16] Instance up (18.9s). IP: 98.87.16.23
+[22:10:25.294] [Part 05] Instance up (19.0s). IP: 54.226.47.64
+[22:10:25.334] [Part 07] Instance up (19.0s). IP: 3.84.129.147[22:10:25.335] [Part 09] Instance up (19.0s). IP: 18.209.98.71[22:10:25.336] [Part 14] Instance up (18.8s). IP: 54.89.166.15
+
+
+[22:10:25.380] [Part 18] Instance up (19.0s). IP: 98.83.158.133[22:10:25.381] [Part 02] Instance up (18.8s). IP: 3.91.85.187
+
+[22:10:25.382] [Part 03] Instance up (19.0s). IP: 52.90.206.153
+[22:10:25.383] [Part 19] Instance up (19.0s). IP: 54.224.214.2
+[22:10:25.390] [Part 13] Instance up (18.8s). IP: 184.73.30.54[22:10:25.391] [Part 15] Instance up (19.1s). IP: 34.201.167.134
+[22:10:25.392] [Part 12] Instance up (19.1s). IP: 54.166.172.32
+
+[22:10:25.477] [Part 04] Instance up (19.1s). IP: 3.90.60.73[22:10:25.478] [Part 01] Instance up (19.1s). IP: 35.172.115.70
+[22:10:25.479] [Part 17] Instance up (19.2s). IP: 54.175.54.153[22:10:25.480] [Part 10] Instance up (19.2s). IP: 3.81.77.111
+[22:10:25.480] [Part 11] Instance up (18.9s). IP: 54.145.94.111
+
+
+[22:10:25.640] [Part 00] Instance up (19.1s). IP: 3.86.41.30
+[22:10:26.417] [Part 08] Instance up (20.1s). IP: 54.234.120.151
+[22:11:27.926] [Part 19] Upload: 35.0s
+[22:11:36.696] [Part 16] Upload: 44.1s
+[22:11:38.269] [Part 13] Upload: 45.5s
+[22:11:38.281] [Part 06] Upload: 45.6s
+[22:11:38.329] [Part 07] Upload: 45.6s
+[22:11:41.480] [Part 05] Upload: 48.8s
+[22:11:46.590] [Part 04] Upload: 53.7s
+[22:11:47.406] [Part 09] Upload: 54.6s
+[22:11:47.409] [Part 03] Upload: 54.6s
+[22:11:57.698] [Part 08] Upload: 63.8s
+[22:11:57.856] [Part 02] Upload: 65.1s
+[22:12:01.448] [Part 01] Upload: 68.5s
+[22:12:03.196] [Part 17] Upload: 70.1s
+[22:12:04.655] [Part 15] Upload: 71.6s
+[22:12:09.702] [Part 10] Upload: 76.7s
+[22:12:11.034] [Part 19] Encode: 43.1s
+[22:12:15.964] [Part 12] Upload: 83.2s
+[22:12:20.045] [Part 11] Upload: 87.1s
+[22:12:21.162] [Part 05] Encode: 39.7s
+[22:12:21.170] [Part 13] Encode: 42.9s
+[22:12:22.910] [Part 07] Encode: 44.6s
+[22:12:23.144] [Part 06] Encode: 44.9s
+[22:12:23.399] [Part 00] Upload: 90.1s
+[22:12:26.170] [Part 14] Upload: 93.5s
+[22:12:27.710] [Part 03] Encode: 40.3s
+[22:12:29.402] [Part 16] Encode: 52.7s
+[22:12:31.500] [Part 04] Encode: 44.9s
+[22:12:35.708] [Part 19] Download: 24.7s
+[22:12:35.709] [Part 19] Complete! Total: 149.3s
+[22:12:46.631] [Part 08] Encode: 48.9s
+[22:12:49.044] [Part 02] Encode: 51.2s
+[22:12:53.118] [Part 19] Instance terminated.
+[22:12:54.861] [Part 15] Encode: 50.2s
+[22:12:58.787] [Part 18] Upload: 125.9s
+[22:12:58.885] [Part 09] Encode: 71.5s
+[22:12:59.742] [Part 12] Encode: 43.8s
+[22:13:00.310] [Part 01] Encode: 58.9s
+[22:13:01.939] [Part 10] Encode: 52.2s
+[22:13:08.396] [Part 13] Download: 47.2s
+[22:13:08.396] [Part 13] Complete! Total: 181.8s
+[22:13:10.360] [Part 05] Download: 49.2s
+[22:13:10.361] [Part 05] Complete! Total: 184.0s
+[22:13:13.087] [Part 17] Encode: 69.9s
+[22:13:15.299] [Part 11] Encode: 55.3s
+[22:13:15.517] [Part 03] Download: 47.8s
+[22:13:15.517] [Part 03] Complete! Total: 189.2s
+[22:13:17.651] [Part 00] Encode: 54.3s
+[22:13:18.470] [Part 14] Encode: 52.3s
+[22:13:20.316] [Part 13] Instance terminated.
+[22:13:21.036] [Part 06] Download: 57.9s
+[22:13:21.036] [Part 06] Complete! Total: 194.7s
+[22:13:21.391] [Part 07] Download: 58.5s
+[22:13:21.392] [Part 07] Complete! Total: 195.1s
+[22:13:24.585] [Part 03] Instance terminated.
+[22:13:24.632] [Part 16] Download: 55.2s
+[22:13:24.633] [Part 16] Complete! Total: 198.3s
+[22:13:24.969] [Part 05] Instance terminated.
+[22:13:27.613] [Part 04] Download: 56.1s
+[22:13:27.613] [Part 04] Complete! Total: 201.3s
+[22:13:27.704] [Part 06] Instance terminated.
+[22:13:27.833] [Part 07] Instance terminated.
+[22:13:31.065] [Part 16] Instance terminated.
+[22:13:34.464] [Part 12] Download: 34.7s
+[22:13:34.464] [Part 12] Complete! Total: 208.1s
+[22:13:35.271] [Part 04] Instance terminated.
+[22:13:35.491] [Part 10] Download: 33.6s
+[22:13:35.491] [Part 10] Complete! Total: 209.2s
+[22:13:36.124] [Part 09] Download: 37.2s
+[22:13:36.124] [Part 09] Complete! Total: 209.8s
+[22:13:37.568] [Part 08] Download: 50.9s
+[22:13:37.568] [Part 08] Complete! Total: 211.3s
+[22:13:43.321] [Part 02] Download: 54.3s
+[22:13:43.321] [Part 02] Complete! Total: 216.8s
+[22:13:44.416] [Part 01] Download: 44.1s
+[22:13:44.416] [Part 01] Complete! Total: 218.1s
+[22:13:44.926] [Part 12] Instance terminated.
+[22:13:44.974] [Part 09] Instance terminated.[22:13:44.975] [Part 10] Instance terminated.
+
+[22:13:44.990] [Part 08] Instance terminated.
+[22:13:46.338] [Part 11] Download: 31.0s
+[22:13:46.338] [Part 11] Complete! Total: 219.8s
+[22:13:46.804] [Part 17] Download: 33.7s
+[22:13:46.804] [Part 17] Complete! Total: 220.5s
+[22:13:46.969] [Part 02] Instance terminated.
+[22:13:47.729] [Part 15] Download: 52.9s
+[22:13:47.730] [Part 15] Complete! Total: 221.4s
+[22:13:47.760] [Part 14] Download: 29.3s
+[22:13:47.760] [Part 14] Complete! Total: 221.2s
+[22:13:48.778] [Part 11] Instance terminated.
+[22:13:48.938] [Part 17] Instance terminated.
+[22:13:48.939] [Part 18] Encode: 50.2s
+[22:13:48.993] [Part 01] Instance terminated.
+[22:13:49.926] [Part 15] Instance terminated.
+[22:13:50.266] [Part 14] Instance terminated.
+[22:13:53.342] [Part 00] Download: 35.7s
+[22:13:53.342] [Part 00] Complete! Total: 226.8s
+[22:13:54.678] [Part 00] Instance terminated.
+[22:14:03.392] [Part 18] Download: 14.5s
+[22:14:03.392] [Part 18] Complete! Total: 237.0s
+[22:14:05.263] [Part 18] Instance terminated.
+[22:14:05.268] 
+──────────────────────────────────────────────────
+[22:14:05.268] TRIAL 1 RESULTS — 720p_m5.large_30s
+[22:14:05.268]   Total Time:    247.00s  (4.117 min)
+[22:14:05.268]   Split Time:    6.63s
+[22:14:05.268]   Parallel Time: 240.37s  (4.006 min)
+[22:14:05.268]   Avg Encode:    50.58s
+[22:14:05.268]   Avg Provision: 19.05s
+[22:14:05.268]   Avg Upload:    66.15s
+[22:14:05.268]   Avg Download:  42.43s
+[22:14:05.268]   Max Encode:    71.48s (bottleneck part)
+[22:14:05.268] ──────────────────────────────────────────────────
+
+[22:14:05.269] 
+>>> Completed 1/1 trials <<<
+

@@ -1,0 +1,113 @@
+[09:26:26.251] === Phase 3.2 Vertical Scaling: 1x c5.4xlarge ===
+[09:26:26.275] Codec: libx264, Threads: 10, Preset: slow
+[09:26:26.275] [c5.4xlarge-Vertical] Launching EC2 instance...
+[09:26:26.308] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:26:32.505] [c5.4xlarge-Vertical] Instance i-0ae400ca1c0c290ab launched. Waiting for running...
+[09:26:48.166] [c5.4xlarge-Vertical] Instance ready. IP: 98.91.254.117
+[09:27:14.769] [c5.4xlarge-Vertical] SSH connected.
+[09:27:15.933] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:27:15.980] [c5.4xlarge-Vertical] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:27:16.585] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:27:26.586] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:27:28.099] [c5.4xlarge-Vertical] Instance i-072c7a74dd54ea456 launched. Waiting for running...
+[09:27:43.882] [c5.4xlarge-Vertical] Instance ready. IP: 54.164.231.77
+[09:28:09.922] [c5.4xlarge-Vertical] SSH connected.
+[09:28:10.981] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:28:10.982] [c5.4xlarge-Vertical] CPU mismatch (attempt 2/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:28:12.080] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:28:22.175] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:28:23.068] [c5.4xlarge-Vertical] Error on attempt 3: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:28:23.068] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:28:33.068] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:28:35.121] [c5.4xlarge-Vertical] Instance i-0bfdd5b0d58705412 launched. Waiting for running...
+[09:28:50.812] [c5.4xlarge-Vertical] Instance ready. IP: 35.168.9.245
+[09:29:16.995] [c5.4xlarge-Vertical] SSH connected.
+[09:29:18.167] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:29:18.168] [c5.4xlarge-Vertical] CPU mismatch (attempt 4/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:29:18.775] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:29:28.775] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:29:30.493] [c5.4xlarge-Vertical] Instance i-01a9677fcaec3a9ab launched. Waiting for running...
+[09:29:46.485] [c5.4xlarge-Vertical] Instance ready. IP: 54.162.216.188
+[09:30:12.667] [c5.4xlarge-Vertical] SSH connected.
+[09:30:13.650] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:30:13.650] [c5.4xlarge-Vertical] CPU mismatch (attempt 5/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:30:14.228] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:30:24.229] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:30:25.893] [c5.4xlarge-Vertical] Instance i-03d5715a823cee307 launched. Waiting for running...
+[09:30:42.162] [c5.4xlarge-Vertical] Instance ready. IP: 13.221.201.137
+[09:31:08.238] [c5.4xlarge-Vertical] SSH connected.
+[09:31:09.434] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz
+[09:31:09.434] [c5.4xlarge-Vertical] CPU mismatch (attempt 6/15): got 'Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:31:10.019] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:31:20.019] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:31:21.502] [c5.4xlarge-Vertical] Instance i-0b7096737398aba4f launched. Waiting for running...
+[09:31:38.225] [c5.4xlarge-Vertical] Instance ready. IP: 54.227.195.78
+[09:32:08.423] [c5.4xlarge-Vertical] SSH connected.
+[09:32:09.645] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:32:09.646] [c5.4xlarge-Vertical] CPU mismatch (attempt 7/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:32:10.274] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:32:20.274] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:32:21.797] [c5.4xlarge-Vertical] Instance i-04b29931388eeb806 launched. Waiting for running...
+[09:32:37.593] [c5.4xlarge-Vertical] Instance ready. IP: 35.173.241.76
+[09:33:03.808] [c5.4xlarge-Vertical] SSH connected.
+[09:33:04.962] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:33:04.962] [c5.4xlarge-Vertical] CPU mismatch (attempt 8/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:33:05.594] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:33:15.595] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:33:17.096] [c5.4xlarge-Vertical] Instance i-04de8534601343239 launched. Waiting for running...
+[09:33:32.854] [c5.4xlarge-Vertical] Instance ready. IP: 54.89.103.184
+[09:33:58.933] [c5.4xlarge-Vertical] SSH connected.
+[09:33:59.982] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz
+[09:33:59.983] [c5.4xlarge-Vertical] CPU mismatch (attempt 9/15): got 'Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:34:00.605] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:34:10.605] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:34:12.018] [c5.4xlarge-Vertical] Instance i-0a881ec11052d68e2 launched. Waiting for running...
+[09:34:27.946] [c5.4xlarge-Vertical] Instance ready. IP: 18.232.96.107
+[09:34:54.040] [c5.4xlarge-Vertical] SSH connected.
+[09:34:55.183] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:34:55.184] [c5.4xlarge-Vertical] CPU mismatch (attempt 10/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:34:55.757] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:35:05.757] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:35:07.258] [c5.4xlarge-Vertical] Instance i-06b8f6b13942eaf6c launched. Waiting for running...
+[09:35:23.122] [c5.4xlarge-Vertical] Instance ready. IP: 98.83.28.172
+[09:35:49.401] [c5.4xlarge-Vertical] SSH connected.
+[09:35:50.482] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:35:50.482] [c5.4xlarge-Vertical] CPU mismatch (attempt 11/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:35:51.146] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:36:01.147] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:36:03.535] [c5.4xlarge-Vertical] Instance i-0942904a67d9fc924 launched. Waiting for running...
+[09:36:20.022] [c5.4xlarge-Vertical] Instance ready. IP: 54.162.203.49
+[09:36:46.151] [c5.4xlarge-Vertical] SSH connected.
+[09:36:47.360] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:36:47.361] [c5.4xlarge-Vertical] CPU mismatch (attempt 12/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:36:47.974] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:36:57.974] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:36:59.448] [c5.4xlarge-Vertical] Instance i-00da19356c95dca72 launched. Waiting for running...
+[09:37:15.216] [c5.4xlarge-Vertical] Instance ready. IP: 3.84.178.117
+[09:37:41.325] [c5.4xlarge-Vertical] SSH connected.
+[09:37:42.349] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:37:42.350] [c5.4xlarge-Vertical] CPU mismatch (attempt 13/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:37:42.966] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:37:52.966] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:37:54.443] [c5.4xlarge-Vertical] Instance i-0587a76333000a7c1 launched. Waiting for running...
+[09:38:10.133] [c5.4xlarge-Vertical] Instance ready. IP: 54.152.138.88
+[09:38:36.417] [c5.4xlarge-Vertical] SSH connected.
+[09:38:37.543] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:38:37.543] [c5.4xlarge-Vertical] CPU correct. Proceeding.
+[09:38:37.543] [c5.4xlarge-Vertical] Installing ffmpeg...
+[09:39:10.107] [c5.4xlarge-Vertical] ffmpeg installed.
+[09:39:10.108] [c5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:39:10.108] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[09:39:25.775] [c5.4xlarge-Vertical] Upload complete.
+[09:39:25.775] [c5.4xlarge-Vertical] SETUP TIME: 92.81s (1.55 min)
+[09:39:25.775] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:40:02.235] [c5.4xlarge-Vertical] ENCODING TIME: 36.46s (0.61 min)
+[09:40:03.357] [c5.4xlarge-Vertical] Instance terminated.
+[09:40:03.357] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:40:03.357] [c5.4xlarge-Vertical] ============================================================
+[09:40:03.357] [c5.4xlarge-Vertical] RESULTS — c5.4xlarge Vertical
+[09:40:03.358] [c5.4xlarge-Vertical]   Total Time:    130.39s (2.17 min)
+[09:40:03.358] [c5.4xlarge-Vertical]   Setup Time:    92.81s (1.55 min)
+[09:40:03.358] [c5.4xlarge-Vertical]   Encoding Time: 36.46s (0.61 min)
+[09:40:03.358] [c5.4xlarge-Vertical]   Setup %:       71.2%
+[09:40:03.358] [c5.4xlarge-Vertical] ============================================================

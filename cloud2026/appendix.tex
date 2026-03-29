@@ -1,0 +1,542 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Supplementary Material:\\``The Cloud EC2 Sweet Spot: Cost Optimization and Scaling Strategies\\for Video-as-a-Service Workloads''}
+
+\maketitle
+
+\tableofcontents
+
+\bigskip\noindent
+All experimental materials are available at the artifact repository:\\
+\url{https://anonymous.4open.science/r/ec2sweetspot-blinded2}
+
+% -----------------------------------------------------------------------
+\section{EC2 Instance Hardware Specifications}
+\label{app:specs}
+% -----------------------------------------------------------------------
+
+Table~\ref{tab:app_instance_specs} documents the hardware configuration and
+on-demand Linux pricing for all 17 EC2 instance types evaluated in this study.
+Prices reflect the AWS Pricing API for \texttt{us-east-1} as of March~2026.
+
+\begin{table*}[!htbp]
+\centering
+\caption{EC2 instance specifications and on-demand pricing (\texttt{us-east-1},
+Linux, March~2026). T-family instances operate in Unlimited burst mode; sustained
+100\% vCPU utilization beyond the credit baseline may incur surplus credit
+surcharges (see main paper, Threats to Validity).}
+\label{tab:app_instance_specs}
+\small
+\begin{tabular}{llrrll}
+\toprule
+\textbf{Instance} & \textbf{Family} & \textbf{vCPU} & \textbf{RAM (GiB)}
+  & \textbf{Dominant Processor (Phase~1)} & \textbf{Price (\$/hr)} \\
+\midrule
+\texttt{t2.micro}    & Burstable (T) & 1  & 1   & Intel Xeon E5-2686 v4 / Platinum 8259CL & 0.0116 \\
+\texttt{t3.micro}    & Burstable (T) & 2  & 1   & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.0104 \\
+\texttt{t3.small}    & Burstable (T) & 2  & 2   & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.0208 \\
+\texttt{t3.medium}   & Burstable (T) & 2  & 4   & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.0416 \\
+\texttt{t3.large}    & Burstable (T) & 2  & 8   & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.0832 \\
+\texttt{t3.xlarge}   & Burstable (T) & 4  & 16  & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.1664 \\
+\texttt{t3.2xlarge}  & Burstable (T) & 8  & 32  & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.3328 \\
+\midrule
+\texttt{m5.large}    & General (M)   & 2  & 8   & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.0960 \\
+\texttt{m5.xlarge}   & General (M)   & 4  & 16  & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.1920 \\
+\texttt{m5.2xlarge}  & General (M)   & 8  & 32  & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.3840 \\
+\texttt{m5.4xlarge}  & General (M)   & 16 & 64  & Intel Xeon Platinum 8259CL (2.50\,GHz)  & 0.7680 \\
+\midrule
+\texttt{c5.large}    & Compute (C)   & 2  & 4   & Intel Xeon Platinum 8275CL (3.00\,GHz)  & 0.0850 \\
+\texttt{c5.xlarge}   & Compute (C)   & 4  & 8   & Intel Xeon Platinum 8275CL (3.00\,GHz)  & 0.1700 \\
+\texttt{c5.2xlarge}  & Compute (C)   & 8  & 16  & Intel Xeon Platinum 8275CL (3.00\,GHz)  & 0.3400 \\
+\texttt{c5.4xlarge}  & Compute (C)   & 16 & 32  & Intel Xeon Platinum 8275CL (3.00\,GHz)  & 0.6800 \\
+\midrule
+\texttt{m7g.large}   & ARM Graviton~3 & 2 & 8  & AWS Graviton~3 (Arm64, 100\% uniform)   & 0.0808 \\
+\texttt{c7g.large}   & ARM Graviton~3 & 2 & 4  & AWS Graviton~3 (Arm64, 100\% uniform)   & 0.0725 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% -----------------------------------------------------------------------
+\section{Phase 1: CPU Homogeneity Validation}
+\label{app:phase1}
+% -----------------------------------------------------------------------
+
+\subsection{Protocol}
+
+For each of the 15 x86 instance types, approximately 100 instances were deployed
+across all six \texttt{us-east-1} availability zones (\texttt{us-east-1a}
+through \texttt{us-east-1f}). Immediately upon SSH readiness, each instance's
+processor model was read from \texttt{/proc/cpuinfo}. Three Intel Xeon
+generations were observed in the x86 fleet: Xeon~E5-2686~v4 (Broadwell),
+Xeon~8175M (Skylake-SP), and Xeon~Platinum~8259CL / 8275CL (Cascade Lake).
+ARM Graviton~3 instances (\texttt{m7g.large}, \texttt{c7g.large}) exhibited
+complete processor uniformity across all sampled nodes.
+
+\subsection{Results and Hardware Standardization Policy}
+
+Table~\ref{tab:app_cpu_homogeneity} summarizes the dominant processor and
+minimum homogeneity rate observed per instance family. The M-family exhibited
+the greatest heterogeneity (60/40 split between Platinum~8259CL and Xeon~8175M
+in zone~\texttt{c}), and the C-family showed a 74/26 split between
+Platinum~8275CL and Xeon~8124M in zone~\texttt{b}. T-family instances were
+nearly uniform (98\% 8259CL in zone~\texttt{a}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Phase~1 CPU homogeneity results. \emph{Min.\ Dominant \%} is the
+lowest fraction of spawned instances matching the target processor across all
+sampled zones. All Phase~2 and Phase~3 benchmarks were executed exclusively on
+the dominant processor via the terminate-and-retry protocol.}
+\label{tab:app_cpu_homogeneity}
+\small
+\begin{tabular}{lllr}
+\toprule
+\textbf{Family} & \textbf{Target CPU} & \textbf{Clock} & \textbf{Min.\ Dominant \%} \\
+\midrule
+T (\texttt{t3.*}) & Xeon Platinum 8259CL & 2.50\,GHz & 98\% \\
+M (\texttt{m5.*}) & Xeon Platinum 8259CL & 2.50\,GHz & 60\% \\
+C (\texttt{c5.*}) & Xeon Platinum 8275CL & 3.00\,GHz & 74\% \\
+ARM (\texttt{m7g.large}) & AWS Graviton~3      & ---       & 100\% \\
+ARM (\texttt{c7g.large}) & AWS Graviton~3      & ---       & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+To eliminate hardware heterogeneity as a confounding variable, all Phase~2 and
+Phase~3 benchmarks enforced the target processor at runtime: each provisioned
+instance was verified via \texttt{/proc/cpuinfo} before workload dispatch, and
+non-conforming instances were immediately terminated and replaced. This terminate-and-retry loop introduced a per-instance verification overhead
+of less than 2\,s, ensuring that all 30 runs per configuration were executed
+on hardware-homogeneous nodes.
+
+% -----------------------------------------------------------------------
+\section{Phase 2: Statistical Analysis Details}
+\label{app:stats}
+% -----------------------------------------------------------------------
+
+\subsection{Normality Assessment}
+
+For each of the $15 \times 4 \times 3 = 180$ Phase~2 configurations, a
+Shapiro-Wilk test ($\alpha = 0.05$, $n = 30$) was applied to assess distributional
+assumptions. The majority of configurations did not reject normality.
+Non-normal cases arose primarily for single-thread configurations (elevated
+variability in FFmpeg process startup and thread scheduling jitter) and for VP9
+on larger instances (multimodal timing distributions associated with thread
+affinity scheduling behavior). Where normality was rejected, the Central Limit
+Theorem ($n = 30$) justifies retention of Welch's t-test; Mann-Whitney~U was
+applied as a non-parametric confirmatory test where results were ambiguous.
+Complete Shapiro-Wilk statistics per configuration are available in
+\texttt{analysis\_output/statistical\_tests\_c5.csv} and
+\texttt{analysis\_output/statistical\_tests\_m5.csv} in the artifact repository.
+
+\subsection{Phase 3 ARM Graviton: Key Inferential Tests}
+
+Two inferential tests were applied to ARM Graviton Phase~3 results, as
+reported in the main paper:
+
+\textbf{Mann-Whitney~U (\texttt{m7g.large} vs.\ \texttt{c7g.large}, H.265
+horizontal):} $U = 432$, $p = 0.71$. The null hypothesis of equal medians is
+not rejected. The high coefficient of variation (CV~$>$50\%, driven by bimodal
+provisioning outcomes) limits statistical power for this test.
+
+\textbf{Welch's t-test (\texttt{m7g.large} H.264, serial vs.\ horizontal):}
+$t(30.2) = -14.7$, $p < 10^{-12}$, Cohen's $d = 4.31$. The very large effect
+size confirms that the H.264 performance inversion is driven by provisioning
+overhead ($\approx$48\,s) substantially exceeding the per-chunk encoding
+duration ($\approx$6\,s) for this configuration.
+
+% -----------------------------------------------------------------------
+\section{Phase 3: Provisioning Overhead Decomposition}
+\label{app:overhead}
+% -----------------------------------------------------------------------
+
+Table~\ref{tab:app_overhead} provides the complete provisioning overhead
+percentages for all Phase~3 configurations. Setup overhead is defined as
+$(T_{\text{total}} - T_{\text{enc}}) / T_{\text{total}}$, where $T_{\text{enc}}$
+is the active FFmpeg encoding duration. These values were omitted from
+Table~V of the main paper due to space constraints.
+
+\begin{table*}[!htbp]
+\centering
+\caption{Provisioning overhead decomposition for all Phase~3 configurations.
+\textbf{Dynamic} (Phase~3.1): standard Ubuntu AMI with FFmpeg installed via
+\texttt{apt} at runtime. \textbf{Optimized} (Phase~3.2): custom pre-built AMI
+with FFmpeg pre-installed. Setup OH\% $= (T_{\mathrm{total}} -
+T_{\mathrm{enc}}) / T_{\mathrm{total}}$, where $T_{\mathrm{enc}}$ is the
+active FFmpeg encoding duration on the critical path. All times are median
+wall-clock ($n=30$, $\pm$\,1.96\,$\hat{\sigma}/\sqrt{n}$).}
+\label{tab:app_overhead}
+\small
+\begin{tabular}{llcc}
+\toprule
+\textbf{Instance / Strategy} & \textbf{Provisioning} & \textbf{Total Time (min)} & \textbf{Setup OH} \\
+\midrule
+\multicolumn{4}{c}{\textit{Burstable T-Family}} \\
+\midrule
+\texttt{t3.micro} serial          & Dynamic   & 4.03 $\pm$ 0.12 & 57.3\% \\
+\texttt{t3.micro} serial          & Optimized & 2.72 $\pm$ 0.08 & 36.8\% \\
+10$\times$\texttt{t3.micro} horiz.& Dynamic   & 3.28 $\pm$ 0.10 & 93.3\% \\
+10$\times$\texttt{t3.micro} horiz.& Optimized & 1.22 $\pm$ 0.04 & 82.0\% \\
+\texttt{t3.2xlarge} vertical      & Dynamic   & 3.04 $\pm$ 0.09 & 74.0\% \\
+\texttt{t3.2xlarge} vertical      & Optimized & 1.80 $\pm$ 0.05 & 56.1\% \\
+\midrule
+\multicolumn{4}{c}{\textit{General Purpose M-Family}} \\
+\midrule
+\texttt{m5.large} serial          & Dynamic   & 3.46 $\pm$ 0.10 & 50.6\% \\
+\texttt{m5.large} serial          & Optimized & 2.71 $\pm$ 0.08 & 36.9\% \\
+10$\times$\texttt{m5.large} horiz.& Dynamic   & 3.63 $\pm$ 0.11 & 92.8\% \\
+10$\times$\texttt{m5.large} horiz.& Optimized & 1.22 $\pm$ 0.04 & 78.7\% \\
+\texttt{m5.4xlarge} vertical      & Dynamic   & 2.33 $\pm$ 0.07 & 74.7\% \\
+\texttt{m5.4xlarge} vertical      & Optimized & 1.56 $\pm$ 0.05 & 62.2\% \\
+\midrule
+\multicolumn{4}{c}{\textit{Compute Optimized C-Family}} \\
+\midrule
+\texttt{c5.large} serial          & Dynamic   & 3.21 $\pm$ 0.10 & 53.9\% \\
+\texttt{c5.large} serial          & Optimized & 2.46 $\pm$ 0.07 & 39.8\% \\
+10$\times$\texttt{c5.large} horiz.& Dynamic   & 3.52 $\pm$ 0.11 & 93.2\% \\
+10$\times$\texttt{c5.large} horiz.& Optimized & 1.18 $\pm$ 0.04 & 79.7\% \\
+\texttt{c5.4xlarge} vertical      & Dynamic   & 2.13 $\pm$ 0.06 & 75.6\% \\
+\texttt{c5.4xlarge} vertical      & Optimized & 1.49 $\pm$ 0.04 & 65.1\% \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The 93.3\% overhead for 10$\times$\texttt{t3.micro} Dynamic (Phase~3.1)
+represents the upper bound in this study: ten instances are launched and
+configured in parallel, but the synchronization barrier at output merge means
+the slowest provisioning event determines wall-clock time. Under the optimized
+AMI (Phase~3.2), the overhead for this configuration falls to 82\%, reflecting
+the minimum EC2 instance launch latency observed under these conditions
+($\approx$48\,s: EBS volume attachment, OS initialization, SSH readiness).
+Serial single-instance configurations exhibit lower relative overhead
+(37--54\% Dynamic, 37--40\% Optimized) because a single instance is
+provisioned before useful work begins.
+
+% -----------------------------------------------------------------------
+\section{ARM Graviton Independent Replication}
+\label{app:rerun}
+% -----------------------------------------------------------------------
+
+To independently validate the ARM Graviton results reported in Table~III of the
+main paper, all eight ARM configurations were replicated using a hardware
+enforcement protocol consistent with the terminate-and-retry methodology
+established in Phase~1. The validation script (\texttt{rerun\_cpu\_verified.py})
+verifies each provisioned instance's processor model via \texttt{/proc/cpuinfo}
+before workload dispatch, immediately terminating and replacing any
+non-conforming node.
+
+Table~\ref{tab:app_rerun_summary} reports the replication completion status.
+All 240 runs (8 configurations $\times$ 30) confirmed the expected Graviton~3
+processor prior to encoding. Performance results from this independent
+replication were statistically indistinguishable from the primary dataset,
+confirming the reproducibility of the ARM Graviton findings. Full replication
+logs are available in \texttt{phase3\_scaling/n30\_rerun\_logs/} in the
+artifact repository.
+
+\begin{table}[!htbp]
+\centering
+\caption{ARM Graviton independent replication summary.
+All 8 configurations completed $n=30$ runs with hardware-verified processors.
+Replication logs available at \texttt{phase3\_scaling/n30\_rerun\_logs/}.}
+\label{tab:app_rerun_summary}
+\small
+\begin{tabular}{lllc}
+\toprule
+\textbf{Instance} & \textbf{Strategy} & \textbf{Codec} & \textbf{Runs} \\
+\midrule
+\texttt{m7g.large} & Serial     & H.264 & 30 \\
+\texttt{m7g.large} & Serial     & H.265 & 30 \\
+\texttt{m7g.large} & Serial     & VP9   & 30 \\
+\texttt{m7g.large} & Horizontal & H.265 & 30 \\
+\texttt{c7g.large} & Serial     & H.264 & 30 \\
+\texttt{c7g.large} & Serial     & H.265 & 30 \\
+\texttt{c7g.large} & Serial     & VP9   & 30 \\
+\texttt{c7g.large} & Horizontal & H.264 & 30 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% -----------------------------------------------------------------------
+\section{Regional Cost Comparison (\texttt{sa-east-1})}
+\label{app:regional}
+% -----------------------------------------------------------------------
+
+\subsection{Pricing Differential}
+
+Table~\ref{tab:app_regional_pricing} documents the on-demand hourly prices for
+the three horizontal scaling instance types in both evaluated regions, obtained
+from the AWS Pricing API in March~2026. The observed 54--62\% premium for
+\texttt{sa-east-1} is higher than the 43--44\% differential cited in prior
+literature, reflecting AWS pricing revisions to the São Paulo region since those
+studies were conducted.
+
+\begin{table}[!htbp]
+\centering
+\caption{On-demand Linux pricing (\$/hr) for horizontal scaling instance types,
+\texttt{us-east-1} vs.\ \texttt{sa-east-1}, March~2026. Premium is the
+percentage increase of \texttt{sa-east-1} relative to \texttt{us-east-1}.}
+\label{tab:app_regional_pricing}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Instance} & \textbf{us-east-1} & \textbf{sa-east-1} & \textbf{Premium} \\
+\midrule
+\texttt{t3.micro}  & \$0.01040 & \$0.01677 & $+$61.5\% \\
+\texttt{m5.large}  & \$0.09600 & \$0.15302 & $+$59.4\% \\
+\texttt{c5.large}  & \$0.08500 & \$0.13099 & $+$54.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Performance and Cost Results}
+
+Table~\ref{tab:app_regional_results} presents the empirical H.264 horizontal
+scaling results for both regions (10$\times$ nodes, 60\,s chunks, Phase~3.2 AMI,
+$n=30$ per configuration). Wall-clock time differences between regions are
+consistent with AZ-level provisioning latency variability; the underlying CPU
+architecture and clock frequency are equivalent across regions for the same
+instance type.
+
+\begin{table*}[!htbp]
+\centering
+\caption{Regional comparison: H.264 horizontal scaling (10$\times$ nodes,
+60\,s chunks, Phase~3.2 AMI, $n=30$). Values are median end-to-end
+wall-clock time and total cluster cost per run.}
+\label{tab:app_regional_results}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Instance} & \textbf{\texttt{us-east-1} Time (s)} & \textbf{\texttt{us-east-1} Cost}
+  & \textbf{\texttt{sa-east-1} Time (s)} & \textbf{\texttt{sa-east-1} Cost} \\
+\midrule
+10$\times$\texttt{t3.micro}  & 73.20  & \$0.0021 & 96.64  & \$0.0045 \\
+10$\times$\texttt{c5.large}  & 64.04  & \$0.0152 & 64.41  & \$0.0234 \\
+10$\times$\texttt{m5.large}  & 56.41  & \$0.0150 & 79.85  & \$0.0339 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The \texttt{c5.large} cluster exhibited nearly identical wall-clock performance
+across regions (64.04\,s vs.\ 64.41\,s), with cost difference driven entirely
+by the regional pricing differential. The \texttt{t3.micro} cluster showed
+greater performance variability in \texttt{sa-east-1} (96.64\,s vs.\ 73.20\,s),
+consistent with higher provisioning latency observed in that region. The
+\texttt{m5.large} cluster exhibited intermediate variability (79.85\,s vs.\
+56.41\,s) with a correspondingly higher cost penalty.
+
+% -----------------------------------------------------------------------
+\section{Reproduction Requirements}
+\label{app:repro}
+% -----------------------------------------------------------------------
+
+\subsection{Infrastructure}
+
+\begin{itemize}
+  \item AWS account with EC2 access in \texttt{us-east-1} and \texttt{sa-east-1}
+  \item IAM permissions: \texttt{ec2:RunInstances}, \texttt{ec2:TerminateInstances},
+        \texttt{ec2:DescribeInstances}, \texttt{ec2:CreateKeyPair},
+        \texttt{ec2:AuthorizeSecurityGroupIngress}
+  \item EC2 key pair for SSH-based workload dispatch and result retrieval
+  \item Support for all 17 instance types documented in
+        Table~\ref{tab:app_instance_specs}
+  \item Ubuntu~22.04~LTS base AMI (\texttt{us-east-1}:
+        \texttt{ami-0a313d6098716f372}; for other regions, use the equivalent
+        Ubuntu~22.04~LTS AMI from the AWS EC2 catalog)
+  \item Phase~3.2 optimized AMI with pre-installed FFmpeg and Docker
+        (\texttt{us-east-1} x86: \texttt{ami-06c7c20c67513469a}; ARM AMI
+        must be built from the provided configuration scripts)
+\end{itemize}
+
+\subsection{Software Dependencies}
+
+\begin{itemize}
+  \item Python~3.8+ with packages: \texttt{boto3}, \texttt{paramiko},
+        \texttt{pandas}, \texttt{numpy}, \texttt{matplotlib}, \texttt{scipy}
+  \item FFmpeg~4.4+ with \texttt{libx264}, \texttt{libx265}, and
+        \texttt{libvpx-vp9} codec support (pre-installed in optimized AMI)
+  \item AWS CLI~v2 with configured credentials
+  \item Docker Engine (containerized execution environment in Phase~3 runs)
+\end{itemize}
+
+\subsection{Benchmark Workload}
+
+The primary benchmark workload is a 10-minute, 720p (1280$\times$720), H.264
+source video, 56\,MB on disk. For the primary experiments, this video is
+segmented into 10 chunks of 60\,s each using
+\texttt{ffmpeg -f segment -segment\_time 60}. The chunk sensitivity analysis
+uses 20 chunks (30\,s) and 5 chunks (120\,s). Substitute videos of equivalent
+duration and resolution may be used for reproduction; absolute encoding times
+will differ, while the relative scaling trends and overhead ratios are
+determined by the workload decomposition structure rather than the specific
+video content.
+
+\subsection{Estimated Reproduction Cost and Time}
+
+\begin{itemize}
+  \item Phase~1 (CPU homogeneity, $\approx$4,100 short-lived instances):
+        \$15--\$25
+  \item Phase~2 ($15 \times 4 \times 3 \times 30 = 5{,}400$ runs):
+        \$50--\$80
+  \item Phase~3 x86 scaling ($18$ configurations $\times$ 30 runs):
+        \$100--\$150
+  \item Phase~3 ARM Graviton (8 configurations $\times$ 30 runs each, two datasets):
+        \$80--\$120
+  \item Phase~4 chunk sensitivity (9 configurations $\times$ 30 runs):
+        \$40--\$60
+  \item \texttt{sa-east-1} regional replication (3 configurations $\times$ 30 runs):
+        \$60--\$100
+  \item AMI build, data transfer, and miscellaneous: \$30--\$60
+\end{itemize}
+
+\noindent
+\textbf{Total:} \$375--\$595 at AWS on-demand pricing (March~2026).
+\textbf{Estimated wall-clock duration:} 4--6 days, including AMI build time
+and sequential phase dependencies.
+
+% -----------------------------------------------------------------------
+\section{Artifact Repository Structure}
+\label{app:structure}
+% -----------------------------------------------------------------------
+
+The artifact repository contains the following principal components:
+
+\begin{verbatim}
+ec2sweetspot/
++-- artifacts2/
+|   +-- phase1_homogeneity/
+|   |   +-- cpu_verification_logs/  (4,100+ cpuinfo records)
+|   |   +-- analyze_cpu_distribution.py
+|   |   +-- detect_cpu_homogeneity.py
+|   +-- phase2_benchmarks/
+|   |   +-- all_instances_phase2_extended.py
+|   +-- phase3_scaling/
+|   |   +-- phase3_unified.py       (Dynamic, Phase 3.1)
+|   |   +-- phase3_unified_opt.py   (Optimized AMI, Phase 3.2)
+|   |   +-- rerun_cpu_verified.py   (ARM independent replication)
+|   |   +-- n30_logs/               (Phase 3.1 execution logs)
+|   |   +-- n30_rerun_logs/         (ARM replication logs)
+|   |   +-- old_logs_backup/        (ARM horizontal logs)
+|   +-- experimental_data/
+|   |   +-- aggregated_*.csv        (9 aggregated result files)
+|   +-- analysis_output/
+|   |   +-- statistical_tests_*.csv (Shapiro-Wilk per config)
+|   +-- scripts/processing/
+|       +-- regenerate_figures.py
+|       +-- parse_n30_logs.py
+|       +-- generate_arm_metrics.py
++-- cloud2026/
+|   +-- cloud2026.tex               (main paper)
+|   +-- appendix.tex                (this document)
+|   +-- graphs/                     (generated figure files)
++-- test_videos/
+|   +-- bolofofos10min.mp4          (720p, 56 MB, 10 min)
++-- CHECKLIST.md
+\end{verbatim}
+
+\subsection{Key Scripts}
+
+\textbf{\texttt{phase3\_unified\_opt.py}:}
+Orchestrates Phase~3.2 experiments. Launches EC2 instances using the pre-built
+AMI (\texttt{ami-06c7c20c67513469a}), verifies the processor model, transfers
+video chunks via SFTP, dispatches parallel FFmpeg encoding, retrieves encoded
+output, and terminates instances. Implements \texttt{boto3} instance waiters
+with a 30\,s SSH readiness buffer.
+
+\textbf{\texttt{rerun\_cpu\_verified.py}:}
+Orchestrates ARM Graviton independent replication. Architecturally identical to
+\texttt{phase3\_unified\_opt.py} with runtime CPU enforcement: any instance
+returning an unexpected model string is terminated and replaced before workload
+dispatch.
+
+\textbf{\texttt{regenerate\_figures.py}:}
+Reconstructs both paper figures (\texttt{unified\_codecs\_bar\_chart.png} and
+\texttt{unified\_scaling\_comparison.png}) from Phase~2 data embedded in the
+paper's LaTeX source, using \texttt{matplotlib}. Enables figure reproduction
+without access to raw log files.
+
+% -----------------------------------------------------------------------
+\section{Result Traceability}
+\label{app:validation}
+% -----------------------------------------------------------------------
+
+Each quantitative result in the main paper is traceable to a specific artifact:
+
+\begin{itemize}
+  \item \textbf{Table~II (Phase~2 benchmarks):}
+        \texttt{experimental\_data/aggregated\_*.csv} (one file per instance type,
+        containing per-run timing and cost data).
+  \item \textbf{Table~III (ARM Graviton):}
+        \texttt{phase3\_scaling/m3\_graviton\_results\_consolidated.csv}
+        and execution logs in \texttt{old\_logs\_backup/}. All configurations
+        with $n=30$ are directly reproducible from the artifact; the
+        \texttt{m7g.large} H.264 horizontal entry ($n=24$) corresponds to
+        the available completed runs for that configuration.
+  \item \textbf{Table~V (Phase~3 scaling):}
+        \texttt{phase3\_scaling/n30\_logs/} (Phase~3.1) and
+        \texttt{phase3\_scaling/n30\_parsed/averages\_n30.csv} (Phase~3.2
+        summary statistics).
+  \item \textbf{Table~VI (Chunk sensitivity):}
+        Chunk sensitivity experiment logs in \texttt{phase3\_scaling/}.
+  \item \textbf{Regional results (Section~V-C):}
+        \texttt{phase3\_scaling/m2\_results\_sa\_east\_1.csv}.
+  \item \textbf{Statistical tests (Section~V-D):}
+        \texttt{analysis\_output/statistical\_tests\_c5.csv} and
+        \texttt{analysis\_output/statistical\_tests\_m5.csv}.
+\end{itemize}
+
+\subsection{Reproducibility Checklist}
+
+The \texttt{CHECKLIST.md} file in the repository guides independent
+reproduction in five steps:
+
+\begin{enumerate}
+  \item \textbf{CPU audit:} Run \texttt{analyze\_cpu\_distribution.py} in
+        \texttt{phase1\_homogeneity/} to reproduce the homogeneity summary.
+  \item \textbf{Phase~2 statistics:} Run \texttt{all\_instances\_phase2\_extended.py}
+        and compare output against \texttt{experimental\_data/aggregated\_*.csv}.
+  \item \textbf{Phase~3 x86:} Run \texttt{phase3\_unified\_opt.py} for one
+        configuration and compare against \texttt{averages\_n30.csv}.
+  \item \textbf{Phase~3 ARM:} Run \texttt{rerun\_cpu\_verified.py} for one ARM
+        configuration and compare against
+        \texttt{m3\_graviton\_results\_consolidated.csv}.
+  \item \textbf{Figures:} Run \texttt{regenerate\_figures.py} to reproduce
+        both paper figures from the embedded LaTeX table data.
+\end{enumerate}
+
+\subsection{Dataset Summary}
+
+\begin{table}[!htbp]
+\centering
+\caption{Benchmark execution counts by experimental phase.}
+\label{tab:app_dataset}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Phase} & \textbf{Runs} \\
+\midrule
+Phase~1: CPU verification records & $\approx$4,100 \\
+Phase~2: x86 single-instance benchmarks & 5,400 \\
+Phase~3 x86: scaling strategy experiments & 540 \\
+Phase~3 ARM: Graviton serial and horizontal & 234$^{\dagger}$ \\
+Phase~3 ARM: independent replication (CPU-enforced) & 240 \\
+Phase~4: chunk size sensitivity & 270 \\
+\texttt{sa-east-1} regional replication & 90 \\
+\midrule
+\textbf{Total timed benchmark executions} & $\approx$\textbf{6,774} \\
+\bottomrule
+\multicolumn{2}{l}{\footnotesize $^{\dagger}$Includes corrected run counts per Table~III footnotes.} \\
+\end{tabular}
+\end{table}
+
+\end{document}

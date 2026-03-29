@@ -1,0 +1,23 @@
+[22:00:53.965] [c7g.large-Serial-R27] === Serial c7g.large libx264 Run 27 ===
+[22:01:14.845] [c7g.large-Serial-R27] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[22:16:16.081] [c7g.large-Serial-R27] === Serial c7g.large libx264 Run 27 ===
+[22:16:35.164] [c7g.large-Serial-R27] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[22:29:29.352] [c7g.large-Serial-R27] === Serial c7g.large libx264 Run 27 ===
+[22:29:31.448] [c7g.large-Serial-R27] Instance i-082ec506bc25919f0 launched, waiting...
+[22:29:47.949] [c7g.large-Serial-R27] Instance ready. IP: 98.80.124.251
+[22:30:14.166] [c7g.large-Serial-R27] SSH connected.
+[22:30:15.157] [c7g.large-Serial-R27] Architecture: aarch64
+[22:30:15.742] [c7g.large-Serial-R27] Waiting for SFTP slot...
+[22:30:19.945] [c7g.large-Serial-R27] Uploading 10-min video...
+[22:30:43.064] [c7g.large-Serial-R27] Upload complete.
+[22:30:43.066] [c7g.large-Serial-R27] SETUP TIME: 73.71s
+[22:30:43.067] [c7g.large-Serial-R27] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[22:31:40.188] [c7g.large-Serial-R27] ENCODING TIME: 57.12s
+[22:31:40.188] [c7g.large-Serial-R27] ============================================================
+[22:31:40.189] [c7g.large-Serial-R27] RESULTS — c7g.large Serial libx264
+[22:31:40.189] [c7g.large-Serial-R27]   Total Time:    130.83s (2.18 min)
+[22:31:40.189] [c7g.large-Serial-R27]   Setup Time:    73.71s (1.23 min)
+[22:31:40.189] [c7g.large-Serial-R27]   Encoding Time: 57.12s (0.95 min)
+[22:31:40.189] [c7g.large-Serial-R27]   Setup %:       56.3%
+[22:31:40.189] [c7g.large-Serial-R27] ============================================================
+[22:31:41.295] [c7g.large-Serial-R27] Instance terminated.

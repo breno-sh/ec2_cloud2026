@@ -1,0 +1,50 @@
+[09:26:26.246] === Phase 3.2 Vertical Scaling: 1x c5.4xlarge ===
+[09:26:26.275] Codec: libx264, Threads: 10, Preset: slow
+[09:26:26.287] [c5.4xlarge-Vertical] Launching EC2 instance...
+[09:26:26.298] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:26:38.300] [c5.4xlarge-Vertical] Instance i-0544aa1b7e0815485 launched. Waiting for running...
+[09:26:53.960] [c5.4xlarge-Vertical] Instance ready. IP: 54.211.138.224
+[09:27:19.898] [c5.4xlarge-Vertical] SSH connected.
+[09:27:20.890] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:27:20.891] [c5.4xlarge-Vertical] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:27:21.424] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:27:31.425] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:27:32.909] [c5.4xlarge-Vertical] Instance i-0b25928509c864892 launched. Waiting for running...
+[09:27:48.711] [c5.4xlarge-Vertical] Instance ready. IP: 98.80.251.140
+[09:28:14.652] [c5.4xlarge-Vertical] SSH connected.
+[09:28:15.680] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz
+[09:28:15.681] [c5.4xlarge-Vertical] CPU mismatch (attempt 2/15): got 'Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:28:16.240] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:28:26.240] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:28:27.318] [c5.4xlarge-Vertical] Error on attempt 3: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:28:27.318] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:28:37.319] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:28:39.333] [c5.4xlarge-Vertical] Instance i-0a00d5227a70e722e launched. Waiting for running...
+[09:28:55.161] [c5.4xlarge-Vertical] Instance ready. IP: 100.55.161.103
+[09:29:21.517] [c5.4xlarge-Vertical] SSH connected.
+[09:29:22.717] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:29:22.718] [c5.4xlarge-Vertical] CPU mismatch (attempt 4/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:29:23.366] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:29:33.367] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:29:34.917] [c5.4xlarge-Vertical] Instance i-09850197b61c13afa launched. Waiting for running...
+[09:29:50.908] [c5.4xlarge-Vertical] Instance ready. IP: 18.232.82.95
+[09:30:16.858] [c5.4xlarge-Vertical] SSH connected.
+[09:30:17.820] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:30:17.826] [c5.4xlarge-Vertical] CPU correct. Proceeding.
+[09:30:17.827] [c5.4xlarge-Vertical] Installing ffmpeg...
+[09:30:50.410] [c5.4xlarge-Vertical] ffmpeg installed.
+[09:30:50.411] [c5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:30:50.412] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[09:31:15.315] [c5.4xlarge-Vertical] Upload complete.
+[09:31:15.319] [c5.4xlarge-Vertical] SETUP TIME: 101.95s (1.70 min)
+[09:31:15.325] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:31:52.268] [c5.4xlarge-Vertical] ENCODING TIME: 36.94s (0.62 min)
+[09:31:53.466] [c5.4xlarge-Vertical] Instance terminated.
+[09:31:53.467] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:31:53.467] [c5.4xlarge-Vertical] ============================================================
+[09:31:53.467] [c5.4xlarge-Vertical] RESULTS — c5.4xlarge Vertical
+[09:31:53.467] [c5.4xlarge-Vertical]   Total Time:    140.10s (2.33 min)
+[09:31:53.467] [c5.4xlarge-Vertical]   Setup Time:    101.95s (1.70 min)
+[09:31:53.467] [c5.4xlarge-Vertical]   Encoding Time: 36.94s (0.62 min)
+[09:31:53.467] [c5.4xlarge-Vertical]   Setup %:       72.8%
+[09:31:53.467] [c5.4xlarge-Vertical] ============================================================

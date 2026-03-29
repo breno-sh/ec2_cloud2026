@@ -1,0 +1,24 @@
+[09:40:03.680] === Phase 3.2 OPTIMIZED Vertical Scaling: 1x c5.4xlarge ===
+[09:40:03.705] Codec: libx264, Threads: 10, Preset: slow
+[09:40:03.739] [c5.4xlarge-Vertical] Launching EC2 instance...
+[09:40:03.828] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:40:18.322] [c5.4xlarge-Vertical] Instance i-040e1cf3b45cb96f3 launched. Waiting for running...
+[09:40:34.531] [c5.4xlarge-Vertical] Instance ready. IP: 13.218.112.112
+[09:41:00.800] [c5.4xlarge-Vertical] SSH connected.
+[09:41:01.917] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:41:01.924] [c5.4xlarge-Vertical] CPU correct. Proceeding.
+[09:41:01.924] [c5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:41:01.925] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[09:43:13.494] [c5.4xlarge-Vertical] Upload complete.
+[09:43:13.494] [c5.4xlarge-Vertical] SETUP TIME: 189.66s (3.16 min)
+[09:43:13.494] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:43:41.968] [c5.4xlarge-Vertical] ENCODING TIME: 28.47s (0.47 min)
+[09:43:43.206] [c5.4xlarge-Vertical] Instance terminated.
+[09:43:43.211] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:43:43.211] [c5.4xlarge-Vertical] ============================================================
+[09:43:43.211] [c5.4xlarge-Vertical] RESULTS — c5.4xlarge Vertical
+[09:43:43.212] [c5.4xlarge-Vertical]   Total Time:    219.38s (3.66 min)
+[09:43:43.213] [c5.4xlarge-Vertical]   Setup Time:    189.66s (3.16 min)
+[09:43:43.214] [c5.4xlarge-Vertical]   Encoding Time: 28.47s (0.47 min)
+[09:43:43.214] [c5.4xlarge-Vertical]   Setup %:       86.5%
+[09:43:43.214] [c5.4xlarge-Vertical] ============================================================

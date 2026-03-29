@@ -1,0 +1,31 @@
+[09:40:03.523] === Phase 3.2 OPTIMIZED Vertical Scaling: 1x c5.4xlarge ===
+[09:40:03.549] Codec: libx264, Threads: 10, Preset: slow
+[09:40:03.570] [c5.4xlarge-Vertical] Launching EC2 instance...
+[09:40:03.575] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:40:05.802] [c5.4xlarge-Vertical] Instance i-0d22290780c5c1a83 launched. Waiting for running...
+[09:40:22.076] [c5.4xlarge-Vertical] Instance ready. IP: 13.220.221.86
+[09:40:48.365] [c5.4xlarge-Vertical] SSH connected.
+[09:40:49.530] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:40:49.530] [c5.4xlarge-Vertical] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:40:50.071] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:42:48.030] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:42:50.235] [c5.4xlarge-Vertical] Instance i-0ede220dad027a469 launched. Waiting for running...
+[09:43:06.223] [c5.4xlarge-Vertical] Instance ready. IP: 3.89.154.147
+[09:43:32.419] [c5.4xlarge-Vertical] SSH connected.
+[09:43:33.524] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:43:33.525] [c5.4xlarge-Vertical] CPU correct. Proceeding.
+[09:43:33.528] [c5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:43:33.528] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[09:44:05.766] [c5.4xlarge-Vertical] Upload complete.
+[09:44:05.767] [c5.4xlarge-Vertical] SETUP TIME: 77.74s (1.30 min)
+[09:44:05.767] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:44:37.117] [c5.4xlarge-Vertical] ENCODING TIME: 31.35s (0.52 min)
+[09:44:38.439] [c5.4xlarge-Vertical] Instance terminated.
+[09:44:38.440] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:44:38.440] [c5.4xlarge-Vertical] ============================================================
+[09:44:38.440] [c5.4xlarge-Vertical] RESULTS — c5.4xlarge Vertical
+[09:44:38.440] [c5.4xlarge-Vertical]   Total Time:    110.41s (1.84 min)
+[09:44:38.440] [c5.4xlarge-Vertical]   Setup Time:    77.74s (1.30 min)
+[09:44:38.440] [c5.4xlarge-Vertical]   Encoding Time: 31.35s (0.52 min)
+[09:44:38.440] [c5.4xlarge-Vertical]   Setup %:       70.4%
+[09:44:38.440] [c5.4xlarge-Vertical] ============================================================

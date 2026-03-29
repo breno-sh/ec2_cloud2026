@@ -1,0 +1,93 @@
+[22:10:12.084] 
+======================================================================
+[22:10:12.084] TRIAL 1 — 10x m5.large | 60s chunks | 720p
+[22:10:12.084] ======================================================================
+[22:10:12.084] [Setup] Starting video split...
+[22:10:12.135] [Setup] Video: 596.5s, 1280x720 → 10 parts of 59.6s each
+[22:10:14.835] [Setup] Video split complete.
+[22:10:15.689] [Part 09] Launching m5.large...
+[22:10:15.696] [Part 05] Launching m5.large...
+[22:10:15.727] [Part 04] Launching m5.large...[22:10:15.728] [Part 08] Launching m5.large...
+
+[22:10:15.741] [Part 00] Launching m5.large...
+[22:10:15.755] [Part 03] Launching m5.large...
+[22:10:15.762] [Part 01] Launching m5.large...
+[22:10:15.769] [Part 06] Launching m5.large...
+[22:10:15.786] [Part 07] Launching m5.large...
+[22:10:15.797] [Part 02] Launching m5.large...
+[22:10:33.509] [Part 05] Instance up (17.8s). IP: 54.164.160.172
+[22:10:33.564] [Part 09] Instance up (17.9s). IP: 100.48.13.190
+[22:10:33.636] [Part 03] Instance up (17.9s). IP: 35.153.71.242
+[22:10:33.657] [Part 01] Instance up (17.9s). IP: 18.232.164.79
+[22:10:33.688] [Part 06] Instance up (17.9s). IP: 54.196.120.112
+[22:10:33.707] [Part 07] Instance up (17.9s). IP: 50.19.186.242
+[22:10:33.709] [Part 00] Instance up (18.0s). IP: 18.209.105.57
+[22:10:36.195] [Part 02] Instance up (20.4s). IP: 54.243.22.160
+[22:10:36.327] [Part 04] Instance up (20.6s). IP: 18.209.177.208
+[22:10:36.649] [Part 08] Instance up (20.9s). IP: 54.196.196.222
+[22:12:31.786] [Part 03] Upload: 89.7s
+[22:12:59.759] [Part 01] Upload: 117.8s
+[22:12:59.774] [Part 08] Upload: 113.7s
+[22:13:02.044] [Part 02] Upload: 116.5s
+[22:13:06.784] [Part 05] Upload: 124.8s
+[22:13:15.576] [Part 04] Upload: 130.0s
+[22:13:21.149] [Part 06] Upload: 138.7s
+[22:13:27.443] [Part 00] Upload: 145.0s
+[22:13:30.207] [Part 07] Upload: 147.8s
+[22:13:44.434] [Part 09] Upload: 162.0s
+[22:13:59.989] [Part 03] Encode: 88.2s
+[22:14:14.305] [Part 03] Download: 14.3s
+[22:14:14.305] [Part 03] Complete! Total: 238.6s
+[22:14:15.518] [Part 03] Instance terminated.
+[22:14:24.544] [Part 02] Encode: 82.5s
+[22:14:28.920] [Part 01] Encode: 89.2s
+[22:14:41.057] [Part 02] Download: 16.5s
+[22:14:41.057] [Part 02] Complete! Total: 265.3s
+[22:14:43.453] [Part 02] Instance terminated.
+[22:14:43.544] [Part 01] Download: 14.6s
+[22:14:43.544] [Part 01] Complete! Total: 267.8s
+[22:14:44.294] [Part 06] Encode: 83.1s
+[22:14:44.931] [Part 01] Instance terminated.
+[22:14:49.694] [Part 05] Encode: 102.9s
+[22:14:50.155] [Part 04] Encode: 94.6s
+[22:14:52.696] [Part 08] Encode: 112.9s
+[22:14:58.426] [Part 06] Download: 14.1s
+[22:14:58.426] [Part 06] Complete! Total: 282.7s
+[22:14:59.437] [Part 06] Instance terminated.
+[22:14:59.569] [Part 04] Download: 9.4s
+[22:14:59.569] [Part 04] Complete! Total: 283.8s
+[22:15:00.563] [Part 04] Instance terminated.
+[22:15:03.459] [Part 05] Download: 13.8s
+[22:15:03.459] [Part 05] Complete! Total: 287.8s
+[22:15:04.599] [Part 05] Instance terminated.
+[22:15:07.518] [Part 07] Encode: 97.3s
+[22:15:07.546] [Part 08] Download: 14.8s
+[22:15:07.546] [Part 08] Complete! Total: 291.8s
+[22:15:08.621] [Part 08] Instance terminated.
+[22:15:11.589] [Part 09] Encode: 87.2s
+[22:15:22.704] [Part 07] Download: 15.2s
+[22:15:22.704] [Part 07] Complete! Total: 306.9s
+[22:15:23.764] [Part 07] Instance terminated.
+[22:15:24.065] [Part 00] Encode: 116.6s
+[22:15:25.318] [Part 09] Download: 13.7s
+[22:15:25.318] [Part 09] Complete! Total: 309.6s
+[22:15:26.423] [Part 09] Instance terminated.
+[22:15:29.442] [Part 00] Download: 5.4s
+[22:15:29.442] [Part 00] Complete! Total: 313.7s
+[22:15:30.507] [Part 00] Instance terminated.
+[22:15:30.511] 
+──────────────────────────────────────────────────
+[22:15:30.511] TRIAL 1 RESULTS — 720p_m5.large_60s
+[22:15:30.511]   Total Time:    318.43s  (5.307 min)
+[22:15:30.511]   Split Time:    2.75s
+[22:15:30.511]   Parallel Time: 315.68s  (5.261 min)
+[22:15:30.511]   Avg Encode:    95.45s
+[22:15:30.511]   Avg Provision: 18.72s
+[22:15:30.511]   Avg Upload:    128.60s
+[22:15:30.511]   Avg Download:  13.19s
+[22:15:30.511]   Max Encode:    116.62s (bottleneck part)
+[22:15:30.511] ──────────────────────────────────────────────────
+
+[22:15:30.511] 
+>>> Completed 1/1 trials <<<
+

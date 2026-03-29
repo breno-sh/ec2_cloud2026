@@ -1,0 +1,52 @@
+[09:26:26.109] === Phase 3.2 Vertical Scaling: 1x c5.4xlarge ===
+[09:26:26.127] Codec: libx264, Threads: 10, Preset: slow
+[09:26:26.145] [c5.4xlarge-Vertical] Launching EC2 instance...
+[09:26:26.171] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:26:28.397] [c5.4xlarge-Vertical] Instance i-019947aee4edb8d0b launched. Waiting for running...
+[09:26:44.148] [c5.4xlarge-Vertical] Instance ready. IP: 18.232.156.234
+[09:27:10.443] [c5.4xlarge-Vertical] SSH connected.
+[09:27:11.417] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:27:11.417] [c5.4xlarge-Vertical] CPU mismatch (attempt 1/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:27:12.046] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:27:22.047] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:27:22.924] [c5.4xlarge-Vertical] Error on attempt 2: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:27:22.925] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:27:32.925] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:27:34.483] [c5.4xlarge-Vertical] Error on attempt 3: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:27:34.483] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:27:45.068] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:27:46.560] [c5.4xlarge-Vertical] Error on attempt 4: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:27:46.562] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:27:57.926] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:28:01.168] [c5.4xlarge-Vertical] Instance i-023f6b3336d5799f4 launched. Waiting for running...
+[09:28:17.025] [c5.4xlarge-Vertical] Instance ready. IP: 35.153.168.113
+[09:28:43.014] [c5.4xlarge-Vertical] SSH connected.
+[09:28:44.053] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[09:28:44.053] [c5.4xlarge-Vertical] CPU mismatch (attempt 5/15): got 'Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz', expected 'Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz'. Terminating and retrying...
+[09:28:44.688] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:28:54.689] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:28:55.827] [c5.4xlarge-Vertical] Error on attempt 6: An error occurred (VcpuLimitExceeded) when calling the RunInstances operation: You have requested more vCPU capacity than your current vCPU limit of 436 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit.
+[09:28:55.827] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:29:05.827] [c5.4xlarge-Vertical] [vCPU] Acquired 16 slots.
+[09:29:08.406] [c5.4xlarge-Vertical] Instance i-0c958cc3565ff180a launched. Waiting for running...
+[09:29:24.422] [c5.4xlarge-Vertical] Instance ready. IP: 18.209.107.129
+[09:29:50.685] [c5.4xlarge-Vertical] SSH connected.
+[09:29:51.767] [c5.4xlarge-Vertical] CPU found: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:29:51.768] [c5.4xlarge-Vertical] CPU correct. Proceeding.
+[09:29:51.768] [c5.4xlarge-Vertical] Installing ffmpeg...
+[09:30:24.274] [c5.4xlarge-Vertical] ffmpeg installed.
+[09:30:24.274] [c5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[09:30:24.275] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[09:30:55.214] [c5.4xlarge-Vertical] Upload complete.
+[09:30:55.215] [c5.4xlarge-Vertical] SETUP TIME: 109.39s (1.82 min)
+[09:30:55.216] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[09:31:31.877] [c5.4xlarge-Vertical] ENCODING TIME: 36.66s (0.61 min)
+[09:31:33.764] [c5.4xlarge-Vertical] Instance terminated.
+[09:31:33.764] [c5.4xlarge-Vertical] [vCPU] Released 16 slots.
+[09:31:33.765] [c5.4xlarge-Vertical] ============================================================
+[09:31:33.765] [c5.4xlarge-Vertical] RESULTS — c5.4xlarge Vertical
+[09:31:33.765] [c5.4xlarge-Vertical]   Total Time:    147.94s (2.47 min)
+[09:31:33.765] [c5.4xlarge-Vertical]   Setup Time:    109.39s (1.82 min)
+[09:31:33.765] [c5.4xlarge-Vertical]   Encoding Time: 36.66s (0.61 min)
+[09:31:33.765] [c5.4xlarge-Vertical]   Setup %:       73.9%
+[09:31:33.765] [c5.4xlarge-Vertical] ============================================================

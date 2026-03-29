@@ -1,0 +1,19 @@
+[22:00:54.098] [c7g.large-Serial-R21] === Serial c7g.large libx264 Run 21 ===
+[22:01:02.773] [c7g.large-Serial-R21] Instance i-08f10155609dc4d76 launched, waiting...
+[22:01:18.759] [c7g.large-Serial-R21] Instance ready. IP: 54.152.39.72
+[22:01:44.976] [c7g.large-Serial-R21] SSH connected.
+[22:01:46.370] [c7g.large-Serial-R21] Architecture: aarch64
+[22:01:47.102] [c7g.large-Serial-R21] Waiting for SFTP slot...
+[22:01:47.103] [c7g.large-Serial-R21] Uploading 10-min video...
+[22:02:19.816] [c7g.large-Serial-R21] Upload complete.
+[22:02:19.816] [c7g.large-Serial-R21] SETUP TIME: 85.39s
+[22:02:19.817] [c7g.large-Serial-R21] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[22:03:17.718] [c7g.large-Serial-R21] ENCODING TIME: 57.90s
+[22:03:17.719] [c7g.large-Serial-R21] ============================================================
+[22:03:17.719] [c7g.large-Serial-R21] RESULTS — c7g.large Serial libx264
+[22:03:17.720] [c7g.large-Serial-R21]   Total Time:    143.29s (2.39 min)
+[22:03:17.720] [c7g.large-Serial-R21]   Setup Time:    85.39s (1.42 min)
+[22:03:17.720] [c7g.large-Serial-R21]   Encoding Time: 57.90s (0.97 min)
+[22:03:17.720] [c7g.large-Serial-R21]   Setup %:       59.6%
+[22:03:17.720] [c7g.large-Serial-R21] ============================================================
+[22:03:19.731] [c7g.large-Serial-R21] Instance terminated.

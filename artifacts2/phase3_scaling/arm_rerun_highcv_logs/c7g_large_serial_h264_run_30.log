@@ -1,0 +1,21 @@
+[22:00:55.061] [c7g.large-Serial-R30] === Serial c7g.large libx264 Run 30 ===
+[22:01:14.114] [c7g.large-Serial-R30] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[22:16:16.564] [c7g.large-Serial-R30] === Serial c7g.large libx264 Run 30 ===
+[22:16:19.607] [c7g.large-Serial-R30] Instance i-0d75124cded408edd launched, waiting...
+[22:16:35.574] [c7g.large-Serial-R30] Instance ready. IP: 13.218.24.126
+[22:17:01.772] [c7g.large-Serial-R30] SSH connected.
+[22:17:02.737] [c7g.large-Serial-R30] Architecture: aarch64
+[22:17:03.345] [c7g.large-Serial-R30] Waiting for SFTP slot...
+[22:17:11.562] [c7g.large-Serial-R30] Uploading 10-min video...
+[22:17:50.472] [c7g.large-Serial-R30] Upload complete.
+[22:17:50.473] [c7g.large-Serial-R30] SETUP TIME: 93.90s
+[22:17:50.474] [c7g.large-Serial-R30] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[22:18:49.183] [c7g.large-Serial-R30] ENCODING TIME: 58.71s
+[22:18:49.184] [c7g.large-Serial-R30] ============================================================
+[22:18:49.184] [c7g.large-Serial-R30] RESULTS — c7g.large Serial libx264
+[22:18:49.184] [c7g.large-Serial-R30]   Total Time:    152.61s (2.54 min)
+[22:18:49.184] [c7g.large-Serial-R30]   Setup Time:    93.90s (1.56 min)
+[22:18:49.185] [c7g.large-Serial-R30]   Encoding Time: 58.71s (0.98 min)
+[22:18:49.185] [c7g.large-Serial-R30]   Setup %:       61.5%
+[22:18:49.185] [c7g.large-Serial-R30] ============================================================
+[22:18:50.289] [c7g.large-Serial-R30] Instance terminated.

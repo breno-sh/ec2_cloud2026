@@ -1,0 +1,54 @@
+[22:10:24.510] 
+======================================================================
+[22:10:24.510] TRIAL 1 — 5x m5.large | 120s chunks | 720p
+[22:10:24.510] ======================================================================
+[22:10:24.510] [Setup] Starting video split...
+[22:10:24.559] [Setup] Video: 596.5s, 1280x720 → 5 parts of 119.3s each
+[22:10:27.726] [Setup] Video split complete.
+[22:10:28.120] [Part 01] Launching m5.large...
+[22:10:28.158] [Part 00] Launching m5.large...
+[22:10:28.170] [Part 02] Launching m5.large...
+[22:10:28.173] [Part 04] Launching m5.large...
+[22:10:28.181] [Part 03] Launching m5.large...
+[22:10:48.854] [Part 04] Instance up (20.7s). IP: 3.92.169.226
+[22:10:52.312] [Part 02] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[22:10:52.312] [ERROR] Part 2 FAILED: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[22:10:54.269] [Part 03] Instance up (26.1s). IP: 98.81.126.116
+[22:10:54.890] [Part 00] Instance up (26.7s). IP: 3.90.168.214
+[22:10:55.013] [Part 01] Instance up (26.9s). IP: 54.152.69.31
+[22:13:42.594] [Part 01] Upload: 130.0s
+[22:13:48.583] [Part 00] Upload: 135.5s
+[22:13:52.298] [Part 03] Upload: 139.7s
+[22:13:56.577] [Part 04] Upload: 135.3s
+[22:16:51.725] [Part 01] Encode: 189.1s
+[22:16:59.711] [Part 03] Encode: 187.4s
+[22:17:11.543] [Part 01] Download: 19.8s
+[22:17:11.544] [Part 01] Complete! Total: 403.4s
+[22:17:12.634] [Part 04] Encode: 196.1s
+[22:17:12.827] [Part 01] Instance terminated.
+[22:17:26.688] [Part 03] Download: 27.0s
+[22:17:26.688] [Part 03] Complete! Total: 418.5s
+[22:17:29.660] [Part 03] Instance terminated.
+[22:17:35.579] [Part 00] Encode: 227.0s
+[22:18:00.048] [Part 04] Download: 47.4s
+[22:18:00.048] [Part 04] Complete! Total: 451.9s
+[22:18:03.212] [Part 04] Instance terminated.
+[22:18:06.898] [Part 00] Download: 31.3s
+[22:18:06.898] [Part 00] Complete! Total: 458.7s
+[22:18:08.214] [Part 00] Instance terminated.
+[22:18:08.216] 
+──────────────────────────────────────────────────
+[22:18:08.216] TRIAL 1 RESULTS — 720p_m5.large_120s
+[22:18:08.216]   Total Time:    463.71s  (7.728 min)
+[22:18:08.216]   Split Time:    3.22s
+[22:18:08.216]   Parallel Time: 460.49s  (7.675 min)
+[22:18:08.216]   Avg Encode:    199.90s
+[22:18:08.216]   Avg Provision: 25.10s
+[22:18:08.216]   Avg Upload:    135.10s
+[22:18:08.216]   Avg Download:  31.38s
+[22:18:08.216]   Max Encode:    227.00s (bottleneck part)
+[22:18:08.216] ──────────────────────────────────────────────────
+
+[22:18:08.216] 
+>>> Completed 1/1 trials <<<
+
