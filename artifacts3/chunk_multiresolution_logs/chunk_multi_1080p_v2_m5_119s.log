@@ -1,0 +1,66 @@
+[23:44:55.945] 
+======================================================================
+[23:44:55.945] TRIAL 1 — 5x m5.large | 120s chunks | 1080p_v2
+[23:44:55.945]   Pipeline: batches of 10, SFTP capped at 10 concurrent
+[23:44:55.945] ======================================================================
+[23:44:55.945] [Setup] Starting video split...
+[23:44:55.992] [Setup] Video: 596.5s, 1920x1080 → 5 parts of 119.3s each
+[23:44:57.107] [Setup] Video split complete.
+[23:44:57.107] [Pipeline] 
+>>> BATCH 1/1: parts [0, 1, 2, 3, 4] <<<
+[23:44:57.107] [Pipeline] Provisioning...
+[23:44:57.501] [Part 03] Launching m5.large...
+[23:44:57.515] [Part 04] Launching m5.large...
+[23:44:57.547] [Part 01] Launching m5.large...
+[23:44:57.555] [Part 00] Launching m5.large...
+[23:44:57.564] [Part 02] Launching m5.large...
+[23:45:15.264] [Part 03] Instance up (17.8s). IP: 18.212.116.232
+[23:45:15.266] [Part 02] Instance up (17.7s). IP: 98.81.4.102
+[23:45:15.270] [Part 04] Instance up (17.8s). IP: 54.211.150.9
+[23:45:15.272] [Part 00] Instance up (17.7s). IP: 54.152.247.102
+[23:45:15.399] [Part 01] Instance up (17.9s). IP: 18.206.183.214
+[23:45:48.520] [Pipeline] Uploading...
+[23:46:24.767] [Part 01] Upload: 35.8s
+[23:46:41.307] [Part 03] Upload: 52.4s
+[23:46:41.931] [Part 04] Upload: 53.0s
+[23:46:48.025] [Part 00] Upload: 59.1s
+[23:46:49.659] [Part 02] Upload: 59.9s
+[23:46:49.659] [Pipeline] Starting encodes...
+[23:46:49.961] [Part 00] Encode started
+[23:46:50.236] [Part 01] Encode started
+[23:46:50.521] [Part 02] Encode started
+[23:46:50.796] [Part 03] Encode started
+[23:46:51.066] [Part 04] Encode started
+[23:46:51.066] [Pipeline] 
+Collecting final batch results...
+[23:52:11.155] [Part 00] Encode done: 321.2s
+[23:52:24.106] [Part 00] Download: 12.3s
+[23:52:25.214] [Part 00] Terminated
+[23:52:42.968] [Part 01] Encode done: 352.7s
+[23:52:58.857] [Part 01] Download: 15.3s
+[23:52:59.919] [Part 01] Terminated
+[23:53:10.264] [Part 02] Encode done: 379.7s
+[23:53:22.810] [Part 02] Download: 12.0s
+[23:53:23.874] [Part 02] Terminated
+[23:53:23.875] [Part 03] Encode done: 393.1s
+[23:53:41.441] [Part 03] Download: 17.2s
+[23:53:42.545] [Part 03] Terminated
+[23:53:42.546] [Part 04] Encode done: 411.5s
+[23:53:54.677] [Part 04] Download: 11.7s
+[23:53:55.825] [Part 04] Terminated
+[23:53:55.826] 
+──────────────────────────────────────────────────
+[23:53:55.831] TRIAL 1 RESULTS — 1080p_v2_m5.large_120s
+[23:53:55.832]   Total Time:    539.88s  (8.998 min)
+[23:53:55.832]   Split Time:    1.16s
+[23:53:55.832]   Parallel Time: 538.72s  (8.979 min)
+[23:53:55.832]   Avg Encode:    371.65s
+[23:53:55.832]   Avg Provision: 17.76s
+[23:53:55.832]   Avg Upload:    52.04s
+[23:53:55.832]   Avg Download:  13.69s
+[23:53:55.832]   Max Encode:    411.48s (bottleneck part)
+[23:53:55.832] ──────────────────────────────────────────────────
+
+[23:53:55.833] 
+>>> Completed 1/1 trials <<<
+
