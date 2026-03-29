@@ -1,0 +1,11 @@
+Instance,Strategy,Codec,Runs,Mean,Median,Stdev
+c5.large,serial,libx264,30,76.51,79.84,24.94
+c7g.large,serial,libvpx-vp9,28,329.07,328.75,1.6
+c7g.large,serial,libx264,12,81.37,58.17,32.25
+c7g.large,serial,libx265,30,684.29,702.14,99.62
+m5.large,serial,libx264,12,103.1,103.13,0.21
+m7g.large,horizontal,libx264,7,72.25,66.81,16.53
+m7g.large,horizontal,libx265,1,139.36,139.36,0
+m7g.large,serial,libvpx-vp9,18,329.41,329.03,1.41
+m7g.large,serial,libx264,30,57.72,57.55,0.61
+m7g.large,serial,libx265,27,687.92,700.5,71.86

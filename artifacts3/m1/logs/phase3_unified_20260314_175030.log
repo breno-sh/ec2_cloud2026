@@ -1,0 +1,20 @@
+[17:50:30.942] ======================================================================
+[17:50:30.942] CONFIGURATION
+[17:50:30.942]   Instance type:  t3.micro → effective: t3.2xlarge
+[17:50:30.942]   Strategy:       vertical
+[17:50:30.942]   Codec:          libx265
+[17:50:30.942]   Threads:        10
+[17:50:30.942]   Region:         us-east-1
+[17:50:30.942]   AMI:            ami-06c7c20c67513469a
+[17:50:30.942]   Architecture:   x86_64
+[17:50:30.942]   Runs:           30
+[17:50:30.942] ======================================================================
+[17:50:31.039] === Phase 3.2 Vertical: 1x t3.2xlarge ===
+[17:50:31.039] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 10 | Runs: 30
+[17:50:31.039] [t3.2xlarge-Vertical] Launching EC2 instance...
+[17:50:32.963] [t3.2xlarge-Vertical] Instance i-0d92aa04b21c240e0 launched. Waiting...
+[17:50:48.639] [t3.2xlarge-Vertical] Instance ready. IP: 35.153.129.25
+[17:51:19.542] [t3.2xlarge-Vertical] SSH connected.
+[17:51:19.542] [t3.2xlarge-Vertical] Uploading 10-minute video...
+[17:51:20.862] [t3.2xlarge-Vertical] ERROR: [Errno 2] No such file or directory: '/home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/artifacts/test_videos/video_repetido_10min.mp4'
+[17:51:21.482] [t3.2xlarge-Vertical] Instance terminated.

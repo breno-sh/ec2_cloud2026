@@ -1,0 +1,13 @@
+[19:46:29.236] [W8] Launching c7g.large...
+[19:46:47.237] [W8] Ready at 54.205.147.16, sleeping 30s...
+[19:47:19.894] [W8] Uploading video (once)...
+[20:00:02.163] [W8] Upload done. Starting 3 encodes...
+[20:11:45.462] [W8] Run 1/3 done: 703.30s
+[20:23:28.758] [W8] Run 2/3 done: 703.30s
+[20:35:10.712] [W8] Run 3/3 done: 701.95s
+[20:35:10.712] [W8] === RESULTS — c7g.large Serial H.265 (worker 8) ===
+[20:35:10.712] [W8]   Run 1: 703.2985s
+[20:35:10.712] [W8]   Run 2: 703.2958s
+[20:35:10.712] [W8]   Run 3: 701.9537s
+[20:35:10.712] [W8] === END ===
+[20:35:11.809] [W8] Instance terminated.

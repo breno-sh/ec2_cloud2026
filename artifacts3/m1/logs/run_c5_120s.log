@@ -1,0 +1,31 @@
+[07:33:20.101] === Chunk Sensitivity: 5x c5.large (120s/chunk) ===
+[07:33:20.101] [Setup] Starting video split...
+[07:33:20.307] [Setup] Video: 600.0s → 5 parts of 120.0s each
+[07:33:21.997] [Setup] Video split complete.
+[07:33:21.998] [Summary] SPLIT TIME: 1.90s
+[07:33:22.892] [Part 00] Launching c5.large...
+[07:33:22.974] [Part 02] Launching c5.large...
+[07:33:22.990] [Part 03] Launching c5.large...
+[07:33:23.033] [Part 01] Launching c5.large...
+[07:33:23.047] [Part 04] Launching c5.large...
+[07:33:40.622] [Part 00] Instance up. IP: 54.226.102.70
+[07:33:40.697] [Part 04] Instance up. IP: 44.203.74.132
+[07:33:40.712] [Part 01] Instance up. IP: 3.82.175.96
+[07:33:40.788] [Part 02] Instance up. IP: 3.93.3.215
+[07:33:40.823] [Part 03] Instance up. IP: 44.201.134.90
+[07:35:01.387] [Part 01] Part complete!
+[07:35:02.410] [Part 01] Instance terminated.
+[07:35:04.585] [Part 00] Part complete!
+[07:35:05.608] [Part 00] Instance terminated.
+[07:35:10.177] [Part 03] Part complete!
+[07:35:11.082] [Part 02] Part complete!
+[07:35:11.202] [Part 03] Instance terminated.
+[07:35:12.600] [Part 02] Instance terminated.
+[07:35:17.760] [Part 04] Part complete!
+[07:35:18.782] [Part 04] Instance terminated.
+[07:35:18.789] ============================================================
+[07:35:18.789] RESULTS — 5x c5.large | 120s/chunk
+[07:35:18.789]   Total Time:    118.69s  (1.978 min)
+[07:35:18.789]   Split Time:    1.90s
+[07:35:18.789]   Parallel Time: 116.79s  (1.947 min)
+[07:35:18.789] ============================================================

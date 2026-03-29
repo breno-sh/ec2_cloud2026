@@ -1,0 +1,121 @@
+[18:22:13.167] ======================================================================
+[18:22:13.168] CONFIGURATION
+[18:22:13.168]   Instance type:  c5.large → effective: c5.large
+[18:22:13.168]   Strategy:       serial
+[18:22:13.169]   Codec:          libvpx-vp9
+[18:22:13.169]   Threads:        5
+[18:22:13.169]   Region:         us-east-1
+[18:22:13.169]   AMI:            ami-06c7c20c67513469a
+[18:22:13.169]   Architecture:   x86_64
+[18:22:13.169]   Runs:           30
+[18:22:13.170] ====================================================================[18[18:22:13.381] === Phase 3.2 Serial: 1x c5.large ===
+[18:22:13.381] AMI: ami-06c7c20c67513469a | Codec: libvpx-vp9 | Threads: 5 | Runs: 30
+[18:22:13.381] [c5.large-Serial] Launching EC2 instan[18:22[18:22:15.169] [m5.large-Seri[18:25:20.912] Horizontal Run 1 completed in 187.82s
+[18:25:20.912] --- Horizontal Run 2/30 ---
+[18:25:20.912] [Setup] Splitting video...
+[18:26:29.907] Horizontal Run 2 completed in 69.00s
+[18:26:29.908] --- Horizontal Run 3/30 ---
+[18:26:29.908] [Setup] Splitting video...
+[18:27:29.171] Horizontal Run 3 completed in 59.26s
+[18:27:29.171] --- Horizontal Run 4/30 ---
+[18:27:29.172] [Setup] Splitting video...
+[18:29:19.516] Horizontal Run 4 completed in 110.34s
+[18:29:19.516] --- Horizontal Run 5/30 ---
+[18:29:19.516] [Setup] [18[18:31:53.107] [m5.large-Serial] Done: 475.59s
+[18:31:58.108] [m5.large-Serial] --- Run 2/30 ---
+[18:31:58.430] [m5.large-Serial] Running: ffmpeg -i /home[18:33:03.821] Horizontal Run 6 completed in 114.52s
+[18:33:03.822] --- Horizontal R[18[18:38:51.828] [m5.large-Serial] Done: 413.72s
+[18:38:56.829] [m5.large-Serial] --- Run 3/30 ---
+[18:38:57.070] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.m[18[18:45:51.307] [m5.large-Serial] Done: 414.48s
+[18:45:56.307] [m5.large-Serial] --- Run 4/30 ---
+[18:45:56.541] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.m[18[18:52:49.717] [m5.large-Serial] Done: 413.41s
+[18:52:54.717] [m5.large-Serial] --- Run 5/30 ---
+[18:52:55.216] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.m[18[18:59:49.482] [m5.large-Serial] Done: 414.77s
+[18:59:54.483] [m5.large-Serial] --- Run 6/30 ---
+[18:59:55.486] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.m[19[19:06:49.742] [m5.large-Serial] Done: 415.26s
+[19:06:54.743] [m5.large-Serial] --- Run 7/30 ---
+[19:06:54.971] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.m[19[19:13:49.473] [m5.large-Serial] Done: 414.73s
+[19:13:54.473] [m5.large-Serial] --- Run 8/30 ---
+[19:13:54.700] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[19:20:49.078] [m5.large-Serial] Done: 414.60s
+[19:20:54.078] [m5.large-Serial] --- Run 9/30 ---
+[19:20:54.306] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[19:27:48.258] [m5.large-Serial] Done: 414.18s
+[19:27:53.258] [m5.large-Serial] --- Run 10/30 ---
+[19:27:53.487] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[19:34:31.598] [m5.large-Serial] Done: 398.34s
+[19:34:36.598] [m5.large-Serial] --- Run 11/30 ---
+[19:34:36.829] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[19:41:30.471] [m5.large-Serial] Done: 413.87s
+[19:41:35.472] [m5.large-Serial] --- Run 12/30 ---
+[19:41:35.700] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[19:48:30.482] [m5.large-Serial] Done: 415.01s
+[19:48:35.482] [m5.large-Serial] --- Run 13/30 ---
+[19:48:35.721] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[19:55:28.830] [m5.large-Serial] Done: 413.35s
+[19:55:33.830] [m5.large-Serial] --- Run 14/30 ---
+[19:55:34.057] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:02:27.645] [m5.large-Serial] Done: 413.81s
+[20:02:32.645] [m5.large-Serial] --- Run 15/30 ---
+[20:02:32.873] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:09:25.687] [m5.large-Serial] Done: 413.04s
+[20:09:30.688] [m5.large-Serial] --- Run 16/30 ---
+[20:09:30.915] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:16:25.404] [m5.large-Serial] Done: 414.72s
+[20:16:30.405] [m5.large-Serial] --- Run 17/30 ---
+[20:16:30.631] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:23:23.941] [m5.large-Serial] Done: 413.54s
+[20:23:28.942] [m5.large-Serial] --- Run 18/30 ---
+[20:23:29.170] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:30:23.323] [m5.large-Serial] Done: 414.38s
+[20:30:28.324] [m5.large-Serial] --- Run 19/30 ---
+[20:30:28.551] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:37:22.703] [m5.large-Serial] Done: 414.38s
+[20:37:27.703] [m5.large-Serial] --- Run 20/30 ---
+[20:37:27.932] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:44:21.534] [m5.large-Serial] Done: 413.83s
+[20:44:26.534] [m5.large-Serial] --- Run 21/30 ---
+[20:44:26.763] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:51:20.333] [m5.large-Serial] Done: 413.80s
+[20:51:25.334] [m5.large-Serial] --- Run 22/30 ---
+[20:51:25.563] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[20:58:18.989] [m5.large-Serial] Done: 413.65s
+[20:58:23.989] [m5.large-Serial] --- Run 23/30 ---
+[20:58:24.216] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:05:17.865] [m5.large-Serial] Done: 413.88s
+[21:05:22.865] [m5.large-Serial] --- Run 24/30 ---
+[21:05:23.094] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:12:16.767] [m5.large-Serial] Done: 413.90s
+[21:12:21.767] [m5.large-Serial] --- Run 25/30 ---
+[21:12:21.995] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:19:15.141] [m5.large-Serial] Done: 413.37s
+[21:19:20.142] [m5.large-Serial] --- Run 26/30 ---
+[21:19:20.370] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:26:16.461] [m5.large-Serial] Done: 416.32s
+[21:26:21.461] [m5.large-Serial] --- Run 27/30 ---
+[21:26:21.690] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:33:15.267] [m5.large-Serial] Done: 413.81s
+[21:33:20.267] [m5.large-Serial] --- Run 28/30 ---
+[21:33:20.495] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:40:13.533] [m5.large-Serial] Done: 413.27s
+[21:40:18.534] [m5.large-Serial] --- Run 29/30 ---
+[21:40:18.762] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:47:12.914] [m5.large-Serial] Done: 414.38s
+[21:47:17.914] [m5.large-Serial] --- Run 30/30 ---
+[21:47:18.143] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[21:54:11.337] [m5.large-Serial] Done: 413.42s
+[21:54:12.318] [m5.large-Serial] Instance terminated.
+[21:54:12.332] 
+======================================================================
+[21:54:12.332] AGGREGATE RESULTS — 30/30 successful runs
+[21:54:12.332]   Instance:  m5.large | Strategy: serial
+[21:54:12.332]   Codec:     libx265
+[21:54:12.332]   Mean:      415.63s
+[21:54:12.333]   Median:    413.87s
+[21:54:12.333]   Stdev:     11.70s
+[21:54:12.333]   Min:       398.34s
+[21:54:12.333]   Max:       475.59s
+[21:54:12.333] ======================================================================
+  460.80s
+[21:48:08.581] ======================================================================
+

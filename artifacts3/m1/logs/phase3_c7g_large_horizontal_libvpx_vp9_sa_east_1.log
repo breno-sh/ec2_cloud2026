@@ -1,0 +1,15 @@
+[07:57:26.558] WARNING: AMI not configured for sa-east-1/aarch64. AMI ID: ami-PLACEHOLDER_SA_ARM
+[07:57:26.558] ======================================================================
+[07:57:26.558] CONFIGURATION
+[07:57:26.558]   Instance type:  c7g.large → effective: c7g.large
+[07:57:26.558]   Strategy:       horizontal
+[07:57:26.558]   Codec:          libvpx-vp9
+[07:57:26.558]   Threads:        5
+[07:57:26.558]   Region:         sa-east-1
+[07:57:26.558]   AMI:            ami-PLACEHOLDER_SA_ARM
+[07:57:26.558]   Architecture:   aarch64
+[07:57:26.558]   Family:         C-ARM
+[07:57:26.558]   Runs:           30
+[07:57:26.558]   Chunks:         10
+[07:57:26.558] ======================================================================
+[07:57:26.558] DRY RUN — exiting without launching instances.

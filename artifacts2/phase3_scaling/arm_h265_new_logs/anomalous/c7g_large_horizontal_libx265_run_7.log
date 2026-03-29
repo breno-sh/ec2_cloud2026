@@ -1,0 +1,50 @@
+[19:27:07.225] === Phase 3.2 OPTIMIZED Horizontal: 10x c7g.large ===
+[19:27:07.225] AMI: ami-0976d56fa61f42304 (ffmpeg pre-installed) | Codec: libx265 | Threads: 5
+[19:27:07.225] [Setup] Starting video split...
+[19:27:07.548] [Setup] Video: 600.0s → 10 parts of 60.0s
+[19:27:11.003] [Setup] Video split complete.
+[19:27:11.003] [Summary] SPLIT TIME: 3.78s
+[19:27:12.855] [Part 05] Launching c7g.large...
+[19:27:12.860] [Part 00] Launching c7g.large...
+[19:27:12.895] [Part 02] Launching c7g.large...
+[19:27:12.912] [Part 04] Launching c7g.large...[19:27:12.919] [Part 06] Launching c7g.large...[19:27:12.929] [Part 01] Launching c7g.large...
+
+
+[19:27:12.972] [Part 08] Launching c7g.large...
+[19:27:12.975] [Part 03] Launching c7g.large...
+[19:27:12.985] [Part 07] Launching c7g.large...
+[19:27:12.998] [Part 09] Launching c7g.large...
+[19:27:26.031] [Part 00] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:27:26.934] [Part 03] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:27:28.205] [Part 06] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:27:31.076] [Part 05] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:27:31.492] [Part 07] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:27:31.683] [Part 04] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:27:31.992] [Part 08] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:27:41.493] [Part 02] Instance ready. IP: 54.81.207.187
+[19:27:43.145] [Part 01] Instance ready. IP: 54.156.53.251
+[19:27:50.631] [Part 09] Instance ready. IP: 54.196.104.236
+[19:28:14.507] [Part 02] CPU: aarch64
+CPU part	: 0xd40
+[19:28:15.296] [Part 02] Uploading segment...
+[19:28:15.952] [Part 01] CPU: aarch64
+CPU part	: 0xd40
+[19:28:17.055] [Part 01] Uploading segment...
+[19:28:24.264] [Part 09] CPU: aarch64
+CPU part	: 0xd40
+[19:28:25.230] [Part 09] Uploading segment...
+[19:30:17.135] [Part 01] Running compression...
+[19:30:19.325] [Part 02] Running compression...
+[19:30:20.414] [Part 09] Running compression...
+[19:34:54.352] [Part 01] Done!
+[19:35:12.607] [Part 01] Instance terminated.
+[19:35:15.282] [Part 09] Done!
+[19:35:22.038] [Part 09] Instance terminated.
+[19:35:36.427] [Part 02] Done!
+[19:36:03.479] [Part 02] Instance terminated.
+[19:36:03.480] ============================================================
+[19:36:03.480] RESULTS — 10x c7g.large Horizontal OPTIMIZED
+[19:36:03.480]   Total Time:    536.26s (8.94 min)
+[19:36:03.480]   Split Time:    3.78s
+[19:36:03.480]   Parallel Time: 532.48s (8.87 min)
+[19:36:03.480] ============================================================

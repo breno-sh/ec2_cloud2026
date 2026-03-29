@@ -1,0 +1,24 @@
+[02:08:52.479] === Phase 3.2 Vertical Scaling: 1x m5.4xlarge ===
+[02:08:52.479] Codec: libx264, Threads: 10, Preset: slow
+[02:08:52.479] Video: /home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/test_videos/video_repetido_10min.mp4
+[02:08:52.479] [m5.4xlarge-Vertical] Launching EC2 instance...
+[02:08:54.379] [m5.4xlarge-Vertical] Instance i-068d0c62bde78ee81 launched. Waiting...
+[02:09:10.209] [m5.4xlarge-Vertical] Instance ready. IP: 54.91.233.45
+[02:09:41.103] [m5.4xlarge-Vertical] SSH connected.
+[02:09:41.103] [m5.4xlarge-Vertical] Installing ffmpeg...
+[02:10:16.635] [m5.4xlarge-Vertical] ffmpeg installed.
+[02:10:17.026] [m5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[02:10:17.026] [m5.4xlarge-Vertical] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[02:10:17.026] [m5.4xlarge-Vertical] Uploading 10-minute video...
+[02:10:23.868] [m5.4xlarge-Vertical] Upload complete.
+[02:10:23.869] [m5.4xlarge-Vertical] SETUP TIME: 91.39s (1.52 min)
+[02:10:23.869] [m5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -y /home/ubuntu/output.mp4
+[02:11:05.451] [m5.4xlarge-Vertical] ENCODING TIME: 41.58s (0.69 min)
+[02:11:07.632] [m5.4xlarge-Vertical] Instance terminated.
+[02:11:07.633] [m5.4xlarge-Vertical] ============================================================
+[02:11:07.633] [m5.4xlarge-Vertical] RESULTS — m5.4xlarge Vertical
+[02:11:07.633] [m5.4xlarge-Vertical]   Total Time:    132.97s (2.22 min)
+[02:11:07.633] [m5.4xlarge-Vertical]   Setup Time:    91.39s (1.52 min)
+[02:11:07.633] [m5.4xlarge-Vertical]   Encoding Time: 41.58s (0.69 min)
+[02:11:07.633] [m5.4xlarge-Vertical]   Setup %:       68.7%
+[02:11:07.633] [m5.4xlarge-Vertical] ============================================================

@@ -1,0 +1,114 @@
+[03:14:22.886] ======================================================================
+[03:14:22.886] CONFIGURATION
+[03:14:22.886]   Instance type:  c5.large → effective: c5.large
+[03:14:22.886]   Strategy:       horizontal
+[03:14:22.886]   Codec:          libx265
+[03:14:22.886]   Threads:        5
+[03:14:22.886]   Region:         us-east-1
+[03:14:22.886]   AMI:            ami-06c7c20c67513469a
+[03:14:22.886]   Architecture:   x86_64
+[03:14:22.886]   Runs:           30
+[03:14:22.886] ======================================================================
+[03:14:22.886] === Phase 3.2 Horizontal: 10x c5.large ===
+[03:14:22.886] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5 | Runs: 30
+[03:14:22.886] --- Horizontal Run 1/30 ---
+[03:14:22.886] [Setup] Splitting video...
+[03:15:27.707] Horizontal Run 1 completed in 64.82s
+[03:15:27.707] --- Horizontal Run 2/30 ---
+[03:15:27.707] [Setup] Splitting video...
+[03:16:32.466] Horizontal Run 2 completed in 64.76s
+[03:16:32.466] --- Horizontal Run 3/30 ---
+[03:16:32.466] [Setup] Splitting video...
+[03:17:37.180] Horizontal Run 3 completed in 64.71s
+[03:17:37.180] --- Horizontal Run 4/30 ---
+[03:17:37.180] [Setup] Splitting video...
+[03:18:41.614] Horizontal Run 4 completed in 64.43s
+[03:18:41.614] --- Horizontal Run 5/30 ---
+[03:18:41.615] [Setup] Splitting video...
+[03:19:48.141] Horizontal Run 5 completed in 66.53s
+[03:19:48.142] --- Horizontal Run 6/30 ---
+[03:19:48.142] [Setup] Splitting video...
+[03:20:45.003] Horizontal Run 6 completed in 56.86s
+[03:20:45.004] --- Horizontal Run 7/30 ---
+[03:20:45.004] [Setup] Splitting video...
+[03:21:42.119] Horizontal Run 7 completed in 57.12s
+[03:21:42.120] --- Horizontal Run 8/30 ---
+[03:21:42.120] [Setup] Splitting video...
+[03:22:47.282] Horizontal Run 8 completed in 65.16s
+[03:22:47.282] --- Horizontal Run 9/30 ---
+[03:22:47.282] [Setup] Splitting video...
+[03:23:44.694] Horizontal Run 9 completed in 57.41s
+[03:23:44.694] --- Horizontal Run 10/30 ---
+[03:23:44.694] [Setup] Splitting video...
+[03:24:42.298] Horizontal Run 10 completed in 57.60s
+[03:24:42.298] --- Horizontal Run 11/30 ---
+[03:24:42.298] [Setup] Splitting video...
+[03:25:39.719] Horizontal Run 11 completed in 57.42s
+[03:25:39.719] --- Horizontal Run 12/30 ---
+[03:25:39.719] [Setup] Splitting video...
+[03:26:37.383] Horizontal Run 12 completed in 57.66s
+[03:26:37.383] --- Horizontal Run 13/30 ---
+[03:26:37.383] [Setup] Splitting video...
+[03:27:34.574] Horizontal Run 13 completed in 57.19s
+[03:27:34.574] --- Horizontal Run 14/30 ---
+[03:27:34.574] [Setup] Splitting video...
+[03:28:31.623] Horizontal Run 14 completed in 57.05s
+[03:28:31.623] --- Horizontal Run 15/30 ---
+[03:28:31.623] [Setup] Splitting video...
+[03:29:28.700] Horizontal Run 15 completed in 57.08s
+[03:29:28.700] --- Horizontal Run 16/30 ---
+[03:29:28.700] [Setup] Splitting video...
+[03:30:25.385] Horizontal Run 16 completed in 56.69s
+[03:30:25.385] --- Horizontal Run 17/30 ---
+[03:30:25.385] [Setup] Splitting video...
+[03:31:22.544] Horizontal Run 17 completed in 57.16s
+[03:31:22.544] --- Horizontal Run 18/30 ---
+[03:31:22.544] [Setup] Splitting video...
+[03:32:19.877] Horizontal Run 18 completed in 57.33s
+[03:32:19.878] --- Horizontal Run 19/30 ---
+[03:32:19.878] [Setup] Splitting video...
+[03:33:16.674] Horizontal Run 19 completed in 56.80s
+[03:33:16.674] --- Horizontal Run 20/30 ---
+[03:33:16.674] [Setup] Splitting video...
+[03:34:14.444] Horizontal Run 20 completed in 57.77s
+[03:34:14.445] --- Horizontal Run 21/30 ---
+[03:34:14.445] [Setup] Splitting video...
+[03:35:11.935] Horizontal Run 21 completed in 57.49s
+[03:35:11.936] --- Horizontal Run 22/30 ---
+[03:35:11.936] [Setup] Splitting video...
+[03:36:08.872] Horizontal Run 22 completed in 56.94s
+[03:36:08.872] --- Horizontal Run 23/30 ---
+[03:36:08.872] [Setup] Splitting video...
+[03:37:06.241] Horizontal Run 23 completed in 57.37s
+[03:37:06.242] --- Horizontal Run 24/30 ---
+[03:37:06.242] [Setup] Splitting video...
+[03:38:03.665] Horizontal Run 24 completed in 57.42s
+[03:38:03.665] --- Horizontal Run 25/30 ---
+[03:38:03.665] [Setup] Splitting video...
+[03:39:01.058] Horizontal Run 25 completed in 57.39s
+[03:39:01.058] --- Horizontal Run 26/30 ---
+[03:39:01.059] [Setup] Splitting video...
+[03:39:57.892] Horizontal Run 26 completed in 56.83s
+[03:39:57.892] --- Horizontal Run 27/30 ---
+[03:39:57.893] [Setup] Splitting video...
+[03:40:54.756] Horizontal Run 27 completed in 56.86s
+[03:40:54.756] --- Horizontal Run 28/30 ---
+[03:40:54.756] [Setup] Splitting video...
+[03:41:52.144] Horizontal Run 28 completed in 57.39s
+[03:41:52.145] --- Horizontal Run 29/30 ---
+[03:41:52.145] [Setup] Splitting video...
+[03:42:49.198] Horizontal Run 29 completed in 57.05s
+[03:42:49.198] --- Horizontal Run 30/30 ---
+[03:42:49.199] [Setup] Splitting video...
+[03:43:46.073] Horizontal Run 30 completed in 56.87s
+[03:43:46.083] 
+======================================================================
+[03:43:46.084] AGGREGATE RESULTS — 30/30 successful runs
+[03:43:46.084]   Instance:  c5.large | Strategy: horizontal
+[03:43:46.084]   Codec:     libx265
+[03:43:46.084]   Mean:      58.77s
+[03:43:46.085]   Median:    57.38s
+[03:43:46.085]   Stdev:     3.23s
+[03:43:46.085]   Min:       56.69s
+[03:43:46.086]   Max:       66.53s
+[03:43:46.086] ======================================================================

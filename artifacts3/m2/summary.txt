@@ -1,0 +1,6 @@
+Codec        Instance     Strategy     Runs  Mean       Median    
+----------------------------------------------------------------------
+libx264      c5.4xlarge   vertical     30    30.86      30.73     
+libx264      c5.large     horizontal   30    70.44      64.41     
+libx264      m5.4xlarge   vertical     30    31.77      31.71     
+libx264      m5.large     serial       30    76.51      79.85     

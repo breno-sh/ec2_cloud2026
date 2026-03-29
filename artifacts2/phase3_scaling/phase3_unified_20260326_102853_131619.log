@@ -1,0 +1,42 @@
+[10:28:53.132] ======================================================================
+[10:28:53.132] CONFIGURATION
+[10:28:53.132]   Instance type:  m7g.large → effective: m7g.large
+[10:28:53.132]   Strategy:       horizontal
+[10:28:53.132]   Codec:          libx264
+[10:28:53.132]   Threads:        5
+[10:28:53.132]   Region:         us-east-1
+[10:28:53.132]   AMI:            ami-0976d56fa61f42304
+[10:28:53.132]   Architecture:   aarch64
+[10:28:53.132]   Runs:           6
+[10:28:53.132] ======================================================================
+[10:28:53.132] === Phase 3.2 Horizontal: 10x m7g.large ===
+[10:28:53.132] AMI: ami-0976d56fa61f42304 | Codec: libx264 | Threads: 5 | Runs: 6
+[10:28:53.132] --- Horizontal Run 1/6 ---
+[10:28:53.132] [Setup] Splitting video...
+[10:29:49.464] Horizontal Run 1 completed in 56.33s
+[10:29:49.464] --- Horizontal Run 2/6 ---
+[10:29:49.464] [Setup] Splitting video...
+[10:31:25.523] Horizontal Run 2 completed in 96.06s
+[10:31:25.523] --- Horizontal Run 3/6 ---
+[10:31:25.523] [Setup] Splitting video...
+[10:32:48.452] Horizontal Run 3 completed in 82.93s
+[10:32:48.452] --- Horizontal Run 4/6 ---
+[10:32:48.452] [Setup] Splitting video...
+[10:33:44.183] Horizontal Run 4 completed in 55.73s
+[10:33:44.184] --- Horizontal Run 5/6 ---
+[10:33:44.184] [Setup] Splitting video...
+[10:35:12.200] Horizontal Run 5 completed in 88.02s
+[10:35:12.201] --- Horizontal Run 6/6 ---
+[10:35:12.201] [Setup] Splitting video...
+[10:36:12.061] Horizontal Run 6 completed in 59.86s
+[10:36:12.078] 
+======================================================================
+[10:36:12.078] AGGREGATE RESULTS — 6/6 successful runs
+[10:36:12.078]   Instance:  m7g.large | Strategy: horizontal
+[10:36:12.078]   Codec:     libx264
+[10:36:12.078]   Mean:      73.15s
+[10:36:12.079]   Median:    71.39s
+[10:36:12.079]   Stdev:     17.91s
+[10:36:12.079]   Min:       55.73s
+[10:36:12.079]   Max:       96.06s
+[10:36:12.079] ======================================================================

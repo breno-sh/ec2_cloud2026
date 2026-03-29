@@ -1,0 +1,117 @@
+[17:06:09] === Serial encoding benchmark — 1 run per (instance, codec) ===
+[17:06:09] Instances: ['m5.large', 'c5.large', 'm7g.large', 'c7g.large']
+[17:06:09] Codecs: ['libx264', 'libx265', 'libvpx-vp9']
+[17:06:09] S3 URL generated (2h validity)
+[17:06:10] [m5.large/libx264] Launching...
+[17:06:10] [c7g.large/libvpx-vp9] Launching...
+[17:06:10] [c5.large/libvpx-vp9] Launching...
+[17:06:10] [c5.large/libx265] Launching...
+[17:06:10] [c7g.large/libx265] Launching...
+[17:06:10] [c5.large/libx264] Launching...
+[17:06:10] [c7g.large/libx264] Launching...
+[17:06:10] [m7g.large/libvpx-vp9] Launching...
+[17:06:10] [m7g.large/libx264] Launching...
+[17:06:10] [m5.large/libx265] Launching...
+[17:06:10] [m7g.large/libx265] Launching...
+[17:06:10] [m5.large/libvpx-vp9] Launching...
+[17:06:28] [m7g.large/libvpx-vp9] Running (18.3s). IP: 3.84.69.69
+[17:06:28] [c7g.large/libx264] Running (18.3s). IP: 3.227.219.244
+[17:06:28] [c7g.large/libvpx-vp9] Running (18.3s). IP: 32.195.201.56
+[17:06:28] [c5.large/libvpx-vp9] Running (18.4s). IP: 100.48.56.186
+[17:06:28] [m7g.large/libx265] Running (18.3s). IP: 18.212.108.180
+[17:06:28] [m7g.large/libx264] Running (18.3s). IP: 54.81.27.8
+[17:06:28] [c5.large/libx265] Running (18.4s). IP: 100.55.96.213
+[17:06:28] [m5.large/libvpx-vp9] Running (18.3s). IP: 52.71.32.15
+[17:06:28] [c5.large/libx264] Running (18.4s). IP: 100.48.73.192
+[17:06:28] [m5.large/libx265] Running (18.4s). IP: 3.84.129.78
+[17:06:28] [m5.large/libx264] Running (18.5s). IP: 54.91.46.50
+[17:06:28] [c7g.large/libx265] Running (18.5s). IP: 44.210.18.128
+[17:06:59] [m7g.large/libvpx-vp9] SSH OK (49.3s)
+[17:06:59] [m5.large/libvpx-vp9] SSH OK (49.4s)
+[17:06:59] [c7g.large/libx264] SSH OK (49.4s)
+[17:06:59] [c7g.large/libvpx-vp9] SSH OK (49.5s)
+[17:06:59] [m7g.large/libx264] SSH OK (49.4s)
+[17:06:59] [m7g.large/libx265] SSH OK (49.4s)
+[17:06:59] [c5.large/libx265] SSH OK (49.6s)
+[17:06:59] [c5.large/libx264] SSH OK (49.6s)
+[17:06:59] [m5.large/libx264] SSH OK (49.6s)
+[17:06:59] [c5.large/libvpx-vp9] SSH OK (49.6s)
+[17:06:59] [m5.large/libx265] SSH OK (49.7s)
+[17:06:59] [c7g.large/libx265] SSH OK (49.7s)
+[17:07:01] [c5.large/libvpx-vp9] S3 download done (51.5s)
+[17:07:01] [c5.large/libvpx-vp9] Encoding...
+[17:07:01] [c5.large/libx265] S3 download done (51.5s)
+[17:07:01] [c5.large/libx265] Encoding...
+[17:07:01] [m5.large/libx264] S3 download done (51.5s)
+[17:07:01] [m5.large/libx264] Encoding...
+[17:07:01] [c7g.large/libvpx-vp9] S3 download done (51.5s)
+[17:07:01] [c7g.large/libvpx-vp9] Encoding...
+[17:07:01] [m7g.large/libvpx-vp9] S3 download done (51.5s)
+[17:07:01] [m7g.large/libvpx-vp9] Encoding...
+[17:07:01] [m5.large/libvpx-vp9] S3 download done (51.4s)
+[17:07:01] [m5.large/libvpx-vp9] Encoding...
+[17:07:01] [m5.large/libx265] S3 download done (51.4s)
+[17:07:01] [m5.large/libx265] Encoding...
+[17:07:01] [c5.large/libx264] S3 download done (51.5s)
+[17:07:01] [c5.large/libx264] Encoding...
+[17:07:01] [m7g.large/libx264] S3 download done (51.4s)
+[17:07:01] [m7g.large/libx264] Encoding...
+[17:07:01] [c7g.large/libx265] S3 download done (51.5s)
+[17:07:01] [c7g.large/libx265] Encoding...
+[17:07:01] [m7g.large/libx265] S3 download done (51.4s)
+[17:07:01] [m7g.large/libx265] Encoding...
+[17:07:01] [c7g.large/libx264] S3 download done (51.5s)
+[17:07:01] [c7g.large/libx264] Encoding...
+[17:08:00] [m7g.large/libx264] Encode done (110.0s)
+[17:08:00] [m7g.large/libx264] DONE — total=110.4s  encode=58.6s
+[17:08:01] [m7g.large/libx264] Instance terminated.
+[17:08:11] [c7g.large/libx264] Encode done (121.1s)
+[17:08:11] [c7g.large/libx264] DONE — total=121.4s  encode=69.6s
+[17:08:12] [c7g.large/libx264] Instance terminated.
+[17:08:35] [c5.large/libx264] Encode done (145.3s)
+[17:08:35] [c5.large/libx264] DONE — total=145.7s  encode=93.9s
+[17:08:36] [c5.large/libx264] Instance terminated.
+[17:08:50] [m5.large/libx264] Encode done (160.8s)
+[17:08:51] [m5.large/libx264] DONE — total=161.2s  encode=109.3s
+[17:08:52] [m5.large/libx264] Instance terminated.
+[17:12:30] [m7g.large/libvpx-vp9] Encode done (380.2s)
+[17:12:30] [m7g.large/libvpx-vp9] DONE — total=380.5s  encode=328.7s
+[17:12:31] [m7g.large/libvpx-vp9] Instance terminated.
+[17:12:42] [c7g.large/libvpx-vp9] Encode done (392.8s)
+[17:12:43] [c7g.large/libvpx-vp9] DONE — total=393.3s  encode=341.4s
+[17:12:44] [c7g.large/libvpx-vp9] Instance terminated.
+[17:13:05] [c5.large/libx265] Encode done (415.9s)
+[17:13:06] [c5.large/libx265] DONE — total=416.3s  encode=364.4s
+[17:13:07] [c5.large/libx265] Instance terminated.
+[17:13:24] [c5.large/libvpx-vp9] Encode done (434.8s)
+[17:13:25] [c5.large/libvpx-vp9] DONE — total=435.2s  encode=383.4s
+[17:13:26] [c5.large/libvpx-vp9] Instance terminated.
+[17:14:28] [m5.large/libvpx-vp9] Encode done (498.1s)
+[17:14:28] [m5.large/libvpx-vp9] DONE — total=498.5s  encode=446.7s
+[17:14:29] [m5.large/libvpx-vp9] Instance terminated.
+[17:14:49] [m5.large/libx265] Encode done (519.3s)
+[17:14:49] [m5.large/libx265] DONE — total=519.7s  encode=467.9s
+[17:14:50] [m5.large/libx265] Instance terminated.
+[17:18:42] [m7g.large/libx265] Encode done (752.5s)
+[17:18:42] [m7g.large/libx265] DONE — total=752.8s  encode=701.0s
+[17:18:43] [m7g.large/libx265] Instance terminated.
+[17:18:53] [c7g.large/libx265] Encode done (763.8s)
+[17:18:54] [c7g.large/libx265] DONE — total=764.1s  encode=712.3s
+[17:18:55] [c7g.large/libx265] Instance terminated.
+
+===========================================================================
+Instance     Codec           Total  Provision   S3 DL   Encode
+---------------------------------------------------------------------------
+c5.large     libvpx-vp9     435.2s      18.4s    1.8s   383.4s
+c5.large     libx264        145.7s      18.4s    1.9s    93.9s
+c5.large     libx265        416.3s      18.4s    1.9s   364.4s
+c7g.large    libvpx-vp9     393.3s      18.3s    2.0s   341.4s
+c7g.large    libx264        121.4s      18.3s    2.0s    69.6s
+c7g.large    libx265        764.1s      18.5s    1.7s   712.3s
+m5.large     libvpx-vp9     498.5s      18.4s    2.0s   446.7s
+m5.large     libx264        161.2s      18.5s    1.9s   109.3s
+m5.large     libx265        519.7s      18.4s    1.8s   467.9s
+m7g.large    libvpx-vp9     380.5s      18.3s    2.2s   328.7s
+m7g.large    libx264        110.4s      18.3s    2.0s    58.6s
+m7g.large    libx265        752.8s      18.3s    2.0s   701.0s
+===========================================================================

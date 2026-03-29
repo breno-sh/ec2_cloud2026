@@ -1,0 +1,41 @@
+# Walkthrough: adding C5 and M5 Instance Families
+
+I have prepared the scripts to extend your EC2 Sweet Spot study to include **Compute Optimized (C5)** and **General Purpose (M5)** instance families.
+
+## Changes Created
+
+### 1. Extended Benchmark Script (Phase 2)
+**File:** [artifacts2/phase2_benchmarks/all_instances_phase2_extended.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts2/phase2_benchmarks/all_instances_phase2_extended.py)
+
+This script is an extension of your original phase 2 script.
+-   **New Families:** Added configurations for `c5.large` to `c5.4xlarge` and `m5.large` to `m5.4xlarge`.
+-   **Flexible CPU Check:** I updated the CPU verification logic. For the new families, it currently logs the CPU model it finds but **does not** terminate the instance if it doesn't match a specific model (since we don't know the dominant one yet). It still enforces the check for the original T-family instances.
+
+### 2. Generic Parallel Scaling Script (Phase 3)
+**File:** [artifacts2/phase3_scaling/parallel_scaling_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts2/phase3_scaling/parallel_scaling_phase2.py)
+
+This is a refactored version of your [t3_micro_paralelo_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase3_scaling/t3_micro_paralelo_phase2.py).
+-   **Generic Usage:** Instead of being hardcoded for `t3.micro`, this script accepts command-line arguments.
+-   **Usage Example:**
+    ```bash
+    # Run for C5.large
+    python3 artifacts2/phase3_scaling/parallel_scaling_phase2.py --instance-type c5.large --expected-cpu "Generic Comp"
+    
+    # Run for M5.xlarge with 10 threads
+    python3 artifacts2/phase3_scaling/parallel_scaling_phase2.py --instance-type m5.xlarge --threads 10
+    ```
+
+## Next Steps
+1.  **Running Benchmarks:** The scripts are now fully configured with your credentials (`bvasconcelos`) and security group (`bvasconcelosGroup`). You just need to install `boto3` (`pip install boto3`) and run the scripts!
+    ```bash
+    # Install dependencies
+    pip install boto3 paramiko
+
+    # Run benchmarks
+    python3 artifacts2/phase2_benchmarks/all_instances_phase2_extended.py
+    ```
+2.  **Running Scaling:**
+    ```bash
+    # Run scaling test
+    python3 artifacts2/phase3_scaling/parallel_scaling_phase2.py --instance-type c5.large --expected-cpu "Generic Comp"
+    ```

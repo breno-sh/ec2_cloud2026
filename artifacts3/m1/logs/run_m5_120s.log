@@ -1,0 +1,31 @@
+[07:25:55.770] === Chunk Sensitivity: 5x m5.large (120s/chunk) ===
+[07:25:55.770] [Setup] Starting video split...
+[07:25:55.855] [Setup] Video: 600.0s → 5 parts of 120.0s each
+[07:25:57.368] [Setup] Video split complete.
+[07:25:57.368] [Summary] SPLIT TIME: 1.60s
+[07:25:57.953] [Part 01] Launching m5.large...
+[07:25:58.026] [Part 03] Launching m5.large...
+[07:25:58.029] [Part 04] Launching m5.large...
+[07:25:58.041] [Part 02] Launching m5.large...
+[07:25:58.051] [Part 00] Launching m5.large...
+[07:26:15.635] [Part 01] Instance up. IP: 98.83.143.201
+[07:26:15.675] [Part 04] Instance up. IP: 54.166.238.154
+[07:26:15.712] [Part 02] Instance up. IP: 52.87.169.2
+[07:26:15.743] [Part 00] Instance up. IP: 54.87.214.205
+[07:26:16.134] [Part 03] Instance up. IP: 54.159.241.93
+[07:27:47.474] [Part 00] Part complete!
+[07:27:48.715] [Part 00] Instance terminated.
+[07:27:52.803] [Part 03] Part complete!
+[07:27:53.060] [Part 02] Part complete!
+[07:27:54.041] [Part 03] Instance terminated.
+[07:27:54.531] [Part 02] Instance terminated.
+[07:27:56.695] [Part 04] Part complete!
+[07:27:57.946] [Part 04] Instance terminated.
+[07:28:00.472] [Part 01] Part complete!
+[07:28:01.687] [Part 01] Instance terminated.
+[07:28:01.713] ============================================================
+[07:28:01.714] RESULTS — 5x m5.large | 120s/chunk
+[07:28:01.714]   Total Time:    125.94s  (2.099 min)
+[07:28:01.714]   Split Time:    1.60s
+[07:28:01.714]   Parallel Time: 124.34s  (2.072 min)
+[07:28:01.714] ============================================================

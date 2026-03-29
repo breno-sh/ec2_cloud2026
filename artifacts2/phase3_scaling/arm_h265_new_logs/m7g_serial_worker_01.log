@@ -1,0 +1,13 @@
+[19:46:29.223] [W1] Launching m7g.large...
+[19:46:47.444] [W1] Ready at 54.175.240.4, sleeping 30s...
+[19:47:19.568] [W1] Uploading video (once)...
+[19:59:50.198] [W1] Upload done. Starting 3 encodes...
+[20:11:32.250] [W1] Run 1/3 done: 702.05s
+[20:23:13.241] [W1] Run 2/3 done: 700.99s
+[20:34:53.873] [W1] Run 3/3 done: 700.63s
+[20:34:53.873] [W1] === RESULTS — m7g.large Serial H.265 (worker 1) ===
+[20:34:53.873] [W1]   Run 1: 702.0512s
+[20:34:53.873] [W1]   Run 2: 700.9917s
+[20:34:53.873] [W1]   Run 3: 700.6311s
+[20:34:53.873] [W1] === END ===
+[20:34:54.950] [W1] Instance terminated.

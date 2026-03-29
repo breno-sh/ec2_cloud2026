@@ -1,0 +1,49 @@
+[17:54:51.413] ======================================================================
+[17:54:51.413] CONFIGURATION
+[17:54:51.413]   Instance type:  m5.large → effective: m5.large
+[17:54:51.413]   Strategy:       serial
+[17:54:51.413]   Codec:          libx265
+[17:54:51.413]   Threads:        5
+[17:54:51.413]   Region:         us-east-1
+[17:54:51.413]   AMI:            ami-06c7c20c67513469a
+[17:54:51.413]   Architecture:   x86_64
+[17:54:51.413]   Runs:           30
+[17:54:51.413] ======================================================================
+[17:54:51.529] === Phase 3.2 Serial: 1x m5.large ===
+[17:54:51.529] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5 | Runs: 30
+[17:54:51.529] [m5.large-Serial] Launching EC2 instance...
+[17:54:53.351] [m5.large-Serial] In[17:55:53.020] Horizontal Run 1 completed in 61.72s
+[17:55:53.020] --- Horizontal Run 2/30 ---
+[17:55:53.020] [Setup] Splitting video...
+[17:56:52.307] Horizontal Run 2 completed in 59.29s
+[17:56:52.307] --- Horizontal Run 3/30 ---
+[17:56:52.307] [Setup] Splitting video...
+[17:57:54.184] Horizontal Run 3 completed in 61.88s
+[17:57:54.184] --- Horizontal Run 4/30 ---
+[17:57:54.184] [Setup] Splitting video...
+[17:58:53.397] Horizontal Run 4 completed in 59.21s
+[17:58:53.398] --- Horizontal Run 5/30 ---
+[17:58:53.398] [Setup] S[18[18:04:03.803] [m5.large-Serial] Done: 471.03s
+[18:04:08.804] [m5.large-Serial] --- Run 2/30 ---
+[18:04:09.021] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.m[18:11:03.844] [t3.micro-Serial] Done: 434.31s
+[18:11:08.844] [t3.micro-Serial] --- Run 3/30 ---
+[18:11:09.086] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:19:14.999] [t3.micro-Serial] Done: 486.16s
+[18:19:19.999] [t3.micro-Serial] --- Run 4/30 ---
+[18:19:20.222] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:21:42.556] [t3.micro-Serial] Instance terminated.
+d.
+ds 10 /home/ubuntu/output.mp4
+[18:18:08.643] [t3.2xlarge-Vertical] Done: 321.45s
+[18:18:13.643] [t3.2xlarge-Vertical] --- Run 5/30 ---
+[18:18:13.875] [t3.2xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[18:21:43.379] [t3.2xlarge-Vertical] Instance terminated.
+18:07:48.109] Horizontal Run 13 completed in 60.65s
+[18:07:48.109] --- Horizontal Run 14/30 ---
+[18:07:48.109] [Setup] Splitting video...
+[18:08:45.841] Horizontal Run 14 completed in 57.73s
+[18:08:45.841] --- Horizontal Run 15/30 ---
+[18:08:45.841] [Setup] Splitting video...
+[18:09:45.297] Horizontal Run 15 completed in 59.46s
+[18:09:45.297] --- Horizontal Run 16/30 ---
+[18:09:45.297] [Setup] Splitting video...

@@ -1,0 +1,122 @@
+[01:32:29.169] ======================================================================
+[01:32:29.169] CONFIGURATION
+[01:32:29.169]   Instance type:  c7g.large → effective: c7g.4xlarge
+[01:32:29.169]   Strategy:       vertical
+[01:32:29.169]   Codec:          libvpx-vp9
+[01:32:29.169]   Threads:        10
+[01:32:29.169]   Region:         us-east-1
+[01:32:29.169]   AMI:            ami-0976d56fa61f42304
+[01:32:29.169]   Architecture:   aarch64
+[01:32:29.169]   Runs:           30
+[01:32:29.169] ======================================================================
+[01:32:29.252] === Phase 3.2 Vertical: 1x c7g.4xlarge ===
+[01:32:29.252] AMI: ami-0976d56fa61f42304 | Codec: libvpx-vp9 | Threads: 10 | Runs: 30
+[01:32:29.252] [c7g.4xlarge-Vertical] Launching EC2 instance...
+[01:32:31.074] [c7g.4xlarge-Vertical] Instance i-01651c91442a0653d launched. Waiting...
+[01:32:46.807] [c7g.4xlarge-Vertical] Instance ready. IP: 35.153.211.167
+[01:33:17.703] [c7g.4xlarge-Vertical] SSH connected.
+[01:33:17.703] [c7g.4xlarge-Vertical] Uploading 10-minute video...
+[01:33:31.218] [c7g.4xlarge-Vertical] Upload complete.
+[01:33:31.218] [c7g.4xlarge-Vertical] SETUP AND UPLOAD TIME: 61.97s
+[01:33:31.219] [c7g.4xlarge-Vertical] --- Run 1/30 ---
+[01:33:31.543] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:38:59.150] [c7g.4xlarge-Vertical] Done: 327.93s
+[01:39:04.150] [c7g.4xlarge-Vertical] --- Run 2/30 ---
+[01:39:04.368] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:44:31.693] [c7g.4xlarge-Vertical] Done: 327.54s
+[01:44:36.694] [c7g.4xlarge-Vertical] --- Run 3/30 ---
+[01:44:36.911] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:50:04.662] [c7g.4xlarge-Vertical] Done: 327.97s
+[01:50:09.663] [c7g.4xlarge-Vertical] --- Run 4/30 ---
+[01:50:09.878] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:55:37.001] [c7g.4xlarge-Vertical] Done: 327.34s
+[01:55:42.001] [c7g.4xlarge-Vertical] --- Run 5/30 ---
+[01:55:42.218] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:01:09.572] [c7g.4xlarge-Vertical] Done: 327.57s
+[02:01:14.573] [c7g.4xlarge-Vertical] --- Run 6/30 ---
+[02:01:14.791] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:06:41.985] [c7g.4xlarge-Vertical] Done: 327.41s
+[02:06:46.986] [c7g.4xlarge-Vertical] --- Run 7/30 ---
+[02:06:47.202] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:12:14.490] [c7g.4xlarge-Vertical] Done: 327.50s
+[02:12:19.490] [c7g.4xlarge-Vertical] --- Run 8/30 ---
+[02:12:19.708] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:17:46.673] [c7g.4xlarge-Vertical] Done: 327.18s
+[02:17:51.674] [c7g.4xlarge-Vertical] --- Run 9/30 ---
+[02:17:51.894] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:23:19.235] [c7g.4xlarge-Vertical] Done: 327.56s
+[02:23:24.236] [c7g.4xlarge-Vertical] --- Run 10/30 ---
+[02:23:24.454] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:28:52.004] [c7g.4xlarge-Vertical] Done: 327.77s
+[02:28:57.005] [c7g.4xlarge-Vertical] --- Run 11/30 ---
+[02:28:57.226] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:34:24.339] [c7g.4xlarge-Vertical] Done: 327.33s
+[02:34:29.340] [c7g.4xlarge-Vertical] --- Run 12/30 ---
+[02:34:29.569] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:39:57.035] [c7g.4xlarge-Vertical] Done: 327.69s
+[02:40:02.035] [c7g.4xlarge-Vertical] --- Run 13/30 ---
+[02:40:02.256] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:45:29.719] [c7g.4xlarge-Vertical] Done: 327.68s
+[02:45:34.719] [c7g.4xlarge-Vertical] --- Run 14/30 ---
+[02:45:34.939] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:51:02.518] [c7g.4xlarge-Vertical] Done: 327.80s
+[02:51:07.518] [c7g.4xlarge-Vertical] --- Run 15/30 ---
+[02:51:07.742] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:56:35.164] [c7g.4xlarge-Vertical] Done: 327.64s
+[02:56:40.165] [c7g.4xlarge-Vertical] --- Run 16/30 ---
+[02:56:40.390] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:02:07.605] [c7g.4xlarge-Vertical] Done: 327.44s
+[03:02:12.605] [c7g.4xlarge-Vertical] --- Run 17/30 ---
+[03:02:12.842] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:07:40.270] [c7g.4xlarge-Vertical] Done: 327.66s
+[03:07:45.270] [c7g.4xlarge-Vertical] --- Run 18/30 ---
+[03:07:45.492] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:13:12.898] [c7g.4xlarge-Vertical] Done: 327.62s
+[03:13:17.899] [c7g.4xlarge-Vertical] --- Run 19/30 ---
+[03:13:18.127] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:18:45.422] [c7g.4xlarge-Vertical] Done: 327.52s
+[03:18:50.423] [c7g.4xlarge-Vertical] --- Run 20/30 ---
+[03:18:50.646] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:24:18.208] [c7g.4xlarge-Vertical] Done: 327.78s
+[03:24:23.209] [c7g.4xlarge-Vertical] --- Run 21/30 ---
+[03:24:23.431] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:29:50.949] [c7g.4xlarge-Vertical] Done: 327.74s
+[03:29:55.949] [c7g.4xlarge-Vertical] --- Run 22/30 ---
+[03:29:56.169] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:35:23.341] [c7g.4xlarge-Vertical] Done: 327.39s
+[03:35:28.342] [c7g.4xlarge-Vertical] --- Run 23/30 ---
+[03:35:28.566] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:40:55.942] [c7g.4xlarge-Vertical] Done: 327.60s
+[03:41:00.943] [c7g.4xlarge-Vertical] --- Run 24/30 ---
+[03:41:01.161] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:46:28.625] [c7g.4xlarge-Vertical] Done: 327.68s
+[03:46:33.625] [c7g.4xlarge-Vertical] --- Run 25/30 ---
+[03:46:33.844] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:52:01.420] [c7g.4xlarge-Vertical] Done: 327.79s
+[03:52:06.420] [c7g.4xlarge-Vertical] --- Run 26/30 ---
+[03:52:06.645] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[03:57:33.638] [c7g.4xlarge-Vertical] Done: 327.22s
+[03:57:38.639] [c7g.4xlarge-Vertical] --- Run 27/30 ---
+[03:57:38.861] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[04:03:05.880] [c7g.4xlarge-Vertical] Done: 327.24s
+[04:03:10.881] [c7g.4xlarge-Vertical] --- Run 28/30 ---
+[04:03:12.004] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[04:08:40.081] [c7g.4xlarge-Vertical] Done: 329.20s
+[04:08:45.082] [c7g.4xlarge-Vertical] --- Run 29/30 ---
+[04:08:45.303] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[04:14:12.830] [c7g.4xlarge-Vertical] Done: 327.75s
+[04:14:17.832] [c7g.4xlarge-Vertical] --- Run 30/30 ---
+[04:14:18.054] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[04:19:45.079] [c7g.4xlarge-Vertical] Done: 327.25s
+[04:19:46.183] [c7g.4xlarge-Vertical] Instance terminated.
+[04:19:46.195] 
+======================================================================
+[04:19:46.195] AGGREGATE RESULTS — 30/30 successful runs
+[04:19:46.195]   Instance:  c7g.4xlarge | Strategy: vertical
+[04:19:46.196]   Codec:     libvpx-vp9
+[04:19:46.196]   Mean:      327.63s
+[04:19:46.196]   Median:    327.61s
+[04:19:46.197]   Stdev:     0.36s
+[04:19:46.197]   Min:       327.18s
+[04:19:46.197]   Max:       329.20s
+[04:19:46.197] ======================================================================

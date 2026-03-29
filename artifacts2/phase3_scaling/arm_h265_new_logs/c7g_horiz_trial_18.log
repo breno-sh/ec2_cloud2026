@@ -1,0 +1,88 @@
+[20:21:27.637] === Phase 3.2 OPTIMIZED Horizontal: 10x c7g.large ===
+[20:21:27.637] AMI: ami-0976d56fa61f42304 (ffmpeg pre-installed) | Codec: libx265 | Threads: 5
+[20:21:27.637] [Setup] Starting video split...
+[20:21:27.679] [Setup] Video: 600.0s → 10 parts of 60.0s
+[20:21:28.878] [Setup] Video split complete.
+[20:21:28.878] [Summary] SPLIT TIME: 1.24s
+[20:21:29.692] [Part 07] Launching c7g.large...
+[20:21:29.695] [Part 04] Launching c7g.large...
+[20:21:29.701] [Part 00] Launching c7g.large...
+[20:21:29.719] [Part 06] Launching c7g.large...
+[20:21:29.722] [Part 09] Launching c7g.large...
+[20:21:29.724] [Part 03] Launching c7g.large...
+[20:21:29.730] [Part 08] Launching c7g.large...
+[20:21:29.738] [Part 01] Launching c7g.large...
+[20:21:29.747] [Part 05] Launching c7g.large...
+[20:21:29.749] [Part 02] Launching c7g.large...
+[20:21:47.533] [Part 07] Instance ready. IP: 3.81.82.233
+[20:21:47.559] [Part 09] Instance ready. IP: 98.83.108.110
+[20:21:47.585] [Part 00] Instance ready. IP: 54.208.236.234
+[20:21:47.587] [Part 08] Instance ready. IP: 3.85.192.42
+[20:21:47.591] [Part 01] Instance ready. IP: 34.203.222.143
+[20:21:47.594] [Part 02] Instance ready. IP: 54.80.13.227
+[20:21:47.657] [Part 03] Instance ready. IP: 54.166.253.141
+[20:21:47.675] [Part 06] Instance ready. IP: 13.221.174.255
+[20:21:47.722] [Part 04] Instance ready. IP: 54.242.164.59
+[20:21:47.947] [Part 05] Instance ready. IP: 54.91.83.175
+[20:22:20.173] [Part 08] CPU: aarch64
+CPU part	: 0xd40
+[20:22:20.212] [Part 04] CPU: aarch64
+CPU part	: 0xd40
+[20:22:20.399] [Part 02] CPU: aarch64
+CPU part	: 0xd40
+[20:22:20.414] [Part 09] CPU: aarch64
+CPU part	: 0xd40[20:22:20.415] [Part 07] CPU: aarch64
+CPU part	: 0xd40
+
+[20:22:20.416] [Part 03] CPU: aarch64
+CPU part	: 0xd40
+[20:22:20.432] [Part 06] CPU: aarch64
+CPU part	: 0xd40[20:22:20.432] [Part 01] CPU: aarch64
+CPU part	: 0xd40
+
+[20:22:20.561] [Part 05] CPU: aarch64
+CPU part	: 0xd40
+[20:22:20.907] [Part 08] Uploading segment...
+[20:22:20.991] [Part 04] Uploading segment...
+[20:22:21.177] [Part 09] Uploading segment...[20:22:21.177] [Part 03] Uploading segment...
+[20:22:21.177] [Part 02] Uploading segment...[20:22:21.178] [Part 07] Uploading segment...
+
+
+[20:22:21.249] [Part 01] Uploading segment...[20:22:21.249] [Part 06] Uploading segment...
+
+[20:22:21.294] [Part 05] Uploading segment...
+[20:22:40.252] [Part 00] ERROR: 
+[20:22:40.897] [Part 00] Instance terminated.
+[20:22:42.328] [Part 02] Running compression...
+[20:22:43.187] [Part 07] Running compression...
+[20:22:43.297] [Part 09] Running compression...
+[20:22:43.844] [Part 08] Running compression...
+[20:22:43.941] [Part 03] Running compression...
+[20:22:44.478] [Part 04] Running compression...
+[20:22:44.518] [Part 05] Running compression...
+[20:22:44.530] [Part 01] Running compression...
+[20:22:44.816] [Part 06] Running compression...
+[20:24:34.172] [Part 08] Done!
+[20:24:41.072] [Part 08] Instance terminated.
+[20:24:44.323] [Part 03] Done!
+[20:24:45.112] [Part 05] Done!
+[20:24:46.437] [Part 03] Instance terminated.
+[20:24:46.677] [Part 05] Instance terminated.
+[20:24:48.348] [Part 04] Done!
+[20:24:51.281] [Part 04] Instance terminated.
+[20:25:16.324] [Part 09] Done!
+[20:25:18.701] [Part 09] Instance terminated.
+[20:25:24.084] [Part 01] Done!
+[20:25:26.661] [Part 01] Instance terminated.
+[20:25:39.952] [Part 02] Done!
+[20:25:41.076] [Part 02] Instance terminated.
+[20:25:41.752] [Part 06] Done!
+[20:25:42.813] [Part 06] Instance terminated.
+[20:25:48.086] [Part 07] Done!
+[20:25:49.165] [Part 07] Instance terminated.
+[20:25:49.166] ============================================================
+[20:25:49.166] RESULTS — 10x c7g.large Horizontal OPTIMIZED
+[20:25:49.166]   Total Time:    261.53s (4.36 min)
+[20:25:49.166]   Split Time:    1.24s
+[20:25:49.166]   Parallel Time: 260.29s (4.34 min)
+[20:25:49.166] ============================================================

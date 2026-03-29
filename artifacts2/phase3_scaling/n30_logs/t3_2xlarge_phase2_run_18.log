@@ -1,0 +1,20 @@
+[19:28:35.302] [t3.2xlarge-Fase2] Launching EC2 instance...
+[19:28:53.007] [t3.2xlarge-Fase2] Instance ready. IP: 34.226.207.54
+[19:29:23.927] [t3.2xlarge-Fase2] Checking modelo da CPU...
+[19:29:25.470] [t3.2xlarge-Fase2] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[19:29:25.470] [t3.2xlarge-Fase2] CPU incorreta. Esperado 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', found Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz. Proceeding anyway.
+[19:29:26.369] [t3.2xlarge-Fase2] Checking modelo da CPU...
+[19:29:26.749] [t3.2xlarge-Fase2] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[19:29:26.749] [t3.2xlarge-Fase2] Sending file...
+[19:29:33.466] [t3.2xlarge-Fase2] Running compression...
+[19:30:21.423] [t3.2xlarge-Fase2] Compression completed. O resultado NÃO será baixado.
+[19:30:22.411] [t3.2xlarge-Fase2] Instance terminated.
+Log start: Fri Feb 27 19:28:34 2026
+Log end: Fri Feb 27 19:30:22 2026
+
+============================================================
+RESULTS — t3 Serial
+  Total Time:    107.11s
+  Setup Time:    58.16s
+  Encoding Time: 48.95s
+============================================================

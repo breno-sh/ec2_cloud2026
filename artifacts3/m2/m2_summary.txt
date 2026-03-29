@@ -1,0 +1,8 @@
+Codec        Instance     Strategy     Mean       Cost ($)  
+------------------------------------------------------------
+libx264      c5.4xlarge   vertical     30.86      0.00838   
+libx264      c5.large     horizontal   70.44      0.02387   
+libx264      c5.large     serial       91.53      0.00310   
+libx264      m5.4xlarge   vertical     31.77      0.00976   
+libx264      m5.large     horizontal   76.51      0.02933   
+libx264      m5.large     serial       104.87     0.00402   

@@ -1,0 +1,74 @@
+[15:55:27.990] ======================================================================
+[15:55:27.990] CONFIGURATION
+[15:55:27.990]   Instance type:  c7g.large → effective: c7g.large
+[15:55:27.990]   Strategy:       serial
+[15:55:27.990]   Codec:          libx265
+[15:55:27.990]   Threads:        5
+[15:55:27.990]   Region:         us-east-1
+[15:55:27.990]   AMI:            ami-0976d56fa61f42304
+[15:55:27.990]   Architecture:   aarch64
+[15:55:27.990]   Runs:           30
+[15:55:27.990] ======================================================================
+[15[15:55:28.277] === Phase 3.2 Serial: 1x m7g.large ===
+[15:55:28.278] AMI: ami-0976d56fa61f42304 | Codec: libvpx-vp9 | Threads: 5 | Runs: 30
+[15:55:28.278] [m7g.large-Serial] Launching EC2 instan[15:55[15:55:30.183] [m7g.large-Serial] Instance i-027a7e35ef1531154 launched. Waiti[15:55[15:55:45.957] [m7g.large-Serial] Instance ready. IP: 100.24.[1[15:56:17.099] [m7g.large-Serial] SSH connected.
+[15:56:17.100] [m7g.large-Serial] Uploading 10-minute video..[1[15:57:38.086] [m7g.large-Serial] Upload complete.
+[15:57:38.086] [m7g.large-Serial] SETUP AND UPLOAD TIME: 129.82s
+[15:57:38.086] [m7g.large-Serial] --- Run 1/30 ---
+[15:57:38.513] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[16:09:22.288] [m7g.large-Serial] Done: 704.20[1[16:09:27.288] [m7g.large-Serial] --- Run 2/30 ---
+[16:09:27.517] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[16:21:07.715] [m7g.large-Serial] Done: 700.43s
+[16:21:12.716] [m7g.large-Serial] --- Run 3/30 ---
+[16:21:12.945] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[16:32:53.282] [m7g.large-Serial] Done: 700.57s
+[16:32:58.282] [m7g.large-Serial] --- Run 4/30 ---
+[16:32:58.511] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[16:44:38.958] [m7g.large-Serial] Done: 700.68s
+[16:44:43.958] [m7g.large-Serial] --- Run 5/30 ---
+[16:44:44.195] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[16:56:25.296] [m7g.large-Serial] Done: 701.34s
+[16:56:30.297] [m7g.large-Serial] --- Run 6/30 ---
+[16:56:30.525] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[17:08:11.013] [m7g.large-Serial] Done: 700.72s
+[17:08:16.013] [m7g.large-Serial] --- Run 7/30 ---
+[17:08:16.243] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[17:19:55.907] [m7g.large-Serial] Done: 699.89s
+[17:20:00.907] [m7g.large-Serial] --- Run 8/30 ---
+[17:20:01.137] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[17:31:41.157] [m7g.large-Serial] Done: 700.25[1[17:31:46.157] [m7g.large-Serial] --- Run 9/30 ---
+[17:31:46.389] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[17:43:25.465] [m7g.large-Serial] Done: 699.31[1[17:43:30.465] [m7g.large-Serial] --- Run 10/30 ---
+[17:43:30.694] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[1[17:55:10.010] [m7g.large-Serial] Done: 699.54[1[17:55:15.011] [m7g.large-Serial] --- Run 11/30 ---
+[17:55:15.251] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp[18:06:54.321] [c7g.large-Serial] Done: 701.09s
+[18:06:59.321] [c7g.large-Serial] --- Run 12/30 ---
+[18:06:59.544] [c7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+4
+v 2M -threads 5 /home/ubuntu/output.mp4
+[17:04:04.958] [m7g.large-Serial] Done: 328.92s
+[17:04:09.959] [m7g.large-Serial] --- Run 13/30 ---
+[17:04:10.186] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:09:39.500] [m7g.large-Serial] Done: 329.54s
+[17:09:44.500] [m7g.large-Serial] --- Run 14/30 ---
+[17:09:44.721] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:15:13.055] [m7g.large-Serial] Done: 328.55s
+[17:15:18.055] [m7g.large-Serial] --- Run 15/30 ---
+[17:15:18.274] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:20:46.777] [m7g.large-Serial] Done: 328.72s
+[17:20:51.778] [m7g.large-Serial] --- Run 16/30 ---
+[17:20:51.997] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:26:22.241] [m7g.large-Serial] Done: 330.46s
+[17:26:27.241] [m7g.large-Serial] --- Run 17/30 ---
+[17:26:27.460] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:31:56.472] [m7g.large-Serial] Done: 329.23s
+[17:32:01.473] [m7g.large-Serial] --- Run 18/30 ---
+[17:32:01.692] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:37:30.331] [m7g.large-Serial] Done: 328.86s
+[17:37:35.332] [m7g.large-Serial] --- Run 19/30 ---
+[17:37:35.563] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:43:03.954] [m7g.large-Serial] Done: 328.62s
+[17:43:08.955] [m7g.large-Serial] --- Run 20/30 ---
+[17:43:09.172] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:48:38.155] [m7g.large-Serial] Done: 329.20s
+[17:48:43.155] [m7g.large-Serial] --- Run 21/30 ---
+[17:48:43.374] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:54:13.363] [m7g.large-Serial] Done: 330.21s
+[17:54:18.363] [m7g.large-Serial] --- Run 22/30 ---
+[17:54:18.581] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:59:50.764] [m7g.large-Serial] Done: 332.40s
+[17:59:55.765] [m7g.large-Serial] --- Run 23/30 ---
+[17:59:55.991] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:05:28.790] [m7g.large-Serial] Done: 333.02s
+[18:05:33.790] [m7g.large-Serial] --- Run 24/30 ---
+[18:05:34.009] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4

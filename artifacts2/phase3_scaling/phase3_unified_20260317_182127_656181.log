@@ -1,0 +1,14 @@
+[18:21:27.658] ======================================================================
+[18:21:27.659] CONFIGURATION
+[18:21:27.659]   Instance type:  m7g.large → effective: m7g.large
+[18:21:27.659]   Strategy:       serial
+[18:21:27.659]   Codec:          libx265
+[18:21:27.659]   Threads:        5
+[18:21:27.659]   Region:         us-east-1
+[18:21:27.659]   AMI:            ami-0976d56fa61f42304
+[18:21:27.659]   Architecture:   aarch64
+[18:21:27.659]   Runs:           20
+[18:21:27.659] ======================================================================
+[18:21:27.957] === Phase 3.2 Serial: 1x m7g.large ===
+[18:21:27.957] AMI: ami-0976d56fa61f42304 | Codec: libx265 | Threads: 5 | Runs: 20
+[18:21:27.958] [m7g.large-Serial] Launching EC2 instance...

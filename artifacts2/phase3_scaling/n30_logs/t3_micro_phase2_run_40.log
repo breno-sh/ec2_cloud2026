@@ -1,0 +1,20 @@
+[19:23:38.703] [t3.micro-Fase2] Launching EC2 instance...
+[19:23:56.191] [t3.micro-Fase2] Instance ready. IP: 100.31.186.197
+[19:24:27.093] [t3.micro-Fase2] Checking modelo da CPU...
+[19:24:28.107] [t3.micro-Fase2] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[19:24:28.107] [t3.micro-Fase2] CPU correct. Proceeding...
+[19:24:28.995] [t3.micro-Fase2] Checking modelo da CPU...
+[19:24:29.376] [t3.micro-Fase2] CPU found: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[19:24:29.376] [t3.micro-Fase2] Sending file...
+[19:24:36.256] [t3.micro-Fase2] Running compression...
+[19:26:04.578] [t3.micro-Fase2] Compression completed. O resultado NÃO será baixado.
+[19:26:05.572] [t3.micro-Fase2] Instance terminated.
+Log start: Fri Feb 27 19:23:38 2026
+Log end: Fri Feb 27 19:26:05 2026
+
+============================================================
+RESULTS — t3 Serial
+  Total Time:    146.87s
+  Setup Time:    57.55s
+  Encoding Time: 89.32s
+============================================================

@@ -1,0 +1,27 @@
+# Task: EC2 Sweetspot NOMS Paper
+
+## Phase 1 & 2 ✅
+- [x] Homogeneity analysis and benchmarks for M and C families
+
+## Phase 3.1: Dynamic Provisioning (Ubuntu + install ffmpeg) ✅
+- [x] M-family: serial (3.46 min), vertical (2.33 min), horizontal (3.63 min)
+- [x] C-family: serial (3.21 min), vertical (2.13 min), horizontal (3.52 min)
+
+## Phase 3.2: Optimized Provisioning (Custom AMI) ✅
+- [x] Step 1: Create custom AMI with ffmpeg pre-installed
+- [x] Step 2: Re-run M-family (serial, horizontal, vertical) with custom AMI
+- [x] Step 3: Re-run C-family (serial, horizontal, vertical) with custom AMI
+- [x] Step 4: Compare Phase 3.1 vs 3.2 results (Table 4 do artigo)
+
+## Phase 4: Paper Update (Incorporating Findings)
+- [x] Step 1: Analyze `noms_v4.tex` structure
+- [x] Step 2: Create `paper_codebase.md` mapping paragraphs to updates
+- [x] Step 3: Propose textual changes for Results and Conclusion sections
+- [x] Step 4: Implement changes in `cloud2026/noms_v4.tex`
+
+## Phase 5: CLOUD 2026 Submission Adaptation
+- [x] Step 1: Create `cloud2026/cloud2026.tex` based on `noms_v4.tex`
+- [x] Step 2: Anonymize authors for IEEE double-blind review
+- [x] Step 3: Rewrite Title, Abstract, and Keywords to align with XaaS/Cost Optimization CFP topics
+- [x] Step 4: Anonymize Github repository links in the Artifact Appendix
+- [x] Step 5: Verify PDF compilation (`cloud2026.pdf`)

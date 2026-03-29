@@ -1,0 +1,65 @@
+# Paper Codebase: Step-by-Step Update Guide
+
+This document maps the paragraphs of [noms_v5.tex](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/IEEE-conference-template-062824/noms_v5.tex) to the specific updates required to incorporate the findings for **M-family (General Purpose)** and **C-family (Compute Optimized)** instances.
+
+## 1. Abstract
+*   **Current:** Focuses exclusively on "T-Family instances" and "burstable compute".
+*   **Action:** Broaden scope to include General Purpose (M) and Compute Optimized (C) families.
+*   **Key Finding to Insert:** Optimized Horizontal Scaling proved superior (faster and cost-efficient) across **all** tested families (T, M, C), not just burstable ones.
+*   **Specific Updates:**
+    *   Replace "T-Family instances" with "diverse instance families (Burstable, General Purpose, Compute Optimized)".
+    *   Update speedup/cost reduction figures to be a range or average across families (e.g., "1.28x - 2.15x speedup").
+
+## 2. Introduction
+*   **Paragraph 1:** "This study focuses on AWS T-family instances..."
+    *   **Action:** Update to: "This study investigates AWS T, M, and C families to evaluate scaling strategies across different hardware profiles."
+*   **Paragraph 2:** Mentions "20x higher cost-efficiency" (T-family specific).
+    *   **Action:** Add that M and C families show "speed-centric" results, with Horizontal scaling beating Vertical in pure speed while maintaining cost competitiveness.
+*   **Paragraph 3 ("We characterize..."):** Mentions "t2.micro to t3.2xlarge".
+    *   **Action:** Expand to include `m5.large/4xlarge` and `c5.large/4xlarge`.
+
+## 3. Methodology
+*   **Phase 1 (Homogeneity):**
+    *   **Action:** Keep as is (T-family focus for homogeneity is fine as a case study), or mention we validated M/C too if we did (we didn't do extensive 100-instance tests for M/C in this session, but user might have data. **Assumption:** Keep T-family as the deep homogeneity case study, but mention M/C were validated for CPU model).
+*   **Phase 2 (Benchmarks):**
+    *   **Action:** Update **Table I (Experimental Configurations)** to include M5 and C5 specs.
+    *   Add M5 and C5 to the testing protocol description.
+*   **Phase 3 (Horizontal vs Vertical):**
+    *   **Action:** Explicitly state that the comparison was extended to M and C families:
+        *   **M-Family:** 10x m5.large vs 1x m5.4xlarge
+        *   **C-Family:** 10x c5.large vs 1x c5.4xlarge
+
+## 4. Results
+*   **Phase 2 Results (Benchmarks):**
+    *   **Action:** Insert new table/graphs for M and C families.
+    *   **New Subsection:** "M and C Family Benchmarks" comparing efficiency.
+        *   Highlight that T-family is still the *efficiency* king (cost/frame).
+        *   Highlight that C-family is the *speed* king.
+*   **Phase 3 Results (Scaling):**
+    *   **Current:** Details T-family results (1.45 min vs 1.85 min).
+    *   **Action:** Add subsections for M and C families.
+        *   **M-Family Data:** Horizontal (1.35 min) vs Vertical (1.65 min).
+        *   **C-Family Data:** Horizontal (1.31 min) vs Vertical (1.54 min).
+    *   **Unified Table:** Update `Table V` (Unified Case Study) to include rows for M and C families, or create a new summary table comparing the "Winner" of each family.
+
+## 5. Conclusion
+*   **Current:** "Smaller burstable instances... challenge assumptions".
+*   **Action:** Generalize the conclusion.
+    *   "The superiority of Horizontal Optimized scaling is **universal** across instance types (T, M, C)."
+    *   "For T-family, it's about extreme cost saving."
+    *   "For M and C families, it's about **beating the speed of the largest vertical instance** while costing the same."
+
+## 6. Global Changes
+*   **Title?** "The EC2 Sweet Spot: A Cost-Efficiency Analysis..." -> Maybe keep "Sweet Spot" but remove "T-Family" from title if the user wants to emphasize the broader scope. (Ask user?)
+
+---
+# Implementation Checklist for [noms_v5.tex](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/IEEE-conference-template-062824/noms_v5.tex)
+
+- [ ] `\begin{abstract}`: Rewrite to include M/C scope.
+- [ ] `\section{Introduction}`: Expand scope definition.
+- [ ] `\section{Methodology}`: Add M/C to instance list.
+- [ ] `\section{Experimental Results}`:
+    - [ ] Add M/C Benchmark data (Phase 2).
+    - [ ] Add M/C Scaling data (Phase 3).
+    - [ ] Update Table V.
+- [ ] `\section{Conclusion}`: Update final claims.

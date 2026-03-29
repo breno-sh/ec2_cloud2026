@@ -19,3 +19,4 @@ artifacts/
 *.mp4
 *_compressed/
 *_parts/
+artifacts_noms

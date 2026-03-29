@@ -1,0 +1,48 @@
+[13:58:05.763] ======================================================================
+[13:58:05.763] CONFIGURATION
+[13:58:05.764]   Instance type:  t3.micro → effective: t3.2xlarge
+[13:58:05.764]   Strategy:       vertical
+[13:58:05.764]   Codec:          libx264
+[13:58:05.764]   Threads:        10
+[13:58:05.764]   Region:         sa-east-1
+[13:58:05.764]   AMI:            ami-0653a33fe2919af93
+[13:58:05.764]   Architecture:   x86_64
+[13:58:05.764]   Family:         T
+[13:58:05.764]   Runs:           1
+[13:58:05.764] ======================================================================
+[13:58:05.764] 
+######################################################################
+[13:58:05.764] RUN 1/1
+[13:58:05.764] ######################################################################
+
+[13:58:06.007] === Phase 3.2 Vertical: 1x t3.2xlarge ===
+[13:58:06.008] AMI: ami-0653a33fe2919af93 | Codec: libx264 | Threads: 10
+[13:58:06.008] [t3.2xlarge-Vertical] Launching EC2 instance...
+[13:58:07.931] [t3.2xlarge-Vertical] Instance i-0a515632fa46645ab launched. Waiting...
+[13:58:23.838] [t3.2xlarge-Vertical] Instance ready. IP: 54.233.225.205
+[13:58:54.699] [t3.2xlarge-Vertical] SSH connected.
+[13:58:55.998] [t3.2xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[13:58:55.998] [t3.2xlarge-Vertical] Uploading 10-minute video...
+[13:59:07.456] [t3.2xlarge-Vertical] Upload complete.
+[13:59:07.457] [t3.2xlarge-Vertical] SETUP TIME: 61.45s (1.02 min)
+[13:59:07.457] [t3.2xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[13:59:57.485] [t3.2xlarge-Vertical] ENCODING TIME: 50.03s (0.83 min)
+[13:59:58.392] [t3.2xlarge-Vertical] Instance terminated.
+[13:59:58.392] [t3.2xlarge-Vertical] ============================================================
+[13:59:58.392] [t3.2xlarge-Vertical] RESULTS — t3.2xlarge Vertical | libx264
+[13:59:58.392] [t3.2xlarge-Vertical]   Total Time:    111.48s (1.86 min)
+[13:59:58.392] [t3.2xlarge-Vertical]   Setup Time:    61.45s (1.02 min)
+[13:59:58.393] [t3.2xlarge-Vertical]   Encoding Time: 50.03s (0.83 min)
+[13:59:58.393] [t3.2xlarge-Vertical]   Setup %:       55.1%
+[13:59:58.393] [t3.2xlarge-Vertical] ============================================================
+[13:59:58.412] 
+======================================================================
+[13:59:58.412] AGGREGATE RESULTS — 1 runs
+[13:59:58.413]   Instance:  t3.2xlarge | Strategy: vertical
+[13:59:58.413]   Codec:     libx264 | Region: sa-east-1
+[13:59:58.413]   Mean:      111.48s (1.858 min)
+[13:59:58.414]   Median:    111.48s (1.858 min)
+[13:59:58.414]   Min:       111.48s
+[13:59:58.415]   Max:       111.48s
+[13:59:58.415]   Clean runs: 1/1
+[13:59:58.415] ======================================================================

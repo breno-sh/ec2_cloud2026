@@ -1,0 +1,38 @@
+[17:54:39.963] [run01] Starting serial run 1
+[17:55:29.833] [run01] CPU OK: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[18:03:15.847] [run01] Run 1 OK — Total: 515.29s  (provision: 49.6s  s3_dl: 1.4s  encode: 464.2s)
+[18:03:16.807] [run01] Instance terminated.
+[18:03:16.808] [run02] Starting serial run 2
+[18:04:06.474] [run02] CPU OK: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[18:11:02.777] [run02] Run 2 OK — Total: 465.59s  (provision: 49.7s  s3_dl: 0.9s  encode: 415.0s)
+[18:11:03.831] [run02] Instance terminated.
+[18:11:03.834] [run03] Starting serial run 3
+[18:11:53.552] [run03] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 1)
+[18:12:43.399] [run03] CPU OK: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[18:19:45.525] [run03] Run 3 OK — Total: 521.28s  (provision: 99.5s  s3_dl: 1.1s  encode: 420.7s)
+[18:20:14.353] [run03] Instance terminated.
+[18:20:14.358] [run04] Starting serial run 4
+[18:21:06.992] [run04] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 1)
+[18:21:56.645] [run04] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 2)
+[18:22:46.290] [run04] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 3)
+[18:23:36.052] [run04] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 4)
+[18:24:26.150] [run04] CPU OK: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[18:32:14.756] [run04] Run 4 OK — Total: 720.01s  (provision: 251.8s  s3_dl: 1.1s  encode: 467.2s)
+[18:32:15.799] [run04] Instance terminated.
+[18:32:15.802] [run05] Starting serial run 5
+[18:33:05.276] [run05] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 1)
+[18:33:54.963] [run05] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 2)
+[18:34:44.498] [run05] CPU OK: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[18:42:57.609] [run05] Run 5 OK — Total: 641.41s  (provision: 148.7s  s3_dl: 1.1s  encode: 491.6s)
+[18:42:58.573] [run05] Instance terminated.
+[18:42:58.576] [run06] Starting serial run 6
+[18:43:48.190] [run06] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 1)
+[18:44:38.181] [run06] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 2)
+[18:45:28.083] [run06] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 3)
+[18:46:18.368] [run06] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 4)
+[18:47:07.947] [run06] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 5)
+[18:47:08.508] [run06] Run 6 ERROR: Failed to get correct CPU after 5 attempts
+[18:47:08.510] [run07] Starting serial run 7
+[18:47:58.125] [run07] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 1)
+[18:48:47.815] [run07] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 2)
+[18:49:37.625] [run07] CPU mismatch (got 'Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz', want 'Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz') — terminating & retrying (attempt 3)

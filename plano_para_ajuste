@@ -1,0 +1,433 @@
+Full Adversarial IEEE Review: "The EC2 Sweet Spot"
+
+PRELIMINARY ASSESSMENT
+I have read this paper in its entirety, cross-checked every numerical claim against the tables, traced every label/reference pair, and evaluated every methodological decision. What follows is an exhaustive adversarial review. I have found problems across all eight review dimensions. I will be direct and unsparing.
+
+SECTION 1: NUMERICAL CONSISTENCY
+
+Issue 1.1
+Location: Abstract, paragraph 1 vs. Table 3 (tab:scaling_all_families), T-Family Phase 3.2
+Type: Numerical
+Severity: Critical
+Description: The abstract states the t3.micro cluster achieves "1.28× speedup… relative to single-node deployments of the largest evaluated x86 instances (m5.4xlarge)." However, Table 3 (General Purpose M-Family block) shows the speedup of the m5.large horizontal cluster over the m5.4xlarge vertical as 1.28×. The 1.28× figure correctly belongs to the M-family cross-size comparison (1.22 min vs 1.56 min). The abstract implies this speedup is achieved by t3.micro instances against the m5.4xlarge, which is technically true in wall-clock time (both clusters achieve 1.22 min), but the framing collapses two distinct comparisons into one claim without disambiguation. More seriously, the abstract sentence structure attributes "1.28× speedup AND 89.4% cost reduction" to the same configuration. But 89.4% cost reduction is the cross-family comparison (t3.micro cluster $0.00211 vs m5.4xlarge $0.01997), while 1.28× is an intra-family comparison (m5.large cluster vs m5.4xlarge vertical). These are two different experimental comparisons being presented as if they were one result from a single experiment. This is misleading.
+Suggested fix: Separate these two claims clearly. State: "A distributed cluster of 10× t3.micro instances achieves an 89.4% compute cost reduction relative to the m5.4xlarge; an intra-family cluster of 10× m5.large instances achieves a 1.28× wall-clock speedup over the same m5.4xlarge vertical baseline."
+
+Issue 1.2
+Location: Abstract vs. Introduction paragraph 4 vs. Section IV.C (Phase 3 Results)
+Type: Numerical
+Severity: Major
+Description: The abstract states "up to 93.3% of total execution time in unoptimized deployments." The introduction repeats this as "57.3%--93.3% of total processing time across T-family configurations." Table 3 confirms these values for Phase 3.1 T-family: Serial=57.3%, Parallel=93.3%, Vertical=74.0%. This is numerically consistent. However, the conclusion states "up to 93.3% of total processing time in unoptimized configurations" without the lower bound, and then later states "quantified this bottleneck at up to 93.3%." In Section IV.C.i, Phase 3.1 results are described as "setup activities consumed between 57.3% and 93.3% of total processing time across configurations." These are consistent with each other, but Section IV.D (Architecture, Codec, and Regional Impact) mentions M-family Phase 3.1 parallel overhead as 92.8% and C-family as 93.2% (Table 3). The claim that 93.3% is the maximum is therefore false — 93.3% is the T-family parallel value, while C-family shows 93.2% and M-family shows 92.8%. But wait: the T-family serial Phase 3.1 shows 57.3%, which is actually the minimum. So the range "57.3%--93.3%" is correct as stated. This is fine, but the framing in the abstract and conclusion ("up to 93.3%") is slightly misleading because it applies only to T-family parallel, and M and C families are actually lower. This should be stated more precisely.
+Suggested fix: Qualify: "up to 93.3% (T-family parallel, Phase 3.1)" rather than presenting it as a universal maximum.
+
+Issue 1.3
+Location: Section IV.C.ii (Analysis and Validation) vs. Table 3
+Type: Numerical
+Severity: Major
+Description: The text states: "the M-family horizontal cluster achieved a 1.28× speedup (1.22 min vs. 1.56 min) over the vertical m5.4xlarge." Verification: 1.56/1.22 = 1.279..., rounds to 1.28×. Correct. "The C-family cluster achieved the fastest overall time of 1.18 minutes (1.26× speedup vs. 1.49 min)." Verification: 1.49/1.18 = 1.263..., rounds to 1.26×. Correct. "The T-family horizontal cluster (1.22 min) demonstrated the strongest relative speedup at 1.48× over the vertical t3.2xlarge (1.80 min)." Verification: 1.80/1.22 = 1.475..., rounds to 1.48×. Correct. Now checking Table 3: T-family Phase 3.2 Speedup vs Serial for Parallel = 2.23×. Verification: 2.72/1.22 = 2.229. Correct. For Vertical: 2.72/1.80 = 1.511, but Table 3 shows 1.51×. Correct. However, the abstract notes in the LaTeX source comment state: "1.28x speedup over m5.4xlarge: 10x m5.large cluster (1.22 min) vs m5.4xlarge vertical (1.56 min) = 1.56/1.22." This confirms the check. All these are consistent. However, there is an inconsistency in the abstract comment for "87.5% cost reduction": "(0.01689-0.00211)/0.01689 = 0.875." Verification: (0.01689-0.00211)/0.01689 = 0.01478/0.01689 = 0.8752. Correct. But the body text in Section IV.C.ii states "87.5% cost reduction relative to the c5.4xlarge ($0.01689)" — this uses t3.micro cluster cost ($0.00211) against c5.4xlarge vertical cost ($0.01689). This is a cross-family comparison (t3 vs c5) and is technically valid but should be clearly labeled as cross-family, not as a within-C-family result.
+Suggested fix: Add explicit "cross-family" qualifier to both 89.4% and 87.5% cost reduction claims throughout.
+
+Issue 1.4
+Location: Section IV.C.ii vs. Table 3, M-family cost comparison
+Type: Numerical
+Severity: Major
+Description: The text states "The M-family cluster reduced cost by 2.3% ($0.01952 vs. $0.01997)." Verification: (0.01997-0.01952)/0.01997 = 0.00045/0.01997 = 0.02253 = 2.25%, which rounds to 2.3%. This is within rounding. But note: the "Cost Factor (vs Serial)" for M-family Phase 3.2 Parallel = 4.5×, and for Vertical = 4.6×. These are relative to the serial m5.large ($0.00434). 0.01952/0.00434 = 4.498 ≈ 4.5×. 0.01997/0.00434 = 4.602 ≈ 4.6×. Consistent. However, the phrase "cost reduction" for a 2.3% difference in the M-family horizontal vs vertical comparison is clinically negligible and the authors present it alongside the 89.4% cross-family reduction without adequate qualification. This is not a numerical error per se, but represents a rhetorical sleight of hand where a trivial within-family result is presented parallel to a dramatic cross-family result, potentially misleading readers about the actual economic advantages of horizontal scaling within the same family tier.
+Suggested fix: Explicitly note that within-family cost savings are marginal (2.3% for M, 1.0% for C) and that the dominant economic argument for horizontal scaling rests on cross-family deployment (t3.micro vs m5/c5 verticals).
+
+Issue 1.5
+Location: Section IV.C.ii, last paragraph vs. Table 3
+Type: Numerical
+Severity: Major
+Description: The text claims "78.9% cost reduction (T-family, within-family comparison)." But Table 3 shows T-family Phase 3.2: Parallel cost = $0.00211, Vertical cost = $0.00998. (0.00998-0.00211)/0.00998 = 0.00787/0.00998 = 0.7886 ≈ 78.9%. This checks out. However, this 78.9% is comparing the t3.micro parallel cluster against the t3.2xlarge vertical — these are different instance types within the T-family, not the same instance type at different scales. Calling this "within-family" is misleading; it's actually a cross-size, cross-tier comparison. The "within-family" qualifier is misleading. Furthermore, this claim appears in the statistical validation subsection (IV.C.iii), which is an inappropriate location for an economic claim — this subsection should contain only statistical validation of speedup, not economic arguments. The structural placement compounds the semantic confusion.
+Suggested fix: Relocate economic claims to the analysis subsection (IV.C.ii) and qualify as "cross-size within T-family."
+
+Issue 1.6
+Location: Table 2 (tab:final_comparison_consistent), t3.micro efficiency score vs. Introduction
+Type: Numerical
+Severity: Minor
+Description: The introduction states "the t3.micro yields the highest cost-efficiency score" and references "136,424 vs. 4,662" (t3.micro vs c5.4xlarge). From Table 2: t3.micro 5-thread H.264 efficiency = 136,424. c5.4xlarge 10-thread H.264 efficiency = 4,662. Verification using Equation 1: Efficiency = 1/((cost/3600)×time). For t3.micro: 1/((0.0104/3600)×2.5373) = 1/(0.000002889×2.5373) = 1/0.000007330 = 136,424. For c5.4xlarge: 1/((0.6800/3600)×1.1355) = 1/(0.0001889×1.1355) = 1/0.0002145 = 4,663. The body says 4,662 but the arithmetic gives 4,663. This is a rounding discrepancy of 1 unit in a number with 4 significant figures, which is acceptable, but the paper should use consistent rounding rules.
+Suggested fix: Use consistent rounding throughout efficiency calculations.
+
+Issue 1.7
+Location: Section IV.D (Regional Cost Disparities) vs. Table 4 (tab:regional_cost)
+Type: Numerical
+Severity: Major
+Description: The text states "an approximate 44% premium over us-east-1 (N. Virginia) across all utilized instance types." From Table 4: t3.micro: (0.0149-0.0104)/0.0104 = 43.3%. c5.large: (0.1220-0.0850)/0.0850 = 43.5%. m5.large: (0.1380-0.0960)/0.0960 = 43.75%. These average to ~43.5%, not 44%. The 44% claim is a minor overstatement. More importantly, the text also states "approximately 23-second performance inflation for m5.large horizontal in São Paulo." From Table 4: m5.large median in us-east-1 = 56.41s, in sa-east-1 = 79.85s. Difference = 23.44s. This is approximately 23 seconds. Correct. However, the absolute values diverge: m5.large in us-east-1 at 56.41s is inconsistent with Table 3 Phase 3.2 which shows m5.large horizontal effective encoding time of 0.26 min = 15.6 seconds (for a segment), and total parallel time of 1.22 min = 73.2 seconds. The 56.41s in Table 4 appears to represent a different metric than the total time in Table 3 — Table 4 appears to show median encoding time per segment (the effective encoding time metric), not total pipeline time. This is never explicitly stated and the column header "Median (s)" is ambiguous. If Table 4 represents per-segment encoding time, then the comparison between Table 3 (total pipeline time) and Table 4 (per-segment time) is inconsistent and could confuse readers.
+Suggested fix: Add a clear footnote to Table 4 specifying that "Median (s)" refers to per-chunk encoding time within the horizontal cluster, not total pipeline completion time. Reconcile with Table 3 values explicitly.
+
+Issue 1.8
+Location: Phase 4, Network Egress section, cost calculation
+Type: Numerical
+Severity: Major
+Description: The text states: "delivering the 150 MB encoded payload incurs ≈$0.0135 in us-east-1." Verification: 150 MB = 0.146 GB. At $0.09/GB: 0.146 × 0.09 = $0.01318 ≈ $0.0132, not $0.0135. The authors likely used 0.150 GB directly: 0.150 × 0.09 = $0.0135, treating MB and GB with inconsistent conversion. 150 MB ≠ 0.150 GB; 150 MB = 150/1024 GB = 0.1465 GB. The $0.0135 figure uses a sloppy MB→GB conversion (treating 1 MB = 0.001 GB, i.e., SI decimal, when AWS typically uses binary prefixes). For a paper making precise economic claims, this is an unacceptable numerical error.
+Suggested fix: Use 150 MiB = 0.1465 GiB or 150 MB = 0.1431 GiB and recalculate: 0.1431 × 0.09 = $0.0129. Update the claim accordingly and clarify whether MB or MiB is intended.
+
+Issue 1.9
+Location: Table 3, M-family Phase 3.2 cost values vs. text claim of 89.4% reduction
+Type: Numerical
+Severity: Minor
+Description: The 89.4% claim uses t3.micro cluster cost $0.00211 vs m5.4xlarge vertical $0.01997. But the t3.micro is from the T-family section of Table 3, while m5.4xlarge is from the M-family section. These two numbers come from different experimental sub-studies (different instance families, different cost-per-hour bases). The comparison is arithmetically valid but ecologically questionable — the t3.micro cluster uses 10 instances at $0.0104/h each, while the m5.4xlarge costs $0.768/h. The paper never discusses whether these represent equivalent service-level guarantees (burstable vs. sustained performance). For a rigorous IEEE paper, this cross-family comparison requires explicit justification of comparability.
+Suggested fix: Add a paragraph discussing the service-level equivalence assumptions underlying cross-family comparisons, particularly the implications of burstable vs. sustained compute for production SLA guarantees.
+
+Issue 1.10
+Location: Table 5 (tab:chunk_sensitivity), T-family 120s chunk
+Type: Numerical
+Severity: Major
+Description: The table shows 5× t3.micro at 120s chunks yields "2.04 min" with "0.88× speedup" vs vertical (t3.2xlarge at 1.80 min Phase 3.2). Verification: 1.80/2.04 = 0.882×. This is listed as slower than vertical (correctly noted with asterisk). But the text claims "120-second chunks with only 5 nodes reduce provisioning calls but fail to exploit parallelism sufficiently, as the higher per-instance encoding burden dominates." This explanation is logically inconsistent: if provisioning overhead is the dominant factor (as the paper argues throughout), then 5 nodes should have less provisioning overhead than 10 nodes. The slowdown for 5 nodes with 120s chunks should be explained by insufficient parallelism, not "higher per-instance encoding burden." Each node encodes a 2-minute segment instead of 1-minute, effectively doubling encoding time per node to ~0.44 min. Plus provisioning ~1.0 min. Total ≈ 1.44 min, yet observed is 2.04 min. The discrepancy of 0.60 min is not explained. The authors need to account for this gap.
+Suggested fix: Provide a breakdown of where the 2.04 min goes for the 5-node 120s chunk configuration. The claim that encoding burden "dominates" is not supported by the arithmetic.
+
+SECTION 2: TECHNICAL CORRECTNESS
+
+Issue 2.1
+Location: Section III (Methodology), Phase 2 statistical analysis paragraph
+Type: Technical
+Severity: Critical
+Description: The paper applies Welch's t-test throughout and justifies it via Shapiro-Wilk (non-normality) and Levene's test (unequal variances). However, Welch's t-test is a parametric test that assumes approximate normality, particularly for the sampling distribution of the mean. With n=30, the Central Limit Theorem provides some protection, but the paper simultaneously reports "non-normality (p < .05 for M-family distributions)" and applies Welch's t-test. For distributions that are substantially non-normal (e.g., the ARM Graviton H.265 data with std=71.85s and median=700.5s, suggesting heavily right-skewed distributions or multimodal behavior), parametric tests are inappropriate regardless of sample size. A non-parametric alternative (Mann-Whitney U test) should have been used, or at minimum, the authors should demonstrate that the non-normality is mild enough that Welch's t-test remains valid. The paper never shows the shape of these distributions. The massive standard deviations in Table 5 (ARM Graviton H.265: std=71.86s against median=700.5s, and std=30.58s against median=59.27s for horizontal) suggest multimodal or heavily skewed distributions. Applying Welch's t-test to these is methodologically unsound.
+Suggested fix: Use the Mann-Whitney U test for all non-normal distributions. If Welch's t-test is retained, provide QQ-plots or histograms in supplementary material demonstrating that the distribution shapes are close enough to normal for the CLT to apply. At minimum, report both parametric and non-parametric test results for the ARM Graviton comparisons.
+
+Issue 2.2
+Location: Section III, Phase 3 statistical methods
+Type: Technical
+Severity: Critical
+Description: The paper reports Cohen's d for Phase 3 comparisons: d=3.74 (T-family), d=8.77 (M-family), d=7.69 (C-family). Cohen's d assumes the two groups being compared have approximately normal distributions. The paper has just confirmed non-normality for Phase 3 execution times (Shapiro-Wilk p<.05). For non-normal data, Cohen's d is not a valid effect size measure. The appropriate non-parametric effect size would be rank-biserial correlation (for Mann-Whitney) or Cliff's delta. Furthermore, a Cohen's d of 8.77 is extraordinarily large — this value is so extreme that it suggests the comparison may be between distributions that don't overlap at all, in which case the effect size is trivially obvious and statistically uninformative. The authors should question whether reporting such extreme effect sizes adds scientific value.
+Suggested fix: Replace Cohen's d with appropriate non-parametric effect size measures for non-normally distributed data. Report Cliff's delta or rank-biserial correlation. For the extreme d values, note that they merely confirm non-overlapping distributions and offer interpretive commentary rather than raw numbers.
+
+Issue 2.3
+Location: Section IV.B.i (Efficiency and Cost Calculation), Equation 1
+Type: Technical
+Severity: Major
+Description: The Efficiency metric is defined as 1/((cost/3600)×time). The authors describe this as an "Inverse Cost-Delay Product, conceptually analogous to the Energy-Delay Product." However, the Energy-Delay Product (EDP) is typically defined as E×D (energy × delay), and its inverse (1/EDP) is used to maximize efficiency. The paper's metric is 1/(cost × time), which is indeed an inverse cost-delay product. However, the metric conflates two very different things: "cost" in the denominator is an instantaneous rate (dollars per hour), not the total cost of the operation. The total cost is already computed separately in Equation 2. The Efficiency metric, as defined, is equivalent to 1/(Total_Cost × time) × 3600, which means it doubly penalizes time (once in cost, which increases with time, and once in the time term). This means efficiency is proportional to 1/time², not 1/(cost×time). The authors should clarify whether this double-penalization of time is intentional and theoretically justified, because it means the metric is not actually an "inverse cost-delay product" but rather an "inverse cost-delay-squared" metric.
+Verification: Efficiency = 1/((R/3600)×T) where R = hourly rate, T = time in seconds. Total Cost = (R/3600)×T. So Efficiency = 1/Total_Cost. This means Efficiency is simply the reciprocal of Total Cost. If that is all this metric is, then reporting both Efficiency and Total Cost in Table 2 is redundant — they carry identical information. The paper never acknowledges this.
+Suggested fix: Either (a) recognize that Efficiency = 1/Total_Cost and remove the redundant column, or (b) redefine Efficiency as throughput per dollar: (1/T) / (R/3600) = 3600/(R×T), which is a legitimate performance-per-cost metric. In either case, revise the theoretical framing to match the actual computation.
+
+Issue 2.4
+Location: Section IV.D, ARM Graviton results, Table 5
+Type: Technical
+Severity: Major
+Description: The paper reports that the m7g.large serial H.265 execution consumed 700.5 seconds (median) with std=71.86s. The minimum is 328.92s and maximum is 718.51s. This is a bimodal or highly skewed distribution — the minimum (328.92s) is dramatically lower than the median (700.5s). The authors attribute this to "software-hardware impedance mismatch" and "sequential software emulation." However, the existence of observations as low as 328.92s (nearly half the median) suggests that some executions ran on a fundamentally different code path or had access to different hardware features. The paper does not investigate or explain this bimodality. Furthermore, if some executions achieved 328.92s (plausibly using NEON SIMD), then the median of 700.5s may be the artifact, not the norm. The authors make strong claims about "severe slowdown" and "software emulation" without investigating the root cause of this variance.
+Suggested fix: Plot the distribution of H.265 serial execution times on m7g.large. Investigate whether the 328.92s observations correlate with specific system configurations or AWS hypervisor assignments. Do not make causal claims about SIMD emulation without confirming this via profiling (e.g., perf stat, or checking compiler flags of the system libx265 binary).
+
+Issue 2.5
+Location: Section III, Phase 1 Methodology
+Type: Technical
+Severity: Major
+Description: The paper deploys 100 instances per configuration to measure hardware heterogeneity. In zone 'a', 98/100 t3.micro instances used Xeon 8259CL and 2/100 used Xeon 8175M. The paper then pins all experiments to the dominant architecture. However, the methodology for ensuring hardware pinning is never described mechanistically. The paper states "instances underwent architectural validation, with any non-conforming instances immediately terminated and automatically replaced." This raises several unaddressed questions: (1) How many replacement cycles were needed on average? (2) Does the selective termination-and-replace loop introduce a systematic bias by preferentially sampling from a subset of the physical host pool? (3) Does repeatedly requesting the same instance type in the same AZ during replacement attempts affect the distribution of assigned hardware? Without answers to these questions, the "architectural validation" protocol is not reproducible and may introduce subtle confounds.
+Suggested fix: Report the distribution of replacement attempts (mean, max replacements needed per experimental run). Justify that the replacement protocol does not introduce systematic bias in host selection. Consider using instance placement groups or dedicated hosts as a more principled approach to hardware homogeneity.
+
+Issue 2.6
+Location: Section IV.C.ii (Effective Encoding Time analysis)
+Type: Technical
+Severity: Major
+Description: The paper states "effective encoding takes 1.72 minutes (103 seconds), implying a theoretical per-instance computational share of ≈0.17 minutes when distributed across 10 nodes. The reported parallel Effective Encoding Time of 0.22 minutes reflects both raw FFmpeg computation and inherent network I/O transfers." This analysis contains an error: 103 seconds / 10 nodes = 10.3 seconds = 0.172 minutes per node. But the paper states this is "≈0.17 minutes," which matches. The parallel Effective Encoding Time of 0.22 min = 13.2 seconds. The overhead over ideal (0.17 min) is 0.05 minutes = 3 seconds, attributed to SFTP transfer overhead. This seems plausible for a 1-minute video segment. However, the paper never validates that this overhead is truly SFTP transfer time — it could include FFmpeg startup time, container initialization, output container stop, etc. The attribution to "network I/O transfers" without measurement is a claim not supported by data.
+Suggested fix: Instrument the parallel workflow to separately measure FFmpeg execution time vs. SFTP transfer time vs. container startup time within each worker node. Report these breakdowns in the artifact data.
+
+Issue 2.7
+Location: Phase 4, Equation 3 (T(c) model)
+Type: Technical
+Severity: Major
+Description: The analytical model defines T(c) = t_seg + max(t_prov,i) + t_enc(c) + t_merge. This model is incomplete for several reasons: (1) It models provisioning as a single max() operation, but the actual pipeline is sequential: segment → provision → transfer → encode → retrieve → merge. The transfer time is missing from the model. (2) t_enc(c) is treated as a scalar, but in practice it is the maximum encoding time across all N nodes (which varies due to AWS jitter). The model should be T(c) = t_seg + max(t_prov,i) + max(t_transfer,i) + max(t_enc,i) + t_merge. (3) The model claims to "establish the mathematical bounds for optimal segment duration" but no closed-form optimal c is derived. The authors present the model and then immediately pivot to empirical results (Table 6) without showing where dT/dc = 0 or how the optimal is determined analytically. The claim of "analytical chunk optimization model" is not fulfilled — this is an empirical sensitivity analysis with a decorative equation.
+Suggested fix: Either (a) derive the actual optimal c analytically (requires characterizing t_enc(c) as linear in c, t_prov as independent of c, etc.) or (b) rename Section IV.D as "Empirical Chunk Size Sensitivity Analysis" and remove the claim of "analytical" modeling. The model as presented does not meet the standard of an analytical contribution.
+
+Issue 2.8
+Location: Phase 2 Results, thread scaling analysis for VP9
+Type: Technical
+Severity: Major
+Description: The paper states "The VP9 codec (libvpx-vp9) exhibits a distinct behavior, maintaining near-constant execution times across all thread configurations and instance types." From Table 2: VP9 times across instances range from 14.45s (c5.4xlarge) to 18.05s (t3.large). These are NOT "near-constant across instance types" — there is a 24.7% range. The "near-constant" claim applies specifically to thread configurations within a given instance, not across instances. This is a significant semantic error. Furthermore, the explanation — "without explicit structural parameters such as spatial tiling, the encoder cannot effectively exploit parallel vCPU resources" — is presented as an interpretation but is not empirically validated. The paper does not test VP9 with tile-columns or tile-rows parameters enabled, so it cannot claim that the lack of tiling is the cause.
+Suggested fix: Correct the scope of the "near-constant" claim to apply only to thread counts within a single instance, not across instance types. Qualify the tiling explanation as a hypothesis rather than a confirmed finding. Consider running a single VP9 experiment with tile-columns=4 to empirically validate the tiling hypothesis.
+
+SECTION 3: SEMANTIC AND LOGICAL CONSISTENCY
+
+Issue 3.1
+Location: Introduction, RQ3 and RQ4 vs. Results
+Type: Semantic
+Severity: Major
+Description: RQ3 asks: "Can provisioning optimizations make small-instance clusters more effective than vertical scaling in both time and cost?" This is answered. RQ4 asks: "How do regional pricing disparities and network egress bottlenecks impact the ultimate economic viability of VaaS deployments?" The regional pricing section (IV.D) quantifies a 44% premium but does not conclude when cross-region deployment becomes economically irrational. The network egress section (IV.D Phase 4) shows egress costs exceed compute costs by ~6.4× for t3.micro clusters, but does not address "economic viability" of VaaS at scale. RQ4 is only partially answered — the "impact on economic viability" is never quantitatively characterized. At what egress volume does the service become unprofitable? What is the break-even between compute optimization and CDN offloading? These questions are implied by RQ4 but never addressed.
+Suggested fix: Either narrow RQ4 to what is actually answered ("How do regional pricing disparities and network egress costs compare to compute costs?") or expand Section IV.D to compute break-even points and viability thresholds.
+
+Issue 3.2
+Location: Section IV.D, ARM Graviton H.264 horizontal performance
+Type: Semantic
+Severity: Major
+Description: The paper states that for H.264 on m7g.large, "serial execution pattern produced faster absolute completion times (57.55s) than the parallel cluster architecture (108.07s), indicating severe architectural mismatch." The paper then attributes this inversion to "the computational translation is so rapid that the inherent variance in AWS EC2 provisioning latency… completely eclipses the parallel speedup." However, the total pipeline for horizontal includes segmentation, provisioning, transfer, encoding, retrieval, and merging. For H.264 on Graviton, each segment encodes in ~10 seconds (57.55s / ~6 segments for a 10-minute video with 60-second chunks ≈ 9.59s per segment). But the paper never shows the per-segment encoding time for Graviton H.264 to confirm that encoding is fast enough that overhead dominates. The causal attribution is asserted but not demonstrated with per-phase timing data.
+Suggested fix: Provide per-phase timing breakdown (provision, transfer, encode, retrieve) for Graviton H.264 horizontal to demonstrate empirically that provisioning overhead dominates. This is necessary to support the causal claim.
+
+Issue 3.3
+Location: Section IV.D, ARM Graviton H.265 performance claim
+Type: Semantic
+Severity: Critical
+Description: The paper claims the "horizontal m7g.large cluster processed the same workload in 59.27 seconds utilizing H.265, bypassing even the fastest x86 H.264 results." The fastest x86 H.264 horizontal result is c5.large at 64.04s (Table 4). The m7g.large H.265 horizontal achieves 59.27s. This comparison is not scientifically valid — it compares different codecs (H.264 vs H.265) on different architectures. H.265 at equivalent quality produces smaller files, so a fair comparison would need to control for output quality (PSNR/SSIM) or use the same codec on both platforms. The paper is comparing encoding speed of a more complex codec (H.265) on ARM against a simpler codec (H.264) on x86. This is analogous to claiming "my computer compresses files faster" by switching to a less compressive algorithm on one machine. This comparison is scientifically meaningless as stated.
+Suggested fix: Remove or heavily qualify this cross-codec comparison. If comparing ARM vs x86 performance, use the same codec on both. The paper should compare H.265 on ARM vs H.265 on x86, not H.265-ARM vs H.264-x86.
+
+Issue 3.4
+Location: Conclusion, paragraph 3
+Type: Semantic
+Severity: Major
+Description: The conclusion states "ARM Graviton instances displayed strong parallel encoding performance for H.265 workloads, surpassing x86 performance at a lower operational cost." This claim is not supported by the data for two reasons: (1) As noted in Issue 3.3, the comparison is cross-codec; (2) The m7g.large H.265 horizontal results show a median of 59.27s but with std=30.58s and maximum=225.79s. The paper earlier acknowledges this represents "operational volatility" with CV>50%. Claiming "strong performance" for a configuration with CV>50% is contradictory — high variance is antithetical to "strong" reliable performance. A result that sometimes takes 4× longer than the median is not a reliable performance advantage.
+Suggested fix: Qualify: "ARM Graviton demonstrated median H.265 horizontal encoding advantages over x86, but exhibited substantial operational variance (CV>50%) that limits production reliability without further orchestration hardening."
+
+Issue 3.5
+Location: Section II (Related Works), last paragraph before Table 1
+Type: Semantic
+Severity: Minor
+Description: The paper states "Our work addresses cloud performance variability through empirical measurement. We quantify variability across 30 trials per configuration." The justification of 30 trials is never argued — why is n=30 sufficient? For non-normal distributions (as later confirmed by Shapiro-Wilk tests), the CLT may require larger samples for the sample mean to be approximately normally distributed, particularly for the ARM Graviton configurations which show extreme variance. The choice of n=30 appears to be a convenience threshold (the traditional rule-of-thumb for the CLT) rather than a power-analysis-justified sample size.
+Suggested fix: Include a brief power analysis justifying n=30 as sufficient given the observed effect sizes and variance levels. For configurations with CV>50% (ARM Graviton), explicitly discuss whether n=30 provides adequate statistical power.
+
+Issue 3.6
+Location: Section IV.B.iii (Visual Analysis) and Figure 1 caption
+Type: Semantic
+Severity: Major
+Description: The caption for Figure 1 states "Compression time (mean ± 95% CI, n=30)." However, the methodology states "We computed descriptive statistics across these repetitions, calculating 95% Confidence Intervals (Student's t-distribution)." Student's t-distribution assumes normality, but Shapiro-Wilk tests confirmed non-normality for M-family distributions. The figure caption claims "mean ± 95% CI" but for non-normal distributions, the mean is not a robust central tendency measure — the median should be reported. Furthermore, Table 2 uses "Median" as the central tendency metric, making the figure caption inconsistent with the table. The paper reports median in the table but appears to plot mean in the figure.
+Suggested fix: Either (a) use median with bootstrapped 95% CIs in the figure, consistent with Table 2, or (b) justify why mean is appropriate for the figure while median is used in the table. The inconsistency between the table's use of median and the figure's use of mean must be resolved.
+
+Issue 3.7
+Location: Section IV.B.ii, thread scaling discussion
+Type: Semantic
+Severity: Minor
+Description: The paper explains VP9's thread-agnostic behavior as: "without explicit structural parameters such as spatial tiling, the encoder cannot effectively exploit parallel vCPU resources for the evaluated 30-second workload segments." This explanation is correct for libvpx-vp9, which historically had limited thread parallelism. However, the paper's FFmpeg command uses -threads <n> for VP9 without specifying -tile-columns and -tile-rows. The paper presents the absence of these parameters as an intentional experimental condition (to evaluate "default configurations") but never states this explicitly. A reader unfamiliar with VP9's parallelism model might incorrectly conclude that VP9 is simply not parallelizable, when in fact it is parallelizable with proper configuration. The experimental design decision to use default parameters for all codecs should be explicitly justified as representing the typical deployment scenario.
+Suggested fix: Add a sentence explicitly stating that the experiment evaluates default libvpx-vp9 configuration as representative of naive deployments, and note that tiling parameters exist but are outside the scope of this study.
+
+SECTION 4: SYNTACTIC AND GRAMMATICAL CORRECTNESS
+
+Issue 4.1
+Location: Introduction, paragraph 4, sentence: "Four primary research questions guide this investigation"
+Type: Syntactic
+Severity: Minor
+Description: The four research questions are formatted as inline parenthetical enumeration (1)...(2)...(3)...(4)... within a single sentence spanning four complex clauses. This creates a run-on sentence that is difficult to parse in academic writing. IEEE conference papers conventionally separate research questions as distinct items or short paragraphs.
+Suggested fix: Break into a bulleted or numbered list or separate sentences: "RQ1: How do cost-performance profiles differ... RQ2: What provisioning overheads..."
+
+Issue 4.2
+Location: Section IV.D, ARM Graviton section, sentence: "Intriguingly, for the H.264 codec on ARM, the serial execution pattern produced faster absolute completion times (57.55s) than the parallel cluster architecture (108.07s), indicating severe architectural mismatch and overhead when chunking H.264 segments."
+Type: Syntactic/Semantic
+Severity: Minor
+Description: "Intriguingly" is an informal, editorializing adverb inappropriate for IEEE academic writing. Similarly, "Conversely, the most striking anomaly" in the following sentence uses "striking" which is a hyperbolic adjective. Academic writing should report findings without such value-laden language.
+Suggested fix: Replace "Intriguingly" with "Unexpectedly" or simply restructure: "For H.264 on ARM, serial execution (57.55s) outperformed the parallel cluster (108.07s), an inversion attributable to..." Remove "most striking anomaly" → "a notable anomaly."
+
+Issue 4.3
+Location: Section IV.D, ARM Graviton section: "This confirms that migrating modern encoding pipelines to ARM necessitates custom-compiled, architecture-aware binaries to avoid severe serial performance degradation."
+Type: Semantic/Syntactic
+Severity: Major
+Description: The word "confirms" implies this was a previously established fact being re-verified. This is actually a new finding of this paper. Furthermore, "necessitates" is too strong — the paper shows that standard Ubuntu repository binaries perform poorly, but has not tested custom-compiled binaries. You cannot confirm a mitigation you have not tested. This sentence presents an untested recommendation as an empirical confirmation.
+Suggested fix: Replace with: "These results suggest that migrating encoding pipelines to ARM may require custom-compiled, architecture-aware binaries to achieve optimal performance, a hypothesis warranting direct empirical validation."
+
+Issue 4.4
+Location: Section IV.D, sentence: "...the cloud's unavoidable orchestration jitter—completely eclipses the parallel speedup."
+Type: Syntactic
+Severity: Minor
+Description: "Jitter" in italics with preceding em-dash creates a long parenthetical interruption that breaks reading flow. The sentence structure is: "For libx264 on Graviton, the computational translation is so rapid that the inherent variance in AWS EC2 provisioning latency, OS boot times, and network chunk transfer—the cloud's unavoidable orchestration jitter—completely eclipses the parallel speedup." This is grammatically valid but the em-dash parenthetical interrupts the subject-verb-object flow too severely for a technical paper.
+Suggested fix: Restructure: "For libx264 on Graviton, the encoding is sufficiently fast that AWS EC2 provisioning latency, OS boot times, and network chunk transfer overhead (collectively, cloud orchestration jitter) completely eclipses the parallel speedup."
+
+Issue 4.5
+Location: Section IV.D, Regional Cost Disparities: "Therefore, transferring workloads to cheaper regions may be invalidated solely by either unpredictable orchestrational jitter or cross-region data egress costs."
+Type: Syntactic
+Severity: Minor
+Description: "orchestrational" is not a standard English word. The correct term is "orchestration." Also, "invalidated solely by either X or Y" means that X alone is sufficient to invalidate, Y alone is sufficient to invalidate, but they cannot both simultaneously invalidate — which is an odd claim. The intended meaning is likely "may be negated by orchestration jitter or egress costs."
+Suggested fix: "transferring workloads to cheaper regions may be economically counterproductive due to orchestration jitter or cross-region data egress costs."
+
+Issue 4.6
+Location: Section IV.E (limitations), External Validity: "...relying on standard Linux repository binaries often strangles ARM-native capabilities."
+Type: Syntactic
+Severity: Minor
+Description: "strangles" is an informal, colloquial verb inappropriate for an IEEE A1 paper. This is the kind of language that would appear in a blog post, not a peer-reviewed publication.
+Suggested fix: "...relying on standard Linux repository binaries may severely limit ARM-native computational capabilities."
+
+Issue 4.7
+Location: Phase 3.2 results discussion: "These results alter the cost dynamics of cloud media scaling."
+Type: Syntactic
+Severity: Minor
+Description: "alter" is too weak and vague. The results do not merely "alter" cost dynamics — they quantify specific improvements. This sentence is also an unsupported broad claim.
+Suggested fix: "These results quantify the cost-performance implications of horizontal vs. vertical scaling strategies across all three instance families."
+
+Issue 4.8
+Location: Section IV.D, ARM Graviton: "This confirms that non-deterministic cloud orchestration constraints dictate horizontal scaling viability as rigidly as CPU architecture."
+Type: Syntactic/Semantic
+Severity: Major
+Description: "as rigidly as CPU architecture" is an unsubstantiated qualitative comparison. The paper has not quantified how rigidly CPU architecture dictates scaling viability, so the comparison is meaningless. Furthermore, "dictate... viability" uses a dramatic causal verb that overstates the finding.
+Suggested fix: "This result demonstrates that provisioning latency can exceed codec-specific encoding performance differences as a determinant of horizontal scaling effectiveness."
+
+Issue 4.9
+Location: Abstract: "a non-negligible instance provisioning overhead, consuming up to 93.3% of total execution time"
+Type: Syntactic
+Severity: Minor
+Description: "non-negligible" is an understatement for a 93.3% overhead. This is the dominant component of execution time, not merely "non-negligible." The abstract should accurately characterize the magnitude.
+Suggested fix: "a dominant instance provisioning overhead, consuming up to 93.3% of total execution time"
+
+SECTION 5: STRUCTURAL INTEGRITY
+
+Issue 5.1
+Location: Section III (Methodology) vs. Section IV (Results)
+Type: Structural
+Severity: Major
+Description: The methodology describes "Phase 4: Analytical Modeling" as comprising two sub-models: (1) Chunk Optimization Model and (2) Network Cost Model. The results section (IV.E) is titled "Phase 4 Results: Analytical Modeling and Validation" and covers both. However, the methodology section describes Phase 4 as primarily "formalizing empirical findings," but there is no Phase 4 "methods" content explaining how the analytical models were derived, what assumptions underlie them, or how they were validated against empirical data. The methodology for Phase 4 is described in one short paragraph, but it is insufficient for a contribution the abstract claims as a primary result. Specifically: the Network Cost Model derivation (Equation 4) appears entirely in the Results section without a methodological preamble, and the parameters (R_inst, T_i, R_egress, D_out) are defined inline in the Results section rather than in the Methodology section. This violates the structural principle that methodology precedes results.
+Suggested fix: Expand the Phase 4 methodology to include the parameter definitions, assumptions (e.g., linear billing, independence of compute and egress costs), and validation approach for both models. Move Equation 4's parameter definitions to Section III.
+
+Issue 5.2
+Location: Section IV, missing Phase for ARM/Regional analysis
+Type: Structural
+Severity: Major
+Description: Section IV.D is titled "Architecture, Codec, and Regional Impact Analysis" and contains what the paper calls "extended evaluations (M1, M2, M3)" in the LaTeX comments. However, the methodology section (Section III) describes only Phases 1–4. The ARM Graviton tests and regional replications are described in Phase 3 methodology but split out as a separate section in the results. The LaTeX comment markers % EXTENDED EVALUATIONS (M1, M2, M3) suggest these were originally separate subsections that were merged without updating the methodology structure. The mismatch creates a structural disconnect: readers expecting Phase 3 Results to cover the ARM and regional analyses find them in a separate section without a corresponding methodology subsection.
+Suggested fix: Either integrate the ARM and regional analyses into Section IV.C (Phase 3 Results) as subsections, or add a "Phase 3 Extended Evaluation" subsection in the methodology that explicitly scopes the ARM Graviton and regional experiments.
+
+Issue 5.3
+Location: All figure and table references
+Type: Structural
+Severity: Critical
+Description: The paper references Figure 1 (fig:unified_codecs) in Section IV.B.iv. The figure appears after the text referencing it (placement with [!ht]). This is acceptable in IEEE format. Figure 2 (fig:unified_scaling) is referenced in Section IV.C.ii and placed with [!ht]. However, Table 6 (tab:chunk_sensitivity) appears in Section IV.E (Phase 4) and is referenced in the same section, which is fine. Critical issue: Table 5 (tab:arm_graviton_scaling) is referenced in the text of Section IV.D but the reference is inline with the discussion. However, the label tab:arm_graviton_scaling is referenced as "Table~\ref{tab:arm_graviton_scaling}" in Section IV.D, and the table is placed with [h] specifier. More importantly: Table 4 (tab:regional_cost) is referenced in the text of Section IV.D ("Table~\ref{tab:regional_cost} details this explicit empirical divergence") but is placed with [h] specifier in the same section. This is structurally sound. However, I find no in-text reference to Table 1 (tab:comparative_analysis) — searching the text, this table is described in the related works section but never explicitly cited as "Table~\ref{tab:comparative_analysis}" with a \ref command. The table is discussed but not formally referenced. In IEEE papers, all tables must be referenced in the text.
+Suggested fix: Add "Table~\ref{tab:comparative_analysis} summarizes..." to the Related Works section where the table is discussed.
+
+Issue 5.4
+Location: Section IV.B.iii references to Figure 1
+Type: Structural
+Severity: Minor
+Description: Section IV.B.iii states "Performance comparison across codecs is presented in Figure~\ref{fig:unified_codecs}." The section is titled "Visual Analysis of Results," which implies the primary content is visual, yet the figure analysis is primarily textual. Additionally, the figure reference appears early in the subsection before the substantive discussion, but the figure itself (floating with [!ht]) may render after the section depending on page layout. The placement should be verified in the final compiled PDF to ensure figures appear close to their first reference.
+Suggested fix: Use [!htbp] placement specifier for figures to improve placement flexibility and add a note in the supplementary material about figure placement in the camera-ready version.
+
+Issue 5.5
+Location: Phase 3.1 and Phase 3.2 sub-phase labeling in results
+Type: Structural
+Severity: Minor
+Description: The methodology labels sub-phases as "Dynamic Provisioning" and "Optimized Provisioning." The results section uses "Phase 3.1" and "Phase 3.2" inconsistently with these labels. The introduction to Phase 3 results says "Phase 3.1 implemented dynamic provisioning" and "Phase 3.2 employed optimized provisioning," establishing the equivalence. However, throughout the results discussion, the paper alternates between these naming conventions without consistent cross-reference. Table 3 uses "Phase 3.1" and "Phase 3.2" as column headers. The text sometimes says "optimized" and sometimes "Phase 3.2." Standardize to one naming convention throughout.
+Suggested fix: Standardize to "Phase 3.1 (Dynamic Provisioning)" and "Phase 3.2 (Optimized Provisioning)" at first use in each section, then use the shorter form consistently thereafter.
+
+SECTION 6: BIBLIOGRAPHIC COMPLETENESS
+
+Issue 6.1
+Location: Bibliography, \bibitem{awscredits}
+Type: Bibliographic
+Severity: Major
+Description: The citation \cite{awscredits} refers to an AWS documentation page cited as: "Amazon Web Services, 'Burstable performance instances,' Amazon EC2 User Guide, 2024." This is a web document with no DOI, no volume, no page numbers, and no archival stability guarantee. AWS documentation URLs change and content is updated without version tracking. For IEEE publications, web citations should include a [Accessed: date] field. More importantly, this citation is used to support the critical claim about T-family CPU credit mechanics — a claim central to the paper's cost analysis. Relying on a live web page for a central empirical claim is a reproducibility risk.
+Suggested fix: Add "[Accessed: Month Year]" to the citation. Consider supplementing with the AWS whitepaper on EC2 burstable instances (which is a more stable document) or citing the academic literature on burstable instance behavior.
+
+Issue 6.2
+Location: Bibliography completeness check
+Type: Bibliographic
+Severity: Major
+Description: The paper evaluates ARM Graviton 3 instances extensively but cites no primary literature on ARM Graviton architecture or performance. AWS has published technical documentation and benchmark reports on Graviton 3 (e.g., AWS Graviton3 processor technical whitepapers). The paper's claim that Graviton 3 offers "100% baseline homogeneity" and its attribution of H.265 slowdown to "sequential software emulation" without NEON SIMD would benefit from citing AWS Graviton3 architectural documentation or academic papers on ARM server performance. Additionally, the paper discusses SIMD optimizations for video codecs on ARM but cites no work on ARM NEON in video encoding (e.g., work on HEVC/H.265 SIMD optimization on ARM). This represents a significant gap in the related work.
+Suggested fix: Add citations for: (1) AWS Graviton3 technical documentation; (2) academic work on ARM NEON optimizations for video codecs; (3) at least one paper studying Graviton vs x86 performance in cloud workloads.
+
+Issue 6.3
+Location: Section II, discussion of energy efficiency (b8)
+Type: Bibliographic
+Severity: Minor
+Description: Reference b8 (Katsenou et al.) is described as focusing on "embedded devices" in Table 1, but the actual citation is to a 2024 Picture Coding Symposium paper on "Comparative Study of Hardware and Software Power Measurements in Video Compression." The paper's characterization of b8 as "embedded devices focus" in the gap analysis is potentially inaccurate and should be verified. If the Katsenou paper addresses cloud or server platforms as well as embedded devices, characterizing it solely as "embedded devices" misrepresents the prior work.
+Suggested fix: Verify the scope of Katsenou et al. and update Table 1 description accordingly.
+
+Issue 6.4
+Location: References b15 and b16
+Type: Bibliographic
+Severity: Minor
+Description: References b15 (Rosado et al.) and b16 (Araújo et al.) are both from the "30th Brazilian Symposium on Multimedia Web" (WebMedia 2024). These are cited in the context of VVC encoding complexity. While WebMedia is a legitimate venue, it is a regional Brazilian conference and may not meet the citation quality bar expected for an IEEE A1 paper on a topic where extensive IEEE and ACM literature exists on VVC optimization (e.g., IEEE TCSVT, ICIP, ICASSP publications on VVC). The paper should cite more internationally recognized venues for VVC-related work.
+Suggested fix: Supplement b15/b16 with citations from IEEE Transactions on Circuits and Systems for Video Technology or IEEE ICIP for VVC encoding complexity, which are more widely recognized in the international community.
+
+Issue 6.5
+Location: Reference b19 (Silva)
+Type: Bibliographic
+Severity: Major
+Description: Reference b19 is cited as: "P. H. G. Silva, 'Analysis of SPOT Instance Pricing for Cost Minimization in a Multi-Cloud Context,' M.S. thesis, Univ. Federal Pernambuco, Recife, Brazil, 2025." This is an unpublished master's thesis from 2025 (the same year as this paper's submission). Citing an unpublished thesis as a primary reference for spot instance pricing strategies is problematic: (1) the work has not been peer-reviewed; (2) it may not be publicly accessible; (3) citing a thesis from one's own institution raises potential conflict-of-interest concerns in a blinded review. This citation should be replaced with peer-reviewed work on spot instance pricing (e.g., Zabrovskiy et al., already cited as b21, or other ACM/IEEE publications on spot instance economics).
+Suggested fix: Replace b19 with peer-reviewed publications on spot instance pricing strategies. If the Silva thesis contains unique contributions not available elsewhere, note its unpublished status and provide the university repository DOI or URL.
+
+Issue 6.6
+Location: Throughout the paper — missing citation
+Type: Bibliographic
+Severity: Major
+Description: The paper makes extensive use of Docker containers for experimental reproducibility ("containerized FFmpeg environment") but does not cite any foundational work on container performance in cloud environments beyond b9 (Ferreira et al., 2019 on Kubernetes). The container startup time is a known variable in cloud benchmarking, yet the paper never discusses whether container initialization time is included in their "setup overhead" metric. No citation addresses container overhead specifically for media processing workloads. This is a notable gap.
+Suggested fix: Cite recent work characterizing Docker container startup overhead in cloud environments (e.g., literature on cold start latency in serverless/container-based systems) and explicitly address whether container startup is included or excluded from reported setup overhead.
+
+SECTION 7: REPRODUCIBILITY AND ARTIFACT CONSISTENCY
+
+Issue 7.1
+Location: Appendix A (Artifact Documentation) vs. Section III Methodology
+Type: Reproducibility
+Severity: Major
+Description: The appendix states "Support for 19 EC2 instance types across x86 (T, M, C) and ARM Graviton 3 (m7g, c7g) families." Counting the instances in Table 2: T-family (7: t2.micro, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge), M-family (4: m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge), C-family (4: c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge) = 15 x86 instances. ARM: m7g.large and c7g.large = 2 ARM instances. The Phase 3 ARM section also references t4g (excluded), m7g.large, and c7g.large. Total unique instance types used: 15 x86 + 2 ARM = 17. The appendix claims 19. The discrepancy of 2 is unaccounted for. Either the appendix is wrong (should be 17) or two additional instance types were used in experiments not reported in the paper.
+Suggested fix: Reconcile the instance count. If 19 instances were used, identify the 2 missing from the paper's tables. If 17 is correct, update the appendix.
+
+Issue 7.2
+Location: Appendix, "Data Collection" section
+Type: Reproducibility
+Severity: Major
+Description: The appendix states "Over 4,100 CPU verification logs from /proc/cpuinfo" (Phase 1: 100 instances × 6 AZs × 3 families = 1,800 logs, plus replacements; or 100 × 3 families = 300 primary + replacements) and "Raw timing data for over 2,800 benchmark executions." For Phase 2: 15 instance types × 4 thread configs × 3 codecs × 30 trials = 5,400 executions for Phase 2 alone. The claim of "over 2,800 benchmark executions" for Phase 2 is substantially lower than the 5,400 implied by the methodology. Either the experiment was not run as described (not all combinations were tested) or the artifact count is wrong. Note: Table 2 does not include ARM instances for Phase 2 benchmarks (only t2, t3, m5, c5), which is 15 types. 15×4×3×30 = 5,400. Even if ARM instances were excluded from Phase 2, 5,400 >> 2,800. This is a significant reproducibility red flag.
+Suggested fix: Reconcile the "2,800 benchmark executions" figure with the actual experimental design. Provide a breakdown by phase in the appendix.
+
+Issue 7.3
+Location: Appendix, "Reproduction Requirements" section
+Type: Reproducibility
+Severity: Major
+Description: The appendix provides two AMI IDs: "Ubuntu 22.04 LTS AMI (ami-0a313d6098716f372)" and "Custom AMI with pre-installed dependencies (ami-0300cfb109571fb0b)." AMI IDs are region-specific and these are us-east-1 AMIs. For reproducibility, the paper should: (1) Confirm these are us-east-1 AMIs, (2) Note that sa-east-1 experiments require different AMI IDs (which are not provided), (3) Note that AMIs may be deregistered over time, breaking reproducibility. Furthermore, the custom AMI ID (ami-0300cfb109571fb0b) is presumably owned by the authors' AWS account. If this is not made public or is in a private account, reproducers cannot access it. The paper's blinding (anonymous.4open.science) is also inconsistent with providing a specific AMI ID that may be traceable to an AWS account, potentially de-anonymizing the authors.
+Suggested fix: (1) Publish the AMI as a public AMI and verify it is accessible to any AWS account. (2) Provide the AMI build script (Packer or equivalent) as an alternative to the AMI ID, ensuring long-term reproducibility. (3) Note that sa-east-1 requires region-specific AMI IDs and provide them or the means to create them. (4) Consider the de-anonymization risk of publishing specific AMI IDs.
+
+Issue 7.4
+Location: Appendix vs. Section IV.D (ARM Graviton experiments)
+Type: Reproducibility
+Severity: Major
+Description: The appendix's "Phase 3: Scaling Strategy Analysis" section does not mention the ARM Graviton experiments (m7g.large, c7g.large) or the sa-east-1 regional experiments. The ARM and regional analyses are substantial enough to warrant their own artifact documentation subsection. The appendix as written appears to have been drafted before the ARM/regional experiments were added to the paper and was never updated.
+Suggested fix: Add an "Extended Evaluations" subsection to the appendix documenting the ARM Graviton instance configurations, the sa-east-1 regional experimental setup, and the corresponding data files.
+
+Issue 7.5
+Location: Appendix, "Estimated Reproduction Cost: $150--$250"
+Type: Reproducibility
+Severity: Minor
+Description: The cost estimate of $150-$250 covers "AWS instance hours." Given that Phase 1 alone deploys 100 instances × 3 families × 6 AZs = 1,800 instance-deployments (even for brief validation runs), and Phase 2 uses 15 instance types × 4 threads × 3 codecs × 30 trials = 5,400 runs on instances ranging from $0.0104/h (t3.micro) to $0.6800/h (c5.4xlarge), the cost estimate appears underspecified. At the high end, running 30 trials of c5.4xlarge ($0.6800/h × ~45s/trial × 12 thread configs × 3 codecs) would alone cost approximately $0.6800 × (45/3600) × 30 × 12 × 3 = $9.18 for that one instance type. Scaling across all 15 types and accounting for Phase 3 horizontal scaling experiments (30 runs × 10 instances × billing overhead), the actual reproduction cost could easily exceed $500. The $150-$250 estimate may be significantly understated, which is harmful for researchers attempting to reproduce the work.
+Suggested fix: Provide a detailed cost breakdown by phase and instance family. Verify the total against actual AWS billing data from the experiments.
+
+SECTION 8: THREATS TO VALIDITY
+
+Issue 8.1
+Location: Section V (Threats to Validity) — missing threat
+Type: Validity
+Severity: Critical
+Description: The paper's primary cost claims rely on AWS On-Demand pricing at the time of the experiment. AWS pricing changes continuously, and the paper does not specify the date when prices were collected. The costs in Table 2 ($0.0104/h for t3.micro, $0.7680/h for m5.4xlarge) must be anchored to a specific pricing date for the results to be reproducible. Furthermore, AWS frequently changes instance pricing and introduces new instance generations that may alter the efficiency rankings significantly. The entire economic analysis is time-sensitive, but no pricing date is reported anywhere in the paper. This is a construct validity threat: the "cost" variable in all equations is operationalized via a specific pricing snapshot that is never disclosed.
+Suggested fix: State the pricing retrieval date explicitly (e.g., "All pricing data was retrieved from the AWS EC2 pricing API on [date]") in the methodology section. Add a threat to validity acknowledging that pricing changes may alter specific numerical results.
+
+Issue 8.2
+Location: Section V — missing threat regarding T-family burst credits
+Type: Validity
+Severity: Major
+Description: The paper acknowledges T-family CPU credit mechanics in Section V.A. However, it states "because the H.264 workloads complete in approximately 1 minute per micro-instance, the accumulated surplus credits translate to negligible terminal surcharges." This claim is presented without empirical validation. The paper does not show actual AWS billing data for the t3.micro experiments to confirm that surplus credit surcharges were indeed negligible. The $0.00211 cost figure for the t3.micro cluster is derived from (hourly rate / 3600) × time, which ignores surplus credit billing. If surplus credits are billed at $0.05 per vCPU-hour (the AWS standard), then 10 instances running at full CPU for 1 minute (= 1/60 vCPU-hour each) would incur 10 × 2 vCPU × (1/60) × $0.05 = $0.0167 in surplus credits — potentially 8× larger than the reported $0.00211 compute cost. This would fundamentally alter the cross-family cost comparison.
+Suggested fix: Retrieve actual AWS billing data (from Cost Explorer or billing reports) for the t3.micro Phase 3.2 experiments and verify that surplus credit surcharges are negligible. If they are not, correct the cost figures. At minimum, bound the possible surplus credit cost and include it in the cost analysis.
+
+Issue 8.3
+Location: Section V — missing threat regarding workload representativeness
+Type: Validity
+Severity: Major
+Description: The paper uses 30-second and 10-minute video segments as test workloads. For Phase 2, 30-second 1080p segments are used; for Phase 3, a 10-minute video is segmented into 60-second chunks. The paper justifies the 30-second selection as "minimizing process initialization overhead" and the 10-minute as "representative of standard user-generated content." However, the paper never discusses: (1) Whether results generalize to longer professional content (e.g., feature films at 90+ minutes, which would require >90 parallel instances for 60-second chunks); (2) Whether the chunk size optimization curve (Table 6) holds for different video lengths or content types (the 60-second optimum for a 10-minute video may not be optimal for a 2-minute or 60-minute video); (3) Whether the standard test sequences used are representative of the wide variety of content complexity in production VaaS (action sequences vs. static content have dramatically different encoding times). These representativeness limitations are not discussed in Section V.
+Suggested fix: Add a paragraph to Section V.B discussing the generalizability of chunk size optimization results to different video lengths and content types, and the limitations of the specific test sequences used.
+
+Issue 8.4
+Location: Section V — missing threat regarding network conditions
+Type: Validity
+Severity: Major
+Description: The Phase 3 horizontal scaling experiments involve SFTP transfers between the orchestrator and worker instances. The paper reports that "network I/O transfers (SFTP segment upload and output retrieval)" contribute 0.05 minutes to the effective encoding time. However, the paper does not characterize the network conditions: (1) Were all transfers intra-AZ (same availability zone)? Inter-AZ transfers within the same region are billed and have higher latency; (2) What was the instance-to-instance network bandwidth? t3.micro has "Up to 5 Gbps" burstable bandwidth, which may be throttled during sustained transfers; (3) The SFTP protocol has higher overhead than direct TCP streaming, introducing systematic bias. None of these network condition variables are controlled or reported, representing a significant threat to internal validity.
+Suggested fix: Add a network conditions subsection to the threats, reporting: AZ placement of orchestrator and workers, observed SFTP throughput, and whether ENA (Elastic Network Adapter) enhanced networking was enabled.
+
+Issue 8.5
+Location: Section V — missing threat: single geographic region for primary experiments
+Type: Validity
+Severity: Major
+Description: The primary baseline experiments (Phases 1-2 and the majority of Phase 3) are conducted exclusively in us-east-1. The paper acknowledges this in Section V.B but characterizes it as a limitation of "absolute economic claims" rather than a threat to the validity of the architectural findings. However, hardware availability (and therefore Phase 1 heterogeneity distributions) may differ in other regions. The claim that "AWS Graviton 3 instances reveal complete architectural homogeneity (100% uniform availability)" may not hold in regions with lower Graviton adoption. This is an external validity threat to the hardware homogeneity findings, not just the economic claims.
+Suggested fix: Expand the external validity discussion to explicitly acknowledge that hardware homogeneity findings (Phase 1) are valid only for the tested regions and may not generalize to all AWS regions.
+
+Issue 8.6
+Location: Section V — missing threat: container layer overhead
+Type: Validity
+Severity: Minor
+Description: The paper uses "containerized FFmpeg environments" for all Phase 2 benchmarks. Container overhead (layer pull time, container runtime overhead, namespace setup) is part of the "setup overhead" that the AMI optimization aims to reduce. However, the paper never separates container-specific overhead from OS-level setup overhead. If the custom AMI includes a pre-pulled Docker image, the improvement in Phase 3.2 may be partly due to avoiding Docker layer pulls rather than the AMI itself. This conflation means the paper cannot claim that "AMI optimization" specifically is responsible for the improvement — it could be Docker image caching. This is a construct validity threat to the AMI contribution claim.
+Suggested fix: In the AMI description, specify whether the custom AMI pre-caches the Docker image layer. If so, quantify what fraction of the setup overhead reduction is attributable to Docker caching vs. OS-level package installation elimination.
+
+ADDITIONAL ISSUES NOT IN THE ORIGINAL EIGHT CATEGORIES
+
+Issue 9.1 — Ethics/Conflict of Interest
+Location: Reference b19
+Type: Bibliographic/Ethics
+Severity: Major
+Description: As noted in Issue 6.5, b19 is an unpublished M.S. thesis from Universidade Federal de Pernambuco. The paper's author list is anonymous and the affiliation is "Anonymous Affiliation, Anonymous City, Anonymous Country." However, the anonymous repository URL is https://anonymous.4open.science/r/ec2sweetspot-blinded, and reference b19 cites a UFPE thesis on a directly related topic from the same year. This creates a potential double-anonymization failure — a reviewer familiar with UFPE's cloud computing research group could potentially de-anonymize the authors. Furthermore, if b19's author is one of the paper's co-authors, this represents a potentially undisclosed self-citation, which IEEE policies prohibit in double-blind review.
+Suggested fix: Remove b19 and replace with peer-reviewed work on spot instance pricing. Do not cite unpublished work from potentially identifiable institutional affiliations in a blinded review.
+
+Issue 9.2 — Missing Baseline
+Location: Section IV.C, Phase 3 evaluation design
+Type: Technical/Semantic
+Severity: Major
+Description: The paper compares horizontal scaling vs. vertical scaling but does not consider a critical third baseline: single large instance with multiple threads at 100% utilization for the full 10-minute video. The Phase 3 vertical baseline uses a single m5.4xlarge encoding the full 10-minute video with (presumably) the optimal thread count from Phase 2. However, Phase 2 shows that 10 threads on m5.4xlarge achieves 1.302s for H.264 (30-second segment). For a 10-minute video (600 seconds of content), the sequential encoding time would be approximately (600/30) × 1.302s = 26.04s ≈ 0.43 min, plus setup overhead. But Table 3 shows m5.4xlarge Phase 3.2 Effective Encoding Time = 0.59 min = 35.4s. This is inconsistent with scaling from Phase 2: if 30s of content encodes in 1.30s with 10 threads on m5.4xlarge, then 600s should encode in ~26s, not 35.4s. The discrepancy (35.4s vs ~26s) is never explained. This undermines the claim that Phase 3 results are consistent with Phase 2 benchmarks.
+Suggested fix: Reconcile Phase 2 single-segment results with Phase 3 full-video results by providing encoding time per unit video for both experiments. Explain any overhead (FFmpeg startup, file I/O, etc.) that accounts for the discrepancy.
+
+OVERALL RECOMMENDATION: MAJOR REVISION
+This paper presents a genuinely interesting empirical study with a clear practical contribution: the demonstration that AMI-optimized horizontal scaling can outperform vertical scaling for divisible video transcoding workloads. The core finding — that provisioning overhead, not compute throughput, is the limiting factor for cloud cost efficiency in episodic workloads — is well-motivated and the experimental scope is commendable.
+However, the paper suffers from a collection of problems that collectively preclude acceptance in its current form. The most severe issues are: (1) a statistically invalid application of Welch's t-test and Cohen's d to demonstrably non-normal distributions, particularly for ARM Graviton configurations where the coefficient of variation exceeds 50%; (2) a cross-codec comparison (ARM H.265 vs. x86 H.264) presented as an architectural performance advantage, which is scientifically unsound; (3) the Efficiency metric (Eq. 1) being mathematically equivalent to 1/Total_Cost, making Table 2's dual reporting of Efficiency and Total Cost redundant without acknowledgment; (4) the "analytical chunk optimization model" not deriving an analytical optimum but instead presenting an empirical sensitivity study; (5) numerical inconsistencies in the network egress cost calculation (MB/GB conversion error); (6) missing disclosure of AWS pricing dates undermining reproducibility; and (7) potential citation of an undisclosed co-authored unpublished thesis from a traceable institution (b19), creating anonymization and conflict-of-interest concerns. The ARM Graviton analysis section in particular requires substantial revision — the bimodal H.265 distributions are unexplained, the cross-codec comparisons are invalid, and the SIMD hypothesis is asserted rather than tested. The paper should not be accepted until these issues are addressed in revision. With thorough revision addressing the Critical and Major issues identified above, this work could make a meaningful contribution to the cloud computing literature.

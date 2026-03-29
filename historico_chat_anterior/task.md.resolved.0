@@ -1,0 +1,14 @@
+# Task: Add New Instance Families to EC2 Sweet Spot Study
+
+- [/] Research and Select Families <!-- id: 0 -->
+    - [x] Analyze current paper content <!-- id: 1 -->
+    - [ ] Review existing scripts to understand parameterization <!-- id: 2 -->
+    - [ ] Propose families (C and M likely) <!-- id: 3 -->
+- [ ] Plan Script Adaptations <!-- id: 4 -->
+    - [ ] Identify hardcoded instance types in scripts <!-- id: 5 -->
+    - [ ] Design refactoring for generic instance family support <!-- id: 6 -->
+- [ ] Prepare Implementation Plan <!-- id: 7 -->
+    - [ ] Document changes needed for Phase 2 (Benchmarks) <!-- id: 8 -->
+    - [ ] Document changes needed for Phase 3 (Scaling) <!-- id: 9 -->
+- [ ] Verify Code Readiness <!-- id: 10 -->
+    - [ ] Dry run/Unit test scripts if possible (or mock) <!-- id: 11 -->

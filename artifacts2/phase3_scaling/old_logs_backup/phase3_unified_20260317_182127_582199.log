@@ -1,0 +1,15 @@
+[18:21:27.585] ======================================================================
+[18:21:27.586] CONFIGURATION
+[18:21:27.587]   Instance type:  m7g.large → effective: m7g.large
+[18:21:27.589]   Strategy:       horizontal
+[18:21:27.589]   Codec:          libx264
+[18:21:27.589]   Threads:        5
+[18:21:27.589]   Region:         us-east-1
+[18:21:27.590]   AMI:            ami-0976d56fa61f42304
+[18:21:27.590]   Architecture:   aarch64
+[18:21:27.590]   Runs:           24
+[18:21:27.590] ======================================================================
+[18:21:27.590] === Phase 3.2 Horizontal: 10x m7g.large ===
+[18:21:27.590] AMI: ami-0976d56fa61f42304 | Codec: libx264 | Threads: 5 | Runs: 24
+[18:21:27.590] --- Horizontal Run 1/24 ---
+[18:21:27.591] [Setup] Splitting video...

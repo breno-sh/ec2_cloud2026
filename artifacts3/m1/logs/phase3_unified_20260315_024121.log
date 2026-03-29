@@ -1,0 +1,114 @@
+[02:41:21.188] ======================================================================
+[02:41:21.188] CONFIGURATION
+[02:41:21.188]   Instance type:  t3.micro → effective: t3.micro
+[02:41:21.188]   Strategy:       horizontal
+[02:41:21.188]   Codec:          libvpx-vp9
+[02:41:21.188]   Threads:        5
+[02:41:21.188]   Region:         us-east-1
+[02:41:21.188]   AMI:            ami-06c7c20c67513469a
+[02:41:21.188]   Architecture:   x86_64
+[02:41:21.188]   Runs:           30
+[02:41:21.188] ======================================================================
+[02:41:21.188] === Phase 3.2 Horizontal: 10x t3.micro ===
+[02:41:21.188] AMI: ami-06c7c20c67513469a | Codec: libvpx-vp9 | Threads: 5 | Runs: 30
+[02:41:21.188] --- Horizontal Run 1/30 ---
+[02:41:21.188] [Setup] Splitting video...
+[02:42:19.525] Horizontal Run 1 completed in 58.34s
+[02:42:19.525] --- Horizontal Run 2/30 ---
+[02:42:19.525] [Setup] Splitting video...
+[02:43:16.888] Horizontal Run 2 completed in 57.36s
+[02:43:16.889] --- Horizontal Run 3/30 ---
+[02:43:16.889] [Setup] Splitting video...
+[02:44:14.577] Horizontal Run 3 completed in 57.69s
+[02:44:14.577] --- Horizontal Run 4/30 ---
+[02:44:14.577] [Setup] Splitting video...
+[02:45:13.057] Horizontal Run 4 completed in 58.48s
+[02:45:13.058] --- Horizontal Run 5/30 ---
+[02:45:13.058] [Setup] Splitting video...
+[02:46:10.579] Horizontal Run 5 completed in 57.52s
+[02:46:10.579] --- Horizontal Run 6/30 ---
+[02:46:10.580] [Setup] Splitting video...
+[02:47:07.814] Horizontal Run 6 completed in 57.23s
+[02:47:07.814] --- Horizontal Run 7/30 ---
+[02:47:07.814] [Setup] Splitting video...
+[02:48:49.805] Horizontal Run 7 completed in 101.99s
+[02:48:49.805] --- Horizontal Run 8/30 ---
+[02:48:49.806] [Setup] Splitting video...
+[02:49:46.713] Horizontal Run 8 completed in 56.91s
+[02:49:46.713] --- Horizontal Run 9/30 ---
+[02:49:46.713] [Setup] Splitting video...
+[02:50:43.726] Horizontal Run 9 completed in 57.01s
+[02:50:43.726] --- Horizontal Run 10/30 ---
+[02:50:43.726] [Setup] Splitting video...
+[02:51:40.716] Horizontal Run 10 completed in 56.99s
+[02:51:40.716] --- Horizontal Run 11/30 ---
+[02:51:40.716] [Setup] Splitting video...
+[02:52:39.072] Horizontal Run 11 completed in 58.36s
+[02:52:39.072] --- Horizontal Run 12/30 ---
+[02:52:39.072] [Setup] Splitting video...
+[02:53:39.106] Horizontal Run 12 completed in 60.03s
+[02:53:39.106] --- Horizontal Run 13/30 ---
+[02:53:39.106] [Setup] Splitting video...
+[02:54:43.676] Horizontal Run 13 completed in 64.57s
+[02:54:43.676] --- Horizontal Run 14/30 ---
+[02:54:43.676] [Setup] Splitting video...
+[02:56:39.811] Horizontal Run 14 completed in 116.13s
+[02:56:39.811] --- Horizontal Run 15/30 ---
+[02:56:39.811] [Setup] Splitting video...
+[02:57:37.108] Horizontal Run 15 completed in 57.30s
+[02:57:37.109] --- Horizontal Run 16/30 ---
+[02:57:37.109] [Setup] Splitting video...
+[02:58:34.515] Horizontal Run 16 completed in 57.41s
+[02:58:34.515] --- Horizontal Run 17/30 ---
+[02:58:34.515] [Setup] Splitting video...
+[02:59:32.890] Horizontal Run 17 completed in 58.38s
+[02:59:32.890] --- Horizontal Run 18/30 ---
+[02:59:32.890] [Setup] Splitting video...
+[03:00:30.668] Horizontal Run 18 completed in 57.78s
+[03:00:30.668] --- Horizontal Run 19/30 ---
+[03:00:30.668] [Setup] Splitting video...
+[03:01:28.537] Horizontal Run 19 completed in 57.87s
+[03:01:28.537] --- Horizontal Run 20/30 ---
+[03:01:28.538] [Setup] Splitting video...
+[03:02:35.207] Horizontal Run 20 completed in 66.67s
+[03:02:35.207] --- Horizontal Run 21/30 ---
+[03:02:35.207] [Setup] Splitting video...
+[03:03:40.444] Horizontal Run 21 completed in 65.24s
+[03:03:40.444] --- Horizontal Run 22/30 ---
+[03:03:40.444] [Setup] Splitting video...
+[03:05:34.777] Horizontal Run 22 completed in 114.33s
+[03:05:34.777] --- Horizontal Run 23/30 ---
+[03:05:34.777] [Setup] Splitting video...
+[03:06:36.807] Horizontal Run 23 completed in 62.03s
+[03:06:36.808] --- Horizontal Run 24/30 ---
+[03:06:36.808] [Setup] Splitting video...
+[03:07:58.370] Horizontal Run 24 completed in 81.56s
+[03:07:58.370] --- Horizontal Run 25/30 ---
+[03:07:58.370] [Setup] Splitting video...
+[03:08:59.872] Horizontal Run 25 completed in 61.50s
+[03:08:59.872] --- Horizontal Run 26/30 ---
+[03:08:59.872] [Setup] Splitting video...
+[03:10:04.657] Horizontal Run 26 completed in 64.78s
+[03:10:04.657] --- Horizontal Run 27/30 ---
+[03:10:04.657] [Setup] Splitting video...
+[03:11:09.593] Horizontal Run 27 completed in 64.94s
+[03:11:09.594] --- Horizontal Run 28/30 ---
+[03:11:09.594] [Setup] Splitting video...
+[03:12:12.944] Horizontal Run 28 completed in 63.35s
+[03:12:12.944] --- Horizontal Run 29/30 ---
+[03:12:12.944] [Setup] Splitting video...
+[03:13:16.727] Horizontal Run 29 completed in 63.78s
+[03:13:16.727] --- Horizontal Run 30/30 ---
+[03:13:16.728] [Setup] Splitting video...
+[03:14:22.425] Horizontal Run 30 completed in 65.70s
+[03:14:22.429] 
+======================================================================
+[03:14:22.429] AGGREGATE RESULTS — 30/30 successful runs
+[03:14:22.429]   Instance:  t3.micro | Strategy: horizontal
+[03:14:22.429]   Codec:     libvpx-vp9
+[03:14:22.429]   Mean:      66.04s
+[03:14:22.429]   Median:    59.26s
+[03:14:22.429]   Stdev:     16.11s
+[03:14:22.429]   Min:       56.91s
+[03:14:22.429]   Max:       116.13s
+[03:14:22.429] ======================================================================

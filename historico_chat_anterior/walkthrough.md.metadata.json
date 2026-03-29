@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Standardized all instance terminology in `walkthrough.md`. Replaced generic strategy names (Horizontal/Vertical/Serial) with precise instance configurations (e.g., '10x m5.large', '1x m5.4xlarge', '1x m5.large') throughout all tables and explanatory text, as requested.",
+  "updatedAt": "2026-02-14T03:26:31.474528418Z",
+  "version": "17"
+}

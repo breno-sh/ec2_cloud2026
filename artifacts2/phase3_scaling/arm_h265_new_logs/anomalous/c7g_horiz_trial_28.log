@@ -1,0 +1,116 @@
+[20:41:00.144] === Phase 3.2 OPTIMIZED Horizontal: 10x c7g.large ===
+[20:41:00.144] AMI: ami-0976d56fa61f42304 (ffmpeg pre-installed) | Codec: libx265 | Threads: 5
+[20:41:00.144] [Setup] Starting video split...
+[20:41:00.190] [Setup] Video: 600.0s → 10 parts of 60.0s
+[20:41:01.378] [Setup] Video split complete.
+[20:41:01.378] [Summary] SPLIT TIME: 1.23s
+[20:41:02.185] [Part 05] Launching c7g.large...[20:41:02.186] [Part 07] Launching c7g.large...[20:41:02.186] [Part 03] Launching c7g.large...
+
+[20:41:02.190] [Part 02] Launching c7g.large...[20:41:02.194] [Part 01] Launching c7g.large...
+[20:41:02.196] [Part 06] Launching c7g.large...
+
+[20:41:02.207] [Part 08] Launching c7g.large...
+
+[20:41:02.216] [Part 04] Launching c7g.large...
+[20:41:02.225] [Part 00] Launching c7g.large...
+[20:41:02.233] [Part 09] Launching c7g.large...
+[20:41:20.987] [Part 03] Instance ready. IP: 35.175.210.244
+[20:41:21.048] [Part 08] Instance ready. IP: 54.146.113.84
+[20:41:21.063] [Part 04] Instance ready. IP: 54.224.8.91
+[20:41:21.100] [Part 01] Instance ready. IP: 54.208.194.247
+[20:41:21.198] [Part 02] Instance ready. IP: 54.88.229.39
+[20:41:21.224] [Part 09] Instance ready. IP: 54.89.234.233
+[20:41:21.261] [Part 07] Instance ready. IP: 34.230.62.59
+[20:41:21.373] [Part 00] Instance ready. IP: 54.198.243.162
+[20:41:23.355] [Part 06] Instance ready. IP: 54.210.204.195
+[20:41:30.435] [Part 05] Instance ready. IP: 54.152.200.189
+[20:41:53.362] [Part 01] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.363] [Part 03] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.540] [Part 08] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.555] [Part 02] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.562] [Part 00] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.682] [Part 07] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.702] [Part 04] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.755] [Part 09] CPU: aarch64
+CPU part	: 0xd40
+[20:41:53.999] [Part 01] Uploading segment...
+[20:41:54.000] [Part 03] Uploading segment...
+[20:41:54.138] [Part 08] Uploading segment...
+[20:41:54.151] [Part 02] Uploading segment...
+[20:41:54.175] [Part 00] Uploading segment...
+[20:41:54.301] [Part 04] Uploading segment...[20:41:54.301] [Part 07] Uploading segment...
+
+[20:41:54.336] [Part 09] Uploading segment...
+[20:41:55.535] [Part 06] CPU: aarch64
+CPU part	: 0xd40
+[20:41:56.513] [Part 06] Uploading segment...
+[20:41:57.617] [Part 01] Running compression...
+[20:41:57.664] [Part 04] Running compression...
+[20:41:57.767] [Part 03] Running compression...
+[20:41:57.833] [Part 06] Running compression...
+[20:41:57.956] [Part 07] Running compression...
+[20:41:58.117] [Part 08] Running compression...
+[20:41:58.226] [Part 09] Running compression...
+[20:41:58.996] [Part 07] ERROR: FFmpeg failed: ample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb200864e7320] moov atom not found
+/home/ubuntu/input.mp4: Invalid data found when processing input
+
+[20:41:59.076] [Part 00] Running compression...
+[20:41:59.143] [Part 06] ERROR: FFmpeg failed: ample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaeb28680e320] moov atom not found
+/home/ubuntu/input.mp4: Invalid data found when processing input
+
+[20:41:59.285] [Part 02] Running compression...
+[20:41:59.360] [Part 09] ERROR: FFmpeg failed: ample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xc024ea0b6320] moov atom not found
+/home/ubuntu/input.mp4: Invalid data found when processing input
+
+[20:41:59.557] [Part 07] Instance terminated.
+[20:41:59.613] [Part 08] ERROR: FFmpeg failed: ample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbdd2d97fa320] moov atom not found
+/home/ubuntu/input.mp4: Invalid data found when processing input
+
+[20:41:59.686] [Part 06] Instance terminated.
+[20:41:59.889] [Part 09] Instance terminated.
+[20:41:59.919] [Part 04] ERROR: FFmpeg failed: ample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xc1b5a355b320] moov atom not found
+/home/ubuntu/input.mp4: Invalid data found when processing input
+
+[20:42:00.187] [Part 08] Instance terminated.
+[20:42:00.466] [Part 04] Instance terminated.
+[20:42:02.758] [Part 05] CPU: aarch64
+CPU part	: 0xd40
+[20:42:03.356] [Part 05] Uploading segment...
+[20:42:04.929] [Part 05] Running compression...
+[20:42:07.561] [Part 05] ERROR: FFmpeg failed: ample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xc62f59834320] moov atom not found
+/home/ubuntu/input.mp4: Invalid data found when processing input
+
+[20:42:08.126] [Part 05] Instance terminated.
+[20:43:12.165] [Part 01] Done!
+[20:43:13.242] [Part 01] Instance terminated.
+[20:43:16.549] [Part 00] Done!
+[20:43:17.609] [Part 00] Instance terminated.
+[20:43:24.406] [Part 02] Done!
+[20:43:25.406] [Part 02] Instance terminated.
+[20:43:30.436] [Part 03] Done!
+[20:43:31.511] [Part 03] Instance terminated.
+[20:43:31.512] ============================================================
+[20:43:31.512] RESULTS — 10x c7g.large Horizontal OPTIMIZED
+[20:43:31.512]   Total Time:    151.37s (2.52 min)
+[20:43:31.512]   Split Time:    1.23s
+[20:43:31.512]   Parallel Time: 150.13s (2.50 min)
+[20:43:31.512] ============================================================

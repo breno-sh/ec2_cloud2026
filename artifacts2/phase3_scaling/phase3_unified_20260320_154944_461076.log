@@ -1,0 +1,29 @@
+usage: phase3_unified.py [-h]
+                         --instance-type {t3.micro,t3.2xlarge,m5.large,m5.4xlarge,c5.large,c5.4xlarge,t4g.micro,t4g.2xlarge,m7g.large,m7g.4xlarge,c7g.large,c7g.4xlarge}
+                         --strategy {horizontal,vertical,serial}
+                         --codec {libx264,libx265,libvpx-vp9}
+                         [--region {us-east-1,sa-east-1}]
+                         [--runs RUNS] [--num-parts NUM_PARTS]
+                         [--max-workers MAX_WORKERS] [--dry-run]
+
+Unified Phase 3 benchmark script for EC2 Sweet Spot study
+
+options:
+  -h, --help            show this help message and exit
+  --instance-type {t3.micro,t3.2xlarge,m5.large,m5.4xlarge,c5.large,c5.4xlarge,t4g.micro,t4g.2xlarge,m7g.large,m7g.4xlarge,c7g.large,c7g.4xlarge}
+                        EC2 instance type to use
+  --strategy {horizontal,vertical,serial}
+                        Scaling strategy:
+                          horizontal: N × small instances (parallel chunks)
+                          vertical:   1 × large instance (full video, many threads)
+                          serial:     1 × small instance (full video, baseline)
+  --codec {libx264,libx265,libvpx-vp9}
+                        Video codec for FFmpeg
+  --region {us-east-1,sa-east-1}
+                        AWS region (default: us-east-1)
+  --runs RUNS           Number of repetitions (default: 1)
+  --num-parts NUM_PARTS
+                        Number of chunks for horizontal strategy (default: 10)
+  --max-workers MAX_WORKERS
+                        Max parallel workers for horizontal (default: same as --num-parts)
+  --dry-run             Print configuration and exit without launching instances

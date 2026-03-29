@@ -1,0 +1,91 @@
+[12:51:10.998] === Chunk Sensitivity: 20x m5.large (30s/chunk) ===
+[12:51:10.998] [Setup] Starting video split...
+[12:51:11.048] [Setup] Video: 600.0s → 20 parts of 30.0s each
+[12:51:13.867] [Setup] Video split complete.
+[12:51:13.867] [Summary] SPLIT TIME: 2.87s
+[12:51:15.435] [Part 09] Launching m5.large...
+[12:51:15.437] [Part 02] Launching m5.large...[12:51:15.442] [Part 06] Launching m5.large...[12:51:15.439] [Part 03] Launching m5.large...
+
+[12:51:15.447] [Part 07] Launching m5.large...[12:51:15.456] [Part 13] Launching m5.large...[12:51:15.445] [Part 14] Launching m5.large...
+
+[12:51:15.479] [Part 12] Launching m5.large...[12:51:15.473] [Part 19] Launching m5.large...
+
+[12:51:15.504] [Part 05] Launching m5.large...[12:51:15.488] [Part 11] Launching m5.large...
+
+
+
+[12:51:15.494] [Part 04] Launching m5.large...
+[12:51:15.530] [Part 01] Launching m5.large...
+[12:51:15.536] [Part 15] Launching m5.large...
+[12:51:15.707] [Part 00] Launching m5.large...
+[12:51:15.717] [Part 10] Launching m5.large...
+[12:51:15.725] [Part 17] Launching m5.large...
+[12:51:15.736] [Part 08] Launching m5.large...
+[12:51:15.748] [Part 18] Launching m5.large...
+[12:51:15.752] [Part 16] Launching m5.large...
+[12:51:33.576] [Part 12] Instance up. IP: 52.91.64.174
+[12:51:33.583] [Part 02] Instance up. IP: 52.90.184.165
+[12:51:33.588] [Part 09] Instance up. IP: 3.81.90.229
+[12:51:33.596] [Part 07] Instance up. IP: 54.196.35.120
+[12:51:33.622] [Part 13] Instance up. IP: 13.220.215.38
+[12:51:33.641] [Part 14] Instance up. IP: 18.206.196.112
+[12:51:33.649] [Part 18] Instance up. IP: 18.234.117.42
+[12:51:33.655] [Part 05] Instance up. IP: 3.81.213.175
+[12:51:33.662] [Part 17] Instance up. IP: 23.20.146.176
+[12:51:33.669] [Part 04] Instance up. IP: 3.81.115.17
+[12:51:33.674] [Part 00] Instance up. IP: 13.217.143.180
+[12:51:33.677] [Part 06] Instance up. IP: 52.91.236.176
+[12:51:33.679] [Part 10] Instance up. IP: 54.221.92.26
+[12:51:33.692] [Part 15] Instance up. IP: 52.202.78.173
+[12:51:33.712] [Part 08] Instance up. IP: 54.224.208.29
+[12:51:33.717] [Part 01] Instance up. IP: 54.167.248.25
+[12:51:33.720] [Part 16] Instance up. IP: 100.54.226.191
+[12:51:33.723] [Part 11] Instance up. IP: 54.205.199.199
+[12:51:33.764] [Part 03] Instance up. IP: 54.225.50.92
+[12:51:33.781] [Part 19] Instance up. IP: 35.171.182.75
+[12:52:13.683] [Part 19] Part complete!
+[12:52:13.892] [Part 11] Part complete!
+[12:52:14.404] [Part 19] Instance terminated.
+[12:52:14.488] [Part 11] Instance terminated.
+[12:52:14.506] [Part 01] Part complete!
+[12:52:14.762] [Part 03] Part complete!
+[12:52:15.058] [Part 01] Instance terminated.
+[12:52:15.282] [Part 03] Instance terminated.
+[12:52:15.370] [Part 16] Part complete!
+[12:52:15.754] [Part 13] Part complete!
+[12:52:15.837] [Part 02] Part complete!
+[12:52:15.901] [Part 14] Part complete!
+[12:52:15.989] [Part 07] Part complete!
+[12:52:16.039] [Part 16] Instance terminated.
+[12:52:16.149] [Part 09] Part complete!
+[12:52:16.216] [Part 05] Part complete!
+[12:52:16.380] [Part 13] Instance terminated.
+[12:52:16.453] [Part 14] Instance terminated.
+[12:52:16.555] [Part 07] Instance terminated.
+[12:52:16.588] [Part 02] Instance terminated.
+[12:52:16.648] [Part 08] Part complete!
+[12:52:16.691] [Part 09] Instance terminated.
+[12:52:16.760] [Part 05] Instance terminated.
+[12:52:16.857] [Part 12] Part complete!
+[12:52:16.985] [Part 10] Part complete!
+[12:52:17.053] [Part 00] Part complete!
+[12:52:17.194] [Part 08] Instance terminated.
+[12:52:17.224] [Part 18] Part complete!
+[12:52:17.439] [Part 12] Instance terminated.
+[12:52:17.447] [Part 17] Part complete!
+[12:52:17.510] [Part 15] Part complete!
+[12:52:17.561] [Part 10] Instance terminated.
+[12:52:17.635] [Part 06] Part complete!
+[12:52:17.645] [Part 00] Instance terminated.
+[12:52:17.858] [Part 04] Part complete!
+[12:52:17.889] [Part 18] Instance terminated.
+[12:52:18.000] [Part 17] Instance terminated.
+[12:52:18.060] [Part 15] Instance terminated.
+[12:52:18.195] [Part 06] Instance terminated.
+[12:52:18.465] [Part 04] Instance terminated.
+[12:52:18.481] ============================================================
+[12:52:18.481] RESULTS — 20x m5.large | 30s/chunk
+[12:52:18.481]   Total Time:    67.48s  (1.125 min)
+[12:52:18.481]   Split Time:    2.87s
+[12:52:18.481]   Parallel Time: 64.61s  (1.077 min)
+[12:52:18.481] ============================================================

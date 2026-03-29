@@ -1,0 +1,46 @@
+[08:15:55.841] ======================================================================
+[08:15:55.841] CONFIGURATION
+[08:15:55.841]   Instance type:  m7g.large → effective: m7g.large
+[08:15:55.841]   Strategy:       horizontal
+[08:15:55.841]   Codec:          libx264
+[08:15:55.841]   Threads:        5
+[08:15:55.841]   Region:         us-east-1
+[08:15:55.841]   AMI:            ami-0976d56fa61f42304
+[08:15:55.841]   Architecture:   aarch64
+[08:15:55.841]   Runs:           1
+[08:15:55.841] ======================================================================
+[08:15:55.841] === Phase 3.2 Horizontal: 10x m7g.large ===
+[08:15:55.841] AMI: ami-0976d56fa61f42304 | Codec: libx264 | Threads: 5 | Runs: 1
+[08:15:55.841] --- Horizontal Run 1/1 ---
+[08:15:55.841] [Setup] Splitting video...
+[08:16:44.649] [Part 05] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:45.485] [Part 04] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:45.494] [Part 03] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:45.529] [Part 01] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:45.535] [Part 09] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:45.692] [Part 06] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:46.684] [Part 08] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:46.837] [Part 02] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:47.856] [Part 07] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:49.829] [Part 00] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:16:51.141] [Part 05] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_05_compressed.mp4...
+[08:16:51.603] [Part 01] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_01_compressed.mp4...
+[08:16:52.602] [Part 09] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_09_compressed.mp4...
+[08:16:52.682] [Part 03] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_03_compressed.mp4...
+[08:16:52.883] [Part 04] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_04_compressed.mp4...
+[08:16:54.077] [Part 08] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_08_compressed.mp4...
+[08:16:54.171] [Part 06] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_06_compressed.mp4...
+[08:16:54.275] [Part 02] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_02_compressed.mp4...
+[08:16:55.520] [Part 07] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_07_compressed.mp4...
+[08:16:58.115] [Part 00] Downloading result to /home/breno/doutorado/ec2sweetspot_noms2/artifacts2/phase3_scaling/compressed_m7g_large_libx264/part_00_compressed.mp4...
+[08:17:02.647] Horizontal Run 1 completed in 66.81s
+[08:17:02.650] 
+======================================================================
+[08:17:02.650] AGGREGATE RESULTS — 1/1 successful runs
+[08:17:02.650]   Instance:  m7g.large | Strategy: horizontal
+[08:17:02.650]   Codec:     libx264
+[08:17:02.650]   Mean:      66.81s
+[08:17:02.650]   Median:    66.81s
+[08:17:02.650]   Min:       66.81s
+[08:17:02.650]   Max:       66.81s
+[08:17:02.650] ======================================================================

@@ -1,0 +1,104 @@
+# Phase 3: Horizontal vs Vertical Scaling — Resultados Finais
+
+## Resumo Executivo
+
+A análise comparou três estratégias de escalabilidade para processar um vídeo de 10 minutos (H.264/1080p):
+1.  **Serial:** 1× instância eficiente (m5.large / c5.large) processando sequencialmente.
+2.  **Horizontal:** 10× instâncias eficientes (m5.large / c5.large) processando 1 min cada.
+3.  **Vertical:** 1× instância robusta (m5.4xlarge / c5.4xlarge) processando sequencialmente.
+
+Foram realizadas duas sub-fases para isolar o impacto do provisioning:
+-   **Phase 3.1 (Dynamic):** AMI padrão Ubuntu + instalação de software no boot.
+-   **Phase 3.2 (Optimized):** AMI customizada com FFmpeg pré-instalado.
+
+---
+
+## Resultados Consolidados (Tempo Total em Minutos)
+
+| Família | Estratégia | Phase 3.1 (Dynamic) | Phase 3.2 (Optimized) | Ganho com Otimização |
+| :--- | :--- | :--- | :--- | :--- |
+| **Família M** | Serial | 3.46 min | 2.90 min | 16% |
+| | Horizontal | 3.63 min | 2.39 min | **34%** |
+| | Vertical | **2.33 min** | **1.65 min** | 29% |
+| **Família C** | Serial | 3.21 min | 2.64 min | 18% |
+| | Horizontal | 3.52 min | 2.35 min | **33%** |
+| | Vertical | **2.13 min** | **1.54 min** | 28% |
+
+---
+
+## Análise Detalhada — Família M (General Purpose)
+
+### Phase 3.1 (Dynamic Provisioning)
+| Métrica | Serial (m5.large) | Horizontal (10× m5.large) | Vertical (m5.4xlarge) |
+| :--- | :--- | :--- | :--- |
+| **Total** | 207.56s (3.46 min) | 217.61s (3.63 min) | **139.89s (2.33 min)** |
+| **Setup** | 93.54s (45%) | ~100s | 104.56s (75%) |
+| **Encoding** | 114.02s | ~117s | 35.33s |
+
+### Phase 3.2 (Optimized AMI)
+| Métrica | Serial (m5.large) | Horizontal (10× m5.large) | Vertical (m5.4xlarge) |
+| :--- | :--- | :--- | :--- |
+| **Total** | 174.20s (2.90 min) | 143.32s (2.39 min) | **99.14s (1.65 min)** |
+| **Setup** | 57.58s (33%) | ~24s | 57.18s (58%) |
+| **Encoding** | 116.61s | ~119s | 41.96s |
+
+---
+
+## Análise Detalhada — Família C (Compute Optimized)
+
+### Phase 3.1 (Dynamic Provisioning)
+| Métrica | Serial (c5.large) | Horizontal (10× c5.large) | Vertical (c5.4xlarge) |
+| :--- | :--- | :--- | :--- |
+| **Total** | 192.62s (3.21 min) | 211.38s (3.52 min) | **127.66s (2.13 min)** |
+| **Setup** | 91.69s (48%) | ~100s | 92.48s (72%) |
+| **Encoding** | 100.93s | ~110s | 35.18s |
+
+### Phase 3.2 (Optimized AMI)
+| Métrica | Serial (c5.large) | Horizontal (10× c5.large) | Vertical (c5.4xlarge) |
+| :--- | :--- | :--- | :--- |
+| **Total** | 158.69s (2.64 min) | 140.84s (2.35 min) | **92.54s (1.54 min)** |
+| **Setup** | 57.05s (36%) | ~28s | 57.33s (62%) |
+| **Encoding** | 101.64s | ~112s | 35.21s |
+
+---
+
+## Conclusões
+
+1.  **Vertical Vence em Performance Pura:** A estratégia vertical (1× 4xlarge) foi consistentemente a mais rápida em todos os cenários, completando a tarefa em ~1.5 - 1.6 min na fase otimizada. O tempo de encoding puro (35s) é imbatível.
+
+2.  **Horizontal Beneficia Mais da Otimização:** A criação da AMI customizada reduziu o tempo total da estratégia horizontal em **33-34%**, enquanto Serial e Vertical ganharam 16-29%. Isso ocorre porque o setup domina o tempo na horizontal (lançar 10 máquinas), e remover a instalação de software teve impacto massivo.
+
+3.  **Custo-Eficiência:**
+    *   **Serial:** Mais barato, mas mais lento.
+    *   **Horizontal:** Mais caro devido ao overhead de pagar 10 setups (tempo mínimo de 60s/instância na AWS antiga, ou por segundo agora mas com overhead de boot).
+    *   **Vertical:** Melhor compromisso performance/tempo neste cenário de vídeo curto (10 min).
+
+4.  **Família C vs M:** A família C foi consistentemente ~8-10% mais rápida no encoding puro, o que se refletiu nos tempos totais menores.
+
+---
+
+## Comparativo Direto: Menor (Serial) vs Maior (Unique/Vertical)
+
+A pedido, comparamos diretamente a instância mais "fraca" (Serial) com a mais "forte" (Vertical/Única) de cada família.
+
+### Família M
+*   **Fraca (Serial):** m5.large (2 vCPU)
+*   **Forte (Vertical):** m5.4xlarge (16 vCPU)
+
+| Cenário | Tempo Fraca (min) | Tempo Forte (min) | Speedup (Quantas vezes mais rápido) | Impacto de Custo (Estimado) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Dinâmico (3.1)** | 3.46 | 2.33 | **1.48x** | ~5.4x mais caro |
+| **Otimizado (3.2)** | 2.90 | 1.65 | **1.76x** | ~4.5x mais caro |
+
+> **Análise:** A instância forte é quase 2x mais rápida na versão otimizada, mas custa 8x mais por hora. O ganho de tempo (43% redução) custa ~4.5x mais por execução.
+
+### Família C
+*   **Fraca (Serial):** c5.large (2 vCPU)
+*   **Forte (Vertical):** c5.4xlarge (16 vCPU)
+
+| Cenário | Tempo Fraca (min) | Tempo Forte (min) | Speedup (Quantas vezes mais rápido) | Impacto de Custo (Estimado) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Dinâmico (3.1)** | 3.21 | 2.13 | **1.51x** | ~5.3x mais caro |
+| **Otimizado (3.2)** | 2.64 | 1.54 | **1.71x** | ~4.7x mais caro |
+
+> **Análise:** Padrão similar à família M. A instância vertical é a opção de performance máxima, mas ineficiente em custo para este workload curto onde o setup time (boot, ssh, upload) dilui a vantagem do processamento paralelo massivo (16 vCPUs).

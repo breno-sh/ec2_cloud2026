@@ -1,0 +1,90 @@
+[12:05:22.662] === Phase 3.2 OPTIMIZED Horizontal: 10x c5.large ===
+[12:05:22.662] AMI: ami-06c7c20c67513469a, Max workers: 10
+[12:05:22.662] [Setup] Starting video split...
+[12:05:22.710] [Setup] Video: 600.0s → 10 parts of 60.0s
+[12:05:24.204] [Setup] Video split complete.
+[12:05:24.204] [Summary] SPLIT TIME: 1.54s
+[12:05:25.226] [Part 02] Launching c5.large...[12:05:25.227] [Part 06] Launching c5.large...[12:05:25.229] [Part 01] Launching c5.large...[12:05:25.232] [Part 00] Launching c5.large...
+
+
+[12:05:25.237] [Part 03] Launching c5.large...[12:05:25.240] [Part 04] Launching c5.large...
+
+
+[12:05:25.262] [Part 09] Launching c5.large...
+[12:05:25.271] [Part 07] Launching c5.large...
+[12:05:25.277] [Part 05] Launching c5.large...
+[12:05:25.287] [Part 08] Launching c5.large...
+[12:05:43.033] [Part 00] Instance ready. IP: 54.224.25.207
+[12:05:43.041] [Part 08] Instance ready. IP: 54.196.57.146
+[12:05:43.065] [Part 06] Instance ready. IP: 3.81.209.77
+[12:05:43.101] [Part 01] Instance ready. IP: 13.218.154.254
+[12:05:43.106] [Part 07] Instance ready. IP: 54.197.33.131
+[12:05:43.436] [Part 09] Instance ready. IP: 54.198.80.220
+[12:05:43.452] [Part 04] Instance ready. IP: 3.87.27.254
+[12:05:43.551] [Part 02] Instance ready. IP: 23.20.144.140
+[12:05:43.609] [Part 05] Instance ready. IP: 54.152.113.57
+[12:05:43.701] [Part 03] Instance ready. IP: 54.224.91.213
+[12:06:15.230] [Part 01] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.231] [Part 01] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.240] [Part 00] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.240] [Part 00] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.249] [Part 06] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.250] [Part 06] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.273] [Part 08] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.273] [Part 08] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.309] [Part 07] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.310] [Part 07] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.524] [Part 04] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[12:06:15.689] [Part 02] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.689] [Part 02] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.698] [Part 05] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[12:06:15.706] [Part 09] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.706] [Part 09] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.814] [Part 01] Uploading segment...
+[12:06:15.821] [Part 00] Uploading segment...
+[12:06:15.844] [Part 03] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.844] [Part 03] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[12:06:15.853] [Part 06] Uploading segment...
+[12:06:15.876] [Part 08] Uploading segment...
+[12:06:15.910] [Part 07] Uploading segment...
+[12:06:16.106] [Part 04] Uploading segment...
+[12:06:16.285] [Part 09] Uploading segment...
+[12:06:16.291] [Part 02] Uploading segment...
+[12:06:16.300] [Part 05] Uploading segment...
+[12:06:16.430] [Part 03] Uploading segment...
+[12:06:17.724] [Part 00] Running compression...
+[12:06:17.731] [Part 01] Running compression...
+[12:06:17.851] [Part 08] Running compression...
+[12:06:17.936] [Part 09] Running compression...
+[12:06:18.161] [Part 04] Running compression...
+[12:06:18.240] [Part 06] Running compression...
+[12:06:18.284] [Part 05] Running compression...
+[12:06:18.441] [Part 07] Running compression...
+[12:06:18.543] [Part 02] Running compression...
+[12:06:18.736] [Part 03] Running compression...
+[12:06:29.116] [Part 01] Done!
+[12:06:29.402] [Part 09] Done!
+[12:06:29.760] [Part 01] Instance terminated.
+[12:06:29.903] [Part 05] Done!
+[12:06:30.005] [Part 08] Done!
+[12:06:30.043] [Part 09] Instance terminated.
+[12:06:30.352] [Part 00] Done!
+[12:06:30.519] [Part 05] Instance terminated.
+[12:06:30.678] [Part 08] Instance terminated.
+[12:06:30.914] [Part 04] Done!
+[12:06:30.956] [Part 00] Instance terminated.
+[12:06:31.370] [Part 07] Done!
+[12:06:31.524] [Part 04] Instance terminated.
+[12:06:31.640] [Part 02] Done!
+[12:06:31.732] [Part 03] Done!
+[12:06:32.039] [Part 07] Instance terminated.
+[12:06:32.145] [Part 06] Done!
+[12:06:32.365] [Part 03] Instance terminated.
+[12:06:32.477] [Part 02] Instance terminated.
+[12:06:32.717] [Part 06] Instance terminated.
+[12:06:32.721] ============================================================
+[12:06:32.721] RESULTS — 10x c5.large Horizontal OPTIMIZED
+[12:06:32.721]   Total Time:    70.06s (1.17 min)
+[12:06:32.721]   Split Time:    1.54s
+[12:06:32.721]   Parallel Time: 68.52s (1.14 min)
+[12:06:32.721] ============================================================

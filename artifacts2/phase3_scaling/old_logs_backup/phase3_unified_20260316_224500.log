@@ -1,0 +1,122 @@
+[22:45:00.267] ======================================================================
+[22:45:00.268] CONFIGURATION
+[22:45:00.268]   Instance type:  c7g.large → effective: c7g.4xlarge
+[22:45:00.268]   Strategy:       vertical
+[22:45:00.268]   Codec:          libx264
+[22:45:00.268]   Threads:        10
+[22:45:00.268]   Region:         us-east-1
+[22:45:00.268]   AMI:            ami-0976d56fa61f42304
+[22:45:00.268]   Architecture:   aarch64
+[22:45:00.268]   Runs:           30
+[22:45:00.268] ======================================================================
+[22:45:00.365] === Phase 3.2 Vertical: 1x c7g.4xlarge ===
+[22:45:00.365] AMI: ami-0976d56fa61f42304 | Codec: libx264 | Threads: 10 | Runs: 30
+[22:45:00.365] [c7g.4xlarge-Vertical] Launching EC2 instance...
+[22:45:02.351] [c7g.4xlarge-Vertical] Instance i-0ec20bac3dbcb1a21 launched. Waiting...
+[22:45:18.088] [c7g.4xlarge-Vertical] Instance ready. IP: 54.209.33.222
+[22:45:49.006] [c7g.4xlarge-Vertical] SSH connected.
+[22:45:49.006] [c7g.4xlarge-Vertical] Uploading 10-minute video...
+[22:46:02.235] [c7g.4xlarge-Vertical] Upload complete.
+[22:46:02.235] [c7g.4xlarge-Vertical] SETUP AND UPLOAD TIME: 61.87s
+[22:46:02.235] [c7g.4xlarge-Vertical] --- Run 1/30 ---
+[22:46:02.559] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:46:32.629] [c7g.4xlarge-Vertical] Done: 30.39s
+[22:46:37.629] [c7g.4xlarge-Vertical] --- Run 2/30 ---
+[22:46:37.850] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:47:05.759] [c7g.4xlarge-Vertical] Done: 28.13s
+[22:47:10.759] [c7g.4xlarge-Vertical] --- Run 3/30 ---
+[22:47:10.978] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:47:38.892] [c7g.4xlarge-Vertical] Done: 28.13s
+[22:47:43.897] [c7g.4xlarge-Vertical] --- Run 4/30 ---
+[22:47:44.113] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:48:12.001] [c7g.4xlarge-Vertical] Done: 28.10s
+[22:48:17.001] [c7g.4xlarge-Vertical] --- Run 5/30 ---
+[22:48:17.221] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:48:45.116] [c7g.4xlarge-Vertical] Done: 28.11s
+[22:48:50.116] [c7g.4xlarge-Vertical] --- Run 6/30 ---
+[22:48:50.331] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:49:18.247] [c7g.4xlarge-Vertical] Done: 28.13s
+[22:49:23.247] [c7g.4xlarge-Vertical] --- Run 7/30 ---
+[22:49:23.463] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:49:51.385] [c7g.4xlarge-Vertical] Done: 28.14s
+[22:49:56.385] [c7g.4xlarge-Vertical] --- Run 8/30 ---
+[22:49:56.600] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:50:24.569] [c7g.4xlarge-Vertical] Done: 28.18s
+[22:50:29.570] [c7g.4xlarge-Vertical] --- Run 9/30 ---
+[22:50:29.791] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:50:57.675] [c7g.4xlarge-Vertical] Done: 28.10s
+[22:51:02.675] [c7g.4xlarge-Vertical] --- Run 10/30 ---
+[22:51:02.893] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:51:30.782] [c7g.4xlarge-Vertical] Done: 28.11s
+[22:51:35.782] [c7g.4xlarge-Vertical] --- Run 11/30 ---
+[22:51:36.002] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:52:03.929] [c7g.4xlarge-Vertical] Done: 28.15s
+[22:52:08.930] [c7g.4xlarge-Vertical] --- Run 12/30 ---
+[22:52:09.150] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:52:37.083] [c7g.4xlarge-Vertical] Done: 28.15s
+[22:52:42.084] [c7g.4xlarge-Vertical] --- Run 13/30 ---
+[22:52:42.312] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:53:10.210] [c7g.4xlarge-Vertical] Done: 28.12s
+[22:53:15.210] [c7g.4xlarge-Vertical] --- Run 14/30 ---
+[22:53:15.434] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:53:43.383] [c7g.4xlarge-Vertical] Done: 28.17s
+[22:53:48.383] [c7g.4xlarge-Vertical] --- Run 15/30 ---
+[22:53:48.601] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:54:16.540] [c7g.4xlarge-Vertical] Done: 28.16s
+[22:54:21.541] [c7g.4xlarge-Vertical] --- Run 16/30 ---
+[22:54:21.756] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:54:49.655] [c7g.4xlarge-Vertical] Done: 28.11s
+[22:54:54.656] [c7g.4xlarge-Vertical] --- Run 17/30 ---
+[22:54:54.886] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:55:22.775] [c7g.4xlarge-Vertical] Done: 28.12s
+[22:55:27.776] [c7g.4xlarge-Vertical] --- Run 18/30 ---
+[22:55:27.992] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:55:55.902] [c7g.4xlarge-Vertical] Done: 28.13s
+[22:56:00.902] [c7g.4xlarge-Vertical] --- Run 19/30 ---
+[22:56:01.121] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:56:29.049] [c7g.4xlarge-Vertical] Done: 28.15s
+[22:56:34.050] [c7g.4xlarge-Vertical] --- Run 20/30 ---
+[22:56:34.265] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:57:02.183] [c7g.4xlarge-Vertical] Done: 28.13s
+[22:57:07.183] [c7g.4xlarge-Vertical] --- Run 21/30 ---
+[22:57:07.418] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:57:35.335] [c7g.4xlarge-Vertical] Done: 28.15s
+[22:57:40.335] [c7g.4xlarge-Vertical] --- Run 22/30 ---
+[22:57:40.558] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:58:08.479] [c7g.4xlarge-Vertical] Done: 28.14s
+[22:58:13.480] [c7g.4xlarge-Vertical] --- Run 23/30 ---
+[22:58:13.702] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:58:41.589] [c7g.4xlarge-Vertical] Done: 28.11s
+[22:58:46.589] [c7g.4xlarge-Vertical] --- Run 24/30 ---
+[22:58:46.808] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:59:14.697] [c7g.4xlarge-Vertical] Done: 28.11s
+[22:59:19.697] [c7g.4xlarge-Vertical] --- Run 25/30 ---
+[22:59:19.914] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[22:59:47.807] [c7g.4xlarge-Vertical] Done: 28.11s
+[22:59:52.807] [c7g.4xlarge-Vertical] --- Run 26/30 ---
+[22:59:53.027] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[23:00:20.927] [c7g.4xlarge-Vertical] Done: 28.12s
+[23:00:25.931] [c7g.4xlarge-Vertical] --- Run 27/30 ---
+[23:00:26.147] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[23:00:54.072] [c7g.4xlarge-Vertical] Done: 28.14s
+[23:00:59.073] [c7g.4xlarge-Vertical] --- Run 28/30 ---
+[23:00:59.291] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[23:01:27.219] [c7g.4xlarge-Vertical] Done: 28.15s
+[23:01:32.220] [c7g.4xlarge-Vertical] --- Run 29/30 ---
+[23:01:32.437] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[23:02:00.375] [c7g.4xlarge-Vertical] Done: 28.15s
+[23:02:05.375] [c7g.4xlarge-Vertical] --- Run 30/30 ---
+[23:02:05.595] [c7g.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[23:02:33.584] [c7g.4xlarge-Vertical] Done: 28.20s
+[23:02:34.698] [c7g.4xlarge-Vertical] Instance terminated.
+[23:02:34.704] 
+======================================================================
+[23:02:34.704] AGGREGATE RESULTS — 30/30 successful runs
+[23:02:34.704]   Instance:  c7g.4xlarge | Strategy: vertical
+[23:02:34.704]   Codec:     libx264
+[23:02:34.704]   Mean:      28.21s
+[23:02:34.704]   Median:    28.13s
+[23:02:34.704]   Stdev:     0.41s
+[23:02:34.704]   Min:       28.10s
+[23:02:34.704]   Max:       30.39s
+[23:02:34.704] ======================================================================

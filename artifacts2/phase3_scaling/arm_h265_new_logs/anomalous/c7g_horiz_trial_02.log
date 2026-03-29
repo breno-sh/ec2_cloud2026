@@ -1,0 +1,86 @@
+[19:46:28.991] === Phase 3.2 OPTIMIZED Horizontal: 10x c7g.large ===
+[19:46:28.991] AMI: ami-0976d56fa61f42304 (ffmpeg pre-installed) | Codec: libx265 | Threads: 5
+[19:46:28.991] [Setup] Starting video split...
+[19:46:29.160] [Setup] Video: 600.0s → 10 parts of 60.0s
+[19:46:30.717] [Setup] Video split complete.
+[19:46:30.717] [Summary] SPLIT TIME: 1.73s
+[19:46:31.627] [Part 00] Launching c7g.large...
+[19:46:31.757] [Part 03] Launching c7g.large...
+[19:46:31.827] [Part 04] Launching c7g.large...
+[19:46:31.833] [Part 08] Launching c7g.large...[19:46:31.847] [Part 09] Launching c7g.large...
+
+[19:46:31.849] [Part 05] Launching c7g.large...[19:46:31.856] [Part 06] Launching c7g.large...
+
+[19:46:31.886] [Part 02] Launching c7g.large...[19:46:31.887] [Part 01] Launching c7g.large...
+
+[19:46:31.897] [Part 07] Launching c7g.large...
+[19:46:50.550] [Part 05] ERROR: An error occurred (RequestLimitExceeded) when calling the RunInstances operation (reached max retries: 4): Request limit exceeded. Account 460964766037 has been throttled on ec2:RunInstances because it exceeded its request rate limit.
+[19:46:56.718] [Part 09] Instance ready. IP: 54.161.22.245
+[19:46:56.800] [Part 06] Instance ready. IP: 100.54.223.129
+[19:46:56.838] [Part 04] Instance ready. IP: 54.224.156.7
+[19:46:56.970] [Part 00] Instance ready. IP: 54.208.159.207
+[19:46:57.310] [Part 03] Instance ready. IP: 3.81.9.72
+[19:46:57.357] [Part 02] Instance ready. IP: 54.167.254.7
+[19:46:57.656] [Part 08] Instance ready. IP: 52.91.207.107
+[19:46:57.794] [Part 07] Instance ready. IP: 100.30.186.124
+[19:46:57.873] [Part 01] Instance ready. IP: 107.23.239.160
+[19:47:29.320] [Part 09] CPU: aarch64
+CPU part	: 0xd40
+[19:47:30.094] [Part 04] CPU: aarch64
+CPU part	: 0xd40
+[19:47:30.096] [Part 06] CPU: aarch64
+CPU part	: 0xd40
+[19:47:30.758] [Part 00] CPU: aarch64
+CPU part	: 0xd40
+[19:47:31.154] [Part 09] Uploading segment...
+[19:47:31.192] [Part 03] CPU: aarch64
+CPU part	: 0xd40
+[19:47:31.193] [Part 08] CPU: aarch64
+CPU part	: 0xd40
+[19:47:31.386] [Part 02] CPU: aarch64
+CPU part	: 0xd40
+[19:47:31.392] [Part 04] Uploading segment...
+[19:47:31.411] [Part 06] Uploading segment...
+[19:47:31.604] [Part 00] Uploading segment...
+[19:47:31.639] [Part 07] CPU: aarch64
+CPU part	: 0xd40
+[19:47:31.976] [Part 08] Uploading segment...[19:47:31.976] [Part 03] Uploading segment...
+
+[19:47:32.021] [Part 01] CPU: aarch64
+CPU part	: 0xd40
+[19:47:32.162] [Part 02] Uploading segment...
+[19:47:32.391] [Part 07] Uploading segment...
+[19:47:32.876] [Part 01] Uploading segment...
+[19:48:41.006] [Part 03] Running compression...
+[19:48:45.453] [Part 08] Running compression...
+[19:48:48.828] [Part 09] Running compression...
+[19:48:48.858] [Part 01] Running compression...
+[19:48:50.604] [Part 06] Running compression...
+[19:48:51.334] [Part 02] Running compression...
+[19:50:38.109] [Part 00] Running compression...
+[19:51:22.217] [Part 04] Running compression...
+[19:51:24.332] [Part 09] Done!
+[19:51:33.490] [Part 09] Instance terminated.
+[19:51:53.170] [Part 01] Done!
+[19:51:55.236] [Part 01] Instance terminated.
+[19:52:00.356] [Part 07] Running compression...
+[19:53:07.619] [Part 00] Done!
+[19:53:08.303] [Part 08] Done!
+[19:53:10.439] [Part 03] Done!
+[19:53:11.472] [Part 00] Instance terminated.
+[19:53:13.091] [Part 08] Instance terminated.
+[19:53:16.971] [Part 03] Instance terminated.
+[19:53:18.318] [Part 02] Done!
+[19:53:21.900] [Part 06] Done!
+[19:53:25.396] [Part 02] Instance terminated.
+[19:53:34.678] [Part 06] Instance terminated.
+[19:54:55.673] [Part 07] Done!
+[19:55:00.106] [Part 07] Instance terminated.
+[19:56:28.799] [Part 04] Done!
+[19:56:30.719] [Part 04] Instance terminated.
+[19:56:30.724] ============================================================
+[19:56:30.724] RESULTS — 10x c7g.large Horizontal OPTIMIZED
+[19:56:30.724]   Total Time:    601.73s (10.03 min)
+[19:56:30.724]   Split Time:    1.73s
+[19:56:30.724]   Parallel Time: 600.01s (10.00 min)
+[19:56:30.724] ============================================================

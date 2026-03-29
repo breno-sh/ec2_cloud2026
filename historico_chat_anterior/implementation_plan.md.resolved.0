@@ -1,0 +1,42 @@
+# Add New Instance Families to EC2 Sweet Spot Study
+
+## Goal Description
+Extend the existing study to include AWS **Compute Optimized (C5)** and **General Purpose (M5)** instance families, as requested by reviewers. This involves updating benchmarking scripts to support these families and refactoring the scaling analysis script to be generic and reusable for any instance type.
+
+## User Review Required
+> [!IMPORTANT]
+> **Cost Implication:** Running benchmarks on new families (C5, M5) will incur additional AWS costs. Please review the instance list and ensure budget is available.
+> **CPU Verification:** For new families, the strict CPU homogeneity check will be set to "Log Only" initially, as we do not yet know the dominant CPU model for these instances in `us-east-1a`.
+
+## Proposed Changes
+
+### Benchmarks (Phase 2)
+#### [NEW] [all_instances_phase2_extended.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase2_benchmarks/all_instances_phase2_extended.py)
+-   Clone of [all_instances_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase2_benchmarks/all_instances_phase2.py).
+-   Add `c5.large` through `c5.4xlarge`.
+-   Add `m5.large` through `m5.4xlarge`.
+-   Modify CPU verification logic to be optional/warning-only for new families.
+
+### Scaling (Phase 3)
+#### [NEW] [parallel_scaling_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase3_scaling/parallel_scaling_phase2.py)
+-   Refactored version of [t3_micro_paralelo_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase3_scaling/t3_micro_paralelo_phase2.py).
+-   Accept command line arguments:
+    -   `--instance-type` (e.g., `c5.large`)
+    -   `--expected-cpu` (optional)
+    -   `--threads` (default: 5)
+-   Allows running the scaling experiment on any instance type without code changes.
+
+## Verification Plan
+
+### Automated Tests
+-   **Dry Run:** Execute the new scripts with a "dry run" flag or mocked boto3 to verify logic flow (if feasible).
+-   **Short Test:** Run `all_instances_phase2_extended.py` with `compression_iterations = 1` and a single instance type (`c5.large`) to verify:
+    -   Instance launch
+    -   SSH connection
+    -   Docker execution
+    -   Log retrieval
+    -   Instance termination
+
+### Manual Verification
+-   Review generated logs to ensure CPU models are captured correctly.
+-   Check cost calculations in the output (if applicable/implemented in script).

@@ -1,0 +1,133 @@
+[00:03:42.276] === Phase 3.2 Horizontal Scaling: 10x m5.large ===
+[00:03:42.276] Codec: libx264, Threads: 5, Preset: slow
+[00:03:42.276] Max concurrent workers: 5
+[00:03:42.276] [Setup] Starting video split...
+[00:03:42.400] [Setup] Video duration: 600.0s, splitting into 10 parts of 60.0s each
+[00:03:42.567] [Setup]   Part 00 created
+[00:03:42.771] [Setup]   Part 01 created
+[00:03:43.028] [Setup]   Part 02 created
+[00:03:43.311] [Setup]   Part 03 created
+[00:03:43.583] [Setup]   Part 04 created
+[00:03:43.904] [Setup]   Part 05 created
+[00:03:44.214] [Setup]   Part 06 created
+[00:03:44.659] [Setup]   Part 07 created
+[00:03:45.247] [Setup]   Part 08 created
+[00:03:45.787] [Setup]   Part 09 created
+[00:03:45.787] [Setup] Video split complete.
+[00:03:45.787] [Summary] SPLIT TIME: 3.51s
+[00:03:46.816] [Part 03] Launching m5.large...
+[00:03:46.845] [Part 01] Launching m5.large...
+[00:03:46.866] [Part 04] Launching m5.large...
+[00:03:46.886] [Part 00] Launching m5.large...
+[00:03:46.901] [Part 02] Launching m5.large...
+[00:04:04.316] [Part 04] Instance ready. IP: 54.211.15.33
+[00:04:04.328] [Part 03] Instance ready. IP: 35.153.184.206
+[00:04:04.548] [Part 02] Instance ready. IP: 52.70.12.176
+[00:04:04.570] [Part 00] Instance ready. IP: 3.92.85.217
+[00:04:04.707] [Part 01] Instance ready. IP: 54.166.252.66
+[00:04:35.364] [Part 04] Installing ffmpeg...[00:04:35.364] [Part 03] Installing ffmpeg...
+
+[00:04:35.488] [Part 02] Installing ffmpeg...
+[00:04:35.572] [Part 00] Installing ffmpeg...
+[00:04:35.638] [Part 01] Installing ffmpeg...
+[00:05:11.768] [Part 00] ffmpeg installed.
+[00:05:11.800] [Part 02] ffmpeg installed.
+[00:05:12.057] [Part 03] ffmpeg installed.
+[00:05:12.157] [Part 00] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:12.157] [Part 00] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:12.179] [Part 02] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:12.180] [Part 02] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:12.456] [Part 03] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:12.456] [Part 03] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:12.636] [Part 00] Uploading segment...
+[00:05:12.646] [Part 02] Uploading segment...
+[00:05:12.830] [Part 04] ffmpeg installed.
+[00:05:12.942] [Part 03] Uploading segment...
+[00:05:13.228] [Part 04] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:13.229] [Part 04] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:13.713] [Part 04] Uploading segment...
+[00:05:14.066] [Part 00] Running compression...
+[00:05:14.083] [Part 02] Running compression...
+[00:05:14.350] [Part 03] Running compression...
+[00:05:14.390] [Part 01] ffmpeg installed.
+[00:05:14.773] [Part 01] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:14.773] [Part 01] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:05:15.169] [Part 04] Running compression...
+[00:05:15.239] [Part 01] Uploading segment...
+[00:05:15.848] [Part 04] ERROR: FFmpeg failed: )
+Press [q] to stop, [?] for help
+Too many packets buffered for output stream 0:1.
+[aac @ 0x55b593420280] Qavg: 218.592
+[aac @ 0x55b593420280] 2 frames left in the queue on closing
+Conversion failed!
+
+[00:05:16.646] [Part 01] Running compression...
+[00:05:16.762] [Part 04] Instance terminated.
+[00:05:16.776] [Part 05] Launching m5.large...
+[00:05:17.316] [Part 01] ERROR: FFmpeg failed: )
+Press [q] to stop, [?] for help
+Too many packets buffered for output stream 0:1.
+[aac @ 0x562ddaa03820] Qavg: 205.539
+[aac @ 0x562ddaa03820] 2 frames left in the queue on closing
+Conversion failed!
+
+[00:05:18.278] [Part 01] Instance terminated.
+[00:05:18.292] [Part 06] Launching m5.large...
+[00:05:28.515] [Part 00] Done!
+[00:05:28.776] [Part 02] Done!
+[00:05:28.874] [Part 03] Done!
+[00:05:29.476] [Part 00] Instance terminated.
+[00:05:29.494] [Part 07] Launching m5.large...
+[00:05:29.745] [Part 02] Instance terminated.
+[00:05:29.761] [Part 08] Launching m5.large...
+[00:05:29.871] [Part 03] Instance terminated.
+[00:05:29.893] [Part 09] Launching m5.large...
+[00:05:34.290] [Part 05] Instance ready. IP: 100.31.84.251
+[00:05:35.737] [Part 06] Instance ready. IP: 54.242.217.172
+[00:05:47.081] [Part 07] Instance ready. IP: 100.55.60.220
+[00:05:47.529] [Part 09] Instance ready. IP: 54.162.128.229
+[00:05:47.619] [Part 08] Instance ready. IP: 13.221.201.85
+[00:06:05.150] [Part 05] Installing ffmpeg...
+[00:06:06.599] [Part 06] Installing ffmpeg...
+[00:06:17.948] [Part 07] Installing ffmpeg...
+[00:06:18.356] [Part 09] Installing ffmpeg...
+[00:06:18.526] [Part 08] Installing ffmpeg...
+[00:06:40.814] [Part 05] ffmpeg installed.
+[00:06:41.193] [Part 05] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[00:06:41.660] [Part 05] Uploading segment...
+[00:06:43.102] [Part 05] Running compression...
+[00:06:44.352] [Part 06] ffmpeg installed.
+[00:06:44.732] [Part 06] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:06:44.732] [Part 06] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:06:45.198] [Part 06] Uploading segment...
+[00:06:46.595] [Part 06] Running compression...
+[00:06:53.880] [Part 08] ffmpeg installed.
+[00:06:54.262] [Part 08] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[00:06:54.525] [Part 07] ffmpeg installed.
+[00:06:54.727] [Part 08] Uploading segment...
+[00:06:54.904] [Part 07] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:06:54.904] [Part 07] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:06:55.371] [Part 07] Uploading segment...
+[00:06:56.151] [Part 08] Running compression...
+[00:06:56.239] [Part 09] ffmpeg installed.
+[00:06:56.603] [Part 09] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:06:56.603] [Part 09] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[00:06:56.726] [Part 07] Running compression...
+[00:06:57.043] [Part 05] Done!
+[00:06:57.049] [Part 09] Uploading segment...
+[00:06:57.996] [Part 05] Instance terminated.
+[00:06:58.325] [Part 09] Running compression...
+[00:07:01.533] [Part 06] Done!
+[00:07:02.480] [Part 06] Instance terminated.
+[00:07:07.499] [Part 08] Done!
+[00:07:08.547] [Part 08] Instance terminated.
+[00:07:12.011] [Part 07] Done!
+[00:07:12.485] [Part 09] Done!
+[00:07:12.980] [Part 07] Instance terminated.
+[00:07:13.520] [Part 09] Instance terminated.
+[00:07:13.523] ============================================================
+[00:07:13.523] RESULTS — 10x m5.large Horizontal
+[00:07:13.523]   Total Time:    211.25s (3.52 min)
+[00:07:13.523]   Split Time:    3.51s
+[00:07:13.523]   Parallel Time: 207.74s (3.46 min)
+[00:07:13.523] ============================================================

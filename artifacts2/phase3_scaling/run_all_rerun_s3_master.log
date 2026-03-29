@@ -1,0 +1,9 @@
+[2026-03-28 17:54:38] === Phase 3 Complete Re-run (S3 methodology) ===
+[2026-03-28 17:54:38] Total configs: 29 (10 serial, 9 horizontal, 10 vertical)
+[2026-03-28 17:54:38] Runs per config: 30
+[2026-03-28 17:54:38] 
+--- SERIAL (10 configs) — até 4 em paralelo ---
+[2026-03-28 17:54:38] START: m5.large_serial_libx265
+[2026-03-28 17:54:38] START: m5.large_serial_libvpx_vp9
+[2026-03-28 17:54:38] START: c5.large_serial_libx265
+[2026-03-28 17:54:38] START: c5.large_serial_libvpx_vp9

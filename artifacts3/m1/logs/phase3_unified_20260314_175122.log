@@ -1,0 +1,22 @@
+[17:51:22.288] ======================================================================
+[17:51:22.289] CONFIGURATION
+[17:51:22.289]   Instance type:  m5.large → effective: m5.large
+[17:51:22.289]   Strategy:       serial
+[17:51:22.289]   Codec:          libx265
+[17:51:22.289]   Threads:        5
+[17:51:22.289]   Region:         us-east-1
+[17:51:22.289]   AMI:            ami-06c7c20c67513469a
+[17:51:22.289]   Architecture:   x86_64
+[17:51:22.289]   Runs:           30
+[17:51:22.289] ======================================================================
+[17:51:22.462] === Phase 3.2 Serial: 1x m5.large ===
+[17:51:22.462] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5 | Runs: 30
+[17:51:22.463] [m5.large-Serial] Launching EC2 instance...
+[17:51:24.832] [m5.large-Serial] Instance i-057f7fda9cea34480 launched. Waiting...
+[17:51:40.536] [m5.large-Serial] Instance ready. IP: 54.166.205.244
+[17:52:11.444] [m5.large-Serial] SSH connected.
+[17:52:11.445] [m5.large-Serial] Uploading 10-minute video...
+[17:52:25.017] [m5.large-Serial] Upload complete.
+[17:52:25.017] [m5.large-Serial] SETUP AND UPLOAD TIME: 62.55s
+[17:52:25.017] [m5.large-Serial] --- Run 1/30 ---
+[17:52:25.346] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4

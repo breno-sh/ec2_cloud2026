@@ -1,0 +1,122 @@
+[09:49:34.986] ======================================================================
+[09:49:34.986] CONFIGURATION
+[09:49:34.986]   Instance type:  c5.large → effective: c5.large
+[09:49:34.986]   Strategy:       serial
+[09:49:34.986]   Codec:          libx264
+[09:49:34.986]   Threads:        5
+[09:49:34.986]   Region:         sa-east-1
+[09:49:34.986]   AMI:            ami-0653a33fe2919af93
+[09:49:34.986]   Architecture:   x86_64
+[09:49:34.987]   Runs:           30
+[09:49:34.987] ======================================================================
+[09:49:35.113] === Phase 3.2 Serial: 1x c5.large ===
+[09:49:35.113] AMI: ami-0653a33fe2919af93 | Codec: libx264 | Threads: 5 | Runs: 30
+[09:49:35.113] [c5.large-Serial] Launching EC2 instance...
+[09:49:36.753] [c5.large-Serial] Instance i-0ddb3ee7b635d5c7b launched. Waiting...
+[09:49:52.337] [c5.large-Serial] Instance ready. IP: 56.125.169.52
+[09:50:22.849] [c5.large-Serial] SSH connected.
+[09:50:22.849] [c5.large-Serial] Uploading 10-minute video...
+[09:50:34.116] [c5.large-Serial] Upload complete.
+[09:50:34.116] [c5.large-Serial] SETUP AND UPLOAD TIME: 59.00s
+[09:50:34.116] [c5.large-Serial] --- Run 1/30 ---
+[09:50:34.282] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[09:52:05.244] [c5.large-Serial] Done: 91.13s
+[09:52:10.245] [c5.large-Serial] --- Run 2/30 ---
+[09:52:10.356] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[09:53:40.521] [c5.large-Serial] Done: 90.28s
+[09:53:45.522] [c5.large-Serial] --- Run 3/30 ---
+[09:53:45.633] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[09:55:21.274] [c5.large-Serial] Done: 95.75s
+[09:55:26.274] [c5.large-Serial] --- Run 4/30 ---
+[09:55:26.385] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[09:56:56.546] [c5.large-Serial] Done: 90.27s
+[09:57:01.547] [c5.large-Serial] --- Run 5/30 ---
+[09:57:01.658] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[09:58:31.871] [c5.large-Serial] Done: 90.32s
+[09:58:36.872] [c5.large-Serial] --- Run 6/30 ---
+[09:58:36.983] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:00:07.126] [c5.large-Serial] Done: 90.25s
+[10:00:12.127] [c5.large-Serial] --- Run 7/30 ---
+[10:00:12.237] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:01:42.352] [c5.large-Serial] Done: 90.23s
+[10:01:47.353] [c5.large-Serial] --- Run 8/30 ---
+[10:01:47.464] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:03:17.614] [c5.large-Serial] Done: 90.26s
+[10:03:22.615] [c5.large-Serial] --- Run 9/30 ---
+[10:03:22.726] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:04:52.897] [c5.large-Serial] Done: 90.28s
+[10:04:57.897] [c5.large-Serial] --- Run 10/30 ---
+[10:04:58.010] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:06:28.136] [c5.large-Serial] Done: 90.24s
+[10:06:33.137] [c5.large-Serial] --- Run 11/30 ---
+[10:06:33.250] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:08:03.392] [c5.large-Serial] Done: 90.25s
+[10:08:08.392] [c5.large-Serial] --- Run 12/30 ---
+[10:08:08.503] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:09:38.671] [c5.large-Serial] Done: 90.28s
+[10:09:43.672] [c5.large-Serial] --- Run 13/30 ---
+[10:09:43.783] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:11:14.025] [c5.large-Serial] Done: 90.35s
+[10:11:19.025] [c5.large-Serial] --- Run 14/30 ---
+[10:11:19.136] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:12:49.377] [c5.large-Serial] Done: 90.35s
+[10:12:54.377] [c5.large-Serial] --- Run 15/30 ---
+[10:12:54.489] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:14:24.762] [c5.large-Serial] Done: 90.39s
+[10:14:29.763] [c5.large-Serial] --- Run 16/30 ---
+[10:14:29.925] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:16:00.591] [c5.large-Serial] Done: 90.83s
+[10:16:05.593] [c5.large-Serial] --- Run 17/30 ---
+[10:16:05.705] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:17:35.906] [c5.large-Serial] Done: 90.31s
+[10:17:40.907] [c5.large-Serial] --- Run 18/30 ---
+[10:17:41.021] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:19:11.181] [c5.large-Serial] Done: 90.27s
+[10:19:16.181] [c5.large-Serial] --- Run 19/30 ---
+[10:19:16.292] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:20:46.424] [c5.large-Serial] Done: 90.24s
+[10:20:51.424] [c5.large-Serial] --- Run 20/30 ---
+[10:20:51.537] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:22:21.673] [c5.large-Serial] Done: 90.25s
+[10:22:26.673] [c5.large-Serial] --- Run 21/30 ---
+[10:22:26.784] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:23:56.900] [c5.large-Serial] Done: 90.23s
+[10:24:01.900] [c5.large-Serial] --- Run 22/30 ---
+[10:24:02.012] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:25:32.229] [c5.large-Serial] Done: 90.33s
+[10:25:37.229] [c5.large-Serial] --- Run 23/30 ---
+[10:25:37.340] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:27:07.537] [c5.large-Serial] Done: 90.31s
+[10:27:12.538] [c5.large-Serial] --- Run 24/30 ---
+[10:27:12.649] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:28:42.831] [c5.large-Serial] Done: 90.29s
+[10:28:47.832] [c5.large-Serial] --- Run 25/30 ---
+[10:28:47.943] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:30:18.116] [c5.large-Serial] Done: 90.28s
+[10:30:23.116] [c5.large-Serial] --- Run 26/30 ---
+[10:30:23.227] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:31:53.401] [c5.large-Serial] Done: 90.28s
+[10:31:58.401] [c5.large-Serial] --- Run 27/30 ---
+[10:31:58.511] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:33:28.711] [c5.large-Serial] Done: 90.31s
+[10:33:33.711] [c5.large-Serial] --- Run 28/30 ---
+[10:33:33.825] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:35:24.396] [c5.large-Serial] Done: 110.69s
+[10:35:29.397] [c5.large-Serial] --- Run 29/30 ---
+[10:35:29.509] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:37:09.863] [c5.large-Serial] Done: 100.47s
+[10:37:14.864] [c5.large-Serial] --- Run 30/30 ---
+[10:37:14.975] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[10:38:45.147] [c5.large-Serial] Done: 90.28s
+[10:38:45.959] [c5.large-Serial] Instance terminated.
+[10:38:45.965] 
+======================================================================
+[10:38:45.966] AGGREGATE RESULTS — 30/30 successful runs
+[10:38:45.966]   Instance:  c5.large | Strategy: serial
+[10:38:45.966]   Codec:     libx264
+[10:38:45.966]   Mean:      91.53s
+[10:38:45.966]   Median:    90.28s
+[10:38:45.966]   Stdev:     4.17s
+[10:38:45.967]   Min:       90.23s
+[10:38:45.967]   Max:       110.69s
+[10:38:45.967] ======================================================================

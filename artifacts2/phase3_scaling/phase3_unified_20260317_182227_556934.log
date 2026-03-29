@@ -1,0 +1,53 @@
+[18:22:27.558] ======================================================================
+[18:22:27.558] CONFIGURATION
+[18:22:27.558]   Instance type:  m7g.large → effective: m7g.large
+[18:22:27.558]   Strategy:       serial
+[18:22:27.558]   Codec:          libvpx-vp9
+[18:22:27.558]   Threads:        5
+[18:22:27.558]   Region:         us-east-1
+[18:22:27.559]   AMI:            ami-0976d56fa61f42304
+[18:22:27.559]   Architecture:   aarch64
+[18:22:27.559]   Runs:           7
+[18:22:27.559] ======================================================================
+[18:22:27.801] === Phase 3.2 Serial: 1x m7g.large ===
+[18:22:27.801] AMI: ami-0976d56fa61f42304 | Codec: libvpx-vp9 | Threads: 5 | Runs: 7
+[18:22:27.801] [m7g.large-Serial] Launching EC2 instance...
+[18:22:29.783] [m7g.large-Serial] Instance i-0dc765441112fc8c3 launched. Waiting...
+[18:22:45.584] [m7g.large-Serial] Instance ready. IP: 18.206.220.124
+[18:23:16.547] [m7g.large-Serial] SSH connected.
+[18:23:16.548] [m7g.large-Serial] Uploading 10-minute video...
+[18:24:26.170] [m7g.large-Serial] Upload complete.
+[18:24:26.170] [m7g.large-Serial] SETUP AND UPLOAD TIME: 118.37s
+[18:24:26.170] [m7g.large-Serial] --- Run 1/7 ---
+[18:24:26.633] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:29:56.081] [m7g.large-Serial] Done: 329.91s
+[18:30:01.081] [m7g.large-Serial] --- Run 2/7 ---
+[18:30:01.299] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:35:29.891] [m7g.large-Serial] Done: 328.81s
+[18:35:34.892] [m7g.large-Serial] --- Run 3/7 ---
+[18:35:35.122] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:41:02.571] [m7g.large-Serial] Done: 327.68s
+[18:41:07.572] [m7g.large-Serial] --- Run 4/7 ---
+[18:41:07.892] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:46:37.054] [m7g.large-Serial] Done: 329.48s
+[18:46:42.055] [m7g.large-Serial] --- Run 5/7 ---
+[18:46:42.405] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:52:09.977] [m7g.large-Serial] Done: 327.92s
+[18:52:14.978] [m7g.large-Serial] --- Run 6/7 ---
+[18:52:15.199] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:57:43.529] [m7g.large-Serial] Done: 328.55s
+[18:57:48.529] [m7g.large-Serial] --- Run 7/7 ---
+[18:57:48.765] [m7g.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[19:03:16.794] [m7g.large-Serial] Done: 328.26s
+[19:03:17.897] [m7g.large-Serial] Instance terminated.
+[19:03:17.915] 
+======================================================================
+[19:03:17.916] AGGREGATE RESULTS — 7/7 successful runs
+[19:03:17.916]   Instance:  m7g.large | Strategy: serial
+[19:03:17.916]   Codec:     libvpx-vp9
+[19:03:17.916]   Mean:      328.66s
+[19:03:17.917]   Median:    328.55s
+[19:03:17.918]   Stdev:     0.81s
+[19:03:17.918]   Min:       327.68s
+[19:03:17.918]   Max:       329.91s
+[19:03:17.918] ======================================================================

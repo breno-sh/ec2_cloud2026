@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "A comprehensive mapping of the research paper `noms_v4.tex`. It breaks down the article by section and paragraph, summarizing the existing content (focused on T-family) and providing specific instructions on how to update each part to include the new findings for M (General Purpose) and C (Compute Optimized) families.",
+  "updatedAt": "2026-02-19T08:26:48.577144959Z",
+  "version": "1"
+}

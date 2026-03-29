@@ -1,0 +1,14 @@
+# Task: Analysis Documents for C and M Family Instances
+
+## Phase 1: Research ✅
+- [x] Read [noms_v4.tex](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/IEEE-conference-template-062824/noms_v4.tex) to catalog all analyses/comparisons performed
+- [x] Review processing scripts in `artifacts/scripts/processing`
+- [x] Examine existing benchmark logs from experiment run
+- [x] Plan approved by user
+
+## Phase 2: Create Documents
+- [/] Process M-family logs (adapt parser, generate CSVs, compute stats)
+- [ ] Create `guia_analises.md` — step-by-step analysis guide
+- [ ] Create `analiseM.md` — M-family analysis with data
+- [ ] Create `analiseC.md` — C-family placeholder
+- [ ] Create `resumoexecutivo.md` — Executive summary of experiments

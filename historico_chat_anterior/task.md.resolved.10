@@ -1,0 +1,30 @@
+# Task: Add New Instance Families to EC2 Sweet Spot Study
+
+- [x] Research and Select Families <!-- id: 0 -->
+    - [x] Analyze current paper content <!-- id: 1 -->
+    - [x] Review existing scripts to understand parameterization <!-- id: 2 -->
+    - [x] Propose families (C and M likely) <!-- id: 3 -->
+- [x] Plan Script Adaptations <!-- id: 4 -->
+    - [x] Identify hardcoded instance types in scripts <!-- id: 5 -->
+    - [x] Design refactoring for generic instance family support <!-- id: 6 -->
+- [x] Prepare Implementation Plan <!-- id: 7 -->
+    - [x] Document changes needed for Phase 2 (Benchmarks) <!-- id: 8 -->
+    - [x] Document changes needed for Phase 3 (Scaling) <!-- id: 9 -->
+- [x] Implement Scripts <!-- id: 12 -->
+    - [x] Create [all_instances_phase2_extended.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase2_benchmarks/all_instances_phase2_extended.py) <!-- id: 13 -->
+    - [x] Create [parallel_scaling_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase3_scaling/parallel_scaling_phase2.py) <!-- id: 14 -->
+- [/] Move Files to `artifacts2` <!-- id: 15 -->
+    - [ ] Phase 1: Homogeneity Detection <!-- id: 25 -->
+    - [ ] Create `detect_cpu_homogeneity.py` <!-- id: 26 -->
+    - [ ] Adapt [analyze_cpu_distribution.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase1_homogeneity/analyze_cpu_distribution.py) for C5/M5 <!-- id: 27 -->
+- [x] Create `artifacts2` directory structure <!-- id: 16 -->
+    - [x] Move [all_instances_phase2_extended.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase2_benchmarks/all_instances_phase2_extended.py) <!-- id: 17 -->
+    - [x] Move [parallel_scaling_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase3_scaling/parallel_scaling_phase2.py) <!-- id: 18 -->
+- [x] Configure Credentials <!-- id: 19 -->
+    - [x] Copy [bvasconcelos.pem](file:///home/breno/doutorado/metricbox/bvasconcelos.pem) to `artifacts2` <!-- id: 20 -->
+    - [x] Update [all_instances_phase2_extended.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase2_benchmarks/all_instances_phase2_extended.py) with key path <!-- id: 21 -->
+    - [x] Update [parallel_scaling_phase2.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/phase3_scaling/parallel_scaling_phase2.py) with key path <!-- id: 22 -->
+- [x] Update scripts to use Security Group Name (`bvasconcelosGroup`) <!-- id: 23 -->
+- [x] Enforce 10 vCPU limit in scripts <!-- id: 24 -->
+- [x] Verify Code Readiness <!-- id: 10 -->
+    - [x] Dry run/Unit test scripts if possible (or mock) <!-- id: 11 -->

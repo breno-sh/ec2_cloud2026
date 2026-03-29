@@ -1,0 +1,23 @@
+[21:26:34.360] === Phase 3.2 Vertical Scaling: 1x c5.4xlarge ===
+[21:26:34.360] Codec: libx264, Threads: 10, Preset: slow
+[21:26:34.360] [c5.4xlarge-Vertical] Launching EC2 instance...
+[21:26:36.229] [c5.4xlarge-Vertical] Instance i-02a1084441b386196 launched. Waiting...
+[21:26:51.925] [c5.4xlarge-Vertical] Instance ready. IP: 100.31.69.221
+[21:27:22.819] [c5.4xlarge-Vertical] SSH connected.
+[21:27:22.819] [c5.4xlarge-Vertical] Installing ffmpeg...
+[21:27:57.301] [c5.4xlarge-Vertical] ffmpeg installed.
+[21:27:57.704] [c5.4xlarge-Vertical] CPU: Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz
+[21:27:57.704] [c5.4xlarge-Vertical] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8223CL CPU @ 3.00GHz
+[21:27:57.704] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[21:28:04.937] [c5.4xlarge-Vertical] Upload complete.
+[21:28:04.937] [c5.4xlarge-Vertical] SETUP TIME: 90.58s (1.51 min)
+[21:28:04.938] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[21:28:40.040] [c5.4xlarge-Vertical] ENCODING TIME: 35.10s (0.59 min)
+[21:28:41.019] [c5.4xlarge-Vertical] Instance terminated.
+[21:28:41.019] [c5.4xlarge-Vertical] ============================================================
+[21:28:41.019] [c5.4xlarge-Vertical] RESULTS — c5.4xlarge Vertical
+[21:28:41.019] [c5.4xlarge-Vertical]   Total Time:    125.68s (2.09 min)
+[21:28:41.019] [c5.4xlarge-Vertical]   Setup Time:    90.58s (1.51 min)
+[21:28:41.019] [c5.4xlarge-Vertical]   Encoding Time: 35.10s (0.59 min)
+[21:28:41.019] [c5.4xlarge-Vertical]   Setup %:       72.1%
+[21:28:41.019] [c5.4xlarge-Vertical] ============================================================

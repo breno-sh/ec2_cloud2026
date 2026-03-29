@@ -1,0 +1,48 @@
+[13:57:00.661] ======================================================================
+[13:57:00.661] CONFIGURATION
+[13:57:00.661]   Instance type:  t4g.micro → effective: t4g.micro
+[13:57:00.661]   Strategy:       serial
+[13:57:00.661]   Codec:          libvpx-vp9
+[13:57:00.661]   Threads:        5
+[13:57:00.661]   Region:         us-east-1
+[13:57:00.661]   AMI:            ami-0976d56fa61f42304
+[13:57:00.661]   Architecture:   aarch64
+[13:57:00.661]   Family:         T-ARM
+[13:57:00.661]   Runs:           1
+[13:57:00.661] ======================================================================
+[13:57:00.661] 
+######################################################################
+[13:57:00.661] RUN 1/1
+[13:57:00.661] ######################################################################
+
+[13:57:00.811] === Phase 3.2 Serial: 1x t4g.micro ===
+[13:57:00.811] AMI: ami-0976d56fa61f42304 | Codec: libvpx-vp9 | Threads: 5
+[13:57:00.811] [t4g.micro-Serial] Launching EC2 instance...
+[13:57:03.002] [t4g.micro-Serial] Instance i-0ebfb057b0489bca5 launched. Waiting...
+[13:57:18.871] [t4g.micro-Serial] Instance ready. IP: 52.202.166.230
+[13:57:50.303] [t4g.micro-Serial] SSH connected.
+[13:57:52.148] [t4g.micro-Serial] CPU: 
+[13:57:52.149] [t4g.micro-Serial] Uploading 10-minute video...
+[13:58:06.447] [t4g.micro-Serial] Upload complete.
+[13:58:06.447] [t4g.micro-Serial] SETUP TIME: 65.64s (1.09 min)
+[13:58:06.448] [t4g.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[14:06:52.826] [t4g.micro-Serial] ENCODING TIME: 526.38s (8.77 min)
+[14:06:54.262] [t4g.micro-Serial] Instance terminated.
+[14:06:54.262] [t4g.micro-Serial] ============================================================
+[14:06:54.263] [t4g.micro-Serial] RESULTS — t4g.micro Serial | libvpx-vp9
+[14:06:54.263] [t4g.micro-Serial]   Total Time:    592.02s (9.87 min)
+[14:06:54.263] [t4g.micro-Serial]   Setup Time:    65.64s (1.09 min)
+[14:06:54.263] [t4g.micro-Serial]   Encoding Time: 526.38s (8.77 min)
+[14:06:54.263] [t4g.micro-Serial]   Setup %:       11.1%
+[14:06:54.263] [t4g.micro-Serial] ============================================================
+[14:06:54.283] 
+======================================================================
+[14:06:54.283] AGGREGATE RESULTS — 1 runs
+[14:06:54.283]   Instance:  t4g.micro | Strategy: serial
+[14:06:54.284]   Codec:     libvpx-vp9 | Region: us-east-1
+[14:06:54.284]   Mean:      592.02s (9.867 min)
+[14:06:54.284]   Median:    592.02s (9.867 min)
+[14:06:54.284]   Min:       592.02s
+[14:06:54.285]   Max:       592.02s
+[14:06:54.285]   Clean runs: 1/1
+[14:06:54.285] ======================================================================

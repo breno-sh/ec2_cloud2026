@@ -1,0 +1,227 @@
+# Phase 3: Horizontal vs Vertical Scaling — Resultados Finais
+
+## Resumo Executivo
+
+A análise comparou três estratégias de escalabilidade para processar um vídeo de 10 minutos (H.264/1080p):
+1.  **Serial:** 1× instância eficiente (m5.large / c5.large) processando sequencialmente.
+2.  **Horizontal:** 10× instâncias eficientes (m5.large / c5.large) processando 1 min cada.
+3.  **Vertical:** 1× instância robusta (m5.4xlarge / c5.4xlarge) processando sequencialmente.
+
+Foram realizadas duas sub-fases para isolar o impacto do provisioning:
+-   **Phase 3.1 (Dynamic):** AMI padrão Ubuntu + instalação de software no boot.
+-   **Phase 3.2 (Optimized):** AMI customizada com FFmpeg pré-instalado.
+
+---
+
+## Resultados Consolidados (Tempo Total em Minutos)
+
+| Família | Estratégia | Phase 3.1 (Dynamic) | Phase 3.2 (Optimized) | Ganho com Otimização |
+| :--- | :--- | :--- | :--- | :--- |
+| Família | Estratégia | Phase 3.1 (Dynamic) | Phase 3.2 (Optimized) | Ganho com Otimização |
+| :--- | :--- | :--- | :--- | :--- |
+| **Família M** | 1x m5.large | 3.46 min | 2.90 min | 16% |
+| | **10x m5.large** | 3.63 min | **1.35 min** | **63%** |
+| | 1x m5.4xlarge | **2.33 min** | 1.65 min | 29% |
+| **Família C** | 1x c5.large | 3.21 min | 2.64 min | 18% |
+| | **10x c5.large** | 3.52 min | **1.31 min** | **63%** |
+| | 1x c5.4xlarge | **2.13 min** | 1.54 min | 28% |
+
+---
+
+## Análise Detalhada — Família M (General Purpose)
+
+### Phase 3.1 (Dynamic Provisioning)
+| Métrica | 1x m5.large | 10× m5.large | 1x m5.4xlarge |
+| :--- | :--- | :--- | :--- |
+| **Total** | 207.56s (3.46 min) | 217.61s (3.63 min) | **139.89s (2.33 min)** |
+| **Setup** | 93.54s (45%) | ~100s | 104.56s (75%) |
+| **Encoding** | 114.02s | ~117s | 35.33s |
+
+### Phase 3.2 (Optimized AMI)
+| Métrica | 1x m5.large | 10× m5.large | 1x m5.4xlarge |
+| :--- | :--- | :--- | :--- |
+| **Total** | 174.20s (2.90 min) | **80.78s (1.35 min)** | 99.14s (1.65 min) |
+| **Setup** | 57.58s (33%) | **~15s** (Split+Boot) | 57.18s (58%) |
+| **Encoding** | 116.61s | ~65s | 41.96s |
+
+---
+
+## Análise Detalhada — Família C (Compute Optimized)
+
+### Phase 3.1 (Dynamic Provisioning)
+| Métrica | 1x c5.large | 10× c5.large | 1x c5.4xlarge |
+| :--- | :--- | :--- | :--- |
+| **Total** | 192.62s (3.21 min) | 211.38s (3.52 min) | **127.66s (2.13 min)** |
+| **Setup** | 91.69s (48%) | ~100s | 92.48s (72%) |
+| **Encoding** | 100.93s | ~110s | 35.18s |
+
+### Phase 3.2 (Optimized AMI)
+| Métrica | 1x c5.large | 10× c5.large | 1x c5.4xlarge |
+| :--- | :--- | :--- | :--- |
+| **Total** | 158.69s (2.64 min) | **78.66s (1.31 min)** | 92.54s (1.54 min) |
+| **Setup** | 57.05s (36%) | **~15s** (Split+Boot) | 57.33s (62%) |
+| **Encoding** | 101.64s | ~63s | 35.21s |
+
+---
+
+## Conclusões Revisadas (Pós-Correção)
+
+1.  **Cluster Menor Vence em Velocidade:** Após corrigir o paralelismo (de 5 para 10 workers), o grupo de **10x m5.large/c5.large** caiu para **~1.3 min**, superando a instância única **4xlarge** (~1.5-1.6 min).
+    *   Setup time praticamente desapareceu (~15s) pois o boot acontece em paralelo com o split.
+    *   Encoding time (~65s) é limitado pela parte mais lenta do vídeo, mas 10x máquinas batem 1x máquina gigante.
+
+2.  **Instância 4xlarge:** Ainda é muito rápida (1.54 min), mas perdeu o trono de velocidade absoluta para o cluster bem orquestrado.
+
+3.  **Custo-Eficiência:**
+    *   **1x Large:** Continua sendo a mais barata (~$0.003-0.004).
+    *   **10x Large:** Agora é **mais rápida** que a 4xlarge e competitiva em custo, pois roda por menos tempo total.
+    *   **1x 4xlarge:** Fica numa posição difícil: mais lenta que o cluster e mais cara que a instância única pequena.
+
+4.  **Família C vs M:** A família C foi consistentemente ~8-10% mais rápida no encoding puro, o que se refletiu nos tempos totais menores.
+
+---
+
+## Comparativo Direto: Menor (Serial) vs Maior (Unique/Vertical)
+
+A pedido, comparamos diretamente a instância mais "fraca" (Serial) com a mais "forte" (Vertical/Única) de cada família.
+
+### Família M
+*   **Fraca (Serial):** m5.large (2 vCPU)
+*   **Forte (Vertical):** m5.4xlarge (16 vCPU)
+
+| Cenário | Tempo Fraca (min) | Tempo Forte (min) | Speedup (Quantas vezes mais rápido) | Impacto de Custo (Estimado) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Dinâmico (3.1)** | 3.46 | 2.33 | **1.48x** | ~5.4x mais caro |
+| **Otimizado (3.2)** | 2.90 | 1.65 | **1.76x** | ~4.5x mais caro |
+| **Horizontal (3.2)**| - | **1.35** | **2.15x** (vs Serial) | - |
+
+> **Análise:** A instância forte é quase 2x mais rápida na versão otimizada, mas custa 8x mais por hora. O ganho de tempo (43% redução) custa ~4.5x mais por execução.
+
+### Família C
+*   **Fraca (Serial):** c5.large (2 vCPU)
+*   **Forte (Vertical):** c5.4xlarge (16 vCPU)
+
+| Cenário | Tempo Fraca (min) | Tempo Forte (min) | Speedup (Quantas vezes mais rápido) | Impacto de Custo (Estimado) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Dinâmico (3.1)** | 3.21 | 2.13 | **1.51x** | ~5.3x mais caro |
+| **Otimizado (3.2)** | 2.64 | 1.54 | **1.71x** | ~4.7x mais caro |
+| **Horizontal (3.2)**| - | **1.31** | **2.02x** (vs Serial) | - |
+
+> **Análise:** Padrão similar à família M. A instância vertical é a opção de performance máxima, mas ineficiente em custo para este workload curto onde o setup time (boot, ssh, upload) dilui a vantagem do processamento paralelo massivo (16 vCPUs).
+
+---
+
+## Tabela Consolidada: Tempos Médios de Todas as Etapas (Segundos)
+
+Esta tabela detalha onde o tempo é gasto em cada estratégia. *Valores são medianas/médias das execuções.*
+
+| Fase | Família | Instância | Estratégia | Setup (s) | Encoding (s) | Total (s) | Total (min) | % Setup |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **3.1 (Dinâmico)** | M | 1× m5.large | 1x Weak | 93.5 | 114.0 | 207.6 | 3.46 | 45% |
+| | M | 10× m5.large | 10x Weak | ~100.0 | ~117.0 | 217.6 | 3.63 | 46% |
+| | M | 1× m5.4xlarge | 1x Strong | 104.6 | **35.3** | 139.9 | 2.33 | 75% |
+| | C | 1× c5.large | 1x Weak | 91.7 | 100.9 | 192.6 | 3.21 | 48% |
+| | C | 10× c5.large | 10x Weak | ~100.0 | ~111.0 | 211.4 | 3.52 | 47% |
+| | C | 1× c5.4xlarge | 1x Strong | 92.5 | **35.2** | 127.7 | 2.13 | 72% |
+| **3.2 (Otimizado)** | M | 1× m5.large | 1x Weak | 57.6 | 116.6 | 174.2 | 2.90 | 33% |
+| | M | 10× m5.large | 10x Weak | **~15.0** | ~65.0 | **80.8** | **1.35** | 18% |
+| | M | 1× m5.4xlarge | 1x Strong | 57.2 | **42.0** | 99.1 | 1.65 | 58% |
+| | C | 1× c5.large | 1x Weak | 57.1 | 101.6 | 158.7 | 2.64 | 36% |
+| | C | 10× c5.large | 10x Weak | **~15.0** | ~63.0 | **78.7** | **1.31** | 19% |
+| | C | 1× c5.4xlarge | 1x Strong | 57.3 | **35.2** | 92.5 | 1.54 | 62% |
+
+> **Nota 10x Instâncias:** Com o paralelismo corrigido (10 workers), o tempo total caiu drasticamente. O setup diluído (~15s) e o encoding paralelo (~63-65s) bateram a estratégia de instância única forte.
+
+---
+
+## Tabela Completa de Benchmarking (Phase 2 - 8 Tipos de Instância)
+
+Tabela detalhada seguindo o formato do artigo original, cobrindo as famílias M5 e C5.
+
+| Instância | Threads | H.264 Median (s) | H.264 Eff | H.264 Cost | H.265 Median | VP9 Median |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **m5.large** | 1 | 2.7308 | 13,732 | $0.000073 | 4.0685 | 24.4904 |
+| | 3 | 2.5365 | 14,784 | $0.000068 | 3.9610 | 24.4925 |
+| | 5 | 2.5327 | 14,807 | $0.000068 | 3.9551 | 24.4926 |
+| | 10 | 2.5555 | 14,674 | $0.000068 | 3.9679 | 24.4897 |
+| **m5.xlarge** | 1 | 2.6349 | 7,116 | $0.000141 | 2.8782 | 24.4088 |
+| | 3 | 1.5607 | 12,013 | $0.000083 | 2.5594 | 24.3949 |
+| | 5 | 1.4758 | 12,705 | $0.000079 | 2.5133 | 24.3916 |
+| | 10 | 1.4870 | 12,609 | $0.000079 | 2.4958 | 24.4501 |
+| **m5.2xlarge** | 1 | 2.6757 | 3,504 | $0.000285 | 2.5651 | 24.4169 |
+| | 3 | 1.2808 | 7,319 | $0.000137 | 2.1468 | 24.4580 |
+| | 5 | 1.0517 | 8,914 | $0.000112 | 2.0389 | 24.4628 |
+| | 10 | 1.0052 | 9,326 | $0.000107 | 2.0102 | 24.4896 |
+| **m5.4xlarge** | 1 | 2.5409 | 1,845 | $0.000542 | 2.3425 | 23.5256 |
+| | 3 | 1.0937 | 4,286 | $0.000233 | 1.9347 | 24.3499 |
+| | 5 | 0.8574 | 5,467 | $0.000183 | 1.8410 | 23.4499 |
+| | 10 | **0.8129** | 5,766 | $0.000173 | 1.8069 | 23.5025 |
+| **c5.large** | 1 | 2.4264 | 17,455 | $0.000057 | 3.5668 | 21.5388 |
+| | 3 | 2.2658 | 18,692 | $0.000054 | 3.4772 | 21.5031 |
+| | 5 | **2.2563** | **18,771** | **$0.000053** | 3.4647 | 21.4941 |
+| | 10 | 2.2711 | 18,649 | $0.000054 | 3.4831 | 21.4986 |
+| **c5.xlarge** | 1 | 2.3232 | 9,115 | $0.000110 | 2.5090 | 21.3942 |
+| | 3 | 1.3867 | 15,272 | $0.000066 | 2.2492 | 21.4176 |
+| | 5 | 1.3239 | 15,996 | $0.000063 | 2.1886 | 21.4243 |
+| | 10 | 1.3439 | 15,757 | $0.000064 | 2.1726 | 21.4406 |
+| **c5.2xlarge** | 1 | 2.3314 | 4,542 | $0.000220 | 2.2265 | 21.3316 |
+| | 3 | 1.1116 | 9,525 | $0.000105 | 1.8667 | 21.3393 |
+| | 5 | 0.9277 | 11,413 | $0.000088 | 1.7768 | 21.3316 |
+| | 10 | 0.8930 | 11,857 | $0.000084 | 1.7532 | 21.3535 |
+| **c5.4xlarge** | 1 | 2.3734 | 2,231 | $0.000448 | 2.1613 | 21.5403 |
+| | 3 | 1.0204 | 5,188 | $0.000193 | 1.7751 | 21.5925 |
+| | 5 | 0.7893 | 6,708 | $0.000149 | 1.6849 | 21.5660 |
+| | 10 | **0.7580** | 6,984 | $0.000143 | 1.6497 | 21.5845 |
+
+---
+
+## Comparativo Estratégico: Fraca vs Forte (Phase 3.2 Otimizada)
+
+Comparação focada nas extremidades (1x Fraca, 10x Fraca, 1x Forte).
+
+| Família | Configuração | Estratégia | Tempo Total (min) | Speedup vs Serial | Custo Estimado (10 min video) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **M (m5)** | **1x Fraca (m5.large)** | Serial | 2.90 | 1.00x | **$0.0046** |
+| | **10x Fraca (m5.large)** | Horizontal | **1.35** | **2.15x** (vs Serial) | $0.0215 (Estimado) |
+| | 1x Forte (m5.4xlarge) | Vertical | 1.65 | 1.76x (vs Serial) | $0.0211 |
+| **C (c5)** | **1x Fraca (c5.large)** | Serial | 2.64 | 1.00x | **$0.0037** |
+| | **10x Fraca (c5.large)** | Horizontal | **1.31** | **2.02x** (vs Serial) | $0.0185 (Estimado) |
+| | 1x Forte (c5.4xlarge) | Vertical | 1.54 | 1.71x (vs Serial) | $0.0174 |
+
+> **Insight Final Revisado:** 
+> *   **Performance:** A **Horizontal** (10x Fraca) venceu! É mais rápida que a Vertical (~1.3 min vs ~1.5 min).
+> *   **Custo:** A Horizontal é cerca de 4.7x mais cara que a Serial para este vídeo curto.
+
+---
+
+---
+
+---
+
+## Batalha Final: 10x Instâncias Menores vs 1x Instância Maior 🥊
+
+Comparação direta utilizando as configurações específicas testadas.
+
+### Família M (General Purpose)
+*   **Cluster Pequeno:** 10x m5.large (2 vCPU cada = 20 vCPU total)
+*   **Instância Grande:** 1x m5.4xlarge (16 vCPU total)
+
+| Configuração | Tempo Total | Custo Estimado | Veredito |
+| :--- | :--- | :--- | :--- |
+| **10x m5.large** | **1.35 min** 🏆 | ~$0.0215 | **Mais Rápido** (+18%) e mesmo custo. |
+| **1x m5.4xlarge** | 1.65 min | ~$0.0211 | Mais lento. |
+
+### Família C (Compute Optimized)
+*   **Cluster Pequeno:** 10x c5.large (2 vCPU cada = 20 vCPU total)
+*   **Instância Grande:** 1x c5.4xlarge (16 vCPU total)
+
+| Configuração | Tempo Total | Custo Estimado | Veredito |
+| :--- | :--- | :--- | :--- |
+| **10x c5.large** | **1.31 min** 🏆 | ~$0.0185 | **Mais Rápido** (+15%) e custo similar. |
+| **1x c5.4xlarge** | 1.54 min | ~$0.0174 | Mais lento. |
+
+### Conclusão Definitiva 🎯
+**Vale mais a pena usar 10x instâncias menores (large).**
+Mesmo pagando o overhead de ligar 10 máquinas simultâneas, o grupo de 10x `m5.large` ou `c5.large` termina a tarefa **mais rápido** do que a máquina única mais forte (`4xlarge`), custando praticamente a mesma coisa. O paralelismo distribuído superou a força bruta concentrada.
+
+

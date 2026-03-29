@@ -1,0 +1,1652 @@
+Computing (2025) 107:82
+https://doi.org/10.1007/s00607-025-01444-9
+REGULAR PAPER
+
+Investigating cloud instances to achieve optimal trade‑offs
+between performance‑cost efficiency
+William Maas3 · Fábio Rossi2 · Marcelo Caggiani1 · Philippe Navaux3 ·
+Arthur Lorenzon3
+Received: 23 October 2024 / Accepted: 13 February 2025 / Published online: 27 February 2025
+© The Author(s), under exclusive licence to Springer-Verlag GmbH Austria, part of Springer Nature 2025
+
+Abstract
+The growing demand for data-intensive parallel applications in cloud computing
+requires a cost-effective approach to utilizing distributed processing power. However, due to the various instance types and configurations available, choosing the
+right instance type and configuration to execute any given workload is essential to
+maximize workload performance while minimizing costs. In this context, our comprehensive evaluation of 104 instances across three major cloud providers for eighteen parallel workloads reveals that no single instance excels in all metrics. While
+high-performance computing (HPC) optimized instances can improve performance
+by up to 66% for scaling workloads, they are not always cost-effective. In contrast, general-purpose instances provide a better performance-cost balance for less
+demanding tasks. Therefore, we show that selecting the most suitable instance based
+on the workload characteristics can lead to a 35.7% performance improvement and
+a 6.5% cost reduction compared to using only one instance type for all workloads.
+Keywords Cloud computing · Parallel computing · Performance · Cost-efficiency
+
+* Arthur Lorenzon
+aflorenzon@inf.ufrgs.br
+William Maas
+william.maas@inf.ufrgs.br
+Fábio Rossi
+fabio.rossi@iffarroupilha.edu.br
+Marcelo Caggiani
+marceloluizelli@unipampa.edu.br
+Philippe Navaux
+navaux@inf.ufrgs.br
+1
+
+Federal University of Pampa, Alegrete, Brazil
+
+2
+
+Federal Institute Farroupilha, Farroupilha, Brazil
+
+3
+
+Institute of Informatics, Federal University of Rio Grande do Sul, Porto Alegre, Brazil
+Vol.:(0123456789)
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 2 of 20
+
+W. Maas et al.
+
+Mathematics Subject Classification 68M20
+
+1 Introduction
+Emerging data-intensive applications, such as machine learning and data mining,
+increasingly rely on the processing power of cloud computing to execute highperformance computing (HPC) tasks. However, while the diverse range of cloud
+instance types and configurations provides flexibility, it also introduces significant
+cost and performance optimization challenges. This is further complicated by the
+diminishing improvements in efficiency with each new generation of nodes, a phenomenon known as the end of Dennard scaling. As a result, selecting the most suitable instance type for specific workloads is critical to balancing cost and performance
+effectively.
+Optimizing the cost-performance trade-off for parallel workloads in the cloud
+presents two key challenges. First, major cloud providers like Amazon Web Services
+(AWS), Google Cloud Platform (GCP), and Microsoft Azure offer a wide variety of
+instance types, including general-purpose, compute-optimized, and HPC-optimized
+instances, each tailored to specific workload demands [1, 2]. The diversity among
+these options and varying price models complicates the decision-making process.
+Second, parallel workloads, which fully utilize hardware resources such as cores and
+cache memory, often face performance bottlenecks due to hardware and software
+factors like bus saturation, memory contention, and synchronization overhead [3].
+Consequently, increasing the number of cores does not guarantee proportional performance improvements, as workload characteristics and memory access patterns
+interact differently according to the instance type. This variability makes identifying
+a single optimal instance for all workloads challenging.
+While previous studies have examined the potential of cloud computing for
+executing parallel workloads and proposed optimization strategies, as discussed in
+Sect. 2.3, this work advances the state-of-the-art by presenting an extensive evaluation of performance and cost across a diverse set of cloud instances. Unlike prior
+studies, we analyze how the scalability of parallel workloads is influenced by their
+inherent characteristics, impacting the selection of the most suitable cloud instance.
+Therefore, existing research can use our findings to further refine strategies for automatically identifying optimal instances for executing parallel workloads. To this
+end, we conduct a comprehensive cost-performance evaluation of eighteen parallel
+workloads with varying memory and CPU demands executed across 104 instances
+from three leading cloud providers – GCP, AWS, and Microsoft Azure. Our key
+findings include:
+• No single instance type achieves the best balance of cost and performance across
+
+all parallel workloads.
+
+• HPC-optimized instances deliver up to 66% performance gains for scalable work-
+
+loads but are not always cost-efficient compared to general-purpose instances.
+
+• General-purpose instances provide a more balanced cost-performance ratio for
+
+less demanding tasks.
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 3 of 20 82
+
+• Tailoring instance selection to workload characteristics yields a 35.7% improve-
+
+ment in performance and a 6.5% cost reduction compared to using a single
+instance type for all workloads.
+
+The remainder of this manuscript is organized as follows. In Sect. 2, the background
+and related work are discussed. Then, the methodology followed during the evaluation is described in Sect. 3. Experimental results are discussed in Sect. 4, while the
+final remarks and future works are listed in Sect. 5.
+
+2 Background
+In this section, we provide background regarding Cloud Computing and the bottlenecks that affect thread scalability. Then, we discuss the related work and highlight
+the contributions of our work.
+2.1 Cloud computing
+Cloud Computing has become the standard for running applications, offering ondemand resources over the Internet [4]. However, early on, challenges arose in
+meeting the needs of compute-intensive applications, such as Big Data and Analytics, which require fast response times. These challenges were primarily due to
+the overhead of hypervisors, despite technologies designed to ensure elasticity and
+high availability [5]. The impact of virtualization and containerization on workload
+performance and user costs is also significant in cloud environments. These technologies introduce an additional layer of abstraction, which can affect both computational efficiency and cost structure [6].
+Bare-metal instances run directly on physical hardware and offer the highest
+performance due to the lack of virtualization or containerization overhead. On the
+other hand, containers and VMs introduce additional abstraction layers that share
+underlying physical resources, potentially reducing performance. However, containerization generally introduces less overhead than VMs, as containers share the host
+OS kernel, making them more efficient. Containers running within VMs experience
+compounded overhead due to the added virtualization layer, which may negatively
+impact performance, especially for resource-intensive workloads that require low
+latency and fine-grained resource allocation.
+From a cost perspective, bare-metal instances are typically more expensive due
+to their dedicated resources, which are justified by the need for high performance
+in specific applications. VMs and containers, on the other hand, tend to offer more
+cost-effective solutions for less resource-intensive workloads, as they allow for
+higher resource utilization. Containers, in particular, are known for their cost-efficiency in cloud environments, as they enable more workloads to run on the same
+infrastructure with minimal overhead. As a result, lightweight container technologies like Docker gained popularity, as they deliver performance close to non-virtualized systems. Docker has emerged as the leading framework for developing,
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 4 of 20
+
+W. Maas et al.
+
+packaging, and running containerized applications, ensuring efficient execution by
+encapsulating all necessary dependencies.
+Docker is particularly well-suited for deploying parallel workloads in cloud environments. It provides isolated environments with the required dependencies, and its
+lightweight nature reduces the overhead typically associated with traditional virtualization. This makes Docker ideal for resource-intensive HPC applications, enabling
+efficient scaling of workloads across multiple nodes in cloud-based HPC infrastructures. Consequently, major high-performance companies such as NVIDIA, AMD,
+and Intel have adopted Docker to optimize cloud workloads, ensuring that users can
+run applications efficiently, regardless of the underlying infrastructure.
+Cloud computing offers various instance types tailored to different workloads,
+such as general-purpose, compute-optimized, and HPC-optimized instances. General-purpose instances (e.g., AWS M-series, GCP c3-series) provide a balanced
+resource mix, making them versatile but less suited for specialized tasks. Compute-optimized instances (e.g., AWS C-series) deliver better performance for CPUintensive workloads but come at a higher cost. HPC-optimized instances (e.g., AWS
+H-series) are designed for scientific simulations and large-scale data analysis, providing advanced architectures at a premium price.
+2.2 Thread scalability
+When executing parallel workloads in cloud environments, software developers
+usually deploy the job using the maximum available resources, such as cores and
+cache memory. However, different studies have shown that this approach may not
+yield the best performance [3, 7]. The reasons for this are related to both software
+and hardware issues, including off-chip bus saturation, concurrent shared memory
+accesses, and data-synchronization. Off-chip Bus Saturation Large applications with
+significant amounts of private data stored in main memory and requiring frequent
+access may encounter scalability issues when the connection between the memory
+and processor becomes overloaded. Hence, as more threads are added, the demand
+for the connection increases linearly, but its bandwidth is limited by I/O pins [8] and
+does not increase along with the number of threads. Adding more threads will not
+enhance performance when the bandwidth reaches its limits and may only lead to
+increased power consumption.
+Concurrent shared memory accesses Similarly, the workload performance can
+be impacted by the amount of access to shared memory addresses. This is because
+threads communicate by accessing shared data in areas that are typically distant
+from the core, such as the last-level cache and main memory. As a result, this communication has higher latency per access than private caches, potentially creating
+bottlenecks affecting the behavior of parallel workloads [7]. Data-synchronization
+Also, there are scenarios where multiple threads must communicate by accessing
+the same variable addresses. To prevent conflicts and ensure the accuracy of the
+result, synchronization directives are employed. However, when multiple threads
+reach a synchronization point, only one can execute it simultaneously, causing a portion of the workload to be serialized. As the number of threads increases, this leads
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 5 of 20 82
+
+to higher levels of serialization within critical sections, impacting the overall execution time [3].
+2.3 Related work
+The exploration of parallel computing in cloud environments has garnered attention
+in recent research. Ekanayake et al. [9] evaluate using cloud technologies for parallel
+processing in scientific workloads. Rak et al. [10] propose a method to predict application costs across various execution scenarios and cloud providers using benchmarking and simulation techniques. Rathnayake et al. [11] introduce CELIA, an
+analytical model that identifies cost-effective cloud configurations that balance time
+and expense. Wan et al. [12] developed a cost-performance model for cloud services
+through a queuing system that simulates dynamic resource allocation.
+Zhang et al. [13] present the EPRD algorithm, which aims to minimize task
+scheduling duration for parallel tasks with precedence constraints. Li et al. [14]
+introduce the AdaptFR strategy to expedite the training of distributed machine
+learning models. Ohue et al. [15] investigate using cloud platforms for protein-protein docking simulations. Bhardwaj et al. [16] address task scheduling on parallel
+machines with precedence constraints in cloud computing environments. Haussmann et al. [17] propose a novel cost model that quantifies the financial implications of parallel computing using a combination of reserved and volatile processors.
+Furthermore, Haussmann et al. [18] explore irregularly structured problems in parallel applications, presenting a method to determine the optimal number of processors based on input data variability. Haussmann et al. [19] also propose an elasticity
+description language and mechanisms to facilitate efficient resource allocation for
+parallel applications.
+Gillam et al., [20] consider different parallel workloads running on four instance
+types to discuss how to measure and use quality of service (QoS) information to predict the behavior of cloud servers regarding availability, risk, and liability in case of
+failure. Khan et al., [21] focus on reducing data center energy consumption through
+efficient scheduling and resource management while maintaining workload performance despite resource heterogeneity. It proposes a reference architecture with a
+unified resource manager, eliminating the need for dedicated services like schedulers or monitors for different environments. Simulations on the CloudSim using real
+cloud workloads were done to validate the proposed approach. Zakarya and Gillam
+[22] investigate migration strategies to improve virtual machine (VM) performance
+while achieving the expected performance levels at agreed pay-per-use costs. It also
+evaluates the impact of various VM allocation policies and migration approaches on
+energy efficiency, performance, and cost. All the evaluations were performed on the
+CloudSim infrastructure.
+O’Loughlin and Gillam [23] propose a cloud service broker (CSB) that offers
+a secondary market for on-demand, workload-specific performance-assurance services. For that, users specify a performance tranche, defining a minimum performance level for their workload, and instances are re-priced accordingly. Also,
+it focuses on estimating the CSB’s operational costs and the expected number of
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 6 of 20
+
+W. Maas et al.
+
+declined requests under various market conditions. Zakarya et al., [24] explore VM
+and workload placement strategies in heterogeneous clusters to minimize energy
+consumption while adhering to performance and user cost constraints. It introduces
+CoLocateMe, a runtime-aware, aggregation-based VM placement, and consolidation policy designed to optimize energy, performance, and cost. Through simulation on CloudSim, the study demonstrates that aggregation-based policies outperform segregation-based ones considering energy, migration costs, and resource
+heterogeneity. Khan et al., [6] propose a platform-independent architecture, resource
+manager, and a centralized, workload-aware scheduler for efficient resource placement, allocation, and consolidation. The paper also examines the impact of interand intra-platform migrations on energy efficiency and costs. The experiments also
+suggest that the containerized applications’ performance is comparable to the baremetal infrastructure.
+Our Contributions Table 1 compares the metrics and evaluation characteristics
+discussed in this article with those presented in the related works. The "Metrics"
+
+Table 1  Comparison of our contributions with the related work
+Work
+
+Metrics
+Perf
+
+Ekanayake et al. [9]
+
+x
+
+Rak et al. [10]
+
+x
+
+Cost
+
+Perf-cost Parallel
+balance
+workloads
+
+Thread
+scalability
+
+x
+x
+
+Rathnayake et al. [11] x
+
+x
+
+Wan et al., [12]
+
+x
+
+x
+
+Characteristics
+
+x
+
+Zhang et al. [13]
+
+x
+
+x
+
+Li et al. [14]
+
+x
+
+x
+
+x
+x
+
+Ohue et al. [15]
+
+x
+
+x
+
+Bhardwaj et al. [16]
+
+x
+
+x
+
+# instances
+
+Cloud providers
+
+5
+
+Private
+
+1
+
+AWS
+
+9
+
+AWS
+
+1
+
+Private
+
+1
+
+Private
+
+1
+
+Private
+
+6
+
+Azure
+
+1
+
+Private
+
+Haussmann et al. [17]
+
+x
+
+x
+
+x
+
+1
+
+Private
+
+Haussmann et al. [18]
+
+x
+
+x
+
+x
+
+1
+
+Private
+
+Haussmann et al. [19] x
+Gillam et al. [20]
+
+x
+
+x
+
+x
+
+1
+
+Private
+
+x
+
+4
+
+AWS, IBM,
+Rackspace
+Private
+
+Khan et al. [21]
+
+x
+
+3
+
+CloudSim
+
+Zakarya
+and Gillam [22]
+
+x
+
+x
+
+x
+
+x
+
+6
+
+CloudSim
+
+O’Loughlin and
+Gillam [23]
+
+x
+
+x
+
+x
+
+x
+
+550
+
+AWS
+
+Zakarya et al. [24]
+
+x
+
+x
+
+x
+
+x
+
+5
+
+CloudSim
+
+Khan et al. [6]
+
+x
+
+x
+
+x
+
+x
+
+6
+
+CloudSim
+
+Our work
+
+x
+
+x
+
+x
+
+x
+
+x
+
+104
+
+AWS, GCP, and
+Azure
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 7 of 20 82
+
+section outlines the evaluated metrics, including performance, cost, and the tradeoffs between them. The "Characteristics" section details the execution environment
+used for evaluation, considering factors such as parallel workloads, thread scalability, the number of instances, and the cloud provider utilized in the experiments. As
+shown, performance evaluation is widely covered in most studies. However, few
+studies address the balance between performance and cost. Additionally, works
+examining thread scalability’s impact on workload behavior typically focus solely
+on either performance or the cost associated with executing the workload. Most
+studies concentrate on private clouds or use simulation tools (e.g., CloudSim). This
+article extends existing research by addressing all these metrics and characteristics,
+including 104 distinct instances from three major cloud providers.
+
+3 Methodology
+In this section, we depict the target instances and the parallel workloads used during
+the experiments.
+3.1 Target instances
+We consider a diverse set of 104 cloud instances categorized into two groups: fiftytwo from the general-purpose domain (Table 2) and fifty-two from the computeand HPC-optimized domains (Table 3. The general-purpose domain includes cloud
+instances designed for versatility, providing a balanced mix of compute, memory,
+and network resources. These instances, like AWS m7g, GCP n2, and Azure Dv5
+series, are cost-effective for tasks with moderate resource demands but may lack
+the performance needed for highly specialized workloads. On the other hand, the
+compute- and HPC-optimized domain features instances tailored for compute- and
+memory-intensive tasks such as scientific simulations, machine learning, and largescale data analytics. Examples include AWS hpc7g, GCP h3, and Azure HBv3 series,
+offering high core counts and large memory capacities. Moreover, the selected
+instances feature a variety of processor architectures, including AMD EPYC, Intel
+Xeon, and ARM-based AWS Graviton processors, to provide a broad perspective on
+performance and cost efficiency across hardware platforms.
+We included multiple configurations with varying numbers of virtual CPUs
+(vCPUs) for each instance type to evaluate scalability. For example, within the GCP
+n2 and n2 series, we selected instances with 8, 16, 32, 64, and 128 vCPUs, enabling us to assess how efficiently parallel applications leverage additional cores and
+memory bandwidth. Similarly, configurations such as 16, 32, 64, and 128 vCPUs
+were analyzed in the compute- and HPC-optimized domains to capture the scaling
+behavior for scaling workloads. All instances were configured with the same Operating System (Ubuntu 22.04) and kernel version to ensure consistency and avoid
+variability in the experiments. For cost analysis, the on-demand pricing model was
+chosen across all cloud providers (GCP, AWS, and Microsoft Azure). This model
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 8 of 20
+
+W. Maas et al.
+
+Table 2  Characteristics of the general-purpose instances
+Instance type
+
+Processor
+
+Variations
+
+vCPU’s
+
+Cost per hour (USD)
+
+gcp-n2
+
+Intel Xeon
+Gold 6268CL
+
+std-8; std-16;
+std-32; std-64;
+std-128
+
+8; 16;
+32; 64;
+128
+
+0.31; 0.62;
+1.24; 2.49;
+4.97
+
+gcp-n2d
+
+AMD EPYC
+7B13
+
+std-8; std-16;
+std-32; std-64;
+std-128
+
+gcp-e2
+
+AMD EPYC
+7B13
+
+highcpu-8;
+highcpu-16;
+highcpu-32
+
+gcp-c3
+
+Intel Xeon
+Platinum 8481C
+
+std-8; std-22;
+std-44; std-88;
+std-176
+
+gcp-c3d
+
+AMD EPYC
+9B14
+
+aws-m5a
+
+AMD EPYC
+7000
+
+std-8; std-16;
+std-30; std-60;
+std-90; std-180;
+std-360
+
+2xlarge; 4xlarge;
+8xlarge; 16xlarge;
+32xlarge
+
+aws-m7a
+
+AMD EPYC
+9R14
+
+aws-m7i
+
+8; 16;
+32; 64;
+128
+8;
+16;
+32
+8; 22;
+44; 88;
+176
+8; 16;
+30; 60;
+90; 180;
+360
+
+0.27; 0.54;
+1.08; 2.16;
+4.33
+0.20;
+0.40;
+0.79
+0.42; 1.15;
+2.30; 4.60;
+9.19
+
+0.36; 0.73;
+1.36; 2.73;
+4.09; 8.17;
+16.35
+
+8; 16;
+32; 64;
+128
+
+0.34; 0.69;
+1.37; 2.75;
+5.50
+
+2xlarge; 4xlarge;
+8xlarge; 16xlarge;
+24xlarge; 48xlarge
+
+8; 16;
+32; 64;
+96; 192
+
+0.46; 0.93;
+1.85; 3.71;
+7.42; 11.13
+
+Intel Xeon
+Platinum 8488C
+
+2xlarge; 4xlarge;
+8xlarge; 16xlarge;
+24xlarge; 48xlarge
+
+8; 16;
+32; 64;
+96; 192
+
+aws-m7g
+
+Arm-based
+AWS Graviton3
+
+2xlarge; 4xlarge;
+8xlarge; 12xlarge;
+16xlarge
+
+8; 16;
+32; 48;
+64
+
+0.33; 0.65;
+1.30; 2.47;
+2.61
+
+azure-ds_v4
+
+Intel Xeon
+Platinum 8473C
+
+d8 s_v4; d16s_v4;
+d32s_v4; d48s_v4;
+d64s_v4
+
+8; 16;
+32; 48;
+64
+
+0.38; 0.77;
+1.54; 2.30;
+3.07
+
+0.40; 0.81;
+1.61; 3.22;
+4.84; 9.68
+
+provides a consistent and widely applicable pricing structure, avoiding the variability introduced by alternative models such as reserved or spot pricing.
+3.2 Parallel workloads
+Eighteen parallel workloads from assorted benchmark suites already written in C/
+C++ were selected for the evaluation. Seven benchmarks are from the NAS Parallel Benchmark [25], used to evaluate the performance of parallel hardware and
+software: BT (Block Tridiagonal), CG (Conjugate Gradient), FT (Fourier Transform), LU (LU Decomposition), MG (Multigrid), SP (Scalar Pentadiagonal), and
+UA (Unstructured Adaptive), Three applications from the Rodinia benchmark
+suite [26], used to identify performance bottlenecks and compare different computing platforms: HS (HotSpot), LUD (LU Decomposition with Data Redistribution), and SC (Streamcluster). Two workloads from the Parboil suite [27], a set of
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Page 9 of 20 82
+
+Investigating cloud instances to achieve optimal trade‑offs…
+Table 3  Characteristics of the compute- and HPC-optimized instances
+Instance type
+
+Processor
+
+Variations
+
+vCPU’s
+
+Cost per hour (USD)
+
+gcp-h3
+
+Intel Xeon
+Platinum 8481C
+
+std-88
+
+88
+
+4.93
+
+gcp-c2
+
+Intel Xeon
+Gold 6253CL
+
+std-8; std-16;
+std-30; std-60
+
+8; 16;
+30; 60
+
+0.34; 0.67;
+1.25; 2.51
+
+gcp-c2d
+
+AMD EPYC
+7B13
+
+std-8; std-16;
+std-32; std-56;
+std-112
+
+8; 16;
+32; 56;
+112
+
+0.36; 0.73;
+1,45; 2.54;
+5.09
+
+aws-c6a
+
+AMD EPYC
+7R13
+
+2xlarge; 4xlarge;
+8xlarge; 16xlarge;
+32xlarge; 48xlarge
+
+aws-c7i
+
+Intel Xeon
+8488C
+
+8; 16;
+32; 48;
+64; 96;
+192
+
+0.36; 0.71;
+1.43; 2.14;
+2.86; 4.28;
+8.57
+
+aws-c7g
+
+AWS Graviton3
+
+2xlarge; 4xlarge;
+8xlarge; 12xlarge;
+16xlarge; 32xlarge;
+48xlarge
+
+aws-hpc7g
+
+8; 16;
+32; 64;
+128; 192
+
+0.31; 0.61;
+1.22; 2.45;
+4.90; 7.94
+
+2xlarge; 4xlarge;
+8xlarge; 12xlarge;
+16xlarge
+
+8; 16;
+32; 48;
+64
+
+0.29; 0.58;
+1.16; 1.73;
+2.31
+
+AWS Graviton3E
+
+4xlarge; 8xlarge;
+16xlarge
+
+16; 32;
+64
+
+1.69
+
+aws-hpc6a
+
+AMD EPYC
+7R13
+
+48xlarge
+
+96
+
+2.88
+
+aws-hpc6id
+
+3rd Gen Intel
+Xeon Scalable
+
+32xlarge
+
+64
+
+8.64
+
+aws-hpc7a
+
+AMD EPYC
+9R14
+
+12xlarge; 24xlarge;
+48xlarge; 96xlarge
+
+24; 48;
+96; 192
+
+7.20
+
+azure-fsv2
+
+Intel Xeon
+Platinum 8370C
+
+f8 s_v2; f16s_v2;
+f32s_v2; f64s_v2;
+f72s_v2
+
+8; 16;
+32; 64;
+72
+
+0.34; 0.68;
+1.35; 2.71;
+3.05
+
+azure-hx176
+
+AMD EPYC
+9V33X
+
+24rs; 48rs;
+96rs;144rs;
+176
+
+24; 48;
+96; 144;
+176
+
+8.64
+
+azure-hb176
+
+AMD EPYC
+9V33X
+
+24rs_v4; 48rs_v4;
+96rs_v4; 144rs_v4;
+176rs_v4
+
+24; 48;
+96; 144;
+176
+
+7.20
+
+applications used to study the performance of throughput computing architectures:
+BFS (Breadth-First Search) and LBM (Lattice Boltzmann Method). Six from distinct
+domains: FFT (Fast Fourier Transform) [28], HPCG (High-Performance Conjugate
+Gradient)[29], JA (Jacobi iteration), LULESH (Livermore Unstructured Lagrangian
+Explicit Shock Hydrodynamics) [30], PO (Poisson Equation), and ST (Stream).
+The applications were executed with the standard input set defined on each
+benchmark suite. We compiled each application with gcc/g++ 12.0, using the-O3
+optimization flag. The chosen benchmarks cover a wide range of parallel workloads when considering the average instructions per cycle (IPC) and last-level
+cache (LLC) memory behavior on the target architectures, as shown in Fig. 1
+for the n2d-std-128 instance type. We consider the IPC metric as it reflects how
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 10 of 20
+
+W. Maas et al.
+
+Fig. 1  Characteristics of each parallel workload regarding the average IPC and LLC Miss Ratio on the
+AWS n2d-std-128 instance type. The closer the marker is to the origin (0.0), the lower the average IPC
+and LLC miss ratio
+
+CPU- or memory-intensive each application is. On the other hand, the amount
+of LLC misses represents the number of DRAM memory accesses. Hence, the
+higher the LLC miss ratio of an application, the more time the threads spend
+accessing data from the main memory, impacting its IPC. The selected workloads
+also cover various TLP behaviors, as illustrated in Fig. 2 considering the average
+behavior of all evaluated instances. TLP was measured as defined by the authors
+in [31]: it represents the average amount of concurrency exhibited by the workload during its execution when at least one core is active. A value closer to 1.0
+(normalized to the total number of vCPUs available) indicates a higher level of
+TLP. For example, the BFS workload has the lowest TLP, with only 11% of the
+execution performed in parallel. On the other hand, the JA, FT, and LBM workloads exhibit the highest TLP, with more than 96% of the application being executed in parallel.
+
+Fig. 2  TLP available for each workload. The values are normalized to the maximum number of virtual
+CPUs (vCPUs) and represent the average TLP across all instances used in the study. A value closer to
+1.0 indicates that a higher level of TLP is available, meaning that the workload can utilize a greater proportion of the computational resources effectively. Conversely, lower values suggest less available TLP,
+indicating reduced parallelism utilization relative to the maximum possible vCPUs
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 11 of 20 82
+
+4 Experimental evaluation
+This section discusses the results of executing each parallel workload on the target instances. For that, we have split the discussion into the following subsections:
+(i) in Sect. 4.1, we evaluate the behavior of the general-purpose instances; (ii) in
+Sect. 4.2, we discuss the results on the compute- and HPC-optimized instances; (iii)
+in Sect. 4.4, we compare the best results achieved on each type of instance. Finally,
+Sect. 4.5 lists the limitations of this study.
+In the next subsections, we consider three different metrics for evaluation:
+• Execution Time reports the total time taken for the workload execution on each
+
+instance. It was measured using the omp_get_wtime function from the
+OpenMP API.
+• Cost quantifies the monetary expense required to execute a specific workload on
+a cloud instance. We calculated it based on the cloud provider’s on-demand pricing model, dividing the instance’s hourly rate by the total execution time for the
+workload.
+• Cost-Performance Balance evaluates the trade-off between minimizing cost and
+maximizing performance (execution time). This balance is computed using the
+Euclidean Distance between the origin (0, 0) and a data point (Cost, Execution
+Time) on a Cartesian plane. Therefore, the closer the point is to the origin, the
+better the balance between cost and performance.
+The process for running each workload on the cloud instance was as follows. First,
+workloads were executed within Docker containers to ensure portability and isolated
+execution. Each container included all necessary dependencies and was deployed on
+the target instances. Second, the number of virtual CPUs (vCPUs) assigned to the
+container matches the total vCPUs available on the respective instances, as this represents the standard way parallel workloads are executed. Each workload-instance
+pair was executed 30 times, and the results presented in the next subsections consider the average results with a standard deviation of less than 0.5%.
+
+4.1 General‑purpose instances evaluation
+We begin by analyzing the results of running each workload on general-purpose
+instances. Figure 3a displays the relationship between performance (y-axis) and cost
+(x-axis) for executing the entire set of parallel workloads on each target instance. In
+this plot, points that are closer to the origin (0,0) indicate a better balance between
+performance and cost. When all workloads are executed on a single instance, the
+AWS m7g.12xlarge instance delivered the best performance results, while the AWS
+m7g.2xlarge instance was the most cost-effective option. Both instances utilize
+advanced processors based on the Arm-based AWS Graviton3 architecture, which
+includes optimizations aimed at enhancing application performance, energy efficiency, and the handling of demanding workloads [32, 33].
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 12 of 20
+
+W. Maas et al.
+
+Fig. 3  Execution time and cost results for running all parallel workloads on each target instance. Each
+marker represents the time and cost. The instance closer to the origin (0,0) delivers the best balance
+between performance and cost
+
+Although the m7g.12xlarge instance outperformed others regarding performance,
+and the m7g.2xlarge instance provided the lowest cost for executing the entire workload set; neither could achieve the best results for every parallel workload. This
+is illustrated in Table 4, which shows the general-purpose instance that delivered
+the best outcome for each workload. As the table indicates, no single instance can
+excel in performance, cost, and balance across all workloads. To assess the balance
+between performance and cost, each result is plotted as a point (x, y) on a Cartesian
+plane (Fig. 3a), where x represents the cost and y represents the execution time of
+the workload. Balance is calculated using the Euclidean distance between each point
+and the origin (0, 0), which symbolizes the ideal scenario of zero cost and zero execution time. The Euclidean distance formula determines how far each point is from
+this ideal state: a shorter distance indicates a more balanced outcome, suggesting
+lower costs and better performance.
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 13 of 20 82
+
+Table 4  Ideal general-purpose instances found by an exhaustive search to execute each parallel workload.
+Each instance has associated with it the time (in seconds) and cost (in USD) to execute the workload
+according to the target metric
+Performance
+
+Cost (USD)
+
+Cost-perf balance
+
+FFT
+
+m7 g.4xlarge (19.8s)
+
+m7 g.2xlarge (0.00181)
+
+m7 g.4xlarge (19.8s - 0.00360)
+
+HPCG
+
+c3d-std-180 (3.2s)
+
+m7 g.2xlarge (0.00053)
+
+m7 g.4xlarge (4.9s - 0.00090)
+
+JA
+
+m7a.48xlarge (1.1s)
+
+m7 g.2xlarge (0.00054)
+
+m7 g.2xlarge (6.0s - 0.00054)
+
+LL
+
+m7i.8xlarge (20.7s)
+
+m7 g.2xlarge (0.00282)
+
+m7i.8xlarge (20.7s - 0.00926)
+
+PO
+
+m7a.16xlarge (0.2s)
+
+m7 g.2xlarge (0.00005)
+
+m7 g.8xlarge (0.2s - 0.00007)
+
+ST
+
+m7 g.12xlarge (0.1s)
+
+m7 g.8xlarge (0.00003)
+
+m7 g.8xlarge (0.1s - 0.00003)
+
+BT
+
+m7a.32xlarge (2.2s)
+
+m7 g.2xlarge (0.00205)
+
+m7 g.16xlarge (4.0s - 0.00292)
+
+CG
+
+m7a.32xlarge (0.4s)
+
+m7 g.2xlarge (0.00034)
+
+m7a.8xlarge (1.02s - 0.00052)
+
+FT
+
+m7a.32xlarge (0.3s)
+
+e2-highcpu-8 (0.00026)
+
+m7a.8xlarge (0.7s - 0.00039)
+
+LU
+
+m7a.32xlarge (2.5s)
+
+m7 g.2xlarge (0.00103)
+
+m7 g.16xlarge (2.5s - 0.00182)
+
+MG
+
+m7a.16xlarge (0.5s)
+
+m7 g.2xlarge (0.00017)
+
+m7a.16xlarge (0.5s - 0.00055)
+
+SP
+
+m7a.32xlarge (1.9s)
+
+m7 g.2xlarge (0.00081)
+
+m7a.8xlarge (3.3s - 0.00168)
+
+UA
+
+m7a.16xlarge (2.1s)
+
+e2-highcpu-8 (0.00124)
+
+m7a.8xlarge (2.8s - 0.00143)
+
+HS
+
+m7 g.16xlarge (3.2s)
+
+m7 g.2xlarge (0.00110)
+
+m7 g.16xlarge (3.2s - 0.00229)
+
+LUD
+
+n2d-std-128 (2.0s)
+
+m7 g.2xlarge (0.00183)
+
+m7 g.8xlarge (5.4s - 0.00195)
+
+SC
+
+m7i.16xlarge (21.0s)
+
+e2-highcpu-8 (0.00534)
+
+m7i.8xlarge (25.9s - 0.01161)
+
+BFS
+
+c3d-std-8 (2.5s)
+
+n2d-std-8 (0.00025)
+
+c3-std-8 (2.5s - 0.00025)
+
+LBM
+
+c3d-std-360 (6.9s)
+
+e2-highcpu-8 (0.0070)
+
+m7 g.8xlarge (20.8s - 0.00756)
+
+The previous behavior happens because not all workloads scale proportionally as
+the number of vCPUs increases in instances. Consequently, different instances can
+yield better results for various workloads. Section 4.3 explores the reasons behind
+this behavior. For example, the mg workload performs optimally with 64 vCPUs
+on the m7a.16xlarge instance, whereas lud achieves its best performance with 128
+vCPUs on the n2d-std-128 instance. In contrast, BFS performs best with only 8
+vCPUs on the c3d-std-8 instance. Significant performance improvements can be
+realized by executing each workload on the most suitable instance, as illustrated
+by the GP-OptPerf configuration in Fig. 3a. In this case, performance improves by
+29.1% compared to running all workloads on the m7g.12xlarge instance. A similar
+trend is observed when considering cost as the target metric: executing each workload on the most suitable instance (GP-OptCost) reduces the total cost for the entire
+set of applications by 6.7% compared to running them on the m7g.2xlarge instance.
+Figure 3a also illustrates that when only performance matters (GP-OptPerf), the
+total cost to execute the workloads is 3.55 times more expensive than the execution
+on the most cost-effective instances for the cost (GP-OptCost. Similarly, when the
+user wants to reduce expenses, it will compromise the performance by 439.2% compared to the best performance option (GP-OptPerf. Finding instances that balance
+performance and cost is important when such scenarios arise. The results of this
+balanced configuration are represented as GP-OptBalance, which accounts for the
+sum of the execution time and cost for each application with the instances shown in
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 14 of 20
+
+W. Maas et al.
+
+Table 4. In this scenario, by choosing the instances with the best cost-performance
+balance, performance is improved by 68.8% compared to GP-OptCost. At the same
+time, the expenses are reduced by 51.1% compared to GP-OptPerf.
+
+4.2 HPC and compute‑optimized instances evaluation
+Figure 3a shows the relationship between performance (y-axis) and cost (x-axis
+for running the entire set of parallel workloads on each compute-optimized and
+HPC-optimized instance. Points closer to the origin (0, 0), indicate a better balance between performance and cost. When all workloads are executed on the same
+instance, similar behavior is observed with the general-purpose instances. Specifically, instances powered by the Arm-based AWS Graviton3 processors delivered
+better performance (AWS c7g.12xlarge) and lowest cost (AWS c7g.2xlarge) due
+to the reasons already discussed in Sect. 4.1 [32, 33]. Although the c7g.12xlarge
+instance demonstrated better performance than other instances, and the c7g.2xlarge
+instance offered the lowest cost for executing the entire workload set, neither could
+provide the best result for every parallel workload, as observed for the General-Purpose instances. This is illustrated in Table 5, which shows the compute- and HPCoptimized instance that achieved the best result for each workload. The table also
+
+Table 5  Ideal compute- and HPC-optimized instances found by an exhaustive search to execute each parallel workload. Each instance has associated with it the time (in seconds) and cost (in USD) to execute
+the workload according to the target metric
+Performance
+
+Cost (USD)
+
+Cost-perf balance
+
+FFT
+
+hpc7g.4xlarge (19.9s)
+
+c7 g.2xlarge (0.00162)
+
+c7 g.8xlarge (20.0s - 0.00642)
+
+HPCG
+
+hx176-48rs (1.9s)
+
+c7 g.2xlarge (0.00051)
+
+hb176-48 (2.0s - 0.00398)
+
+JA
+
+hb176 (0.4s)
+
+c7 g.2xlarge (0.00051)
+
+hb176 (0.4s - 0.00078)
+
+LL
+
+c7i.8xlarge (19.0s)
+
+c7 g.2xlarge (0.00259)
+
+c7i.8xlarge (19.0s - 0.00755)
+
+PO
+
+c7 g.12xlarge (0.18s)
+
+c7 g.2xlarge (0.00004)
+
+c7 g.12xlarge (0.18s - 0.00009)
+
+ST
+
+hpc7g.16xlarge (0.06s)
+
+c7 g.8xlarge (0.00003)
+
+hpc7g.16xlarge (0.06s - 0.00003)
+
+BT
+
+hb176-144 (2.0s)
+
+c7 g.2xlarge (0.00185)
+
+hpc7g.16xlarge (3.9s - 0.00186)
+
+CG
+
+hpc7a.96xlarge (0.4s)
+
+c7 g.2xlarge (0.00029)
+
+hpc6a (0.6s - 0.00046)
+
+FT
+
+hb176-144 (0.2s)
+
+c7 g.2xlarge (0.00028)
+
+hpc7g.16xlarge (0.7s - 0.00033)
+
+LU
+
+hb176-144 (2.1s)
+
+c7 g.2xlarge (0.00094)
+
+hpc7g.16xlarge (2.5s - 0.00117)
+
+MG
+
+hb176-144 (0.5s)
+
+c7 g.2xlarge (0.00016)
+
+c7 g.8xlarge (1.2s - 0.00037)
+
+SP
+
+hx176-144rs (1.5s)
+
+c7 g.2xlarge (0.00080)
+
+hpc6a (2.7s - 0.00215)
+
+UA
+
+hx176-96rs (2.1s)
+
+c7 g.2xlarge (0.00132)
+
+hpc7g.16xlarge (3.1s - 0.00145)
+
+HS
+
+c7 g.16xlarge (3.1s)
+
+c7 g.2xlarge (0.00101)
+
+hpc7g.16xlarge (3.1s - 0.00146)
+
+LUD
+
+hb176 (2.2s)
+
+c7 g.2xlarge (0.00164)
+
+c7 g.8xlarge (5.3s - 0.00170)
+
+SC
+
+hb176 (19.3s)
+
+c7 g.2xlarge (0.00614)
+
+c7 g.12xlarge (24.5s - 0.01179)
+
+BFS
+
+c6a.2xlarge (2.08s)
+
+c6a.2xlarge (0.00018)
+
+c6a.2xlarge (2.08s - 0.00018)
+
+LBM
+
+hx176-96rs (5.5s)
+
+hpc6a (0.00561)
+
+hpc6a (7.0s - 0.00561)
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 15 of 20 82
+
+highlights that no single instance can deliver optimal performance, cost, and a balance between both metrics for all workloads.
+The previous behavior occurs because not all workloads scale with an increase
+in the number of vCPUs. Consequently, different instances yield better results for
+different workloads. For instance, bt performs optimally with 144 vCPUs on the
+hb176-144 instance, while FFT achieves the best performance with 16 vCPUs on
+the hpc7g.4xlarge instance. Conversely, BFS performs better with only 8 vCPUs on
+the c6a-2xlarge instance, showing a thread scalability limitation on this application
+(as we discuss in Sect. 4.3). Therefore, significant performance improvements can be
+achieved by matching each workload to the most suitable instance (HPC-OptPerf),
+resulting in a 35.5% performance increase compared to running all workloads on
+the c7g.12xlarge instance. Similarly, optimizing for cost (HPC-OptCost) reduces the
+total cost by 3.2% compared to the c7g.2xlarge instance. Figure 3b also shows that
+optimizing solely for performance (HPC-OptPerf) makes the execution 3.90 times
+more expensive than the cost-effective configuration (HPC-OptCost). Conversely,
+minimizing costs compromises performance by 308.8% relative to the best performance option. In such scenarios, using a balanced approach (HPC-OptBalance) can
+improve performance by 61.4% compared to HPC-OptCost and reduce expenses by
+52.5% compared to HPC-OptPerf.
+4.3 The impact of cloud instance on the thread scalability
+In this subsection, we discuss the behavior of the parallel workloads on the cloud
+instances according to the thread scalability issues described in Sect. 2. Let us
+start by discussing the behavior of workloads with thread scalability limited by the
+amount of data synchronization operations, such as BFS, where the best performance and cost were achieved with instances with only 8 vCPus. In this type of
+workload, when the number of running threads increases, the synchronization time
+also increases, worsening performance as more threads run concurrently [34].
+For applications that handle large amounts of private data and require consistent
+access from the main memory (e.g., FFT and LL), there is a point at which off-chip
+bus saturation becomes critical, as discussed in Sect. 2. In this scenario, the offchip bus usage significantly impacts the scalability of the workload threads. Since
+each thread operates on different data blocks, the demand for off-chip bus bandwidth
+increases linearly with the number of threads (and vCPUs). However, due to the
+limitation of the bus’s I/O pins, the bandwidth does not increase proportionately to
+the number of processor cores (vCPUs). As a result, when the off-chip bus becomes
+saturated, increasing the number of threads does not lead to further performance
+improvements. With that, the best performance of the FFT workload was reached
+by exploiting parallelism with 16 vCPUs on the general-purpose (m7g.4xlarge)
+and HPC-optimized (hpc7g.4xlarge) instances. Beyond this point, increasing the
+number of vCPUs to the maximum available on the instances resulted in 5.6%
+increase in execution time for the general-purpose scenario (compared to 64 vCPUs
+– m7g.16xlarge) and 5.01% increase for the HPC-Optimized scenario (compared to
+64 vCPUs – hpc7g.16xlarge).
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 16 of 20
+
+W. Maas et al.
+
+Furthermore, because threads communicate by accessing data in shared memory
+regions, the overhead imposed by the shared memory accesses may outweigh the
+gains achieved by the parallelism exploitation, as discussed in Sect. 2. This behavior
+was observed for workloads with high communication demands, including SC and
+HPCG. In the case of SC for the general-purpose domain, m7i.16xlarge instance
+outperformed the m7i.48xlarge, while for HPCG on the HPC-Optimized scenario,
+the hx176-48rs with 48 vCPUs performed better than the hx176 with 176 vCPUs.
+While we identified thread communication as the primary reason for this behavior,
+other factors such as thread scheduling, data affinity, or the inherent characteristics
+of the workload may also influence L3 performance. For instance, a workload with
+a high rate of private access to L1 and L2 caches may also result in a rise in L3
+accesses. There are also scenarios of workloads that were able to scale by increasing
+the number of hardware resources in the instances, such as JA, LUD, and LBM (refer
+to Tables 4 and 5).
+4.4 General‑purpose vs. HPC and compute‑optimized instances
+This comparison aims to determine which instance type provides the best performance and cost-efficiency for specific computational tasks to help users optimize
+resource allocation and enhance overall computational effectiveness. For that, Fig. 4
+compares the instances that reached the best result on each target metric (performance, cost, and perf-cost balance) on each type of instance, along with the geometric mean of all workloads. Results are normalized to general-purpose results; hence,
+values above 1.0 mean that general-purpose instances provided better results than
+the HPC- and Compute-Optimized instances. For example, Fig. 4a illustrates the
+performance comparison through the HPC-OptPerf and GP-OptPerf results.
+When prioritizing performance (Fig. 4a), using the best Compute- or HPC-Optimized (HPC-OptPerf) instance yields optimal results for scaling workloads such
+as JA, HPCG, and LBM, with performance gains of up to 66%, particularly for JA.
+Conversely, general-purpose instances performed equally well or better than HPCOptPerf for memory-intensive workloads like PO, CG, UA, and LUD. Across all
+workloads, performance on HPC-OptPerf instances is 15% higher than on GP-OptPerf instances. When optimizing for workload execution cost, similar behavior is
+observed as shown in Fig. 4b. For the memory-intensive SC workload, a generalpurpose instance was the most cost-effective, being 15% cheaper than the HPCOptCost. Overall, in addition to achieving the best overall performance, the HPCOptCost is also the most cost-effective, being 14.8% cheaper than the GP-OptCost.
+When both performance and cost are equally important for evaluation (GPOptBalance and HPC-OptBalance), the scenario is slightly different, as shown
+in Fig. 4c. The figure compares the performance and cost efficiency of the best
+general-purpose and compute- and HPC-optimized instances for this balance
+across different workload types. For many applications, including FFT, PO, and
+UA, GP-OptBalance demonstrates superior cost-performance balance compared
+to HPC-OptBalance. This is mainly due to their lower base cost and sufficient
+performance for non-scaling tasks, allowing them to deliver better overall cost
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 17 of 20 82
+
+Fig. 4  Comparison of performance (panel a), cost (panel b), and the performance-cost balance (panel
+c) between the best results obtained from Compute- and HPC-Optimized instances, normalized to the
+best results achieved by General-Purpose instances. The values on the y-axis represent the relative performance, cost, and balance, with values greater than 1.0 indicating that the General-Purpose instances
+outperformed the Compute- and HPC-Optimized instances in that particular metric
+
+efficiency in scenarios where extreme performance is not essential. For instance,
+applications with moderate computational needs or those that do not require
+high parallelism can benefit from the more economical pricing of general-purpose instances while still achieving satisfactory performance.
+On the one hand, general-purpose instances are better for more simple tasks
+as they provide a good balance between cost and performance. On the other
+hand, HPC-OptBalance are more effective at achieving a better balance between
+cost and performance for scaling applications. Their specialized hardware and
+architecture are designed to handle large-scale computations and parallel processing more efficiently. As a result, Compute- and HPC-optimized instances
+offer better performance per cost unit for tasks that require high throughput and
+scalability, justifying their higher price point. Therefore, while general-purpose
+instances are better for less demanding applications, HPC-optimized instances
+excel in scenarios requiring high computational power and scalability, providing a more effective balance of performance and cost for complex, large-scale
+workloads.
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 18 of 20
+
+W. Maas et al.
+
+4.5 Limitations and opportunities for improvements
+This research evaluates the performance and cost-effectiveness of cloud instances
+from various providers through experiments. However, there are some limitations. First, our analysis is constrained by the availability of cloud resource
+quotas, preventing the inclusion of more general-purpose, HPC, and computeoptimized instances from other providers. This limits our comparative analysis.
+The study focuses solely on CPU-based instances and does not address GPU
+instances, which are often beneficial for modern HPC workloads due to their parallel processing capabilities. Additionally, the parallel workloads were considered
+to run on a single machine, so we did not analyze network performance variability between instances and providers, which could affect distributed workloads.
+Another limitation is that it does not directly investigate the interference of colocated workloads, which can significantly impact both performance and cost efficiency in cloud environments. Colocation of workloads can introduce resource
+contention, leading to performance degradation and increased costs, particularly
+when workloads are memory- or compute-intensive. Our cost analysis is based
+on standard on-demand pricing. We excluded alternative pricing models like
+reserved and spot instances to maintain consistency and comparability across
+instance types and providers. While these alternatives can offer cost savings, they
+introduce uncertainties and variability that complicate the analysis. Focusing on
+on-demand pricing ensures our cost analysis remains straightforward and easily
+comparable across all evaluated instances.
+
+5 Conclusion and future work
+This study investigates the optimization of performance and cost for parallel
+workloads in the cloud across a range of instance types from major providers,
+including Amazon Web Services, Google Cloud Platform, and Microsoft Azure.
+Our experiments with eighteen parallel workloads across 104 cloud instances
+revealed that no single instance type offers the best balance of performance and
+cost for all workloads. Compute- and HPC-optimized instances showed significant performance improvements, with some tasks achieving up to 66% better performance, making them ideal for high-demand computational tasks. HPC-optimized instances were also the most cost-effective, offering a 14.8% lower cost
+than general-purpose instances. Meanwhile, general-purpose instances offered a
+better balance for memory-intensive or moderately demanding workloads, outperforming HPC-optimized instances in scenarios that did not require extreme performance. Future research will extend this analysis to GPU-based instances and
+explore various pricing models, such as reserved and spot instances, to understand cost dynamics better and further optimize performance and cost efficiency.
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Investigating cloud instances to achieve optimal trade‑offs…
+
+Page 19 of 20 82
+
+Author contributions W. M and A. L wrote the main manuscript text. F. R. and M. L. worked on
+the background, related work, and discussion part. P. N. worked on the introduction part. All authors
+reviewed the manuscript and participated in the discussions during the writing process.
+Funding This study was partly financed by the CAPES - Finance Code 001, FAPERGS - PqG 24/25510001388-1, and CNPq.
+Data availability No datasets were generated or analysed during the current study.
+
+Declarations
+Conflict of interest The authors declare no Conflict of interest.
+
+References
+1. AWS: Amazon EC2 (2024). https://​aws.​amazon.​com/​ec2/. [Online; accessed 19-February-2024]
+2. Google: Google Compute Engine (2024). https://​cloud.​google.​com/​produ​cts/​compu​te. [Online;
+accessed 19-February-2024]
+3. Suleman MA, Qureshi MK, Patt YN (2008) Feedback-driven threading: power-efficient and highperformance execution of multi-threaded workloads on CMPs. SIGARCH Comput Arch News
+36(1):277–286
+4. Liu F, Tong J, Mao J, Bohn R, Messina J, Badger L, Leaf D (2012) NIST cloud computing reference
+architecture: recommendations of the national institute of standards and technology. CreateSpace
+Independent Publishing Platform, USA
+5. Barham P, Dragovic B, Fraser K, Hand S, Harris T, Ho A, Neugebauer R, Pratt I, Warfield A (2003)
+Xen and the art of virtualization. SIGOPS Oper Syst Rev 37(5):164–177
+6. Khan AA, Zakarya M, Rahman IU, Khan R, Buyya R (2021) Heporcloud: an energy and performance efficient resource orchestrator for hybrid heterogeneous cloud computing environments. J
+Netw Comput Appl 173:102869. https://​doi.​org/​10.​1016/j.​jnca.​2020.​102869
+7. Subramanian L, Seshadri V, Kim Y, Jaiyen B, Mutlu O (2013) MISE: Providing performance predictability and improving fairness in shared main memory systems. In: EEE 19th International Symposium on High Performance Computer Architecture (HPCA), pp 639–650
+8. Ham TJ, Chelepalli BK, Xue N, Lee BC (2013) Disintegrated control for energy-efficient and heterogeneous memory systems. In: IEEE 19th International Symposium on High Performance Computer Architecture (HPCA), pp. 424–435 . https://​doi.​org/​10.​1109/​HPCA.​2013.​65223​38
+9. Ekanayake J, Fox G (2010) High performance parallel computing with clouds and cloud technologies. In: Avresky DR, Diaz M, Bode A, Ciciani B, Dekel E (eds) Cloud Comput. Springer, Berlin,
+Heidelberg, pp 20–38
+10. Rak M, Cuomo A, Villano U (2013) Cost/performance evaluation for cloud applications using simulation. In: 2013 Workshops on Enabling Technologies: Infrastructure for Collaborative Enterprises,
+pp. 152–157 . https://​doi.​org/​10.​1109/​WETICE.​2013.​36
+11. Rathnayake S, Loghin D, Teo YM (2017) Celia: cost-time performance of elastic applications on
+cloud. In: 2017 46th International Conference on Parallel Processing (ICPP), pp. 342–351 . https://​
+doi.​org/​10.​1109/​ICPP.​2017.​43
+12. Wan B, Dang J, Li Z, Gong H, Zhang F, Oh S (2020) Modeling analysis and cost-performance ratio
+optimization of virtual machine scheduling in cloud computing. IEEE Trans Parallel Distrib Syst
+31(7):1518–1532. https://​doi.​org/​10.​1109/​TPDS.​2020.​29689​13
+13. Zhang L, Zhou L, Salah A (2020) Efficient scientific workflow scheduling for deadline-constrained
+parallel tasks in cloud computing environments. Inform Sci 531:31–46. https://​doi.​org/​10.​1016/j.​ins.​
+2020.​04.​039
+14. Li M, Zhang J, Wan J, Ren Y, Zhou L, Wu B, Yang R, Wang J (2020) Distributed machine learning
+load balancing strategy in cloud computing services. Wirel Netw 26:5517–5533
+15. Ohue M, Aoyama K, Akiyama Y (2020) High-performance cloud computing for exhaustive proteinprotein docking . arXiv:​abs/​2006.​08905
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+82 Page 20 of 20
+
+W. Maas et al.
+
+16. Bhardwaj AK, Gajpal Y, Surti C, Gill SS (2020) Heart: unrelated parallel machines problem with
+precedence constraints for task scheduling in cloud computing using heuristic and meta-heuristic
+algorithms. Soft: Pract Exp 50(12):2231–2251. https://​doi.​org/​10.​1002/​spe.​2890
+17. Haussmann J, Blochinger W, Kuechlin W (2019) Cost-optimized parallel computations using volatile cloud resources. In: Djemame K, Altmann J, Bañares JÁ, Agmon Ben-Yehuda O, Naldi M (eds)
+Economics of Grids, Clouds, Systems, and Services. Springer, Cham, pp 45–53
+18. Haussmann J, Blochinger W, Kuechlin W (2019) Cost-efficient parallel processing of irregularly
+structured problems in cloud computing environments. Clust Comput 22(3):887–909. https://​doi.​
+org/​10.​1007/​s10586-​018-​2879-3
+19. Haussmann J, Blochinger W, Kuechlin W (2020) An elasticity description language for task-parallel
+cloud applications. In: CLOSER, pp. 473–481
+20. Gillam L, Li B, O’Loughlin J (2014) Benchmarking cloud performance for service level agreement
+parameters. Int J Cloud Comput 3:3–23
+21. Khan AA, Zakarya M, Khan R (2019) H2-a hybrid heterogeneity aware resource orchestrator for
+cloud platforms. IEEE Syst J 13(4):3873–3876. https://​doi.​org/​10.​1109/​JSYST.​2019.​28999​13
+22. Zakarya M, Gillam L (2019) Managing energy, performance and cost in large scale heterogeneous datacenters using migrations. Future Gener Comput Syst 93:529–547. https://​doi.​org/​10.​1016/j.​
+future.​2018.​10.​044
+23. O’Loughlin J, Gillam L (2018) A performance brokerage for heterogeneous clouds. Future Gener
+Comput Syst 87:831–845. https://​doi.​org/​10.​1016/j.​future.​2017.​05.​005
+24. Zakarya M, Gillam L, Salah K, Rana OF, Tirunagari S, Buyya R (2023) Colocateme: aggregationbased, energy, performance and cost aware vm placement and consolidation in heterogeneous iaas
+clouds. IEEE Trans Serv Comput 16(2):1023–1038. https://​doi.​org/​10.​1109/​tsc.​2022.​31813​75
+25. Bailey D, Harris T, Saphir W, Van Der Wijngaart R, Woo A, Yarrow M (1995) The nas parallel
+benchmarks 2.0. Technical report, Technical Report NAS-95-020, NASA Ames Research Center
+26. Che S, Boyer M, Meng J, Tarjan D, Sheaffer JW, Lee S-H, Skadron K (2009) Rodinia: a benchmark
+suite for heterogeneous computing. In: 2009 IEEE International Symposium on Workload Characterization (IISWC), pp. 44–54 . https://​doi.​org/​10.​1109/​IISWC.​2009.​53067​97
+27. Stratton JA, Rodrigues C, Sung I-J, Obeid N, Chang L-W, Anssari N, Liu GD, W-mW Hwu (2012)
+Parboil: a revised benchmark suite for scientific and commercial throughput computing. Cent Reliab
+High-Perform Comput 127:27
+28. Brigham EO, Morrow RE (1967) The fast fourier transform. IEEE Spect 4(12):63–70. https://​doi.​
+org/​10.​1109/​MSPEC.​1967.​52172​20
+29. Heroux MA, Dongarra J, Luszczek P (2013) HPCG benchmark technical specification. https://​doi.​
+org/​10.​2172/​11138​70
+30. Karlin I, Bhatele A, Keasler J, Chamberlain BL, Cohen J, DeVito Z, Haque R, Laney D, Luke E,
+Wang F, Richards D, Schulz M, Still C (2013) Exploring traditional and emerging parallel programming models using a proxy application. In: 27th IEEE International Parallel & Distributed Processing Symposium (IEEE IPDPS 2013), Boston, USA
+31. Blake G, Dreslinski RG, Mudge T, Flautner K (2010) Evolution of thread-level parallelism in desktop applications. SIGARCH Comput Arc News 38(3):302–313
+32. López-Villellas L, Langarita-Benítez R, Badouh A, Soria-Pardos V, Aguado-Puig Q, López-Paradís
+G, Doblas M, Setoain J, Kim C, Ono M et al (2024) Genarchbench: a genomics benchmark suite for
+arm HPC processors. Future Gener Comput Syst 157:313–329
+33. López Villellas L (2023) Genarchbench: Porting and optimizing a genomics benchmark suite to
+arm-based hpc processors. Master’s thesis, Universitat Politècnica de Catalunya
+34. Lorenzon AF, De Oliveira CC, Souza JD, Beck ACS (2018) Aurora: seamless optimization of
+openmp applications. IEEE Trans Parallel Distrib Syst 30(5):1007–1021
+Publisher’s Note Springer Nature remains neutral with regard to jurisdictional claims in published maps
+and institutional affiliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under
+a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted
+manuscript version of this article is solely governed by the terms of such publishing agreement and
+applicable law.
+
+Content courtesy of Springer Nature, terms of use apply. Rights reserved.
+
+Terms and Conditions
+Springer Nature journal content, brought to you courtesy of Springer Nature Customer Service Center
+GmbH (“Springer Nature”).
+Springer Nature supports a reasonable amount of sharing of research papers by authors, subscribers
+and authorised users (“Users”), for small-scale personal, non-commercial use provided that all
+copyright, trade and service marks and other proprietary notices are maintained. By accessing,
+sharing, receiving or otherwise using the Springer Nature journal content you agree to these terms of
+use (“Terms”). For these purposes, Springer Nature considers academic use (by researchers and
+students) to be non-commercial.
+These Terms are supplementary and will apply in addition to any applicable website terms and
+conditions, a relevant site licence or a personal subscription. These Terms will prevail over any
+conflict or ambiguity with regards to the relevant terms, a site licence or a personal subscription (to
+the extent of the conflict or ambiguity only). For Creative Commons-licensed articles, the terms of
+the Creative Commons license used will apply.
+We collect and use personal data to provide access to the Springer Nature journal content. We may
+also use these personal data internally within ResearchGate and Springer Nature and as agreed share
+it, in an anonymised way, for purposes of tracking, analysis and reporting. We will not otherwise
+disclose your personal data outside the ResearchGate or the Springer Nature group of companies
+unless we have your permission as detailed in the Privacy Policy.
+While Users may use the Springer Nature journal content for small scale, personal non-commercial
+use, it is important to note that Users may not:
+1. use such content for the purpose of providing other users with access on a regular or large scale
+basis or as a means to circumvent access control;
+2. use such content where to do so would be considered a criminal or statutory offence in any
+jurisdiction, or gives rise to civil liability, or is otherwise unlawful;
+3. falsely or misleadingly imply or suggest endorsement, approval , sponsorship, or association
+unless explicitly agreed to by Springer Nature in writing;
+4. use bots or other automated methods to access the content or redirect messages
+5. override any security feature or exclusionary protocol; or
+6. share the content in order to create substitute for Springer Nature products or services or a
+systematic database of Springer Nature journal content.
+In line with the restriction against commercial use, Springer Nature does not permit the creation of a
+product or service that creates revenue, royalties, rent or income from our content or its inclusion as
+part of a paid for service or for other commercial gain. Springer Nature journal content cannot be
+used for inter-library loans and librarians may not upload Springer Nature journal content on a large
+scale into their, or any other, institutional repository.
+These terms of use are reviewed regularly and may be amended at any time. Springer Nature is not
+obligated to publish any information or content on this website and may remove it or features or
+functionality at our sole discretion, at any time with or without notice. Springer Nature may revoke
+this licence to you at any time and remove access to any copies of the Springer Nature journal content
+which have been saved.
+To the fullest extent permitted by law, Springer Nature makes no warranties, representations or
+guarantees to Users, either express or implied with respect to the Springer nature journal content and
+all parties disclaim and waive any implied warranties or warranties imposed by law, including
+merchantability or fitness for any particular purpose.
+Please note that these rights do not automatically extend to content, data or other material published
+by Springer Nature that may be licensed from third parties.
+If you would like to use or distribute our Springer Nature journal content to a wider audience or on a
+regular basis or in any other manner not expressly permitted by these Terms, please contact Springer
+Nature at
+onlineservice@springernature.com
+
+

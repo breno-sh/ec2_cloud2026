@@ -1,0 +1,54 @@
+# Phase 3: Horizontal vs Vertical Scaling — Resultados
+
+## Experimentos Executados (6 total)
+
+Todos os 6 experimentos rodaram com sucesso. Codec: **H.264 (libx264)**, preset: **slow**, bitrate: **2M**.
+
+---
+
+## Família M (m5)
+
+| Métrica | Serial (1× m5.large) | Horizontal (10× m5.large) | Vertical (1× m5.4xlarge) |
+|---------|----------------------|--------------------------|-------------------------|
+| **Total Time** | 3.46 min (207.56s) | 3.63 min (217.61s) | 2.33 min (139.89s) |
+| **Setup Time** | 1.56 min (93.54s) | — | 1.74 min (104.56s) |
+| **Encoding Time** | 1.90 min (114.02s) | — | 0.59 min (35.33s) |
+| **Setup %** | 45.1% | — | 74.7% |
+| **Split Time** | — | 1.67s | — |
+| **Parallel Time** | — | 3.60 min (215.94s) | — |
+
+> [!WARNING]
+> Na horizontal M-family, 2 de 10 parts falharam com erro FFmpeg "Too many packets buffered" (parts 01 e 04). O fix `-max_muxing_queue_size 1024` foi adicionado depois. As medidas de tempo ainda são representativas.
+
+## Família C (c5)
+
+| Métrica | Serial (1× c5.large) | Horizontal (10× c5.large) | Vertical (1× c5.4xlarge) |
+|---------|----------------------|--------------------------|-------------------------|
+| **Total Time** | 3.21 min (192.62s) | 3.52 min (211.38s) | 2.13 min (127.66s) |
+| **Setup Time** | 1.53 min (91.69s) | — | 1.54 min (92.48s) |
+| **Encoding Time** | 1.68 min (100.93s) | — | 0.59 min (35.18s) |
+| **Setup %** | 47.6% | — | 72.4% |
+| **Split Time** | — | 1.58s | — |
+| **Parallel Time** | — | 3.50 min (209.80s) | — |
+
+> [!NOTE]
+> C-family horizontal rodou sem erros (fix aplicado). CPU mismatch detectado em `c5.4xlarge` (8124M vs esperado 8275CL) e algumas instâncias `c5.large` horizontais.
+
+---
+
+## Observações Importantes
+
+1. **Vertical vence em tempo total** — Apesar do setup overhead maior (~72-75%), o encoding 3× mais rápido compensa.
+2. **Horizontal não é mais rápido** — O overhead de provisioning de 10 instâncias (mesmo 5 por vez) anula o ganho de paralelismo para este tamanho de workload.
+3. **Setup domina** — Nos verticais, o setup é 72-75% do tempo total. Com AMI otimizada (pré-instalada), a vantagem seria ainda maior.
+4. **C-family ~8% mais rápida** — Encoding c5.large (1.68 min) vs m5.large (1.90 min) para o mesmo vídeo.
+
+## Logs Gerados
+
+Todos em [artifacts2/phase3_scaling/](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts2/phase3_scaling):
+- `m5_large_serial.log`
+- `m5_4xlarge_vertical.log`
+- `m5_large_horizontal.log`
+- `c5_large_serial.log`
+- `c5_4xlarge_vertical.log`
+- `c5_large_horizontal.log`

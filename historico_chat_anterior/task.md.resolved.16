@@ -1,0 +1,17 @@
+# Task: Analysis Documents for C and M Family Instances
+
+## Phase 1: Research ✅
+- [x] Read [noms_v4.tex](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/IEEE-conference-template-062824/noms_v4.tex) to catalog all analyses/comparisons
+- [x] Review processing scripts and benchmark logs
+- [x] Plan approved by user
+
+## Phase 2: Create Documents ✅
+- [x] Process M-family and C-family logs, generate stats
+- [x] Create [guia_analises.md](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts2/guia_analises.md), [analiseM.md](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts2/analiseM.md), [analiseC.md](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts2/analiseC.md), [resumoexecutivo.md](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts2/resumoexecutivo.md)
+
+## Phase 3: Horizontal vs Vertical Scaling
+- [/] Create serial scaling script (parameterized)
+- [ ] Verify video_10_minutos.mp4 exists
+- [ ] Run M-family: serial, horizontal, vertical
+- [ ] Run C-family: serial, horizontal, vertical
+- [ ] Analyze results and document

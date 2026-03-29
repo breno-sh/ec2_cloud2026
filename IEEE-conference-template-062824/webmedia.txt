@@ -1,0 +1,255 @@
+@article{Maas2025,
+  author    = {Maas, William and Rossi, F{\'a}bio and Caggiani, Marcelo and Navaux, Philippe and Lorenzon, Arthur},
+  title     = {{Investigating cloud instances to achieve optimal trade-offs between performance-cost efficiency}},
+  journal   = {Computing},
+  volume    = {107},
+  number    = {1},
+  year      = {2025},
+  pages     = {82--97},
+  doi       = {10.1007/s00607-025-01444-9},
+  url       = {https://doi.org/10.1007/s00607-025-01444-9},
+  publisher = {Springer Nature},
+  month     = {01}
+}
+
+@article{pedro__lvarez_ed947120,
+  author    = {Álvarez, Pedro and Hernández, Sergio and Fabra, Javier and Ezpeleta, Joaquín},
+  title     = {Cost-driven provisioning and execution of a computing-intensive service on the Amazon EC2},
+  journal   = {The Computer Journal},
+  volume    = {61},
+  number    = {9},
+  pages     = {1407--1421},
+  year      = {2018},
+  month     = {01},
+  doi       = {10.1093/comjnl/bxy006},
+  url       = {https://doi.org/10.1093/comjnl/bxy006},
+  publisher = {Oxford University Press}
+}
+
+@article{tamara_dancheva_635e0512,
+  author    = {Dancheva, Tamara and Alonso, Unai and Barton, Michael D.},
+  title     = {Cloud benchmarking and performance analysis of an HPC application in Amazon EC2},
+  journal   = {Cluster Computing},
+  volume    = {27},
+  number    = {2},
+  pages     = {2273--2290},
+  year      = {2023},
+  month     = {06},
+  doi       = {10.1007/s10586-023-04060-4},
+  url       = {https://doi.org/10.1007/s10586-023-04060-4},
+  publisher = {Springer Science+Business Media}
+}
+
+@article{lailan_m_haji_2b4efda5,
+  author    = {Haji, Lailan M. and Zeebaree, Subhi R. M. and Ahmed, Omar M. and Sallow, Amira B. and Jacksi, Karwan and Zeabri, Rizgar R.},
+  title     = {Dynamic Resource Allocation for Distributed Systems and Cloud Computing},
+  journal   = {Test Engineering and Management},
+  volume    = {83},
+  number    = {1},
+  pages     = {22417--22426},
+  year      = {2020},
+  month     = {06},
+  doi       = {},
+  url       = {https://www.researchgate.net/profile/Subhi-Zeebaree/publication/342317991_Dynamic_Resource_Allocation_for_Distributed_Systems_and_Cloud_Computing/links/5eed2405458515814a6ec298/Dynamic-Resource-Allocation-for-Distributed-Systems-and-Cloud-Computing.pdf},
+  publisher = {Mattingley Publishing}
+}
+
+@inproceedings{zhonghong_ou_93958397,
+  author    = {Ou, Zhonghong and Zhuang, Hao and Nurminen, Jukka K. and Ylä-Jääski, Antti and Hui, Pan},
+  title     = {Exploiting Hardware Heterogeneity within the Same Instance Type of Amazon EC2},
+  booktitle = {Proceedings of the 4th USENIX Conference on Hot Topics in Cloud Computing},
+  year      = {2012},
+  pages     = {4--4},
+  publisher = {USENIX Association},
+  address   = {Boston, MA, USA},
+  series    = {HotCloud'12},
+  month     = {06},
+  doi       = {10.5555/2342763.2342767},
+  url       = {https://www.usenix.org/conference/hotcloud12/workshop-program/presentation/ou}
+}
+
+@article{zhonghong_ou_2f9f325e,
+  author    = {Ou, Zhonghong and Zhuang, Hao and Lukyanenko, Andrey and Nurminen, Jukka K. and Hui, Pan and Mazalov, Vladimir V. and Ylä-Jääski, Antti},
+  title     = {Is the Same Instance Type Created Equal? Exploiting Heterogeneity of Public Clouds},
+  journal   = {IEEE Transactions on Cloud Computing},
+  volume    = {1},
+  number    = {2},
+  pages     = {201--214},
+  year      = {2013},
+  month     = {01},
+  doi       = {10.1109/TCC.2013.12},
+  url       = {https://doi.org/10.1109/TCC.2013.12},
+  publisher = {Institute of Electrical and Electronics Engineers}
+}
+
+@inproceedings{benjamin_farley_32066261,
+  author    = {Farley, Benjamin and Juels, Ari and Varadarajan, Venkatanathan and Ristenpart, Thomas and Bowers, Kevin D. and Swift, Michael M.},
+  title     = {More for Your Money: Exploiting Performance Heterogeneity in Public Clouds},
+  booktitle = {Proceedings of the Third ACM Symposium on Cloud Computing},
+  year      = {2012},
+  pages     = {20:1--20:14},
+  publisher = {Association for Computing Machinery},
+  address   = {San Jose, CA, USA},
+  series    = {SoCC'12},
+  month     = {10},
+  doi       = {10.1145/2391229.2391249},
+  url       = {https://doi.org/10.1145/2391229.2391249},
+  isbn      = {9781450317610}
+}
+
+@inproceedings{angeliki_katsenou_e0a9a00f,
+  author    = {Katsenou, Angeliki and Wang, Xinyi and Schien, Daniel and Bull, David},
+  title     = {Comparative Study of Hardware and Software Power Measurements in Video Compression},
+  booktitle = {2024 Picture Coding Symposium (PCS)},
+  year      = {2024},
+  pages     = {1--5},
+  publisher = {IEEE},
+  address   = {Taichung, Taiwan},
+  month     = {06},
+  doi       = {10.1109/PCS60826.2024.10566286},
+  url       = {https://doi.org/10.1109/PCS60826.2024.10566286}
+}
+
+@inproceedings{arnaldo_pereira_ferreira_bd8560e5,
+  author    = {Pereira Ferreira, Arnaldo and Sinnott, Richard O.},
+  title     = {A Performance Evaluation of Containers Running on Managed Kubernetes Services},
+  booktitle = {2019 IEEE International Conference on Cloud Computing Technology and Science (CloudCom)},
+  year      = {2019},
+  pages     = {199--208},
+  publisher = {IEEE},
+  address   = {Sydney, Australia},
+  month     = {12},
+  doi       = {10.1109/CloudCom.2019.00038},
+  url       = {https://doi.org/10.1109/CloudCom.2019.00038}
+}
+
+@inproceedings{joel_scheuner_a07bc84e,
+  author    = {Scheuner, Joel and Leitner, Philipp},
+  title     = {Estimating Cloud Application Performance Based on Micro-Benchmark Profiling},
+  booktitle = {2018 IEEE 11th International Conference on Cloud Computing (CLOUD)},
+  year      = {2018},
+  pages     = {90--97},
+  publisher = {IEEE},
+  address   = {San Francisco, CA, USA},
+  month     = {07},
+  doi       = {10.1109/CLOUD.2018.00019},
+  url       = {https://doi.org/10.1109/CLOUD.2018.00019}
+}
+
+@inproceedings{sepideh_ebneyousef_1d5c43ab,
+  author    = {Ebneyousef, Sepideh and Ghazanfari-Rad, Saeed},
+  title     = {Cloud Resource Demand Prediction to Achieve Efficient Resource Provisioning},
+  booktitle = {2022 8th Iranian Conference on Signal Processing and Intelligent Systems (ICSPIS)},
+  year      = {2022},
+  pages     = {1--6},
+  publisher = {IEEE},
+  address   = {Tehran, Iran},
+  month     = {12},
+  doi       = {10.1109/ICSPIS56952.2022.10043900},
+  url       = {https://doi.org/10.1109/ICSPIS56952.2022.10043900}
+}
+
+@inproceedings{tina_samizadeh_nikoui_765428f4,
+  author    = {Nikoui, Tina Samizadeh and Balador, Ali and Rahmani, Amir Masoud and Bakhshi, Zeinab},
+  title     = {Cost-Aware Task Scheduling in Fog-Cloud Environment},
+  booktitle = {2020 CSI/CPSSI International Symposium on Real-Time and Embedded Systems and Technologies (RTEST)},
+  year      = {2020},
+  pages     = {1--8},
+  publisher = {IEEE},
+  address   = {Tehran, Iran},
+  month     = {06},
+  doi       = {10.1109/RTEST49666.2020.9140118},
+  url       = {https://doi.org/10.1109/RTEST49666.2020.9140118}
+}
+
+@inproceedings{rumr2003,
+  author    = {Yang, Yang and Casanova, Henri},
+  title     = {RUMR: Robust Scheduling for Divisible Workloads},
+  booktitle = {Proceedings of the 12th IEEE International Symposium on High Performance Distributed Computing},
+  year      = {2003},
+  pages     = {114--123},
+  publisher = {IEEE},
+  address   = {Seattle, WA, USA},
+  month     = {06},
+  doi       = {10.1109/HPDC.2003.1210021},
+  url       = {https://doi.org/10.1109/HPDC.2003.1210021}
+}
+
+@article{p__praveenchandar_6ddf409a,
+  author    = {Praveenchandar, J. and Tamilarasi, A.},
+  title     = {Resource Allocation Using Phase Change Hyper Switching Algorithm in the Cloud Environment},
+  journal   = {Intelligent Automation \& Soft Computing},
+  volume    = {34},
+  number    = {3},
+  year      = {2022},
+  pages     = {1839--1850},
+  month     = {08},
+  doi       = {10.32604/iasc.2022.026354},
+  url       = {http://www.techscience.com/iasc/v34n3/47932},
+  publisher = {Tech Science Press}
+}
+
+@inproceedings{rosado2024coding,
+  author    = {Rosado, Rogério and Santos, Otávio and Oliveira, Franklin and Silva, Lucas and Sanchez, Gustavo and Storch, Iago and Palomino, Daniel and Agostini, Luciano},
+  title     = {A Coding-Efficiency-Aware Fast Heuristic for VVC Intra-Frame Prediction Targeting 360° Videos},
+  booktitle = {Proceedings of the 30th Brazilian Symposium on Multimedia and the Web},
+  year      = {2024},
+  pages     = {355--359},
+  publisher = {Brazilian Computer Society},
+  address   = {Juiz de Fora, MG, Brazil},
+  month     = {10},
+  doi       = {10.5753/webmedia.2024.243128},
+  url       = {https://sol.sbc.org.br/index.php/webmedia/article/view/30331},
+  issn      = {2966-2753}
+}
+
+@inproceedings{araujo2024fast,
+  author    = {Araújo, Larissa and Duarte, Adson and Correa, Guilherme and Zatt, Bruno and Palomino, Daniel},
+  title     = {Fast ISP Mode Decision for the Versatile Video Coding Intra Prediction Using Machine Learning},
+  booktitle = {Proceedings of the 30th Brazilian Symposium on Multimedia and the Web},
+  year      = {2024},
+  pages     = {162--170},
+  publisher = {Brazilian Computer Society},
+  address   = {Juiz de Fora, MG, Brazil},
+  month     = {10},
+  doi       = {10.5753/webmedia.2024.243129},
+  url       = {https://sol.sbc.org.br/index.php/webmedia/article/view/30332},
+  issn      = {2966-2753}
+}
+
+@article{mahida-ankur,
+  author    = {Mahida, Ankur},
+  title     = {Comprehensive Review on Optimizing Resource Allocation in Cloud Computing for Cost Efficiency},
+  journal   = {Journal of Artificial Intelligence \& Cloud Computing},
+  volume    = {1},
+  number    = {2},
+  year      = {2022},
+  pages     = {1--4},
+  month     = {05},
+  doi       = {10.47363/JAICC/2022(1)232},
+  url       = {https://www.sarkarpublisher.com/pdfs/jaicc001232.pdf},
+  publisher = {Sarkar Publication}
+}
+
+@article{omar_alzakholi_0537f875,
+  author    = {Alzakholi, Omar and Haji, Lailan M. and Shukur, Hanan M. and Zebari, Rizgar R. and Abas, Shakir M. and Sadeeq, Mohammad},
+  title     = {Comparison Among Cloud Technologies and Cloud Performance},
+  journal   = {Journal of Applied Science and Technology Trends},
+  volume    = {1},
+  number    = {1},
+  pages     = {40--47},
+  year      = {2020},
+  month     = {04},
+  doi       = {10.38094/jastt1219},
+  url       = {https://doi.org/10.38094/jastt1219},
+  publisher = {JASTT}
+}
+
+@mastersthesis{silva2025analise,
+  author  = {Silva, Paulo Henrique Gomes},
+  title   = {An{\'a}lise de precifica{\c{c}}{\~a}o de inst{\^a}ncias {SPOT} para minimiza{\c{c}}{\~a}o de custos em um contexto multi-nuvem},
+  school  = {Universidade Federal de Pernambuco (UFPE)},
+  year    = {2025},
+  address = {Recife, Brazil},
+  note    = {M.Sc. Dissertation}
+}

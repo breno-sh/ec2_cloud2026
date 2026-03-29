@@ -1,0 +1,20 @@
+[13:23:04.751] === Phase 3.2 OPTIMIZED Serial: 1x c5.large ===
+[13:23:04.751] AMI: ami-06c7c20c67513469a (ffmpeg pre-installed)
+[13:23:04.751] [c5.large-Serial-OPT] Launching EC2 instance...
+[13:23:06.731] [c5.large-Serial-OPT] Instance i-0876f34273eac9138 launched. Waiting...
+[13:23:22.996] [c5.large-Serial-OPT] Instance ready. IP: 35.153.133.228
+[13:23:54.110] [c5.large-Serial-OPT] SSH connected.
+[13:23:55.121] [c5.large-Serial-OPT] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[13:23:55.122] [c5.large-Serial-OPT] Uploading 10-minute video...
+[13:24:03.628] [c5.large-Serial-OPT] Upload complete.
+[13:24:03.629] [c5.large-Serial-OPT] SETUP TIME: 58.88s (0.98 min)
+[13:24:03.629] [c5.large-Serial-OPT] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -y /home/ubuntu/output.mp4
+[13:25:34.981] [c5.large-Serial-OPT] ENCODING TIME: 91.35s (1.52 min)
+[13:25:36.154] [c5.large-Serial-OPT] Instance terminated.
+[13:25:36.154] [c5.large-Serial-OPT] ============================================================
+[13:25:36.154] [c5.large-Serial-OPT] RESULTS — c5.large Serial OPTIMIZED
+[13:25:36.154] [c5.large-Serial-OPT]   Total Time:    150.23s (2.50 min)
+[13:25:36.154] [c5.large-Serial-OPT]   Setup Time:    58.88s (0.98 min)
+[13:25:36.154] [c5.large-Serial-OPT]   Encoding Time: 91.35s (1.52 min)
+[13:25:36.155] [c5.large-Serial-OPT]   Setup %:       39.2%
+[13:25:36.155] [c5.large-Serial-OPT] ============================================================

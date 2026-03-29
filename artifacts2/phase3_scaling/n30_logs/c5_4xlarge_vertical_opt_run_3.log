@@ -1,0 +1,21 @@
+[10:17:52.004] === Phase 3.2 OPTIMIZED Vertical: 1x c5.4xlarge ===
+[10:17:52.004] AMI: ami-06c7c20c67513469a (ffmpeg pre-installed)
+[10:17:52.004] [c5.4xlarge-Vertical-OPT] Launching EC2 instance...
+[10:17:54.004] [c5.4xlarge-Vertical-OPT] Instance i-0c39f6cb7bdd56dc9 launched. Waiting...
+[10:18:09.906] [c5.4xlarge-Vertical-OPT] Instance ready. IP: 3.80.205.206
+[10:18:41.027] [c5.4xlarge-Vertical-OPT] SSH connected.
+[10:18:42.101] [c5.4xlarge-Vertical-OPT] CPU: Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[10:18:42.101] [c5.4xlarge-Vertical-OPT] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz, got Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+[10:18:42.101] [c5.4xlarge-Vertical-OPT] Uploading 10-minute video...
+[10:18:50.588] [c5.4xlarge-Vertical-OPT] Upload complete.
+[10:18:50.588] [c5.4xlarge-Vertical-OPT] SETUP TIME: 58.58s (0.98 min)
+[10:18:50.588] [c5.4xlarge-Vertical-OPT] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 10 -y /home/ubuntu/output.mp4
+[10:19:20.262] [c5.4xlarge-Vertical-OPT] ENCODING TIME: 29.67s (0.49 min)
+[10:19:21.427] [c5.4xlarge-Vertical-OPT] Instance terminated.
+[10:19:21.427] [c5.4xlarge-Vertical-OPT] ============================================================
+[10:19:21.427] [c5.4xlarge-Vertical-OPT] RESULTS — c5.4xlarge Vertical OPTIMIZED
+[10:19:21.427] [c5.4xlarge-Vertical-OPT]   Total Time:    88.26s (1.47 min)
+[10:19:21.427] [c5.4xlarge-Vertical-OPT]   Setup Time:    58.58s (0.98 min)
+[10:19:21.427] [c5.4xlarge-Vertical-OPT]   Encoding Time: 29.67s (0.49 min)
+[10:19:21.427] [c5.4xlarge-Vertical-OPT]   Setup %:       66.4%
+[10:19:21.428] [c5.4xlarge-Vertical-OPT] ============================================================

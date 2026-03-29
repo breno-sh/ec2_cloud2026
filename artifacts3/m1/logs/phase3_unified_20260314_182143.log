@@ -1,0 +1,107 @@
+[18:21:43.838] ======================================================================
+[18:21:43.838] CONFIGURATION
+[18:21:43.838]   Instance type:  t3.micro → effective: t3.micro
+[18:21:43.838]   Strategy:       serial
+[18:21:43.838]   Codec:          libvpx-vp9
+[18:21:43.839]   Threads:        5
+[18:21:43.839]   Region:         us-east-1
+[18:21:43.839]   AMI:            ami-06c7c20c67513469a
+[18:21:43.839]   Architecture:   x86_64
+[18:21:43.839]   Runs:           30
+[18:21:43.839] ======================================================================
+[18:21:43.958] === Phase 3.2 Serial: 1x t3.micro ===
+[18:21:43.958] AMI: ami-06c7c20c67513469a | Codec: libvpx-vp9 | Threads: 5 | Runs: 30
+[18:21:43.958] [t3.micro-Serial] Launching EC2 instan[18:21[18:21:45.680] [t3.micro-Serial] Instance i-0e90bd8ee66dab840 launched. Waiti[18:22[18:22:01.299] [c5.large-Serial] Instance ready. IP: 98.92.23[18:2[18:22:32.207] [c5.large-Serial] SSH connected.
+[18:22:32.207] [c5.large-Serial] Uploading 10-minute vide[18:2[18:23:07.127] [c5.large-Serial] Upload complete.
+[18:23:07.127] [c5.large-Serial] SETUP AND UPLOAD TIME: 83.21s
+[18:23:07.127] [c5.large-Serial] --- Run 1/30 ---
+[18:23:07.618] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/ubuntu/out[18:29:46.348] [c5.large-Serial] Done: 409.32s
+[18:29:51.349] [c5.large-Serial] --- Run 2/30 ---
+[18:29:51.571] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:35:52.452] [c5.large-Serial] Done: 361.10s
+[18:35:57.453] [c5.large-Serial] --- Run 3/30 ---
+[18:35:57.675] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[18:41:58.846][18:42:30.641] [m5.large-Serial] Done: 393.19s
+[18:42:35.642] [m5.large-Serial] --- Run 4/30 ---
+[18:42:35.860] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /home/u[18:48:05.094] [c[18:49:11.463] [m5.large-Serial] Done: 395.82s
+[18:49:16.464] [m5.large-Serial] --- Run 5/30 ---
+[18:49:16.686] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /hom[18:54:11.188] [c5.l[18:55:47.622] [m5.large-Serial] Done: 391.16s
+[18:55:52.623] [m5.large-Serial] --- Run 6/30 ---
+[18:55:52.840] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads 5 /[19:00:17.250] [c5.larg[19:02:33.914] [m5.large-Serial] Done: 401.29s
+[19:02:38.914] [m5.large-Serial] --- Run 7/30 ---
+[19:02:39.131] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threads [19:06:23.565] [c5.large-S[19:09:12.395] [m5.large-Serial] Done: 393.48s
+[19:09:17.395] [m5.large-Serial] --- Run 8/30 ---
+[19:09:17.615] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -threa[19:12:29.894] [c5.large-Seri[19:15:22.855] [m5.large-Serial] Done: 365.46s
+[19:15:27.856] [m5.large-Serial] --- Run 9/30 ---
+[19:15:28.073] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M -th[19:18:36.113] [c5.large-Serial][19:20:59.993] [m5.large-Serial] Done: 332.14s
+[19:21:04.993] [m5.large-Serial] --- Run 10/30 ---
+[19:21:05.214] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v 2M [19:24:42.091] [c5.large-Serial] Do[19:26:36.745] [m5.large-Serial] Done: 331.75s
+[19:26:41.745] [m5.large-Serial] --- Run 11/30 ---
+[19:26:41.963] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b:v [19:30:48.199] [c5.large-Serial] Done:[19:32:14.166] [m5.large-Serial] Done: 332.42s
+[19:32:19.166] [m5.large-Serial] --- Run 12/30 ---
+[19:32:19.385] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow -b[19:36:54.279] [c5.large-Serial] Done: 36[19:38:53.806] [m5.large-Serial] Done: 394.64s
+[19:38:58.806] [m5.large-Serial] --- Run 13/30 ---
+[19:38:59.024] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset slow[19:43:00.176] [c5.large-Serial] Done: 360.9[19:45:31.482] [m5.large-Serial] Done: 392.68s
+[19:45:36.483] [m5.large-Serial] --- Run 14/30 ---
+[19:45:36.699] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -preset s[19:49:06.437] [c5.large-Serial] Done: 361.26s
+[19:52:08.994] [m5.large-Serial] Done: 392.51s
+[19:52:13.995] [m5.large-Serial] --- Run 15/30 ---
+[19:52:14.235] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -prese[19:55:12.586] [c5.large-Serial] Done: 361.15s
+[19[19:58:46.494] [m5.large-Serial] Done: 392.50s
+[19:58:51.494] [m5.large-Serial] --- Run 16/30 ---
+[19:58:51.711] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 -pr[20:01:18.551] [c5.large-Serial] Done: 360.96s
+[20:01[20:04:25.439] [m5.large-Serial] Done: 333.94s
+[20:04:30.439] [m5.large-Serial] --- Run 17/30 ---
+[20:04:30.656] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-vp9 [20:07:24.832] [c5.large-Serial] Done: 361.28s
+[20:07:29[20:11:05.762] [m5.large-Serial] Done: 395.32s
+[20:11:10.763] [m5.large-Serial] --- Run 18/30 ---
+[20:11:10.983] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvpx-v[20:13:30.685] [c5.large-Serial] Done: 360.85s
+[20:13:35.68[20:17:40.578] [m5.large-Serial] Done: 389.81s
+[20:17:45.578] [m5.large-Serial] --- Run 19/30 ---
+[20:17:45.796] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libvp[20:19:36.813] [c5.large-Serial] Done: 361.13s
+[20:19:41.814] [20:23:18.681] [m5.large-Serial] Done: 333.10s
+[20:23:23.681] [m5.large-Serial] --- Run 20/30 ---
+[20:23:23.899] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v li[20:25:43.083] [c5.large-Serial] Done: 361.27s
+[20:25:48.083] [c5[20:28:55.706] [m5.large-Serial] Done: 332.02s
+[20:29:00.706] [m5.large-Serial] --- Run 21/30 ---
+[20:29:00.925] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v[20:31:35.732] [c5.large-Serial] Done: 347.65s
+[20:31:40.733] [c5.la[20:34:32.527] [m5.large-Serial] Done: 331.82s
+[20:34:37.528] [m5.large-Serial] --- Run 22/30 ---
+[20:34:37.747] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -[20:37:41.945] [c5.large-Serial] Done: 361.21s
+[20:37:46.946] [c5.large[20:40:36.695] [m5.large-Serial] Done: 359.17s
+[20:40:41.696] [m5.large-Serial] --- Run 23/30 ---
+[20:40:41.915] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp[20:43:47.974] [c5.large-Serial] Done: 361.03s
+[20:43:52.974] [c5.large-Se[20:47:14.669] [m5.large-Serial] Done: 392.97s
+[20:47:19.669] [m5.large-Serial] --- Run 24/30 ---
+[20:47:19.891] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input[20:49:54.100] [c5.large-Serial] Done: 361.13s
+[20:49:59.101] [c5.large-Seria[20:53:25.557] [m5.large-Serial] Done: 365.89s
+[20:53:30.558] [m5.large-Serial] --- Run 25/30 ---
+[20:53:30.779] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/in[20:56:00.265] [c5.large-Serial] Done: 361.16s
+[20:56:05.265] [c5.large-Serial] [20:59:02.520] [m5.large-Serial] Done: 331.96s
+[20:59:07.521] [m5.large-Serial] --- Run 26/30 ---
+[20:59:07.738] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu[21:02:06.518] [c5.large-Serial] Done: 361.25s
+[21:02:11.518] [c5.large-Serial] ---[21:05:10.212] [m5.large-Serial] Done: 362.69s
+[21:05:15.213] [m5.large-Serial] --- Run 27/30 ---
+[21:05:15.434] [m5.large-Serial] Running: ffmpeg -i /home/ubu[21:08:12.897] [c5.large-Serial] Done: 361.38s
+[21:08:17.897] [c5.large-Serial] --- Ru[21:11:49.883] [m5.large-Serial] Done: 394.67s
+[21:11:54.884] [m5.large-Serial] --- Run 28/30 ---
+[21:11:55.102] [m5.large-Serial] Running: ffmpeg -i /home/[21:14:18.992] [c5.large-Serial] Done: 361.09s
+[21:14:23.992] [c5.large-Serial] --- Run 2[21:18:34.623] [m5.large-Serial] Done: 399.74s
+[21:18:39.623] [m5.large-Serial] --- Run 29/30 ---
+[21:18:39.840] [m5.large-Serial] Running: ffmpeg -i /ho[21:20:24.974] [c5.large-Serial] Done: 360.98s
+[21:20:29.974] [c5.large-Serial] --- Run 30/3[21:25:12.304] [m5.large-Serial] Done: 392.68s
+[21:25:17.304] [m5.large-Serial] --- Run 30/30 ---
+[21:25:17.524] [m5.large-Serial] Running: ffmpeg -i [21:26:31.126] [c5.large-Serial] Done: 361.15s
+[21:26:32.156] [c5.large-Serial] Instance termin[21:31:49.585] [m5.large-Serial] Done: 392.28s
+[21:31:50.649] [m5.large-Serial] Instance terminated.
+[21:31:50.654] 
+======================================================================
+[21:31:50.654] AGGREGATE RESULTS — 30/30 successful runs
+[21:31:50.654]   Instance:  m5.large | Strategy: serial
+[21:31:50.654]   Codec:     libvpx-vp9
+[21:31:50.654]   Mean:      372.81s
+[21:31:50.654]   Median:    391.72s
+[21:31:50.654]   Stdev:     27.14s
+[21:31:50.654]   Min:       331.75s
+[21:31:50.654]   Max:       401.29s
+[21:31:50.654] ======================================================================

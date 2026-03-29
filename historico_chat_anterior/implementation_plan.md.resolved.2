@@ -1,0 +1,90 @@
+# Analysis Documents for C and M Family Instances
+
+## Goal
+
+Replicate the NOMS paper analysis methodology (T-family instances) for the new C-family and M-family EC2 instances. Produce 4 deliverables.
+
+## Data Availability Status
+
+> [!WARNING]
+> **C-family data is missing.** Only 1 log file exists ([c5.large_h264_1thread.log](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/logs/compression_c5.large_h264_1thread.log), 53 bytes — header only). The C-family benchmark did NOT run. The `analiseC.md` document will be a **placeholder** noting the experiment needs to be executed first.
+
+**M-family data is COMPLETE:**
+- 4 instances: `m5.large`, `m5.xlarge`, `m5.2xlarge`, `m5.4xlarge`
+- 3 codecs × 4 thread configs × 30 iterations = 48 log files, 92 lines each ✅
+
+## Analyses Identified in the Paper
+
+Based on [noms_v4.tex](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/IEEE-conference-template-062824/noms_v4.tex), Phase 2 performs:
+
+| # | Analysis | Description | Script |
+|---|----------|-------------|--------|
+| 1 | **Log Parsing** | Extract compression times from [.log](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/t3_micro_phase1.log) files into per-instance CSVs | [parser.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/scripts/processing/parser.py) |
+| 2 | **Descriptive Statistics** | Median, Std, Min, Max for Compression Time per (Instance, Codec, Threads) | [generate_descriptive_stats_table.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/scripts/processing/generate_descriptive_stats_table.py) |
+| 3 | **Efficiency Calculation** | `Efficiency = 1 / (cost/3600 × time)` — normalized performance-cost metric | [generate_descriptive_stats_table.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/scripts/processing/generate_descriptive_stats_table.py) |
+| 4 | **Total Cost** | `Total Cost = (hourly_cost/3600) × time` — monetary cost per operation | Manual calc |
+| 5 | **Statistical Tests** | Shapiro-Wilk (normality), Levene's (variance), Welch's t-test (significance) | New script needed |
+| 6 | **Bar Charts** | Median compression time per codec (3 charts: H.264, H.265, VP9) | [generate_performance_plots.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/scripts/processing/generate_performance_plots.py) |
+| 7 | **Heatmaps** | Efficiency heatmap per codec (threads × instance type) | [generate_performance_plots.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/scripts/processing/generate_performance_plots.py) |
+| 8 | **Sunburst Diagram** | Hierarchical efficiency visualization across all configs | [generate_performance_plots.py](file:///home/breno/doutorado/ec2sweetspot_noms/ec2sweetspot_noms/artifacts/scripts/processing/generate_performance_plots.py) |
+| 9 | **Key Insights** | Cost-efficiency comparison, thread scaling patterns, codec-specific behavior | Written analysis |
+
+## Proposed Deliverables
+
+---
+
+### 1. `guia_analises.md` — Step-by-Step Analysis Guide
+
+Documents the exact analysis pipeline used in the paper, step by step, so it can be reproduced for any instance family.
+
+---
+
+### 2. `analiseM.md` — M-Family Complete Analysis
+
+Run the processing pipeline on M-family logs and present:
+- Descriptive statistics table (like Table III in the paper)
+- Efficiency and cost calculations
+- Key insights (cost-efficiency, thread scaling, codec behavior)
+- Statistical test results
+- References to generated plots
+
+**M-family instance costs (us-east-1):**
+| Instance | vCPUs | RAM | Cost/hour |
+|----------|-------|-----|-----------|
+| m5.large | 2 | 8 GiB | $0.096 |
+| m5.xlarge | 4 | 16 GiB | $0.192 |
+| m5.2xlarge | 8 | 32 GiB | $0.384 |
+| m5.4xlarge | 16 | 64 GiB | $0.768 |
+
+---
+
+### 3. `analiseC.md` — C-Family Analysis (PLACEHOLDER)
+
+Will note that the C-family experiment needs to be executed first. No data to analyze.
+
+---
+
+### 4. `resumoexecutivo.md` — Executive Summary
+
+Explain the step-by-step methodology of each experiment phase, referencing the paper structure:
+- Phase 1: CPU homogeneity validation
+- Phase 2: Performance benchmarks (T, M, C families)
+- Phase 3: Horizontal vs vertical scaling
+
+## Processing Pipeline
+
+```
+artifacts2/phase2_benchmarks/logs/*.log
+         ↓ parser.py (adapted for M-family)
+artifacts2/phase2_benchmarks/aggregated_m5_*.csv
+         ↓ generate_descriptive_stats_table.py (adapted)
+descriptive_statistics_table_m5.md
+         ↓ generate_performance_plots.py (adapted)
+plots/ (bar charts, heatmaps, sunburst)
+```
+
+## Verification
+
+- Validate parsed CSV row count = 30 per column
+- Cross-check efficiency calculations manually for 1-2 configs
+- Verify all 48 M-family logs produce valid data

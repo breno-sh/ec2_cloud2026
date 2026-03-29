@@ -1,0 +1,122 @@
+[00:39:58.376] ======================================================================
+[00:39:58.376] CONFIGURATION
+[00:39:58.376]   Instance type:  c5.large → effective: c5.4xlarge
+[00:39:58.376]   Strategy:       vertical
+[00:39:58.376]   Codec:          libx265
+[00:39:58.376]   Threads:        10
+[00:39:58.376]   Region:         us-east-1
+[00:39:58.376]   AMI:            ami-06c7c20c67513469a
+[00:39:58.376]   Architecture:   x86_64
+[00:39:58.376]   Runs:           30
+[00:39:58.376] ======================================================================
+[00:39:58.464] === Phase 3.2 Vertical: 1x c5.4xlarge ===
+[00:39:58.464] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 10 | Runs: 30
+[00:39:58.464] [c5.4xlarge-Vertical] Launching EC2 instance...
+[00:40:00.278] [c5.4xlarge-Vertical] Instance i-00fa2e8cc9dd1d15d launched. Waiting...
+[00:40:16.023] [c5.4xlarge-Vertical] Instance ready. IP: 52.87.201.186
+[00:40:46.980] [c5.4xlarge-Vertical] SSH connected.
+[00:40:46.981] [c5.4xlarge-Vertical] Uploading 10-minute video...
+[00:41:00.496] [c5.4xlarge-Vertical] Upload complete.
+[00:41:00.496] [c5.4xlarge-Vertical] SETUP AND UPLOAD TIME: 62.03s
+[00:41:00.496] [c5.4xlarge-Vertical] --- Run 1/30 ---
+[00:41:00.839] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[00:44:57.263] [c5.4xlarge-Vertical] Done: 236.77s
+[00:45:02.264] [c5.4xlarge-Vertical] --- Run 2/30 ---
+[00:45:02.491] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[00:48:58.053] [c5.4xlarge-Vertical] Done: 235.79s
+[00:49:03.053] [c5.4xlarge-Vertical] --- Run 3/30 ---
+[00:49:03.291] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[00:52:58.571] [c5.4xlarge-Vertical] Done: 235.52s
+[00:53:03.572] [c5.4xlarge-Vertical] --- Run 4/30 ---
+[00:53:03.799] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[00:56:58.836] [c5.4xlarge-Vertical] Done: 235.26s
+[00:57:03.837] [c5.4xlarge-Vertical] --- Run 5/30 ---
+[00:57:04.065] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:00:59.740] [c5.4xlarge-Vertical] Done: 235.90s
+[01:01:04.740] [c5.4xlarge-Vertical] --- Run 6/30 ---
+[01:01:04.969] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:05:00.311] [c5.4xlarge-Vertical] Done: 235.57s
+[01:05:05.311] [c5.4xlarge-Vertical] --- Run 7/30 ---
+[01:05:05.604] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:09:01.099] [c5.4xlarge-Vertical] Done: 235.79s
+[01:09:06.100] [c5.4xlarge-Vertical] --- Run 8/30 ---
+[01:09:06.331] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:13:03.329] [c5.4xlarge-Vertical] Done: 237.23s
+[01:13:08.329] [c5.4xlarge-Vertical] --- Run 9/30 ---
+[01:13:08.557] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:17:03.908] [c5.4xlarge-Vertical] Done: 235.58s
+[01:17:08.909] [c5.4xlarge-Vertical] --- Run 10/30 ---
+[01:17:09.144] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:21:05.060] [c5.4xlarge-Vertical] Done: 236.15s
+[01:21:10.060] [c5.4xlarge-Vertical] --- Run 11/30 ---
+[01:21:10.287] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:25:05.723] [c5.4xlarge-Vertical] Done: 235.66s
+[01:25:10.723] [c5.4xlarge-Vertical] --- Run 12/30 ---
+[01:25:10.963] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:29:06.371] [c5.4xlarge-Vertical] Done: 235.65s
+[01:29:11.372] [c5.4xlarge-Vertical] --- Run 13/30 ---
+[01:29:11.600] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:33:08.303] [c5.4xlarge-Vertical] Done: 236.93s
+[01:33:13.304] [c5.4xlarge-Vertical] --- Run 14/30 ---
+[01:33:13.530] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:37:09.082] [c5.4xlarge-Vertical] Done: 235.78s
+[01:37:14.086] [c5.4xlarge-Vertical] --- Run 15/30 ---
+[01:37:14.314] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:41:10.030] [c5.4xlarge-Vertical] Done: 235.94s
+[01:41:15.031] [c5.4xlarge-Vertical] --- Run 16/30 ---
+[01:41:15.259] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:45:10.370] [c5.4xlarge-Vertical] Done: 235.34s
+[01:45:15.371] [c5.4xlarge-Vertical] --- Run 17/30 ---
+[01:45:15.602] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:49:10.722] [c5.4xlarge-Vertical] Done: 235.35s
+[01:49:15.723] [c5.4xlarge-Vertical] --- Run 18/30 ---
+[01:49:15.950] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:53:11.563] [c5.4xlarge-Vertical] Done: 235.84s
+[01:53:16.564] [c5.4xlarge-Vertical] --- Run 19/30 ---
+[01:53:16.792] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[01:57:12.376] [c5.4xlarge-Vertical] Done: 235.81s
+[01:57:17.376] [c5.4xlarge-Vertical] --- Run 20/30 ---
+[01:57:17.604] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:01:12.907] [c5.4xlarge-Vertical] Done: 235.53s
+[02:01:17.908] [c5.4xlarge-Vertical] --- Run 21/30 ---
+[02:01:18.136] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:05:13.038] [c5.4xlarge-Vertical] Done: 235.13s
+[02:05:18.039] [c5.4xlarge-Vertical] --- Run 22/30 ---
+[02:05:18.266] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:09:13.771] [c5.4xlarge-Vertical] Done: 235.73s
+[02:09:18.772] [c5.4xlarge-Vertical] --- Run 23/30 ---
+[02:09:19.015] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:13:14.810] [c5.4xlarge-Vertical] Done: 236.04s
+[02:13:19.810] [c5.4xlarge-Vertical] --- Run 24/30 ---
+[02:13:20.037] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:17:15.285] [c5.4xlarge-Vertical] Done: 235.47s
+[02:17:20.286] [c5.4xlarge-Vertical] --- Run 25/30 ---
+[02:17:20.513] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:21:16.032] [c5.4xlarge-Vertical] Done: 235.75s
+[02:21:21.032] [c5.4xlarge-Vertical] --- Run 26/30 ---
+[02:21:21.260] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:25:16.983] [c5.4xlarge-Vertical] Done: 235.95s
+[02:25:21.988] [c5.4xlarge-Vertical] --- Run 27/30 ---
+[02:25:22.216] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:29:17.687] [c5.4xlarge-Vertical] Done: 235.70s
+[02:29:22.687] [c5.4xlarge-Vertical] --- Run 28/30 ---
+[02:29:22.915] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:33:18.386] [c5.4xlarge-Vertical] Done: 235.70s
+[02:33:23.386] [c5.4xlarge-Vertical] --- Run 29/30 ---
+[02:33:23.617] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:37:19.316] [c5.4xlarge-Vertical] Done: 235.93s
+[02:37:24.317] [c5.4xlarge-Vertical] --- Run 30/30 ---
+[02:37:24.544] [c5.4xlarge-Vertical] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 10 /home/ubuntu/output.mp4
+[02:41:19.713] [c5.4xlarge-Vertical] Done: 235.40s
+[02:41:20.706] [c5.4xlarge-Vertical] Instance terminated.
+[02:41:20.710] 
+======================================================================
+[02:41:20.710] AGGREGATE RESULTS — 30/30 successful runs
+[02:41:20.710]   Instance:  c5.4xlarge | Strategy: vertical
+[02:41:20.710]   Codec:     libx265
+[02:41:20.710]   Mean:      235.81s
+[02:41:20.710]   Median:    235.74s
+[02:41:20.711]   Stdev:     0.46s
+[02:41:20.711]   Min:       235.13s
+[02:41:20.711]   Max:       237.23s
+[02:41:20.711] ======================================================================

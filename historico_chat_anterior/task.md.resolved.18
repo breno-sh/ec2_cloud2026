@@ -1,0 +1,14 @@
+# Task: EC2 Sweetspot NOMS Paper
+
+## Phase 1 & 2 ✅
+- [x] Homogeneity analysis and benchmarks for M and C families
+
+## Phase 3.1: Dynamic Provisioning (Ubuntu + install ffmpeg) ✅
+- [x] M-family: serial (3.46 min), vertical (2.33 min), horizontal (3.63 min)
+- [x] C-family: serial (3.21 min), vertical (2.13 min), horizontal (3.52 min)
+
+## Phase 3.2: Optimized Provisioning (Custom AMI) ✅
+- [x] Step 1: Create custom AMI with ffmpeg pre-installed
+- [x] Step 2: Re-run M-family (serial, horizontal, vertical) with custom AMI
+- [x] Step 3: Re-run C-family (serial, horizontal, vertical) with custom AMI
+- [x] Step 4: Compare Phase 3.1 vs 3.2 results (Table 4 do artigo)

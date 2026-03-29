@@ -1,0 +1,22 @@
+[22:53:59.387] === Phase 3.2 Serial Baseline: 1x c5.large ===
+[22:53:59.387] Codec: libx264, Threads: 5, Preset: slow
+[22:53:59.387] [c5.large-Serial] Launching EC2 instance...
+[22:54:01.089] [c5.large-Serial] Instance i-0a9726409bb69e5fb launched. Waiting...
+[22:54:16.833] [c5.large-Serial] Instance ready. IP: 3.86.203.68
+[22:54:47.850] [c5.large-Serial] SSH connected.
+[22:54:47.850] [c5.large-Serial] Installing ffmpeg...
+[22:55:23.050] [c5.large-Serial] ffmpeg installed.
+[22:55:23.502] [c5.large-Serial] CPU: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+[22:55:23.502] [c5.large-Serial] Uploading 10-minute video...
+[22:55:31.452] [c5.large-Serial] Upload complete.
+[22:55:31.452] [c5.large-Serial] SETUP TIME: 92.07s (1.53 min)
+[22:55:31.452] [c5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 -max_muxing_queue_size 1024 -y /home/ubuntu/output.mp4
+[22:57:13.629] [c5.large-Serial] ENCODING TIME: 102.18s (1.70 min)
+[22:57:14.528] [c5.large-Serial] Instance terminated.
+[22:57:14.528] [c5.large-Serial] ============================================================
+[22:57:14.528] [c5.large-Serial] RESULTS — c5.large Serial
+[22:57:14.528] [c5.large-Serial]   Total Time:    194.24s (3.24 min)
+[22:57:14.528] [c5.large-Serial]   Setup Time:    92.07s (1.53 min)
+[22:57:14.528] [c5.large-Serial]   Encoding Time: 102.18s (1.70 min)
+[22:57:14.528] [c5.large-Serial]   Setup %:       47.4%
+[22:57:14.528] [c5.large-Serial] ============================================================

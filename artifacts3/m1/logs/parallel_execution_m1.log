@@ -1,0 +1,260 @@
+[17:26:36.715] ======================================================================
+[17:26:36.715] CONFIGURATION
+[17:26:36.715]   Instance type:  t3.micro → effective: t3.micro
+[17:26:36.715]   Strategy:       serial
+[17:26:36.715]   Codec:          libx265
+[17:26:36.715]   Threads:        5
+[17:26:36.715]   Region:         us-east-1
+[17:26:36.715]   AMI:            ami-06c7c20c67513469a
+[17:26:36.715]   Architecture:   x86_64
+[17:26:36.715]   Family:         T
+[17:26:36.715]   Runs:           30
+[17:26:36.715] ======================================================================
+[17:26:36.715]   vCPUs per run:  2 (1 instances of 2 vCPUs)
+[17:26:36.715]   Max concurrent: 16 runs (capped at 32 vCPUs total)
+[17:26:36.715] ======================================================================
+[17:26:36.716] 
+######################################################################
+STARTING RUN 1/30
+######################################################################
+
+[17:26:36.721] 
+######################################################################
+STARTING RUN 2/30
+######################################################################
+[17:26:36.723] 
+######################################################################
+STARTING RUN 3/30
+######################################################################
+[17:26:36.724] 
+######################################################################
+STARTING RUN 4/30
+######################################################################
+[17:26:36.725] 
+######################################################################
+STARTING RUN 5/30
+######################################################################
+
+[17:26:36.725] 
+######################################################################
+STARTING RUN 6/30
+######################################################################
+
+
+
+[17:26:36.726] 
+######################################################################
+STARTING RUN 7/30
+######################################################################
+[17:26:36.727] 
+######################################################################
+STARTING RUN 8/30
+######################################################################
+[17:26:36.727] 
+######################################################################
+STARTING RUN 9/30
+######################################################################
+
+[17:26:36.729] 
+######################################################################
+STARTING RUN 10/30
+######################################################################
+
+[17:26:36.731] 
+######################################################################
+STARTING RUN 11/30
+######################################################################
+
+[17:26:36.732] 
+######################################################################
+STARTING RUN 12/30
+######################################################################
+
+[17:26:36.762] 
+######################################################################
+STARTING RUN 13/30
+######################################################################
+
+[17:26:36.785] 
+######################################################################
+STARTING RUN 14/30
+######################################################################
+
+[17:26:36.787] 
+######################################################################
+STARTING RUN 15/30
+######################################################################
+
+[17:26:36.808] 
+######################################################################
+STARTING RUN 16/30
+######################################################################
+
+
+
+
+[17:26:37.955] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:37.955] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:37.961] [t3.micro-Serial] Launching EC2 instance...
+[17:26:37.963] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:37.978] === Phase 3.2 Serial: 1x t3.micro ===[17:26:37.979] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5[17:26:37.980] === Phase 3.2 Serial: 1x t3.micro ===
+
+
+[17:26:37.981] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5[17:26:37.997] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5[17:26:37.997] === Phase 3.2 Serial: 1x t3.micro ===
+
+[17:26:37.999] [t3.micro-Serial] Launching EC2 instance...[17:26:38.003] [t3.micro-Serial] Launching EC2 instance...[17:26:38.004] [t3.micro-Serial] Launching EC2 instance...
+
+
+
+[17:26:38.014] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5[17:26:38.023] === Phase 3.2 Serial: 1x t3.micro ===
+
+[17:26:38.041] === Phase 3.2 Serial: 1x t3.micro ===[17:26:38.041] [t3.micro-Serial] Launching EC2 instance...
+
+[17:26:38.058] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5[17:26:38.059] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:38.062] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5[17:26:38.063] [t3.micro-Serial] Launching EC2 instance...
+
+[17:26:38.063] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5[17:26:38.064] [t3.micro-Serial] Launching EC2 instance...
+
+[17:26:38.074] === Phase 3.2 Serial: 1x t3.micro ===[17:26:38.078] [t3.micro-Serial] Launching EC2 instance...
+
+[17:26:38.095] === Phase 3.2 Serial: 1x t3.micro ===
+
+[17:26:38.096] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.096] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.097] [t3.micro-Serial] Launching EC2 instance...[17:26:38.097] [t3.micro-Serial] Launching EC2 instance...
+
+[17:26:38.122] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:38.123] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.123] [t3.micro-Serial] Launching EC2 instance...
+[17:26:38.147] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:38.147] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.154] [t3.micro-Serial] Launching EC2 instance...
+[17:26:38.157] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:38.163] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.164] [t3.micro-Serial] Launching EC2 instance...
+[17:26:38.195] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:38.195] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.204] [t3.micro-Serial] Launching EC2 instance...
+[17:26:38.210] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:38.211] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.211] [t3.micro-Serial] Launching EC2 instance...
+[17:26:38.221] === Phase 3.2 Serial: 1x t3.micro ===
+[17:26:38.223] AMI: ami-06c7c20c67513469a | Codec: libx265 | Threads: 5
+[17:26:38.223] [t3.micro-Serial] Launching EC2 instance...
+[17:26:40.053] [t3.micro-Serial] Instance i-059f920e74e0154fc launched. Waiting...
+[17:26:40.060] [t3.micro-Serial] Instance i-0bedf0dce5dfbfef9 launched. Waiting...
+[17:26:40.067] [t3.micro-Serial] Instance i-02e7b58f27a17bb9e launched. Waiting...
+[17:26:40.072] [t3.micro-Serial] Instance i-09410d9f19982ec94 launched. Waiting...
+[17:26:40.090] [t3.micro-Serial] Instance i-00ed288ad28c3b313 launched. Waiting...
+[17:26:40.096] [t3.micro-Serial] Instance i-0baf6ba693e93a2d6 launched. Waiting...
+[17:26:40.110] [t3.micro-Serial] Instance i-0b3800767a27ab947 launched. Waiting...
+[17:26:40.123] [t3.micro-Serial] Instance i-05995c2b2531bdd96 launched. Waiting...
+[17:26:40.134] [t3.micro-Serial] Instance i-032fa1dd7c12617e8 launched. Waiting...
+[17:26:40.141] [t3.micro-Serial] Instance i-010b16606d357c8c4 launched. Waiting...
+[17:26:40.157] [t3.micro-Serial] Instance i-071bc2dc04d4c62fd launched. Waiting...
+[17:26:40.171] [t3.micro-Serial] Instance i-0b3f40f38890e0700 launched. Waiting...
+[17:26:40.180] [t3.micro-Serial] Instance i-0a778326492fcd5ba launched. Waiting...
+[17:26:40.201] [t3.micro-Serial] Instance i-02830e04935b48bfc launched. Waiting...
+[17:26:40.213] [t3.micro-Serial] Instance i-0986595e9b9ad6eed launched. Waiting...
+[17:26:40.279] [t3.micro-Serial] Instance i-0c214341d9e66a2f6 launched. Waiting...
+[17:26:56.103] [t3.micro-Serial] Instance ready. IP: 3.88.42.28
+[17:26:56.121] [t3.micro-Serial] Instance ready. IP: 52.90.19.118
+[17:26:56.204] [t3.micro-Serial] Instance ready. IP: 54.235.48.254
+[17:26:56.217] [t3.micro-Serial] Instance ready. IP: 3.88.108.217
+[17:26:56.278] [t3.micro-Serial] Instance ready. IP: 44.222.229.253
+[17:26:56.313] [t3.micro-Serial] Instance ready. IP: 13.222.192.28
+[17:26:56.326] [t3.micro-Serial] Instance ready. IP: 34.228.23.11
+[17:26:56.341] [t3.micro-Serial] Instance ready. IP: 13.220.101.105
+[17:26:56.345] [t3.micro-Serial] Instance ready. IP: 54.83.113.226
+[17:26:56.361] [t3.micro-Serial] Instance ready. IP: 18.215.175.176
+[17:26:56.367] [t3.micro-Serial] Instance ready. IP: 3.85.244.201
+[17:26:56.380] [t3.micro-Serial] Instance ready. IP: 34.234.71.122
+[17:26:56.382] [t3.micro-Serial] Instance ready. IP: 100.53.135.227
+[17:26:56.421] [t3.micro-Serial] Instance ready. IP: 3.91.32.202
+[17:26:56.422] [t3.micro-Serial] Instance ready. IP: 34.229.129.161
+[17:26:56.734] [t3.micro-Serial] Instance ready. IP: 52.201.59.218
+[17:27:27.051] [t3.micro-Serial] SSH connected.
+[17:27:27.287] [t3.micro-Serial] SSH connected.
+[17:27:27.362] [t3.micro-Serial] SSH connected.[17:27:27.362] [t3.micro-Serial] SSH connected.
+[17:27:27.363] [t3.micro-Serial] SSH connected.[17:27:27.363] [t3.micro-Serial] SSH connected.
+
+
+[17:27:27.368] [t3.micro-Serial] SSH connected.
+[17:27:27.497] [t3.micro-Serial] SSH connected.
+[17:27:27.641] [t3.micro-Serial] SSH connected.
+[17:27:27.648] [t3.micro-Serial] SSH connected.
+[17:27:27.744] [t3.micro-Serial] SSH connected.
+[17:27:27.869] [t3.micro-Serial] SSH connected.
+[17:27:28.120] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.120] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.187] [t3.micro-Serial] SSH connected.
+[17:27:28.224] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.225] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.479] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.480] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.485] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.485] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.486] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.486] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.569] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.569] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.609] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.609] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.716] [t3.micro-Serial] SSH connected.
+[17:27:28.730] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.731] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.740] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.740] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.949] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.949] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:28.955] [t3.micro-Serial] SSH connected.
+[17:27:28.979] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:28.980] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:29.196] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[17:27:29.198] [t3.micro-Serial] WARNING: CPU mismatch! Expected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz, got Intel(R) Xeon(R) Platinum 8175M CPU @ 2.50GHz
+[17:27:29.198] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:29.260] [t3.micro-Serial] SSH connected.
+[17:27:29.889] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:29.891] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:30.534] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:30.538] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:30.797] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:30.797] [t3.micro-Serial] Uploading 10-minute video...
+[17:27:31.007] [t3.micro-Serial] CPU: Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz
+[17:27:31.008] [t3.micro-Serial] Uploading 10-minute video...
+[17:28:04.288] [t3.micro-Serial] Upload complete.
+[17:28:04.289] [t3.micro-Serial] SETUP TIME: 86.22s (1.44 min)
+[17:28:04.289] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:28:10.177] [t3.micro-Serial] Upload complete.
+[17:28:10.178] [t3.micro-Serial] SETUP TIME: 92.08s (1.53 min)
+[17:28:10.179] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:28:55.463] [t3.micro-Serial] Upload complete.
+[17:28:55.465] [t3.micro-Serial] SETUP TIME: 137.30s (2.29 min)
+[17:28:55.465] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:28:58.841] [t3.micro-Serial] Upload complete.
+[17:28:58.843] [t3.micro-Serial] SETUP TIME: 140.63s (2.34 min)
+[17:28:58.844] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:02.992] [t3.micro-Serial] Upload complete.
+[17:29:02.993] [t3.micro-Serial] SETUP TIME: 145.03s (2.42 min)
+[17:29:02.993] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:04.099] [t3.micro-Serial] Upload complete.
+[17:29:04.099] [t3.micro-Serial] SETUP TIME: 146.06s (2.43 min)
+[17:29:04.099] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:07.026] [t3.micro-Serial] Upload complete.
+[17:29:07.026] [t3.micro-Serial] SETUP TIME: 149.03s (2.48 min)
+[17:29:07.027] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:08.615] [t3.micro-Serial] Upload complete.
+[17:29:08.618] [t3.micro-Serial] SETUP TIME: 150.49s (2.51 min)
+[17:29:08.619] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:26.539] [t3.micro-Serial] Upload complete.
+[17:29:26.539] [t3.micro-Serial] SETUP TIME: 168.44s (2.81 min)
+[17:29:26.540] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:27.744] [t3.micro-Serial] Upload complete.
+[17:29:27.749] [t3.micro-Serial] SETUP TIME: 169.55s (2.83 min)
+[17:29:27.750] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:28.041] [t3.micro-Serial] Upload complete.
+[17:29:28.042] [t3.micro-Serial] SETUP TIME: 169.96s (2.83 min)
+[17:29:28.042] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[17:29:38.561] [t3.micro-Serial] Upload complete.
+[17:29:38.562] [t3.micro-Serial] SETUP TIME: 180.56s (3.01 min)
+[17:29:38.562] [t3.micro-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx265 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4

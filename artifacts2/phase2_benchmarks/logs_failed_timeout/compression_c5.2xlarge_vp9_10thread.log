@@ -1,0 +1,92 @@
+Starting compression at Sat Feb 14 00:18:02 UTC 2026
+🚀 Starting iteration 1 with 10 threads at 00:18:03
+✅ Iteration 1 with 10 threads completed in 21.396790068s
+Compression 1 (10 threads): 21.396790068 seconds
+🚀 Starting iteration 2 with 10 threads at 00:18:24
+✅ Iteration 2 with 10 threads completed in 21.441146866s
+Compression 2 (10 threads): 21.441146866 seconds
+🚀 Starting iteration 3 with 10 threads at 00:18:46
+✅ Iteration 3 with 10 threads completed in 21.370074836s
+Compression 3 (10 threads): 21.370074836 seconds
+🚀 Starting iteration 4 with 10 threads at 00:19:07
+✅ Iteration 4 with 10 threads completed in 21.444270356s
+Compression 4 (10 threads): 21.444270356 seconds
+🚀 Starting iteration 5 with 10 threads at 00:19:28
+✅ Iteration 5 with 10 threads completed in 21.347190095s
+Compression 5 (10 threads): 21.347190095 seconds
+🚀 Starting iteration 6 with 10 threads at 00:19:50
+✅ Iteration 6 with 10 threads completed in 21.399858936s
+Compression 6 (10 threads): 21.399858936 seconds
+🚀 Starting iteration 7 with 10 threads at 00:20:11
+✅ Iteration 7 with 10 threads completed in 21.333241536s
+Compression 7 (10 threads): 21.333241536 seconds
+🚀 Starting iteration 8 with 10 threads at 00:20:33
+✅ Iteration 8 with 10 threads completed in 21.309637001s
+Compression 8 (10 threads): 21.309637001 seconds
+🚀 Starting iteration 9 with 10 threads at 00:20:54
+✅ Iteration 9 with 10 threads completed in 21.427178076s
+Compression 9 (10 threads): 21.427178076 seconds
+🚀 Starting iteration 10 with 10 threads at 00:21:15
+✅ Iteration 10 with 10 threads completed in 21.409259484s
+Compression 10 (10 threads): 21.409259484 seconds
+🚀 Starting iteration 11 with 10 threads at 00:21:37
+✅ Iteration 11 with 10 threads completed in 21.425637189s
+Compression 11 (10 threads): 21.425637189 seconds
+🚀 Starting iteration 12 with 10 threads at 00:21:58
+✅ Iteration 12 with 10 threads completed in 21.314417108s
+Compression 12 (10 threads): 21.314417108 seconds
+🚀 Starting iteration 13 with 10 threads at 00:22:19
+✅ Iteration 13 with 10 threads completed in 21.340656668s
+Compression 13 (10 threads): 21.340656668 seconds
+🚀 Starting iteration 14 with 10 threads at 00:22:41
+✅ Iteration 14 with 10 threads completed in 21.322992632s
+Compression 14 (10 threads): 21.322992632 seconds
+🚀 Starting iteration 15 with 10 threads at 00:23:02
+✅ Iteration 15 with 10 threads completed in 21.347521970s
+Compression 15 (10 threads): 21.347521970 seconds
+🚀 Starting iteration 16 with 10 threads at 00:23:23
+✅ Iteration 16 with 10 threads completed in 21.406051026s
+Compression 16 (10 threads): 21.406051026 seconds
+🚀 Starting iteration 17 with 10 threads at 00:23:45
+✅ Iteration 17 with 10 threads completed in 21.324311701s
+Compression 17 (10 threads): 21.324311701 seconds
+🚀 Starting iteration 18 with 10 threads at 00:24:06
+✅ Iteration 18 with 10 threads completed in 21.355737538s
+Compression 18 (10 threads): 21.355737538 seconds
+🚀 Starting iteration 19 with 10 threads at 00:24:28
+✅ Iteration 19 with 10 threads completed in 21.339329323s
+Compression 19 (10 threads): 21.339329323 seconds
+🚀 Starting iteration 20 with 10 threads at 00:24:49
+✅ Iteration 20 with 10 threads completed in 21.455863139s
+Compression 20 (10 threads): 21.455863139 seconds
+🚀 Starting iteration 21 with 10 threads at 00:25:10
+✅ Iteration 21 with 10 threads completed in 21.351334031s
+Compression 21 (10 threads): 21.351334031 seconds
+🚀 Starting iteration 22 with 10 threads at 00:25:32
+✅ Iteration 22 with 10 threads completed in 21.270926953s
+Compression 22 (10 threads): 21.270926953 seconds
+🚀 Starting iteration 23 with 10 threads at 00:25:53
+✅ Iteration 23 with 10 threads completed in 21.405947626s
+Compression 23 (10 threads): 21.405947626 seconds
+🚀 Starting iteration 24 with 10 threads at 00:26:14
+✅ Iteration 24 with 10 threads completed in 21.312914450s
+Compression 24 (10 threads): 21.312914450 seconds
+🚀 Starting iteration 25 with 10 threads at 00:26:36
+✅ Iteration 25 with 10 threads completed in 21.415075467s
+Compression 25 (10 threads): 21.415075467 seconds
+🚀 Starting iteration 26 with 10 threads at 00:26:57
+✅ Iteration 26 with 10 threads completed in 21.318463448s
+Compression 26 (10 threads): 21.318463448 seconds
+🚀 Starting iteration 27 with 10 threads at 00:27:18
+✅ Iteration 27 with 10 threads completed in 21.309500644s
+Compression 27 (10 threads): 21.309500644 seconds
+🚀 Starting iteration 28 with 10 threads at 00:27:40
+✅ Iteration 28 with 10 threads completed in 21.426561376s
+Compression 28 (10 threads): 21.426561376 seconds
+🚀 Starting iteration 29 with 10 threads at 00:28:01
+✅ Iteration 29 with 10 threads completed in 21.378106296s
+Compression 29 (10 threads): 21.378106296 seconds
+🚀 Starting iteration 30 with 10 threads at 00:28:23
+✅ Iteration 30 with 10 threads completed in 21.326536710s
+Compression 30 (10 threads): 21.326536710 seconds
+All compressions completed!

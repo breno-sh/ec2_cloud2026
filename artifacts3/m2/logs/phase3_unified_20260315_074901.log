@@ -1,0 +1,163 @@
+[07:49:01.816] ======================================================================
+[07:49:01.816] CONFIGURATION
+[07:49:01.816]   Instance type:  c5.large → effective: c5.large
+[07:49:01.816]   Strategy:       serial
+[07:49:01.816]   Codec:          libx264
+[07:49:01.816]   Threads:        5
+[07:49:01.816]   Region:         sa-east-1
+[07:49:01.816]   AMI:            ami-0653a33fe2919af93
+[07:49:01.816]   Architecture:   x86_64
+[07:49:01.816]   Runs:           30
+[07:49:01.816] ======================================================================
+[07:49:02.117] === Phase 3.2 Serial: 1x c5.large ===
+[07:49:02.117] AMI: ami-0653a33fe2919af93 | Codec: libx264 | Threads: 5 | Runs: 30
+[07:49:02.117] [c5.large-Serial] Launching EC2 instance...
+[07:49:03.790] [m5.large-Serial] In[07:50:14.746] Horizontal Run 1 completed in 72.93s
+[07:50:14.746] --- Horizontal Run 2/30 ---
+[07:50:14.746] [Setup] Splitting video...
+[07:51:36.345] Horizontal Run 2 completed in 81.60s
+[07:51:36.345] --- Horizontal Run 3/30 ---
+[07:51:36.345] [Setup] Splitting video...
+[07:53:02.281] Horizontal Run 3 completed in 85.94s
+[07:53:02.282] --- Horizontal Run 4/30 ---
+[07:53:02.282] [Setup] Splitting video...
+[07:54:23.890] Horizontal Run 4 completed in 81.61s
+[07:54:23.890] --- Horizontal Run 5/30 ---
+[07:54:23.890] [Setup] Splitting video...
+[07:55:43.561] Horizontal Run 5 completed in 79.67s
+[07:55:43.561] --- Horizontal Run 6/30 ---
+[07:55:43.561] [Setup] Splitting video...
+[07:57:03.741] Horizontal Run 6 completed in 80.18s
+[07:57:03.741] --- Horizontal Run 7/30 ---
+[07:57:03.741] [Setup] Splitting video...
+[07:58:27.194] Horizontal Run 7 completed in 83.45s
+[07:58:27.194] --- Horizontal Run 8/30 ---
+[07:58:27.194] [Setup] Splitting video...
+[07:59:50.757] Horizontal Run 8 completed in 83.56s
+[07:59:50.757] --- Horizontal Run 9/30 ---
+[07:59:50.757] [Setup] Splitting video...
+[08:01:20.361] Horizontal Run 9 completed in 89.60s
+[08:01:20.361] --- Horizontal Run 10/30 ---
+[08:01:20.361] [Setup] Splitting video...
+[08:02:19.750] Horizontal Run 10 completed in 59.39s
+[08:02:19.750] --- Horizontal Run 11/30 ---
+[08:02:19.750] [Setup] Splitting video...
+[08:03:42.078] Horizontal Run 11 completed in 82.33s
+[08:03:42.078] --- Horizontal Run 12/30 ---
+[08:03:42.078] [Setup] Splitting video...
+[08:05:04.623] Horizontal Run 12 completed in 82.54s
+[08:05:04.623] --- Horizontal Run 13/30 ---
+[08:05:04.623] [Setup] Splitting video...
+[08:06:01.126] Horizontal Run 13 completed in 56.50s
+[08:06:01.126] --- Horizontal Run 14/30 ---
+[08:06:01.126] [Setup] Splitting video...
+[08:07:24.237] Horizontal Run 14 completed in 83.11s
+[08:07:24.237] --- Horizontal Run 15/30 ---
+[08:07:24.237] [Setup] Splitting video...
+[08:08:20.096] Horizontal Run 15 completed in 55.86s
+[08:08:20.096] --- Horizontal Run 16/30 ---
+[08:08:20.096] [Setup] Splitting video...
+[08:09:15.498] Horizontal Run 16 completed in 55.40s
+[08:09:15.498] --- Horizontal Run 17/30 ---
+[08:09:15.498] [Setup] Splitting video...
+[08:10:11.269] Horizontal Run 17 completed in 55.77s
+[08:10:11.270] --- Horizontal Run 18/30 ---
+[08:10:11.270] [Setup] Splitting video...
+[08:11:08.294] Horizontal Run 18 completed in 57.02s
+[08:11:08.294] --- Horizontal Run 19/30 ---
+[08:11:08.294] [Setup] Splitting video...
+[08:12:06.588] Horizontal Run 19 completed in 58.29s
+[08:12:06.588] --- Horizontal Run 20/30 ---
+[08:12:06.588] [Setup] Splitting video...
+[08:13:32.975] Horizontal Run 20 completed in 86.39s
+[08:13:32.975] --- Horizontal Run 21/30 ---
+[08:13:32.975] [Setup] Splitting video...
+[08:14:30.018] Horizontal Run 21 completed in 57.04s
+[08:14:30.018] --- Horizontal Run 22/30 ---
+[08:14:30.018] [Setup] Splitting video...
+[08:15:56.477] Horizontal Run 22 completed in 86.46s
+[08:15:56.477] --- Horizontal Run 23/30 ---
+[08:15:56.477] [Setup] Splitting video...
+[08:19:06.680] Horizontal Run 23 completed in 190.20s
+[08:19:06.680] --- Horizontal Run 24/30 ---
+[08:19:06.680] [Setup] Splitting video...
+[08:20:04.123] Horizontal Run 24 completed in 57.44s
+[08:20:04.124] --- Horizontal Run 25/30 ---
+[08:20:04.124] [Setup] Splitting video...
+[08:21:00.527] Horizontal Run 25 completed in 56.40s
+[08:21:00.527] --- Horizontal Run 26/30 ---
+[08:21:00.527] [Setup] Splitting video...
+[08:22:20.551] Horizontal Run 26 completed in 80.02s
+[08:22:20.551] --- Horizontal Run 27/30 ---
+[08:22:20.551] [Setup] Splitting video...
+[08:23:38.752] Horizontal Run 27 completed in 78.20s
+[08:23:38.752] --- Horizontal Run 28/30 ---
+[08:23:38.752] [Setup] Splitting video...
+[08:24:34.358] Horizontal Run 28 completed in 55.61s
+[08:24:34.358] --- Horizontal Run 29/30 ---
+[08:24:34.359] [Setup] Splitting video...
+[08:25:53.711] Horizontal Run 29 completed in 79.35s
+[08:25:53.711] --- Horizontal Run 30/30 ---
+[08:25:53.711] [Setup] Splitting video...
+[08:27:17.058] Horizontal Run 30 completed in 83.35s
+[08:27:17.074] 
+======================================================================
+[08:27:17.075] AGGREGATE RESULTS — 30/30 successful runs
+[08:27:17.075]   Instance:  m5.large | Strategy: horizontal
+[08:27:17.075]   Codec:     libx264
+[08:27:17.075]   Mean:      76.51s
+[08:27:17.075]   Median:    79.85s
+[08:27:17.075]   Stdev:     24.94s
+[08:27:17.075]   Min:       55.40s
+[08:27:17.075]   Max:       190.20s
+[08:27:17.075] ======================================================================
+ libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:23:28.410] [m5.large-Serial] Done: 102.84s
+[08:23:33.410] [m5.large-Serial] --- Run 19/30 ---
+[08:23:33.555] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:25:16.683] [m5.large-Serial] Done: 103.27s
+[08:25:21.683] [m5.large-Serial] --- Run 20/30 ---
+[08:25:21.886] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:27:04.826] [m5.large-Serial] Done: 103.14s
+[08:27:09.826] [m5.large-Serial] --- Run 21/30 ---
+[08:27:09.960] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:28:52.707] [m5.large-Serial] Done: 102.88s
+[08:28:57.707] [m5.large-Serial] --- Run 22/30 ---
+[08:28:57.822] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:30:40.838] [m5.large-Serial] Done: 103.13s
+[08:30:45.838] [m5.large-Serial] --- Run 23/30 ---
+[08:30:45.953] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:32:29.071] [m5.large-Serial] Done: 103.23s
+[08:32:34.072] [m5.large-Serial] --- Run 24/30 ---
+[08:32:34.188] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:34:16.940] [m5.large-Serial] Done: 102.87s
+[08:34:21.941] [m5.large-Serial] --- Run 25/30 ---
+[08:34:22.059] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:36:04.737] [m5.large-Serial] Done: 102.80s
+[08:36:09.737] [m5.large-Serial] --- Run 26/30 ---
+[08:36:09.853] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:37:52.777] [m5.large-Serial] Done: 103.04s
+[08:37:57.777] [m5.large-Serial] --- Run 27/30 ---
+[08:37:57.892] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:39:40.928] [m5.large-Serial] Done: 103.15s
+[08:39:45.928] [m5.large-Serial] --- Run 28/30 ---
+[08:39:46.044] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:41:28.879] [m5.large-Serial] Done: 102.95s
+[08:41:33.880] [m5.large-Serial] --- Run 29/30 ---
+[08:41:33.996] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:43:17.020] [m5.large-Serial] Done: 103.14s
+[08:43:22.021] [m5.large-Serial] --- Run 30/30 ---
+[08:43:22.145] [m5.large-Serial] Running: ffmpeg -i /home/ubuntu/input.mp4 -c:v libx264 -preset slow -b:v 2M -threads 5 /home/ubuntu/output.mp4
+[08:45:05.590] [m5.large-Serial] Done: 103.57s
+[08:45:06.435] [m5.large-Serial] Instance terminated.
+[08:45:06.450] 
+======================================================================
+[08:45:06.451] AGGREGATE RESULTS — 30/30 successful runs
+[08:45:06.451]   Instance:  m5.large | Strategy: serial
+[08:45:06.451]   Codec:     libx264
+[08:45:06.452]   Mean:      104.87s
+[08:45:06.452]   Median:    103.05s
+[08:45:06.453]   Stdev:     8.16s
+[08:45:06.454]   Min:       102.75s
+[08:45:06.454]   Max:       147.37s
+[08:45:06.454] ======================================================================
